@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "e9ac9114237a3d5d",
+        "id": "25aede254a103da0",
         "type": "tabs",
         "children": [
           {
-            "id": "772ef0786167f269",
+            "id": "895a472efbd9ebd5",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Agent-Shared/user-profile.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "user-profile"
+              "title": "Nuova scheda"
             }
           }
         ]
@@ -184,7 +180,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "772ef0786167f269",
+  "active": "bd8ff74c73ac29ae",
   "lastOpenFiles": [
     "Agent-Shared/project-state.md",
     "Agent-Shared/decisions-log.md",
