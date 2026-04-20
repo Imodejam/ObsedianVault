@@ -11,10 +11,14 @@
             "id": "772ef0786167f269",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Agent-Shared/user-profile.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "Nuova scheda"
+              "title": "user-profile"
             }
           }
         ]
@@ -90,6 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Agent-Shared/user-profile.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -99,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Riferimenti"
+              "title": "Riferimenti a user-profile"
             }
           },
           {
@@ -108,11 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Agent-Shared/user-profile.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Collegamenti in uscita"
+              "title": "Collegamenti in uscita da user-profile"
             }
           },
           {
@@ -150,12 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "Agent-Shared/user-profile.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Struttura"
+              "title": "Struttura di user-profile"
             }
           }
         ]
@@ -173,9 +180,26 @@
       "daily-notes:Apri nota del giorno": false,
       "templates:Inserisci modello": false,
       "command-palette:Apri riquadro comandi": false,
-      "bases:Crea nuova Base": false
+      "bases:Crea nuova Base": false,
+      "obsidian-git:Open Git source control": false
     }
   },
   "active": "772ef0786167f269",
-  "lastOpenFiles": []
+  "lastOpenFiles": [
+    "Agent-Shared/project-state.md",
+    "Agent-Shared/decisions-log.md",
+    "wiki/projects/puntify.md",
+    "wiki/projects/clawroom.md",
+    "wiki/people/team.md",
+    "wiki/people/stefano.md",
+    "Agent-Alfred/daily/2026-04-21.md",
+    "Agent-Alfred/daily",
+    "wiki/projects/openclaw-setup.md",
+    "wiki/projects",
+    "wiki/people",
+    "wiki/log.md",
+    "wiki/index.md",
+    "wiki",
+    "vault-sync.sh"
+  ]
 }
