@@ -14,3 +14,5 @@
 ## [2026-04-21] decision | Team definito: Stefano sviluppo prodotto, Alfred vendita. Focus Puntify primi esercenti Roma.
 
 ## [2026-04-21] decision | Target Puntify: Trastevere + Testaccio, focus bar/caffetterie + parrucchieri. Creata lista 20 esercenti + template approccio completo.
+
+## [2026-04-21] issue | Diffida legale da Spotify per nome "Puntify" → creata lista 35 nomi alternativi, top 10 raccomandati da verificare (domini, social).

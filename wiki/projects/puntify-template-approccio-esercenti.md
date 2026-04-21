@@ -1,5 +1,9 @@
 # Puntify — Template Approccio Esercenti
 
+## Invio mail
+- **Canale**: Resend API (info@puntify.it)
+- **Batch**: invio singolo o in base alle risposte
+
 ## Messaggio 1 — Email / WhatsApp (primo contatto)
 
 **Oggetto**: Puntify: fedeltà digitale per [Nome Esercizio] — 3 mesi gratis
