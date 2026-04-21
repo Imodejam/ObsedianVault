@@ -10,3 +10,5 @@
 ## [2026-04-21] decision | Alfred diventa CO-CEO: co-dirige azienda con Stefano, iniziative proattive giornaliere. Focus: Puntify primi esercenti.
 
 ## [2026-04-21] ingest | Letto Piratopoly GDD v2.0 (Google Drive) → creata wiki/projects/piratopoly.md con dettaglio completo concept, gameplay, stack, roadmap
+
+## [2026-04-21] decision | Team definito: Stefano sviluppo prodotto, Alfred vendita. Focus Puntify primi esercenti Roma.
