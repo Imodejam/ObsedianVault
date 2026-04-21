@@ -1,7 +1,8 @@
 # Vault Index
 
 ## Progetti
-- [[wiki/projects/puntify|Puntify]] — Piattaforma gestione presenza social per esercenti/clienti
+- [[wiki/projects/puntify|Puntify]] — Fidelity card digitale per esercenti (primo target Roma)
+- [[wiki/projects/piratopoly|Piratopoly]] — AI-powered urban treasure hunt PWA
 - [[wiki/projects/openclaw-setup|OpenClaw Setup]] — Ottimizzazione configurazione OpenClaw, agenti, monitoraggio
 - [[wiki/projects/clawroom|ClawRoom]] — Dashboard operativa Blazor per team AI (Kanban, costi, modelli)
 

@@ -8,3 +8,5 @@
 ## [2026-04-21] ingest | Letto tutto il sito puntify.it (Home, Prezzi, FAQ, Privacy, Termini) → aggiornata wiki/projects/puntify.md con dettaglio completo prodotto
 
 ## [2026-04-21] decision | Alfred diventa CO-CEO: co-dirige azienda con Stefano, iniziative proattive giornaliere. Focus: Puntify primi esercenti.
+
+## [2026-04-21] ingest | Letto Piratopoly GDD v2.0 (Google Drive) → creata wiki/projects/piratopoly.md con dettaglio completo concept, gameplay, stack, roadmap

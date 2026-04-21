@@ -2,15 +2,15 @@
 
 ## Sessione corrente
 - **Data:** 2026-04-21
-- **Obiettivo:** Inizializzazione vault Obsidian
+- **Obiettivo:** Onboarding nuovi progetti, pianificazione operativa
 
-## Stato
-- ✅ Struttura directory creata
-- ✅ wiki/index.md creato
-- ✅ wiki/log.md creato
-- ✅ wiki/people/stefano.md creato
-- ⏳ Script vault-sync.sh da creare
+## Progetti attivi
+- **Puntify** (CORE): primi 300 esercenti a Roma, prodotto live, target bar/caffetterie/parrucchieri/lavanderie
+- **Piratopoly**: GDD v2.0 completato, sviluppo PWA Alpha, prima città pilota Roma
 
-## Prossimi passi
-- Creare vault-sync.sh (git init + push su GitHub)
-- Iniziare a popolare il vault con progetti esistenti
+## Prossimi passi oggi
+- Puntify: lista 20 esercenti target Roma, template messaggio approccio, strategia primi 10
+- Piratopoly: analisi architettura tecnica, definire priorità Alpha
+
+## Task delegati
+_(nessuno attivo)_
