@@ -21,7 +21,7 @@ Posso farti una demo di 5 minuti in negozio o via videochiamata?
 
 A presto,
 Alfred
-Puntify | alfredopenbotti@gmail.com | puntify.it
+Puntify | info@puntify.it | puntify.it
 
 ---
 
