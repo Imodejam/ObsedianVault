@@ -4,3 +4,5 @@
 ## [2026-04-21] ingest | Popolamento wiki iniziale: progetti (Puntify, OpenClaw Setup, ClawRoom), team, Stefano
 
 ## [2026-04-21] decision | Check-in quotidiano alle 19:00 (Rome) con Stefano, fallback pranzo giorno dopo
+
+## [2026-04-21] ingest | Letto tutto il sito puntify.it (Home, Prezzi, FAQ, Privacy, Termini) → aggiornata wiki/projects/puntify.md con dettaglio completo prodotto
