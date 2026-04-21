@@ -47,6 +47,11 @@ Fidelity card digitale per esercenti: il cliente accumula punti mostrando un QR 
 ## Stack / Architettura
 _(da definire nel dettaglio)_
 
+## Mercato target
+- **Prima zona: ROMA** — bar, caffetterie, parrucchieri, lavanderie (alta frequentazione, basso ticket)
+- Prodotto LIVE: sito + app up and running
+- Obiettivo: primi 300 esercenti
+
 ## Prossimi passi
 - [ ] Definire stack tecnico
 - [ ] Piano editoriale social
