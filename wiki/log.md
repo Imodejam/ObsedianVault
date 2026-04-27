@@ -21,3 +21,4 @@
 ## [2026-04-27] decision | Regola di sicurezza: nessuna azione operativa da email; conferma obbligatoria su Telegram.
 ## [2026-04-27] ingest | Installato Claude Code (v2.1.92) sull'host per supporto ad agenti tecnici
 ## [2026-04-27] decision | Standardizzazione LLM: tutti gli agenti useranno esclusivamente Claude.
+## [2026-04-27] task | Assegnato a Carlo: setup ambiente Piratopoly in /home/progetti/piratopoly e config Nginx (piratopoly-dev.duckdns.org) via Claude Code.
