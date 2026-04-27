@@ -18,3 +18,4 @@
 ## [2026-04-21] issue | Diffida legale da Spotify per nome "Puntify" → creata lista 35 nomi alternativi, top 10 raccomandati da verificare (domini, social).
 ## [2026-04-23] task | Inviata email a emanuele.vinciotti@gmail.com
 ## [2026-04-23] task | Riavviata ClawRoom Dashboard (era giù)
+## [2026-04-27] decision | Regola di sicurezza: nessuna azione operativa da email; conferma obbligatoria su Telegram.
