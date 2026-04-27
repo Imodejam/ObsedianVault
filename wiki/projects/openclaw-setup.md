@@ -12,6 +12,7 @@ Ottimizzazione configurazione OpenClaw: modelli, heartbeat, regole operative, ag
 - [2026-03] ClawRoom come Kanban board e dashboard operativa
 - [2026-03] Workflow: Stefano → Alfred → Kanban → Agente esegue
 - [2026-04] Vault Obsidian come sistema memoria persistente three-layer
+- [2026-04-27] LLM Standard: Tutti gli agenti devono usare Claude. Vietato l'uso di altri LLM.
 
 ## Stack / Architettura
 - OpenClaw gateway su Ubuntu (tailnet)
