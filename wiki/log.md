@@ -25,3 +25,4 @@
 ## [2026-04-27] task | Carlo ha completato il setup iniziale di Piratopoly: dipendenze installate (shared, backend, frontend) e ambiente analizzato via Claude Code.
 ## [2026-04-27] decision | Istituite SOP (Standard Operating Procedures) per tutti gli agenti. Aggiornati i SOUL.md di Carlo, Lidia, Luca e Massimo.
 ## [2026-04-27] task | Allineamento Kanban: recuperati task mancanti e migrati nel file corretto. Implementata funzionalità 'Modifica Progetto' in ClawRoom.
+## [2026-04-27] fix | Corretti ID progetti in projects.json per risolvere il problema dell'associazione task. Corretto typo 'Piratopolt' -> 'Piratopoly'.
