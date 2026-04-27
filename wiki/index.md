@@ -11,7 +11,9 @@
 - [[wiki/people/team|Team AI]] — Struttura team: Alfred, Carlo, Luca, Massimo, Lidia
 
 ## Decisioni
-_(nessuna decisione dedicata ancora)_
+- [[wiki/decisions/standard-operating-procedures|SOP Agenti]] — Standard obbligatori per documentazione, Kanban e Vault
+- [[wiki/decisions/agent-writing-standards|Agent Writing Standards]] — (Redirect a SOP)
+
 
 ## Concetti
 _(nessun concetto ancora)_

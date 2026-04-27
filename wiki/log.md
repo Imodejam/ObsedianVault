@@ -23,3 +23,4 @@
 ## [2026-04-27] decision | Standardizzazione LLM: tutti gli agenti useranno esclusivamente Claude.
 ## [2026-04-27] task | Assegnato a Carlo: setup ambiente Piratopoly in /home/progetti/piratopoly e config Nginx (piratopoly-dev.duckdns.org) via Claude Code.
 ## [2026-04-27] task | Carlo ha completato il setup iniziale di Piratopoly: dipendenze installate (shared, backend, frontend) e ambiente analizzato via Claude Code.
+## [2026-04-27] decision | Istituite SOP (Standard Operating Procedures) per tutti gli agenti. Aggiornati i SOUL.md di Carlo, Lidia, Luca e Massimo.
