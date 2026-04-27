@@ -16,7 +16,7 @@ Dashboard operativa per gestire il team AI di OpenClaw: progetti, Kanban, cronjo
 - Blazor Server (.NET)
 - Servizio systemd: `clawroom.service`
 - Porta: 5000
-- Path: `/home/openclaw/.openclaw/workspace/ClawRoom/`
+- Path: `/home/progetti/clawroom/`
 - Persistenza: JSON locale (`LocalDataService.cs`)
 
 ## Sezioni implementate
