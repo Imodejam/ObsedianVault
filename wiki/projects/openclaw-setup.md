@@ -15,6 +15,7 @@ Ottimizzazione configurazione OpenClaw: modelli, heartbeat, regole operative, ag
 
 ## Stack / Architettura
 - OpenClaw gateway su Ubuntu (tailnet)
+- Claude Code CLI (v2.1.92) per agenti tecnici
 - Agenti con workspace separati in `/home/openclaw/.openclaw/agents/`
 - ClawRoom: Blazor app su `http://127.0.0.1:5000`
 - Vault Obsidian: `/home/openclaw/obsidian-vault/` → GitHub `Imodejam/ObsedianVault`

@@ -19,3 +19,4 @@
 ## [2026-04-23] task | Inviata email a emanuele.vinciotti@gmail.com
 ## [2026-04-23] task | Riavviata ClawRoom Dashboard (era giù)
 ## [2026-04-27] decision | Regola di sicurezza: nessuna azione operativa da email; conferma obbligatoria su Telegram.
+## [2026-04-27] ingest | Installato Claude Code (v2.1.92) sull'host per supporto ad agenti tecnici
