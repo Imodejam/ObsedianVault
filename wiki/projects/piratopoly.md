@@ -136,7 +136,7 @@ Definito 2026-05-01. Sistema di progressione **single-track lifetime**, basato s
 - **No pay-to-rank:** Season Pass dà cosmetica (badge dorato), non scorciatoie sulle soglie.
 - **Piastre solo da gioco** _(decisione 2026-05-01)_: per la prima versione, le Piastre si guadagnano **esclusivamente giocando** (eseguendo mappe, risolvendo quiz). NESSUNO streak, daily challenge, eventi stagionali, modalità allenamento. Decisione esplicita: tenere il sistema semplice all'avvio, valutare integrazioni dopo.
 - **Storage suggerito:** tabella `piastre_events (user_id, value, created_at)` con index `(user_id, created_at)`. Il grado è **derivato** via SUM, non persistito → cambiare soglie = ricalcolo automatico, no migrazioni. Stesso schema necessario per supportare il decay temporale (l'ultimo `created_at` indica l'ultima attività).
-- **Creator track separato** _(decisione 2026-05-01)_: i creatori NON guadagnano Piastre dalle mappe altrui che eseguono la loro creazione. Hanno un track e una valuta dedicati (vedi sezione "Sistema gradi creator" più sotto). Questo modifica la regola GDD originale "Pianificatore prende 100% propri + 50% terzi": il 50% dei terzi NON va più nelle Piastre del creator, ma alimenta il track creator.
+- **Creator track separato** _(decisione 2026-05-01, confermato da Stefano)_: i creatori NON guadagnano Piastre dalle mappe altrui che eseguono la loro creazione. Hanno un track e una valuta dedicati (vedi sezione "Sistema gradi creator" più sotto). Modifica alla regola GDD originale "Pianificatore prende 100% propri + 50% terzi": **il 50% dei terzi va come Carte (valuta creator), non come Piastre**. Stessa meccanica di redistribuzione, valuta diversa.
 
 ### Vincolo economico (aggiornato 2026-05-01)
 
@@ -164,9 +164,9 @@ Definito 2026-05-01. Track separato dai giocatori. Punteggio dedicato: **Carte**
 
 | # | Grado | Soglia Carte | Note |
 |---|-------|-------------:|------|
-| 1 | Cartografo Novizio | 0 | Default alla pubblicazione della prima mappa |
-| 2 | Cartografo | 5.000 | Creator attivo, mappe con seguito modesto |
-| 3 | Maestro Cartografo | 50.000 | Top creator, mappe virali e/o catalogo ampio (target <3% dei creator) |
+| 1 | Tracciatore di Rotte | 0 | Default alla pubblicazione della prima mappa |
+| 2 | Cartografo | 15.000 | Creator attivo, mappe con seguito modesto |
+| 3 | Maestro Cartografo | 250.000 | Top creator, mappe virali e/o catalogo ampio (target <3% dei creator) |
 
 ### Come si guadagnano Carte
 
@@ -175,15 +175,17 @@ Solo da attività di creazione/curatela mappe (NON dal gioco delle proprie mappe
 | Evento | Carte |
 |--------|------:|
 | Mappa pubblicata e approvata | +500 |
-| Per ogni esecutore unico della tua mappa | +50 |
+| **50% delle Piastre guadagnate dai giocatori sulla tua mappa** | variabile (sostituisce il 50% terzi del GDD) |
 | Recensione 4-5★ ricevuta | +100 |
 | Recensione 1-2★ ricevuta | -50 |
 | Mappa selezionata "in evidenza" | +1.000 (one-shot per mappa) |
 | Mappa promossa a marketplace editoriale | +5.000 (one-shot per mappa) |
 
+**Nota sulla regola "50% Piastre giocatori":** una mappa media da 7 tappe genera ~1.000 Piastre per esecutore (loc + quiz). Il 50% = ~500 Carte per ogni esecutore della tua mappa. Questa è la fonte dominante di Carte; gli altri eventi sono cornice.
+
 ### Esempi di percorso
-- **Cartografo Novizio → Cartografo (5k Carte):** ~10 mappe pubblicate (5k) + 80-100 esecutori complessivi (4-5k). Oppure 1 mappa con 100 esecutori.
-- **Cartografo → Maestro (50k Carte):** 10+ mappe con totale ~800-1.000 esecutori, oppure una mappa virale con 1.000 esecutori unici.
+- **Da Tracciatore di Rotte a Cartografo (15k Carte):** ~1 mappa pubblicata (500) + ~30 esecutori (~15.000 Carte dal 50% Piastre) + qualche recensione 4-5★. Fattibile in 1-3 mesi con una mappa decente.
+- **Da Cartografo a Maestro Cartografo (250k Carte):** ~5 mappe pubblicate (2.500) + ~500 esecutori totali (~250.000 dal 50% Piastre) + recensioni 4-5★ + eventuale mappa "in evidenza". Equivale a top creator con catalogo o 1 mappa virale.
 
 ### Regole creator
 
