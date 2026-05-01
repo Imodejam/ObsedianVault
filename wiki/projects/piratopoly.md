@@ -80,6 +80,7 @@ Lingue al lancio: italiano, inglese, spagnolo, tedesco, francese
 [2026-04-21] — GDD v2.0 completato. In fase di sviluppo.
 [2026-04-27] — Setup ambiente delegato a Carlo: dipendenze installate (shared, backend, frontend), Nginx config su `piratopoly-dev.duckdns.org`.
 [2026-04-29] — Frontend: implementato layout "telefono al centro" (mobile-first usabile su desktop/tablet).
+[2026-05-01] — Definito sistema gradi giocatore (10 rank, 5 tier, soglie Piastre lifetime, decay per inattività 12 mesi). Vantaggi per grado da definire.
 
 ## Deployment dev
 - **URL pubblico:** http://piratopoly-dev.duckdns.org/
@@ -103,10 +104,47 @@ App mobile-first ma usabile anche su desktop/tablet centrata.
 - Larghezza scelta: `max-w-md` (28rem = 448px). Coincide con il token `--content-max-w` in `frontend/src/styles/tokens.css` (esistono anche `--content-tablet-w: 42rem` e `--content-desktop-w: 64rem` per eventuale layout responsive multi-breakpoint).
 - **Quando aggiungere un nuovo elemento `fixed`:** evita `left-0 right-0`. Usa `left-1/2 -translate-x-1/2 w-full max-w-md`. Eccezione: modali/loading screen veramente fullscreen (`LoadingScreen.tsx`, alcuni overlay) → `fixed inset-0` ok.
 
+## Sistema gradi giocatore (rank)
+
+Definito 2026-05-01. Sistema di progressione **single-track lifetime**, basato sull'accumulo di Piastre, con **decay solo per inattività** (1 anno).
+
+### Tabella gradi
+
+| # | Grado | Tier | Soglia Piastre | Ruolo descrittivo |
+|---|-------|------|---------------:|-------------------|
+| 1 | Mozzo | Inizio | 0 | Apprendista |
+| 2 | Marinaio | Inizio | 500 | Base operativo |
+| 3 | Corsaro | Attivo | 2.000 | Competitore base |
+| 4 | Razziatore | Attivo | 5.000 | Operativo avanzato |
+| 5 | Predone | Esperto | 8.000 | Attaccante |
+| 6 | Capobanda | Esperto | 18.000 | Leader locale |
+| 7 | Ufficiale | Elite | 35.000 | Stratega |
+| 8 | Comandante | Elite | 65.000 | Leader avanzato |
+| 9 | Capitano | Endgame | 110.000 | Leader principale |
+| 10 | Signore dei Mari | Endgame | 200.000 | Leggenda |
+
+### Regole
+
+- **Curva:** quasi-quadratica → primi gradi rapidi (onboarding), endgame lungo.
+- **Calibrazione:** giocatore mediano (≈5 mappe/mese) raggiunge **Predone (5)** in ~1,5 mesi, **Capitano (9)** in ~22-24 mesi. **Signore dei Mari (10)** richiede ritmo 2-3× il mediano → solo top **<3%**.
+- **No demotion per gioco:** il rank non scende perché perdi una partita o ricevi recensioni negative.
+- **Decay per inattività:** se il giocatore non guadagna Piastre per **12 mesi consecutivi**, il rank inizia a decadere. _(Meccanica esatta del decay da definire: drop graduale di 1 grado/mese, oppure reset a Mozzo, oppure curva personalizzata.)_
+- **Definizione di "attività":** TBD — proposta: almeno 1 evento Piastre nei 12 mesi (mappa eseguita / mappa creata giocata da terzi / quiz risolto). Il solo login non conta.
+- **No pay-to-rank:** Season Pass dà cosmetica (badge dorato), non scorciatoie sulle soglie.
+- **Storage suggerito:** tabella `piastre_events (user_id, value, created_at)` con index `(user_id, created_at)`. Il grado è **derivato** via SUM, non persistito → cambiare soglie = ricalcolo automatico, no migrazioni.
+- **Edge case creator:** un Pianificatore di mappe virali può accumulare rapidamente per via del 50% dai terzi → potenzialmente da differenziare con creator-rank dedicato. Decisione rinviata.
+
+### Da decidere (TODO)
+- **Vantaggi/perk per ogni grado** (cosmetica, sblocchi, accessi marketplace, voucher migliori, leaderboard tier-specifica). Stefano: "un giorno dovremo decidere".
+- **Meccanica esatta del decay** dopo i 12 mesi di inattività (vedi sopra).
+- **Naming convention nel codice:** distinguere `Tier` (5), `Rank` (10), `RankRoleLabel` (es. "Stratega") per evitare confusione con eventuali futuri ruoli social.
+- **Colonna funzioni/abilità della tabella sorgente** (Stefano l'ha lasciata stare per ora).
+
 ## Prossimi passi
 - Definire dettaglio architettura tecnica
 - Sviluppo Alpha PWA
 - Partnership voucher Roma
+- Definire vantaggi per ogni grado del sistema rank
 
 ## Assets
 - GDD v2.0: Google Drive (2026 - Piratopoly_GDD_v2.docx)

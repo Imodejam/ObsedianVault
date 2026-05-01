@@ -29,3 +29,4 @@
 ## [2026-04-29] decision | Piratopoly frontend: layout "telefono al centro" (max-w-md, container centrato, BottomNav `left-1/2 -translate-x-1/2`).
 ## [2026-05-01] task | Aggiornata wiki/projects/piratopoly.md con sezioni Deployment dev (systemd `piratopoly.service`, porte 6001/6002, Nginx) e Decisione layout 2026-04-29.
 ## [2026-05-01] decision | Stefano: man mano che dà indicazioni su Piratopoly, aggiornare contestualmente wiki/projects/piratopoly.md.
+## [2026-05-01] decision | Piratopoly: definito sistema gradi giocatore (10 rank, 5 tier: Inizio→Endgame, da Mozzo a Signore dei Mari). Soglie Piastre lifetime quasi-quadratiche (0 → 200k). Mediano arriva a Predone in ~1,5 mesi, Capitano in ~24 mesi. Signore dei Mari = top <3%. Decay solo per inattività (12 mesi). Vantaggi per grado: TODO.
