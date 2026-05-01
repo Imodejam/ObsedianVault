@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-VAULT="/home/openclaw/obsidian-vault"
+VAULT="/home/progetti/obsidian-vault"
 cd "$VAULT"
 
 # Init git se necessario
