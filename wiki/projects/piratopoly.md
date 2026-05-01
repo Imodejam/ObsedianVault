@@ -105,6 +105,9 @@ App mobile-first ma usabile anche su desktop/tablet centrata.
 - Larghezza scelta: `max-w-md` (28rem = 448px). Coincide con il token `--content-max-w` in `frontend/src/styles/tokens.css` (esistono anche `--content-tablet-w: 42rem` e `--content-desktop-w: 64rem` per eventuale layout responsive multi-breakpoint).
 - **Quando aggiungere un nuovo elemento `fixed`:** evita `left-0 right-0`. Usa `left-1/2 -translate-x-1/2 w-full max-w-md`. Eccezione: modali/loading screen veramente fullscreen (`LoadingScreen.tsx`, alcuni overlay) → `fixed inset-0` ok.
 
+### [2026-05-01] Mappa di gioco: retry automatico al caricamento
+Stefano segnalava che `GameMapPage` (la mappa durante una sessione) a volte mostrava il loader senza mai terminare. La pagina ora fa **retry automatico** delle chiamate `/game/sessions/:id` e `/maps/:mapId` con backoff lineare (1s, 2s, 3s, max 5s) finché il caricamento non riesce. Il loader resta visibile durante i retry e mostra il contatore tentativi dopo il primo fallimento. **Hard error** (sessione senza `map_id`, mappa senza tappe per la giornata) interrompono il retry e mostrano il bottone manuale "Riprova" — sono errori di dati, non di rete. File: `GameMapPage.tsx`.
+
 ### [2026-05-01] Bussola: loader GPS con retry continui
 Stefano segnalava che entrando nella pagina bussola spesso non veniva acquisita la posizione e l'utente restava bloccato. Modifiche:
 - **Overlay full-screen** (`fixed inset-0 z-50`) in `GameCompassPage.tsx` mostrato finché `!position && !permissionDenied`. Riusa lo stile di `LoadingScreen` (icona 🧭 + spin gold) ma con messaggio specifico. Pulsante "Annulla" per tornare alla session.

@@ -38,3 +38,4 @@
 ## [2026-05-01] decision | Piratopoly creator: nessun decay per inattività. I gradi cartografo sono permanenti.
 ## [2026-05-01] fix | Piratopoly bussola: aggiunto loader full-screen che blocca la UI finché il GPS non acquisisce la posizione, con retry continui (rimosso "errore dopo 3 fallimenti"). usePositionPoller ora distingue permissionDenied (hard) da soft errors (continua a riprovare); fallback CACHED_FALLBACK per sbloccare prima la UI. File: GameCompassPage.tsx, usePositionPoller.ts.
 ## [2026-05-01] fix | Piratopoly MapDetailPage: tasto "indietro" ora porta a Esplora (`/`) invece di `navigate(-1)`. File: MapDetailPage.tsx.
+## [2026-05-01] fix | Piratopoly GameMapPage: caricamento mappa con retry automatico (backoff 1s→5s) fino al successo. Hard errors (no mapId, no stages) stoppano il retry e mostrano bottone manuale. UI mostra contatore tentativi. File: GameMapPage.tsx.
