@@ -26,3 +26,6 @@
 ## [2026-04-27] decision | Istituite SOP (Standard Operating Procedures) per tutti gli agenti. Aggiornati i SOUL.md di Carlo, Lidia, Luca e Massimo.
 ## [2026-04-27] task | Allineamento Kanban: recuperati task mancanti e migrati nel file corretto. Implementata funzionalità 'Modifica Progetto' in ClawRoom.
 ## [2026-04-27] fix | Corretti ID progetti in projects.json per risolvere il problema dell'associazione task. Corretto typo 'Piratopolt' -> 'Piratopoly'.
+## [2026-04-29] decision | Piratopoly frontend: layout "telefono al centro" (max-w-md, container centrato, BottomNav `left-1/2 -translate-x-1/2`).
+## [2026-05-01] task | Aggiornata wiki/projects/piratopoly.md con sezioni Deployment dev (systemd `piratopoly.service`, porte 6001/6002, Nginx) e Decisione layout 2026-04-29.
+## [2026-05-01] decision | Stefano: man mano che dà indicazioni su Piratopoly, aggiornare contestualmente wiki/projects/piratopoly.md.

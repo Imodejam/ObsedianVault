@@ -78,6 +78,30 @@ Lingue al lancio: italiano, inglese, spagnolo, tedesco, francese
 
 ## Stato attuale
 [2026-04-21] — GDD v2.0 completato. In fase di sviluppo.
+[2026-04-27] — Setup ambiente delegato a Carlo: dipendenze installate (shared, backend, frontend), Nginx config su `piratopoly-dev.duckdns.org`.
+[2026-04-29] — Frontend: implementato layout "telefono al centro" (mobile-first usabile su desktop/tablet).
+
+## Deployment dev
+- **URL pubblico:** http://piratopoly-dev.duckdns.org/
+- **Repo:** `/home/progetti/piratopoly/` (npm workspaces: `shared`, `backend`, `frontend`).
+- **Servizio systemd:** `piratopoly.service` (User=`claudebot`, WorkingDirectory=`/home/progetti/piratopoly`).
+- **Comando:** `npm run dev` → `concurrently "npm run dev --workspace=backend" "npm run dev --workspace=frontend"`.
+- **Porte:** `127.0.0.1:6002` (frontend Vite, dietro Nginx) / `*:6001` (backend Express, `npx tsx watch`).
+- **Nginx:** `/etc/nginx/sites-available/piratopoly-dev.duckdns.org` → proxy a `:6002`.
+- **Node:** nvm `v20.20.2` (`/home/claudebot/.nvm/versions/node/v20.20.2/bin/`).
+- **Restart:** `Restart=always`, `RestartSec=10`. Enabled al boot.
+- **Log:** `journalctl -u piratopoly -f` (identifier: `piratopoly`).
+- **Comandi:** `sudo systemctl status|restart piratopoly`.
+- **Note:** è un dev server (vite + tsx watch), non build di produzione.
+
+## Decisioni di sviluppo
+### [2026-04-29] Frontend layout "telefono al centro"
+App mobile-first ma usabile anche su desktop/tablet centrata.
+- Wrapper globale in `App.tsx`: `<div class="mx-auto w-full max-w-md min-h-screen bg-bg shadow-2xl ...">` racchiude le Routes.
+- Body in `index.html` cambiato da `bg-bg` a `bg-black` per il "letterbox" ai lati su desktop.
+- `BottomNav`, `GameBottomNav`, MapDetailPage CTA footer fixed: pattern `fixed left-1/2 -translate-x-1/2 w-full max-w-md` (NON `left-0 right-0`).
+- Larghezza scelta: `max-w-md` (28rem = 448px). Coincide con il token `--content-max-w` in `frontend/src/styles/tokens.css` (esistono anche `--content-tablet-w: 42rem` e `--content-desktop-w: 64rem` per eventuale layout responsive multi-breakpoint).
+- **Quando aggiungere un nuovo elemento `fixed`:** evita `left-0 right-0`. Usa `left-1/2 -translate-x-1/2 w-full max-w-md`. Eccezione: modali/loading screen veramente fullscreen (`LoadingScreen.tsx`, alcuni overlay) → `fixed inset-0` ok.
 
 ## Prossimi passi
 - Definire dettaglio architettura tecnica
