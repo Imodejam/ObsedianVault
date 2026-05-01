@@ -80,7 +80,7 @@ Lingue al lancio: italiano, inglese, spagnolo, tedesco, francese
 [2026-04-21] — GDD v2.0 completato. In fase di sviluppo.
 [2026-04-27] — Setup ambiente delegato a Carlo: dipendenze installate (shared, backend, frontend), Nginx config su `piratopoly-dev.duckdns.org`.
 [2026-04-29] — Frontend: implementato layout "telefono al centro" (mobile-first usabile su desktop/tablet).
-[2026-05-01] — Definito sistema gradi giocatore (10 rank, 5 tier, soglie Piastre lifetime, decay per inattività 12 mesi). Vantaggi per grado da definire.
+[2026-05-01] — Definito sistema gradi giocatore (10 rank, 5 tier, soglie Piastre lifetime, decay -1 grado/6 mesi dopo 12 mesi inattività). Annual Pass = mappe illimitate. Piastre solo da gioco (no streak/eventi al lancio). Definito sistema gradi creator separato (Cartografo, 3 livelli, valuta "Carte"). Vantaggi per grado da definire.
 
 ## Deployment dev
 - **URL pubblico:** http://piratopoly-dev.duckdns.org/
@@ -128,40 +128,69 @@ Definito 2026-05-01. Sistema di progressione **single-track lifetime**, basato s
 - **Curva:** quasi-quadratica → primi gradi rapidi (onboarding), endgame lungo.
 - **Calibrazione:** giocatore mediano (≈5 mappe/mese) raggiunge **Predone (5)** in ~1,5 mesi, **Capitano (9)** in ~22-24 mesi. **Signore dei Mari (10)** richiede ritmo 2-3× il mediano → solo top **<3%**.
 - **No demotion per gioco:** il rank non scende perché perdi una partita o ricevi recensioni negative.
-- **Decay per inattività:** se il giocatore non guadagna Piastre per **12 mesi consecutivi**, il rank inizia a decadere. _(Meccanica esatta del decay da definire: drop graduale di 1 grado/mese, oppure reset a Mozzo, oppure curva personalizzata.)_
-- **Definizione di "attività":** TBD — proposta: almeno 1 evento Piastre nei 12 mesi (mappa eseguita / mappa creata giocata da terzi / quiz risolto). Il solo login non conta.
+- **Decay per inattività** _(definito 2026-05-01)_:
+  - Trigger: 12 mesi consecutivi senza guadagnare Piastre.
+  - Effetto: dopo i 12 mesi, scende **1 grado ogni 6 mesi** di ulteriore inattività. Es. Capitano inattivo → al mese 18 diventa Comandante, al 24 Ufficiale, ecc., fino a Mozzo.
+  - Reset timer: una qualsiasi attività che genera Piastre azzera il contatore.
+- **Definizione di "attività"** _(confermato 2026-05-01)_: almeno 1 evento Piastre nei 12 mesi (mappa eseguita / quiz risolto). Il solo login NON conta.
 - **No pay-to-rank:** Season Pass dà cosmetica (badge dorato), non scorciatoie sulle soglie.
-- **Storage suggerito:** tabella `piastre_events (user_id, value, created_at)` con index `(user_id, created_at)`. Il grado è **derivato** via SUM, non persistito → cambiare soglie = ricalcolo automatico, no migrazioni.
-- **Edge case creator:** un Pianificatore di mappe virali può accumulare rapidamente per via del 50% dai terzi → potenzialmente da differenziare con creator-rank dedicato. Decisione rinviata.
+- **Piastre solo da gioco** _(decisione 2026-05-01)_: per la prima versione, le Piastre si guadagnano **esclusivamente giocando** (eseguendo mappe, risolvendo quiz). NESSUNO streak, daily challenge, eventi stagionali, modalità allenamento. Decisione esplicita: tenere il sistema semplice all'avvio, valutare integrazioni dopo.
+- **Storage suggerito:** tabella `piastre_events (user_id, value, created_at)` con index `(user_id, created_at)`. Il grado è **derivato** via SUM, non persistito → cambiare soglie = ricalcolo automatico, no migrazioni. Stesso schema necessario per supportare il decay temporale (l'ultimo `created_at` indica l'ultima attività).
+- **Creator track separato** _(decisione 2026-05-01)_: i creatori NON guadagnano Piastre dalle mappe altrui che eseguono la loro creazione. Hanno un track e una valuta dedicati (vedi sezione "Sistema gradi creator" più sotto). Questo modifica la regola GDD originale "Pianificatore prende 100% propri + 50% terzi": il 50% dei terzi NON va più nelle Piastre del creator, ma alimenta il track creator.
 
-### Vincolo economico (sollevato 2026-05-01)
+### Vincolo economico (aggiornato 2026-05-01)
 
-⚠️ Le soglie sopra sono **provvisorie**: derivano da una stima "numero di mappe completate" senza considerare il costo monetario delle mappe. Stefano ha segnalato che bisogna trovare un compromesso tra rank, partite giocate e spesa effettiva.
+⚠️ Le soglie sopra erano provvisorie nella stima per "numero di mappe completate". Modello economico definito:
 
-**Costo nel modello attuale (mappa singola 7,99€, Pack3 ~6,33€/mappa):**
+- **Annual Pass = mappe illimitate** _(decisione 2026-05-01)_. Prezzo da GDD: 39,99€/anno.
+  - Mediano (5 mappe/mese × 24 mesi = 120 mappe) → ~120k Piastre → arriva a **Capitano (9)** col solo Annual Pass (~80€ in 2 anni).
+  - Top giocatore (15 mappe/mese × 24 mesi = 360 mappe) → ~360k Piastre → arriva a **Signore dei Mari (200k)** col solo Annual Pass.
+  - Costo per top 3% per arrivare a Signore dei Mari: ~80€/2 anni → sostenibile, non pay-to-rank.
+- **Mappe singole / Pack3 / Season Pass** restano per chi non vuole impegno annuale → progressione lenta ma raggiungibile.
 
-| Grado | Mappe ≈ | € singola | € Pack3 |
-|-------|--------:|----------:|--------:|
-| Predone (5) | ~8 | 64€ | 51€ |
-| Capobanda (6) | ~18 | 144€ | 114€ |
-| Ufficiale (7) | ~35 | 280€ | 222€ |
-| Comandante (8) | ~65 | 519€ | 412€ |
-| Capitano (9) | ~110 | 879€ | 696€ |
-| Signore dei Mari (10) | ~200 | 1.598€ | 1.266€ |
-
-→ Pay-to-rank inaccettabile. Tre leve di mitigazione da decidere:
-
-1. **Annual Pass illimitato (o N mappe/mese):** chiarire cosa include il pass nel pricing GDD. Se illimitato, costo per Signore dei Mari crolla a ~80€ in 2 anni (sostenibile).
-2. **Piastre gratuite non legate al pagamento:** streak giornalieri, daily/weekly challenge community, recensioni ricevute come creator, eventi stagionali, modalità "allenamento" su tappe già giocate (Piastre ridotte).
-3. **Creator track (già nel GDD):** Pianificatore prende 50% Piastre dai giocatori che eseguono la sua mappa → top creator può arrivare a Capitano senza comprare mappe.
+**Implicazione operativa:** rivedere il pricing GDD per esplicitare "Annual Pass = mappe illimitate".
 
 ### Da decidere (TODO)
-- **Modello economico finale del rank:** Annual Pass cosa include? Spesa target del top 3% (Signore dei Mari)? Piastre gratuite incluse nel design?
 - **Vantaggi/perk per ogni grado** (cosmetica, sblocchi, accessi marketplace, voucher migliori, leaderboard tier-specifica). Stefano: "un giorno dovremo decidere".
-- **Meccanica esatta del decay** dopo i 12 mesi di inattività (drop graduale vs reset diretto vs curva).
-- **Definizione di "attività"** che resetta il timer 12 mesi (proposta: ≥1 evento Piastre, login non basta).
 - **Naming convention nel codice:** distinguere `Tier` (5), `Rank` (10), `RankRoleLabel` (es. "Stratega") per evitare confusione con eventuali futuri ruoli social.
 - **Colonna funzioni/abilità della tabella sorgente** (Stefano l'ha lasciata stare per ora).
+- **Decay anche per il creator track?** Stefano non ha specificato; proposta: stessa regola (12 mesi inattivo → -1 grado ogni 6 mesi), perché i creator inattivi smettono di alimentare il marketplace.
+
+## Sistema gradi creator (Cartografo)
+
+Definito 2026-05-01. Track separato dai giocatori. Punteggio dedicato: **Carte** (carte nautiche). Stefano ha richiesto 3 gradi e mi ha delegato la scelta dei nomi e dei punti.
+
+### Tabella gradi creator
+
+| # | Grado | Soglia Carte | Note |
+|---|-------|-------------:|------|
+| 1 | Cartografo Novizio | 0 | Default alla pubblicazione della prima mappa |
+| 2 | Cartografo | 5.000 | Creator attivo, mappe con seguito modesto |
+| 3 | Maestro Cartografo | 50.000 | Top creator, mappe virali e/o catalogo ampio (target <3% dei creator) |
+
+### Come si guadagnano Carte
+
+Solo da attività di creazione/curatela mappe (NON dal gioco delle proprie mappe).
+
+| Evento | Carte |
+|--------|------:|
+| Mappa pubblicata e approvata | +500 |
+| Per ogni esecutore unico della tua mappa | +50 |
+| Recensione 4-5★ ricevuta | +100 |
+| Recensione 1-2★ ricevuta | -50 |
+| Mappa selezionata "in evidenza" | +1.000 (one-shot per mappa) |
+| Mappa promossa a marketplace editoriale | +5.000 (one-shot per mappa) |
+
+### Esempi di percorso
+- **Cartografo Novizio → Cartografo (5k Carte):** ~10 mappe pubblicate (5k) + 80-100 esecutori complessivi (4-5k). Oppure 1 mappa con 100 esecutori.
+- **Cartografo → Maestro (50k Carte):** 10+ mappe con totale ~800-1.000 esecutori, oppure una mappa virale con 1.000 esecutori unici.
+
+### Regole creator
+
+- **Track parallelo** ai gradi giocatore. Un utente può essere contemporaneamente "Comandante" come giocatore e "Maestro Cartografo" come creator. Sui profili pubblici si mostrano entrambi i badge.
+- **Decay creator:** TODO (non specificato da Stefano). Proposta: stesso schema dei giocatori (12 mesi inattivo → -1 grado ogni 6 mesi).
+- **Storage:** tabella `carte_events (user_id, value, source_map_id, created_at)` analoga a `piastre_events`.
+- **Vantaggi creator (TODO):** verosimilmente sblocchi sul marketplace (visibilità, possibilità di pubblicare mappe a pagamento custom?, % sui voucher dei propri esercenti partner). Da decidere insieme ai vantaggi giocatore.
 
 ## Prossimi passi
 - Definire dettaglio architettura tecnica
