@@ -134,9 +134,32 @@ Definito 2026-05-01. Sistema di progressione **single-track lifetime**, basato s
 - **Storage suggerito:** tabella `piastre_events (user_id, value, created_at)` con index `(user_id, created_at)`. Il grado è **derivato** via SUM, non persistito → cambiare soglie = ricalcolo automatico, no migrazioni.
 - **Edge case creator:** un Pianificatore di mappe virali può accumulare rapidamente per via del 50% dai terzi → potenzialmente da differenziare con creator-rank dedicato. Decisione rinviata.
 
+### Vincolo economico (sollevato 2026-05-01)
+
+⚠️ Le soglie sopra sono **provvisorie**: derivano da una stima "numero di mappe completate" senza considerare il costo monetario delle mappe. Stefano ha segnalato che bisogna trovare un compromesso tra rank, partite giocate e spesa effettiva.
+
+**Costo nel modello attuale (mappa singola 7,99€, Pack3 ~6,33€/mappa):**
+
+| Grado | Mappe ≈ | € singola | € Pack3 |
+|-------|--------:|----------:|--------:|
+| Predone (5) | ~8 | 64€ | 51€ |
+| Capobanda (6) | ~18 | 144€ | 114€ |
+| Ufficiale (7) | ~35 | 280€ | 222€ |
+| Comandante (8) | ~65 | 519€ | 412€ |
+| Capitano (9) | ~110 | 879€ | 696€ |
+| Signore dei Mari (10) | ~200 | 1.598€ | 1.266€ |
+
+→ Pay-to-rank inaccettabile. Tre leve di mitigazione da decidere:
+
+1. **Annual Pass illimitato (o N mappe/mese):** chiarire cosa include il pass nel pricing GDD. Se illimitato, costo per Signore dei Mari crolla a ~80€ in 2 anni (sostenibile).
+2. **Piastre gratuite non legate al pagamento:** streak giornalieri, daily/weekly challenge community, recensioni ricevute come creator, eventi stagionali, modalità "allenamento" su tappe già giocate (Piastre ridotte).
+3. **Creator track (già nel GDD):** Pianificatore prende 50% Piastre dai giocatori che eseguono la sua mappa → top creator può arrivare a Capitano senza comprare mappe.
+
 ### Da decidere (TODO)
+- **Modello economico finale del rank:** Annual Pass cosa include? Spesa target del top 3% (Signore dei Mari)? Piastre gratuite incluse nel design?
 - **Vantaggi/perk per ogni grado** (cosmetica, sblocchi, accessi marketplace, voucher migliori, leaderboard tier-specifica). Stefano: "un giorno dovremo decidere".
-- **Meccanica esatta del decay** dopo i 12 mesi di inattività (vedi sopra).
+- **Meccanica esatta del decay** dopo i 12 mesi di inattività (drop graduale vs reset diretto vs curva).
+- **Definizione di "attività"** che resetta il timer 12 mesi (proposta: ≥1 evento Piastre, login non basta).
 - **Naming convention nel codice:** distinguere `Tier` (5), `Rank` (10), `RankRoleLabel` (es. "Stratega") per evitare confusione con eventuali futuri ruoli social.
 - **Colonna funzioni/abilità della tabella sorgente** (Stefano l'ha lasciata stare per ora).
 
