@@ -154,7 +154,6 @@ Definito 2026-05-01. Sistema di progressione **single-track lifetime**, basato s
 - **Vantaggi/perk per ogni grado** (cosmetica, sblocchi, accessi marketplace, voucher migliori, leaderboard tier-specifica). Stefano: "un giorno dovremo decidere".
 - **Naming convention nel codice:** distinguere `Tier` (5), `Rank` (10), `RankRoleLabel` (es. "Stratega") per evitare confusione con eventuali futuri ruoli social.
 - **Colonna funzioni/abilità della tabella sorgente** (Stefano l'ha lasciata stare per ora).
-- **Decay anche per il creator track?** Stefano non ha specificato; proposta: stessa regola (12 mesi inattivo → -1 grado ogni 6 mesi), perché i creator inattivi smettono di alimentare il marketplace.
 
 ## Sistema gradi creator (Cartografo)
 
@@ -190,7 +189,7 @@ Solo da attività di creazione/curatela mappe (NON dal gioco delle proprie mappe
 ### Regole creator
 
 - **Track parallelo** ai gradi giocatore. Un utente può essere contemporaneamente "Comandante" come giocatore e "Maestro Cartografo" come creator. Sui profili pubblici si mostrano entrambi i badge.
-- **Decay creator:** TODO (non specificato da Stefano). Proposta: stesso schema dei giocatori (12 mesi inattivo → -1 grado ogni 6 mesi).
+- **Decay creator:** **NESSUN decay** _(decisione 2026-05-01)_. I gradi creator sono permanenti, non scendono per inattività. Stefano: il lavoro di un creator è una creazione di valore duraturo (le sue mappe restano nel marketplace), non va penalizzato col tempo.
 - **Storage:** tabella `carte_events (user_id, value, source_map_id, created_at)` analoga a `piastre_events`.
 - **Vantaggi creator (TODO):** verosimilmente sblocchi sul marketplace (visibilità, possibilità di pubblicare mappe a pagamento custom?, % sui voucher dei propri esercenti partner). Da decidere insieme ai vantaggi giocatore.
 

@@ -35,3 +35,4 @@
 ## [2026-05-01] decision | Piratopoly creator: 3 gradi (Cartografo Novizio / Cartografo / Maestro Cartografo) su valuta dedicata "Carte". Soglie 0 / 5.000 / 50.000. Eventi: mappa approvata +500, esecutore unico +50, recensione 4-5★ +100, 1-2★ -50, in evidenza +1.000, marketplace editoriale +5.000.
 ## [2026-05-01] decision | Piratopoly creator (revisione): le Carte si alimentano col 50% delle Piastre guadagnate dai giocatori sulle mappe del creator (sostituisce il "+50 per esecutore unico"). Soglie ricalibrate: Cartografo 15k, Maestro 250k. Le altre regole eventi (recensioni, in evidenza, editoriale) restano. Conferma esplicita di Stefano sul fatto che il 50% terzi alimenta le Carte e non le Piastre.
 ## [2026-05-01] decision | Piratopoly creator naming finale: 1) Tracciatore di Rotte, 2) Cartografo, 3) Maestro Cartografo (scelti da Stefano).
+## [2026-05-01] decision | Piratopoly creator: nessun decay per inattività. I gradi cartografo sono permanenti.
