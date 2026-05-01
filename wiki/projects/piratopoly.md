@@ -81,6 +81,7 @@ Lingue al lancio: italiano, inglese, spagnolo, tedesco, francese
 [2026-04-27] — Setup ambiente delegato a Carlo: dipendenze installate (shared, backend, frontend), Nginx config su `piratopoly-dev.duckdns.org`.
 [2026-04-29] — Frontend: implementato layout "telefono al centro" (mobile-first usabile su desktop/tablet).
 [2026-05-01] — Definito sistema gradi giocatore (10 rank, 5 tier, soglie Piastre lifetime, decay -1 grado/6 mesi dopo 12 mesi inattività). Annual Pass = mappe illimitate. Piastre solo da gioco (no streak/eventi al lancio). Definito sistema gradi creator separato (Cartografo, 3 livelli, valuta "Carte"). Vantaggi per grado da definire.
+[2026-05-01] — Pagina bussola: aggiunto loader full-screen che resta finché GPS non acquisito, con retry continui (vedi sezione Decisioni di sviluppo).
 
 ## Deployment dev
 - **URL pubblico:** http://piratopoly-dev.duckdns.org/
@@ -103,6 +104,12 @@ App mobile-first ma usabile anche su desktop/tablet centrata.
 - `BottomNav`, `GameBottomNav`, MapDetailPage CTA footer fixed: pattern `fixed left-1/2 -translate-x-1/2 w-full max-w-md` (NON `left-0 right-0`).
 - Larghezza scelta: `max-w-md` (28rem = 448px). Coincide con il token `--content-max-w` in `frontend/src/styles/tokens.css` (esistono anche `--content-tablet-w: 42rem` e `--content-desktop-w: 64rem` per eventuale layout responsive multi-breakpoint).
 - **Quando aggiungere un nuovo elemento `fixed`:** evita `left-0 right-0`. Usa `left-1/2 -translate-x-1/2 w-full max-w-md`. Eccezione: modali/loading screen veramente fullscreen (`LoadingScreen.tsx`, alcuni overlay) → `fixed inset-0` ok.
+
+### [2026-05-01] Bussola: loader GPS con retry continui
+Stefano segnalava che entrando nella pagina bussola spesso non veniva acquisita la posizione e l'utente restava bloccato. Modifiche:
+- **Overlay full-screen** (`fixed inset-0 z-50`) in `GameCompassPage.tsx` mostrato finché `!position && !permissionDenied`. Riusa lo stile di `LoadingScreen` (icona 🧭 + spin gold) ma con messaggio specifico. Pulsante "Annulla" per tornare alla session.
+- **`usePositionPoller` rivisto:** rimosso il messaggio di errore generico dopo 3 fallimenti — gli errori soft (timeout, position unavailable) non interrompono più il polling, retry continui finché non si ottiene un fix. Solo `PERMISSION_DENIED` è errore hard. Aggiunto fallback `CACHED_FALLBACK` (low-accuracy, maxAge 120s) richiamato quando un poll high-accuracy fallisce e ancora non c'è alcuna posizione: serve a sbloccare la UI con qualcosa anche su dispositivi lenti. Esposti `permissionDenied` (bool) e `attempts` (counter, mostrato in UI se >3 con suggerimento "esci all'aperto").
+- L'admin override `simulatedPosition` continua a bypassare il loader (non si attiva se `position` è valorizzato).
 
 ## Sistema gradi giocatore (rank)
 
