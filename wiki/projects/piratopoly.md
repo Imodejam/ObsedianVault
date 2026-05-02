@@ -105,6 +105,14 @@ App mobile-first ma usabile anche su desktop/tablet centrata.
 - Larghezza scelta: `max-w-md` (28rem = 448px). Coincide con il token `--content-max-w` in `frontend/src/styles/tokens.css` (esistono anche `--content-tablet-w: 42rem` e `--content-desktop-w: 64rem` per eventuale layout responsive multi-breakpoint).
 - **Quando aggiungere un nuovo elemento `fixed`:** evita `left-0 right-0`. Usa `left-1/2 -translate-x-1/2 w-full max-w-md`. Eccezione: modali/loading screen veramente fullscreen (`LoadingScreen.tsx`, alcuni overlay) → `fixed inset-0` ok.
 
+### [2026-05-02] globalRank vivo lato client
+La colonna `users.global_rank` non viene mai aggiornata (manca un trigger / job). UI mostrava `—` nel profilo. Soluzione: in `auth.store` il fetch del profile chiama `fetchLiveGlobalRank(totalScore)` che fa un `count('users where total_score > self') + 1` via Supabase JS. Cheap query, sempre allineato. Il valore di DB resta NULL ma viene ignorato dal frontend, che usa il calcolo live. _Da rivedere quando ci saranno migliaia di utenti: a quel punto persistere su DB con trigger / view materializzata._
+
+### [2026-05-02] Mappe giocate dentro "Le mie mappe"
+Refactor di una sezione introdotta poco prima (vedi entry sotto "Pagina Mappe giocate"). Stefano ha chiesto di **non** avere una pagina dedicata: le mappe giocate devono apparire dentro `MyMapsPage` filtrabili come prima, e cliccando una mappa completata si arriva al recap della sessione.
+- Backend: rimosso `/sessions/played` (lista non più usata). Aggiunto `lastSessionId` alla risposta di `/sessions/my-maps`.
+- Frontend: `OwnedMap.lastSessionId` esposto. `MyMapsPage` cambia il CTA per le mappe `completed` da "Rigioca" a "Vedi dettagli" → naviga a `/profile/played/:sessionId`. Rimossa voce menu profilo "Mappe giocate" e file `PlayedMapsPage.tsx`. La detail page `PlayedMapDetailPage.tsx` resta sotto `/profile/played/:sessionId`.
+
 ### [2026-05-02] Pagina "Mappe giocate" + recap sessione
 Implementata sezione profilo per rivedere le mappe già completate.
 - **Backend:** due nuovi endpoint in `game.routes.ts`:
