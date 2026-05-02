@@ -105,6 +105,17 @@ App mobile-first ma usabile anche su desktop/tablet centrata.
 - Larghezza scelta: `max-w-md` (28rem = 448px). Coincide con il token `--content-max-w` in `frontend/src/styles/tokens.css` (esistono anche `--content-tablet-w: 42rem` e `--content-desktop-w: 64rem` per eventuale layout responsive multi-breakpoint).
 - **Quando aggiungere un nuovo elemento `fixed`:** evita `left-0 right-0`. Usa `left-1/2 -translate-x-1/2 w-full max-w-md`. Eccezione: modali/loading screen veramente fullscreen (`LoadingScreen.tsx`, alcuni overlay) → `fixed inset-0` ok.
 
+### [2026-05-02] Pagina "Mappe giocate" + recap sessione
+Implementata sezione profilo per rivedere le mappe già completate.
+- **Backend:** due nuovi endpoint in `game.routes.ts`:
+  - `GET /game/sessions/played` → lista delle sessioni `completed` del player (una entry per sessione, non per mappa, così repliche sono distinguibili).
+  - `GET /game/sessions/:id/recap` → recap dettagliato joinato (session + map + game_stage_results + stages) per la pagina detail. Niente round-trip extra dal client.
+- **Frontend:**
+  - `services/playedMaps.ts` (`fetchPlayedMaps`, `fetchPlayedRecap`) + tipi.
+  - `PlayedMapsPage.tsx` (route `/profile/played`): lista card con cover, titolo, data, tappe, Piastre guadagnate. Empty state con CTA "Inizia una nuova avventura".
+  - `PlayedMapDetailPage.tsx` (route `/profile/played/:sessionId`): hero con cover + titolo + data, stats card (Piastre / Tappe / Durata), lista ordinata delle tappe completate con badge `📍 corretta/mancata`, `✓/✗ quiz`, `⚡ speed bonus`, score per tappa. CTA in fondo per riaprire la mappa nel marketplace.
+  - Voce nel menu Profilo: `🏴‍☠️ Mappe giocate → /profile/played`.
+
 ### [2026-05-02] Bug critico: total_score utente sempre 0 — fixato
 **Sintomo:** Stefano dopo aver finito una mappa (715 punti su `game_sessions`, status `completed`) vedeva ancora `total_score = 0` nel profilo. **Causa:** `game.routes.ts` chiamava `supabase.rpc('update_user_score', …)` ma la funzione **non esisteva** nel database (mai migrata) — `.maybeSingle()` swallow-ava l'errore. **Fix:**
 - Creata migration `supabase/migrations/006_update_user_score_function.sql`: definisce `piratopoly.update_user_score(p_user_id uuid, p_score integer)` che incrementa cumulativamente `total_score` e `maps_completed`. Eseguita sul DB come `supabase_admin` (lo schema `piratopoly` è di sua proprietà, `postgres` non ha grant).
