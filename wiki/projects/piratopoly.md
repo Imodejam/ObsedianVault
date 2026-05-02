@@ -105,6 +105,14 @@ App mobile-first ma usabile anche su desktop/tablet centrata.
 - Larghezza scelta: `max-w-md` (28rem = 448px). Coincide con il token `--content-max-w` in `frontend/src/styles/tokens.css` (esistono anche `--content-tablet-w: 42rem` e `--content-desktop-w: 64rem` per eventuale layout responsive multi-breakpoint).
 - **Quando aggiungere un nuovo elemento `fixed`:** evita `left-0 right-0`. Usa `left-1/2 -translate-x-1/2 w-full max-w-md`. Eccezione: modali/loading screen veramente fullscreen (`LoadingScreen.tsx`, alcuni overlay) → `fixed inset-0` ok.
 
+### [2026-05-02] Bug critico: total_score utente sempre 0 — fixato
+**Sintomo:** Stefano dopo aver finito una mappa (715 punti su `game_sessions`, status `completed`) vedeva ancora `total_score = 0` nel profilo. **Causa:** `game.routes.ts` chiamava `supabase.rpc('update_user_score', …)` ma la funzione **non esisteva** nel database (mai migrata) — `.maybeSingle()` swallow-ava l'errore. **Fix:**
+- Creata migration `supabase/migrations/006_update_user_score_function.sql`: definisce `piratopoly.update_user_score(p_user_id uuid, p_score integer)` che incrementa cumulativamente `total_score` e `maps_completed`. Eseguita sul DB come `supabase_admin` (lo schema `piratopoly` è di sua proprietà, `postgres` non ha grant).
+- Backfillato `users.total_score` e `maps_completed` ricomputando dalle sessioni `completed` esistenti (Stefano: 0 → 715, 0 → 1).
+- `game.routes.ts` ora estrae `error` dall'RPC e logga con `console.error` se fallisce (no più silent failure).
+- `auth.store.ts` aggiunto metodo `refreshUser()` (rifatch profile da Supabase).
+- `GameCompletePage.tsx` chiama `refreshUser()` dopo `/sessions/:id/complete` così il `totalScore` UI si aggiorna senza bisogno di logout/login.
+
 ### [2026-05-02] Implementato sistema gradi (giocatore)
 Realizzato il sistema di rank giocatore definito 2026-05-01.
 - **Costanti shared:** `shared/src/types/rank.ts` esporta `PLAYER_RANKS`, `CREATOR_RANKS`, `getPlayerRank(piastre)`, `getNextPlayerRank(piastre)`, `getCreatorRank(carte)`, `getNextCreatorRank(carte)`. Le soglie giocatore (0/500/2k/5k/8k/18k/35k/65k/110k/200k) e i tier sono allineati alle decisioni del 1 maggio.
