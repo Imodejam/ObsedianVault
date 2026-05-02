@@ -105,6 +105,21 @@ App mobile-first ma usabile anche su desktop/tablet centrata.
 - Larghezza scelta: `max-w-md` (28rem = 448px). Coincide con il token `--content-max-w` in `frontend/src/styles/tokens.css` (esistono anche `--content-tablet-w: 42rem` e `--content-desktop-w: 64rem` per eventuale layout responsive multi-breakpoint).
 - **Quando aggiungere un nuovo elemento `fixed`:** evita `left-0 right-0`. Usa `left-1/2 -translate-x-1/2 w-full max-w-md`. Eccezione: modali/loading screen veramente fullscreen (`LoadingScreen.tsx`, alcuni overlay) → `fixed inset-0` ok.
 
+### [2026-05-02] Replay multiplier sulle Piastre
+Decisione di game design Stefano 2026-05-02: una mappa acquistata si può rigiocare infinite volte, ma le Piastre accreditate al `users.total_score` decrescono per replay:
+- 1ª completion: 100% del punteggio sessione
+- 2ª completion: 50%
+- 3ª e successive: 0% (rigiocabile ma senza Piastre)
+
+**Implementazione:**
+- Migration `008_session_score_multiplier.sql`: aggiunge `score_multiplier NUMERIC(3,2) NOT NULL DEFAULT 1` e `awarded_score INTEGER NOT NULL DEFAULT 0` a `game_sessions`. Backfill: sessioni completed esistenti = first run, multiplier 1, awarded = total_score.
+- `POST /game/sessions/:id/complete`: ora **idempotente** (se la sessione è già `completed`, ritorna i dati senza ricreditare le Piastre — fix di un bug latente per cui la GameCompletePage che ri-monta accreditava più volte). Calcola `prev = count(completed sessions per (player, map) escluso questa)`, applica `multiplier = prev===0 ? 1 : prev===1 ? 0.5 : 0`, salva `score_multiplier` + `awarded_score` sulla riga, chiama `update_user_score` con l'awarded.
+- `GET /game/sessions/:id/recap`: espone `awardedScore` e `scoreMultiplier` accanto a `totalScore` (raw).
+- Backfill aggiuntivo dei totali `users.total_score` e `maps_completed` con `SUM(awarded_score)` / `COUNT(*)` su sessioni completed (prima erano disallineati per via del bug double-credit pre-idempotenza).
+- **Frontend:**
+  - `GameCompletePage`: il numero grande mostra `awardedScore`. Se `scoreMultiplier < 1`, riga sotto "Run #X · Piastre al N% (raw: Y)" o "niente Piastre dalla 3ª partita in poi".
+  - `PlayedMapDetailPage`: stat card mostra `awardedScore`, riga sotto col raw se multiplier < 1.
+
 ### [2026-05-02] Recensioni mappe (eligibility = aver completato)
 Implementato sistema review per le mappe.
 - **Tabella `piratopoly.reviews`** già esistente (id, map_id, reviewer_id, stars 1-5, body, created_at, UNIQUE(map_id, reviewer_id)).
