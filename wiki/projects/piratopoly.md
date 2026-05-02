@@ -105,6 +105,16 @@ App mobile-first ma usabile anche su desktop/tablet centrata.
 - Larghezza scelta: `max-w-md` (28rem = 448px). Coincide con il token `--content-max-w` in `frontend/src/styles/tokens.css` (esistono anche `--content-tablet-w: 42rem` e `--content-desktop-w: 64rem` per eventuale layout responsive multi-breakpoint).
 - **Quando aggiungere un nuovo elemento `fixed`:** evita `left-0 right-0`. Usa `left-1/2 -translate-x-1/2 w-full max-w-md`. Eccezione: modali/loading screen veramente fullscreen (`LoadingScreen.tsx`, alcuni overlay) → `fixed inset-0` ok.
 
+### [2026-05-02] Implementato sistema gradi (giocatore)
+Realizzato il sistema di rank giocatore definito 2026-05-01.
+- **Costanti shared:** `shared/src/types/rank.ts` esporta `PLAYER_RANKS`, `CREATOR_RANKS`, `getPlayerRank(piastre)`, `getNextPlayerRank(piastre)`, `getCreatorRank(carte)`, `getNextCreatorRank(carte)`. Le soglie giocatore (0/500/2k/5k/8k/18k/35k/65k/110k/200k) e i tier sono allineati alle decisioni del 1 maggio.
+- **Pagina dettaglio rank:** `frontend/src/pages/profile/RankPage.tsx`, route `/profile/rank`. Hero con icona del grado attuale + numero (X/10) + Piastre lifetime; barra progresso "X% — N Piastre mancanti per [next]"; lista completa dei 10 gradi con stato (raggiunto / corrente "Tu" / locked greyscale); footer con regola decay. Gradi senza icona dedicata fallback su 🏴‍☠️. Endgame mostra schermata "vetta raggiunta" senza progress bar.
+- **Punti d'ingresso cliccabili:**
+  - `ExplorePage` header: l'etichetta "Livello X" sostituita col nome del rank, ora bottone che naviga a `/profile/rank`.
+  - `ProfilePage` hero: stessa cosa, badge "⚔️ {rank.name} ›" cliccabile.
+- **Vecchio `userLevel(score)/100+1` rimosso** da entrambe le pagine.
+- **Creator track:** definito in `shared` ma NON ancora esposto in UI. Manca backend per le Carte: TODO quando il modello è pronto.
+
 ### [2026-05-02] Performance: bypass DNS su Supabase via /etc/hosts
 Stefano segnalava che ogni pagina caricava lentamente (sospettava DB). **Diagnosi vera:** il resolver di sistema (systemd-resolved → upstream 1&1 DNS) impiegava 3,12s a risolvere `supabase-cat.duckdns.org` (vs 0,005s via IP diretto, 600× più lento) e falliva ~40 volte/ora con `EAI_AGAIN`. Le pagine come Esplora — che fanno 7 chiamate API parallele — pagavano ~3s di overhead DNS ciascuna; alcune andavano in timeout completo.
 
