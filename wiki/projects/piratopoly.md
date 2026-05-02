@@ -105,6 +105,26 @@ App mobile-first ma usabile anche su desktop/tablet centrata.
 - Larghezza scelta: `max-w-md` (28rem = 448px). Coincide con il token `--content-max-w` in `frontend/src/styles/tokens.css` (esistono anche `--content-tablet-w: 42rem` e `--content-desktop-w: 64rem` per eventuale layout responsive multi-breakpoint).
 - **Quando aggiungere un nuovo elemento `fixed`:** evita `left-0 right-0`. Usa `left-1/2 -translate-x-1/2 w-full max-w-md`. Eccezione: modali/loading screen veramente fullscreen (`LoadingScreen.tsx`, alcuni overlay) → `fixed inset-0` ok.
 
+### [2026-05-02] Piastre come moneta interna (1 mappa free = 8.000)
+Decisione di design (Stefano 2026-05-02): le Piastre accumulate giocando possono essere usate per acquistare nuove mappe.
+
+**Schema dati:** introduzione di un counter spendibile separato sul profilo utente.
+- `users.total_score` (esistente) — lifetime, **mai decrementato**, determina il rank.
+- `users.available_piastre` (nuovo) — Piastre attualmente spendibili.
+- `users.spent_piastre` (nuovo) — totale speso lifetime.
+- Invariante: `total_score = available_piastre + spent_piastre`.
+- Quando una sessione completa accredita N Piastre (awarded): `total_score += N` AND `available_piastre += N`. Quando l'utente spende M: `available_piastre -= M`, `spent_piastre += M`. Il rank non cambia mai per effetto della spesa.
+
+**Tasso di conversione:**
+- **1 mappa singola = 8.000 Piastre.** Equivale a circa 5-6 nuove mappe standard giocate alla 1ª run (≈6 settimane per il giocatore mediano da 5 mappe/mese). Match implicito con la soglia di Predone (rank 5 = 8.000 Piastre lifetime): il giorno che ottieni Predone hai tipicamente abbastanza available per la prima mappa free.
+- **Pack3 = 21.000 Piastre** (giusto sotto al 3× per dare valore al pacchetto).
+- Il replay multiplier (1×/0,5×/0×) impedisce il farming sulle stesse mappe.
+
+**UX prevista (TODO, con il flusso pagamenti):**
+- Marketplace: card mappa con due bottoni — "Acquista 7,99€" e "🪙 8.000 Piastre" (greyed-out se `available_piastre` insufficienti).
+- Profilo: badge "🪙 X Piastre disponibili" cliccabile → modale storia transazioni (acquisti + accrediti da partite).
+- Migration TODO: ALTER TABLE users ADD COLUMN available_piastre INTEGER NOT NULL DEFAULT 0; spent_piastre IDEM; backfill `available_piastre = total_score`, `spent_piastre = 0`.
+
 ### [2026-05-02] Creator gioca la propria mappa in "modalità test"
 Decisione di design (Stefano 2026-05-02): un creator può giocare gratuitamente le mappe di cui è creator, ma la sessione è marcata come **test** e non genera ricompense.
 
