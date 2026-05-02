@@ -105,6 +105,9 @@ App mobile-first ma usabile anche su desktop/tablet centrata.
 - Larghezza scelta: `max-w-md` (28rem = 448px). Coincide con il token `--content-max-w` in `frontend/src/styles/tokens.css` (esistono anche `--content-tablet-w: 42rem` e `--content-desktop-w: 64rem` per eventuale layout responsive multi-breakpoint).
 - **Quando aggiungere un nuovo elemento `fixed`:** evita `left-0 right-0`. Usa `left-1/2 -translate-x-1/2 w-full max-w-md`. Eccezione: modali/loading screen veramente fullscreen (`LoadingScreen.tsx`, alcuni overlay) → `fixed inset-0` ok.
 
+### [2026-05-02] Pack3 = picker al checkout
+Decisione di design (Stefano 2026-05-02): il "Pack 3 mappe" del GDD funziona così — il cliente sceglie **lui** dal marketplace 3 mappe a sua scelta e paga 18,99€ una volta sola; riceve l'entitlement sulle 3 mappe specifiche (rigiocabili infinite con il replay multiplier 1×/0,5×/0× standard). Costo unitario 6,33€/mappa (sconto ~21% sul singolo). Da implementare quando il flusso di pagamento sarà attivato — TODO non urgente.
+
 ### [2026-05-02] Replay multiplier sulle Piastre
 Decisione di game design Stefano 2026-05-02: una mappa acquistata si può rigiocare infinite volte, ma le Piastre accreditate al `users.total_score` decrescono per replay:
 - 1ª completion: 100% del punteggio sessione
