@@ -40,3 +40,4 @@
 ## [2026-05-01] fix | Piratopoly MapDetailPage: tasto "indietro" ora porta a Esplora (`/`) invece di `navigate(-1)`. File: MapDetailPage.tsx.
 ## [2026-05-01] fix | Piratopoly GameMapPage: caricamento mappa con retry automatico (backoff 1s→5s) fino al successo. Hard errors (no mapId, no stages) stoppano il retry e mostrano bottone manuale. UI mostra contatore tentativi. File: GameMapPage.tsx.
 ## [2026-05-01] fix | Piratopoly GameMapPage: tasto indietro chiede conferma ("Vuoi interrompere il gioco?") e poi naviga a Esplora (`/`) invece di `navigate(-1)`. Confirm con window.confirm() per ora. File: GameMapPage.tsx.
+## [2026-05-02] fix | Piratopoly performance: aggiunto override `/etc/hosts` per `supabase-cat.duckdns.org` (212.227.21.104) e restart piratopoly.service. Risolve EAI_AGAIN intermittenti del systemd-resolved (40 errori/ora prima del fix). API endpoint /api/maps da 14.7s timeout a 0.19s, DNS da 3.12s a 0.005s.

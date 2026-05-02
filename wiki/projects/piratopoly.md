@@ -105,6 +105,21 @@ App mobile-first ma usabile anche su desktop/tablet centrata.
 - Larghezza scelta: `max-w-md` (28rem = 448px). Coincide con il token `--content-max-w` in `frontend/src/styles/tokens.css` (esistono anche `--content-tablet-w: 42rem` e `--content-desktop-w: 64rem` per eventuale layout responsive multi-breakpoint).
 - **Quando aggiungere un nuovo elemento `fixed`:** evita `left-0 right-0`. Usa `left-1/2 -translate-x-1/2 w-full max-w-md`. Eccezione: modali/loading screen veramente fullscreen (`LoadingScreen.tsx`, alcuni overlay) → `fixed inset-0` ok.
 
+### [2026-05-02] Performance: bypass DNS su Supabase via /etc/hosts
+Stefano segnalava che ogni pagina caricava lentamente (sospettava DB). **Diagnosi vera:** il resolver di sistema (systemd-resolved → upstream 1&1 DNS) impiegava 3,12s a risolvere `supabase-cat.duckdns.org` (vs 0,005s via IP diretto, 600× più lento) e falliva ~40 volte/ora con `EAI_AGAIN`. Le pagine come Esplora — che fanno 7 chiamate API parallele — pagavano ~3s di overhead DNS ciascuna; alcune andavano in timeout completo.
+
+**Fix applicato:** aggiunta riga `212.227.21.104   supabase-cat.duckdns.org` a `/etc/hosts` + `systemctl restart piratopoly`.
+
+**Misurazioni post-fix:**
+| Endpoint | Prima | Dopo |
+|----------|-------|------|
+| `/api/maps` | timeout HTTP 000 dopo 14,7s | 0,194s ✅ |
+| `/healthz` | timeout HTTP 000 dopo 4,7s | 0,026s ✅ |
+| Risoluzione DNS Supabase | 3,120s | 0,005s |
+| Errori `EAI_AGAIN` in 2 min | 6 | 0 |
+
+**Caveat:** se l'IP di duckdns cambia (raro se DuckDNS è configurato con IP fisso), va aggiornata la riga. Soluzione strutturale futura: cambiare DNS upstream del server (es. Cloudflare 1.1.1.1) o spostare Supabase su dominio diretto.
+
 ### [2026-05-01] Mappa di gioco: retry automatico al caricamento
 Stefano segnalava che `GameMapPage` (la mappa durante una sessione) a volte mostrava il loader senza mai terminare. La pagina ora fa **retry automatico** delle chiamate `/game/sessions/:id` e `/maps/:mapId` con backoff lineare (1s, 2s, 3s, max 5s) finché il caricamento non riesce. Il loader resta visibile durante i retry e mostra il contatore tentativi dopo il primo fallimento. **Hard error** (sessione senza `map_id`, mappa senza tappe per la giornata) interrompono il retry e mostrano il bottone manuale "Riprova" — sono errori di dati, non di rete. File: `GameMapPage.tsx`.
 
