@@ -105,6 +105,17 @@ App mobile-first ma usabile anche su desktop/tablet centrata.
 - Larghezza scelta: `max-w-md` (28rem = 448px). Coincide con il token `--content-max-w` in `frontend/src/styles/tokens.css` (esistono anche `--content-tablet-w: 42rem` e `--content-desktop-w: 64rem` per eventuale layout responsive multi-breakpoint).
 - **Quando aggiungere un nuovo elemento `fixed`:** evita `left-0 right-0`. Usa `left-1/2 -translate-x-1/2 w-full max-w-md`. Eccezione: modali/loading screen veramente fullscreen (`LoadingScreen.tsx`, alcuni overlay) → `fixed inset-0` ok.
 
+### [2026-05-02] Recensioni mappe (eligibility = aver completato)
+Implementato sistema review per le mappe.
+- **Tabella `piratopoly.reviews`** già esistente (id, map_id, reviewer_id, stars 1-5, body, created_at, UNIQUE(map_id, reviewer_id)).
+- **Backend (in `maps.routes.ts`):** `GET /maps/:mapId/review/me` ritorna `{ canReview, review }` (canReview = ha ≥1 sessione completed su quella mappa). `PUT /maps/:mapId/review` upserta su (map_id, reviewer_id), bocca con 403 se l'utente non ha mai completato. Dopo upsert ricalcola `maps.avg_rating` (NUMERIC(3,2)) e `maps.reviews_count`.
+- **Frontend componente riusabile `<MapReviewBlock mapId hideWhenIneligible? />`** in `components/maps/MapReviewBlock.tsx`: gestisce loading, eligibility, fetch della review esistente, form (stelle clickable + textarea body 0-1000 char), bottone Pubblica/Aggiorna, modalità readonly con CTA Modifica.
+- **Inserito in 3 punti:**
+  - `GameCompletePage`: blocco review subito sotto Riepilogo, prima dei CTA. Il backend `/sessions/:id/complete` ora ritorna `mapId` per consentirlo.
+  - `PlayedMapDetailPage`: blocco review dopo la lista tappe.
+  - `MapDetailPage` (marketplace): blocco con `hideWhenIneligible` → invisibile a chi non ha mai completato; chi ha giocato vede la propria review esistente o il form per pubblicarla, e può modificarla in qualsiasi momento.
+- Chi non ha giocato e arriva via marketplace non vede né il form né messaggi spiazzanti.
+
 ### [2026-05-02] globalRank vivo lato client
 La colonna `users.global_rank` non viene mai aggiornata (manca un trigger / job). UI mostrava `—` nel profilo. Soluzione: in `auth.store` il fetch del profile chiama `fetchLiveGlobalRank(totalScore)` che fa un `count('users where total_score > self') + 1` via Supabase JS. Cheap query, sempre allineato. Il valore di DB resta NULL ma viene ignorato dal frontend, che usa il calcolo live. _Da rivedere quando ci saranno migliaia di utenti: a quel punto persistere su DB con trigger / view materializzata._
 
