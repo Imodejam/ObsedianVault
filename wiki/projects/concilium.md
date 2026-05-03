@@ -17,6 +17,28 @@ Piattaforma di deliberazione multi-agent per umani e agenti AI. Le richieste dec
 - [2026-05-03] **systemd**: `senatum.service` rimosso, sostituito con `concilium.service` (stesso user claudebot, WorkingDirectory `/home/progetti/concilium`, SyslogIdentifier `concilium`). Live: API HTTP 200 su :7001, web 200 su :7002.
 - [2026-05-03] **Push GitHub Concilium ancora bloccato**: il PAT di Stefano legge OK (`ls-remote` funziona, `pull` ok) ma rifiuta `push` (HTTP 403 "Permission denied to Imodejam"). Repo creato manualmente da Stefano con auto-init README — il mio README locale ha vinto il merge (strategy `-X ours`). In attesa che Stefano aggiorni lo scope del PAT (fine-grained: aggiungere `Imodejam/Concilium` con Contents Read+Write; classic: scope `repo` full).
 
+## Architettura proposta — separazione Praeses / Synthesizer (2026-05-03, in discussione, NON implementata)
+
+Stefano (via Telegram, msg 764) ha proposto di separare in due ruoli distinti quello che oggi nel codice è un'unica entity (`role: synthesizer`):
+
+1. **Praeses Concilii** — orchestratore. Decide quali counselor convocare, costruisce i prompt, gestisce i round, evidenzia conflitti, applica policy (sicurezza, costi). **NON decide**.
+2. **Synthesizer / Princeps** — decisore. Riceve i contributi dei counselor + il "conflict report" del Praeses, decide, produce l'output finale standard.
+
+**Why (Stefano):** se uniti perdi controllo sulla discussione, qualità inferiore, no scalabilità. Separati abilitano logiche multi-round, escalation, swap del modello decisionale, policy dichiarative.
+
+**Mappatura sull'attuale codice:**
+- Oggi `apps/api/src/orchestrator/deliberate.ts` è codice deterministico che fa già il lavoro del Praeses (sceglie il Synthesizer, lancia counselor abilitati in parallelo, passa il batch al Synthesizer).
+- Quel codice diventa lo *scheletro* del Praeses; il Praeses può essere potenziato con un LLM che decide adattivamente *quali* counselor convocare e *come* aggregare i conflitti prima della sintesi.
+- Il file `data/counselors/synthesizer.md` resta (è il decisore Princeps). Va aggiunto un Praeses (in `data/praeses.md` o cartella separata `data/orchestrator/`).
+- Schema `CounselorConfig.role` va esteso con `praeses` (oltre all'attuale `synthesizer` e ai ruoli specializzati).
+
+**Aperto, in attesa di Stefano:**
+1. Praeses è LLM, codice deterministico o ibrido?
+2. Multi-round subito o single-round in v1?
+3. Policy (sicurezza/costi): YAML dichiarativo o prompt nel Praeses LLM?
+
+**Status:** discussione in corso. Stefano ha esplicitamente detto "Non implementare nulla per ora" (msg 762).
+
 ## Requisiti chiave (dalla spec)
 
 ### Architettura
