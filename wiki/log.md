@@ -67,3 +67,4 @@
 ## [2026-05-03] feat | Concilium: i18n EN completa di tutto il prodotto (UI web, bot Telegram, prompt orchestrator, prompt 7 counselors di default, README, PLAN). Commit 792ed2e + merge 4a9c83f con auto-init del repo GitHub. Typecheck passa su api/web/bot/shared. systemd `concilium.service` migrato (vecchio senatum.service rimosso).
 ## [2026-05-03] infra | Stefano: nuovo DNS sarà `concilium-cat.duckdns.org`. Nginx site config + cert Let's Encrypt da configurare quando il subdomain duckdns sarà attivo. Vecchio senatum.duckdns.org (cert valido fino 2026-08-01) da dismettere.
 ## [2026-05-03] block | Concilium push GitHub: PAT di Stefano legge ma non scrive su Imodejam/Concilium (HTTP 403). In attesa che Stefano aggiorni scope del PAT.
+## [2026-05-03] feat | Concilium pushed to github.com/Imodejam/Concilium (main, commits bf17aa3..4a9c83f). PAT scope aggiornato da Stefano.
