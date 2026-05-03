@@ -32,12 +32,12 @@ Stefano (via Telegram, msg 764) ha proposto di separare in due ruoli distinti qu
 - Il file `data/counselors/synthesizer.md` resta (è il decisore Princeps). Va aggiunto un Praeses (in `data/praeses.md` o cartella separata `data/orchestrator/`).
 - Schema `CounselorConfig.role` va esteso con `praeses` (oltre all'attuale `synthesizer` e ai ruoli specializzati).
 
-**Aperto, in attesa di Stefano:**
-1. Praeses è LLM, codice deterministico o ibrido?
-2. Multi-round subito o single-round in v1?
-3. Policy (sicurezza/costi): YAML dichiarativo o prompt nel Praeses LLM?
+**Risposte di Stefano (msg 768, 2026-05-03):**
+1. **Praeses ibrido** — codice deterministico per lo scheletro (routing base, persistenza, log) + LLM per le decisioni adattive (chi convocare, come aggregare conflitti, quando rilanciare un round).
+2. **Multi-round** subito (Praeses può rilanciare counselor con prompt aggiornati dopo il primo giro).
+3. **Policy nel prompt del Praeses LLM** (opzione B). Niente YAML dichiarativo separato. Tutte le regole — sicurezza, costi, escalation, quando bloccare prima del Synthesizer — sono espresse in linguaggio naturale nel system prompt del Praeses, che le applica adattivamente. Trade-off accettato: meno predicibilità statica, ma flessibilità su casi nuovi e costo evolutivo basso.
 
-**Status:** discussione in corso. Stefano ha esplicitamente detto "Non implementare nulla per ora" (msg 762).
+**Status:** decisioni prese, NON implementare ancora finché Stefano non dà il via (cfr. msg 762 "Non implementare nulla per ora").
 
 ## Requisiti chiave (dalla spec)
 
