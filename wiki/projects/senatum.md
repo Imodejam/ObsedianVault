@@ -6,7 +6,9 @@ Piattaforma di deliberazione multi-agent per umani e agenti AI. Le richieste dec
 
 ## Stato
 - [2026-05-03] Specifiche ricevute da Stefano via Telegram. Piratopoly messo in pausa per dare priorità a Senatum.
-- Stack da confermare. Progetto da inizializzare in `/home/progetti/senatum/`.
+- [2026-05-03] **MVP scaffold completo** in `/home/progetti/senatum/` — 59 file, 1 commit (`c549677`). Componenti: monorepo npm workspaces, packages/shared (zod schemi), apps/api (Fastify + storage markdown + Anthropic + orchestrator), apps/web (React + Vite + Tailwind, 4 pagine), apps/bot (telegraf, 4 comandi), data/senators (7 ruoli) + data/providers/anthropic-default, Docker compose multi-stage.
+- [2026-05-03] **Ambiente live**: `senatum.service` systemd attivo (user claudebot, npm run dev), Nginx `senatum.duckdns.org` con SSL Let's Encrypt valido fino al 2026-08-01 (proxy `/api/*` → 7001, `/*` → 7002). Smoke test passati: `https://senatum.duckdns.org/` HTTP 200, `https://senatum.duckdns.org/api/health` ritorna `{"status":"ok","service":"senatum-api"}`.
+- [2026-05-03] **Pubblicazione open-source**: licenza MIT in repo, README aperto al pubblico. **Push GitHub bloccato**: il PAT di Stefano (Imodejam) salvato in `~/.git-credentials` ha solo accesso al repo `ObsedianVault`, non può creare nuovi repo (`Resource not accessible by personal access token`). In attesa che Stefano crei manualmente `Imodejam/senatum` (public, vuoto, no auto-init) per pushare.
 
 ## Requisiti chiave (dalla spec)
 
