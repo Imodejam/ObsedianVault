@@ -37,7 +37,18 @@ Stefano (via Telegram, msg 764) ha proposto di separare in due ruoli distinti qu
 2. **Multi-round** subito (Praeses può rilanciare counselor con prompt aggiornati dopo il primo giro).
 3. **Policy nel prompt del Praeses LLM** (opzione B). Niente YAML dichiarativo separato. Tutte le regole — sicurezza, costi, escalation, quando bloccare prima del Synthesizer — sono espresse in linguaggio naturale nel system prompt del Praeses, che le applica adattivamente. Trade-off accettato: meno predicibilità statica, ma flessibilità su casi nuovi e costo evolutivo basso.
 
-**Status:** decisioni prese, NON implementare ancora finché Stefano non dà il via (cfr. msg 762 "Non implementare nulla per ora").
+**Status:** ✅ implementato 2026-05-03 (commit `57fb019`). Stefano ha dato il via con msg 770 "Implementa".
+
+**Cosa è stato fatto:**
+- Schema: aggiunto `praeses` a `CounselorRoleSchema`, nuovo `PraesesPlanSchema` (action: INVOKE/CONCLUDE/ABORT, counselors_to_invoke, rationale, conflict_report, abort_reason).
+- `apps/api/src/orchestrator/praeses.ts` con system prompt che esprime tutte le policy in natural language.
+- `deliberate.ts` riscritto come loop multi-round (max 3, env `MAX_ROUNDS`): Praeses → INVOKE counselor → Praeses → … → CONCLUDE (con conflict_report) → Synthesizer.
+- Audit events nuovi: `praeses.invoked`, `praeses.planned`, `praeses.aborted`, `praeses.concluded`, `praeses.failed`. Counselor events ora includono il numero del round.
+- Default `data/counselors/praeses.md` (claude-sonnet-4-6).
+- Backend guard speculare al Synthesizer: ultimo Praeses non eliminabile.
+- UI: badge purple "praeses" in CounselorsSection, nota nel form.
+- README e PLAN aggiornati.
+- E2E: non testato perché `ANTHROPIC_API_KEY` non è nel `.env` del server; audit log conferma comunque il flusso (praeses.invoked → praeses.failed su missing key → request.failed). Stefano deve aggiungere la chiave per testare la deliberazione completa.
 
 ## Requisiti chiave (dalla spec)
 
