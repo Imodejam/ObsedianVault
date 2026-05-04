@@ -96,6 +96,23 @@ Lingue al lancio: italiano, inglese, spagnolo, tedesco, francese
 - **Comandi:** `sudo systemctl status|restart piratopoly`.
 - **Note:** è un dev server (vite + tsx watch), non build di produzione.
 
+## Flusso di gioco di riferimento (msg Stefano 897, 2026-05-04)
+
+```
+Acquisto mappa
+  → [Briefing itinerario?  ← da decidere]
+  → Mappa del percorso
+  → [Briefing tappa?       ← da decidere]
+  → Bussola → camminata reale
+  → Arrivo fisico (GPS verifica)
+  → Pagina Tappa (Diario del Capitano con audio + curiosità)
+  → Quiz / Prova
+  → Ricompensa Piastre
+  → Tappa successiva (loop)
+```
+
+**How to apply:** ogni nuova feature relativa al gameplay deve incastrarsi in questa pipeline. I due "briefing" (itinerario + tappa) sono punti di domanda: Stefano non ha ancora deciso se aggiungerli, quindi *non implementare nulla in quei due slot finché non c'è una decisione esplicita*. Il resto del flusso è già tutto in piedi (Marketplace acquisto → MapDetailPage → GameMapPage → GameCompassPage → checkin → GameStopPage [diario+curiosità+prova+ricompensa] → loop).
+
 ## Decisioni di sviluppo
 ### [2026-05-04] Tappe → catalogo prove multi-tipo + 3 tentativi + speed score (idea, non ancora implementata)
 
