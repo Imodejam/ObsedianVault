@@ -139,6 +139,17 @@ Stefano (msg Telegram 811) ha proposto un'evoluzione importante del gameplay all
 6. Editor creator: **form dinamico** che cambia in base al `kind` selezionato.
 7. Generazione: **tutto via LLM** — anche indovinelli, anagrammi, rompicapo, oltre ai multipla esistenti.
 
+**Vincoli di pescaggio dal pool (msg 815, 2026-05-04)**
+- `logic` — **riservato al 3° tentativo**. Mai pescato in tentativo 1 o 2.
+- `culture` — il quiz culturale **deve essere contestuale alla tappa o alla mappa** (es. su Bund a Shanghai, deve riguardare il Bund / la storia di Shanghai, non cultura generica).
+- `anagram` — anch'esso **legato a parole/frasi della tappa o della mappa** (es. anagramma del nome di un monumento, di un personaggio storico locale).
+- Multilingua: gli anagrammi dipendono dalla lingua di gioco. L'LLM li genera per ogni lingua supportata della mappa (come già avviene per i quiz multipla).
+
+**Algoritmo di pesca**
+- Pool tappa = 6-10 challenges, di cui ≥ 1-2 di tipo `logic` e il resto distribuito fra `multiple-choice / culture / riddle / anagram`.
+- Tentativo 1 e 2: random da `{multiple-choice, culture, riddle, anagram}` (no `logic`), garantendo "non già viste".
+- Tentativo 3: random da `{logic}` (no overlap coi tipi visti prima).
+
 **Status**: decisioni prese. Implementazione in 2 fasi (vedi sotto).
 
 ### Piano di rilascio (proposto a Stefano, in attesa OK)
