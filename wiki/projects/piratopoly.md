@@ -150,6 +150,19 @@ Stefano (msg Telegram 811) ha proposto un'evoluzione importante del gameplay all
 - Tentativo 1 e 2: random da `{multiple-choice, culture, riddle, anagram}` (no `logic`), garantendo "non già viste".
 - Tentativo 3: random da `{logic}` (no overlap coi tipi visti prima).
 
+**Contestualità (msg 817, 2026-05-04)**
+Le challenge contestuali alla tappa/mappa sono: `culture`, `riddle`, `anagram` (+ `ar-find` in Fase 2). Solo `multiple-choice` e `logic` possono essere generiche. L'LLM genera tutto contestualizzato.
+
+**UX (msg 817, 2026-05-04)**
+Stefano vuole che rispondere sia facile, niente testo libero. Tutti i tipi testuali rendono come **scelta multipla a 4 opzioni**:
+- `multiple-choice` — domanda + 4 risposte (come oggi).
+- `culture` — fatto/affermazione sulla tappa + 4 risposte.
+- `logic` — enigma + 4 risposte numeriche/testuali.
+- `riddle` — indovinello + 4 possibili soluzioni.
+- `anagram` — lettere mescolate visualizzate + 4 parole tra cui scegliere la corretta.
+
+Vantaggi: tap-to-answer, niente parsing testo libero, validazione deterministica, aspetto coerente fra i tipi, performance veloce su mobile.
+
 **Status**: decisioni prese. Implementazione in 2 fasi (vedi sotto).
 
 ### Piano di rilascio (proposto a Stefano, in attesa OK)
