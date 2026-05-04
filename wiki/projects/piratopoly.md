@@ -97,6 +97,41 @@ Lingue al lancio: italiano, inglese, spagnolo, tedesco, francese
 - **Note:** è un dev server (vite + tsx watch), non build di produzione.
 
 ## Decisioni di sviluppo
+### [2026-05-04] Tappe → catalogo prove multi-tipo + 3 tentativi + speed score (idea, non ancora implementata)
+
+Stefano (msg Telegram 811) ha proposto un'evoluzione importante del gameplay alla tappa:
+
+**Tipi di prova supportati (catalogo)**
+- Quiz a risposta multipla (l'attuale)
+- Quiz logico
+- Quiz culturale
+- Rompicapo
+- Indovinello
+- Anagramma
+- **AR** — usare la fotocamera del telefono per cercare un oggetto specifico in piazza, o "trovare" una nave dei pirati AR sovrapposta alla scena reale
+
+**Modello dati proposto (da confermare con Stefano)**
+- Ogni `Stage` (tappa) ha un pool di N prove censite (N ≥ 3 per coprire i 3 tentativi).
+- Le prove sono entità separate (`Challenge`?) con `kind` + payload type-specifico (per i multipla: opzioni; per l'AR: marker / coordinate / immagine target; ecc.).
+- Pesca a runtime: 1ª prova random dal pool, e se sbagliata altre 2 random non già viste.
+
+**Flusso tentativi**
+- Tentativo 1: utente prova → se corretto, punteggio normale + bonus velocità.
+- Tentativo 2: nuova prova random dal pool → se corretto, punti ridotti.
+- Tentativo 3: ultima prova → se corretto, punti ridotti ulteriormente; se sbagliato, **penalità** in punti.
+- Più veloce è la risposta, maggiori i punti (formula da decidere — es. lineare entro un timer o curva esponenziale decrescente).
+
+**Aperto, da chiarire con Stefano**
+1. Pool minimo per tappa: 3 prove (uguale ai tentativi) o di più per dare varietà fra giocatori?
+2. Penalità tentativo 3 sbagliato: perdita assoluta (es. -50 piastre), niente piastre, o impossibilità di proseguire?
+3. Scala punti speed-bonus: cap massimo per la 1ª risposta corretta? Curva su quale finestra (10s, 30s, 60s)?
+4. Tutte le prove pesano uguali nel punteggio o alcuni tipi (AR, rompicapo) valgono di più?
+5. AR: stack tecnico — WebXR Device API (browser-based, dispositivi compatibili), MindAR (marker-based via JS), oppure soluzione plain camera + AI vision (es. una foto inviata al backend che chiede a un LLM "questa foto contiene un X?"). Quest'ultima è la più semplice ma richiede chiave LLM e ha latenza.
+6. Editor lato creator: dovrà permettere di aggiungere N prove di tipo diverso a ciascuna tappa. Stessa UI per tutti i tipi o tab separati per tipo?
+7. Generazione AI: il sistema attuale già genera quiz multipla via LLM. Vogliamo estenderlo a generare anche indovinelli, anagrammi, ecc., o lasciarli al creator?
+
+**Status**: discussione aperta, NON implementato. Niente codice finché Stefano non risponde alle aperture.
+
 ### [2026-04-29] Frontend layout "telefono al centro"
 App mobile-first ma usabile anche su desktop/tablet centrata.
 - Wrapper globale in `App.tsx`: `<div class="mx-auto w-full max-w-md min-h-screen bg-bg shadow-2xl ...">` racchiude le Routes.
