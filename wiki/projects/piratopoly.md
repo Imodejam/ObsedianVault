@@ -130,7 +130,31 @@ Stefano (msg Telegram 811) ha proposto un'evoluzione importante del gameplay all
 6. Editor lato creator: dovrà permettere di aggiungere N prove di tipo diverso a ciascuna tappa. Stessa UI per tutti i tipi o tab separati per tipo?
 7. Generazione AI: il sistema attuale già genera quiz multipla via LLM. Vogliamo estenderlo a generare anche indovinelli, anagrammi, ecc., o lasciarli al creator?
 
-**Status**: discussione aperta, NON implementato. Niente codice finché Stefano non risponde alle aperture.
+**Decisioni di Stefano (msg 813, 2026-05-04)**
+1. Pool per tappa: **min 6, target 10** (dipende dalle info disponibili sul luogo).
+2. Penalità al 3° fallimento: **-10% del punteggio normale della tappa**, fisso e proporzionale (es. tappa da 150 → -15 piastre).
+3. Speed bonus: confermato **10s = max bonus, 60s = zero**. Curva lineare entro la finestra.
+4. Pesi per tipo: tutti uguali, niente bonus per AR/rompicapo.
+5. AR: stack **MindAR / AR.js** (image-target via JS, funziona su quasi tutti i mobile).
+6. Editor creator: **form dinamico** che cambia in base al `kind` selezionato.
+7. Generazione: **tutto via LLM** — anche indovinelli, anagrammi, rompicapo, oltre ai multipla esistenti.
+
+**Status**: decisioni prese. Implementazione in 2 fasi (vedi sotto).
+
+### Piano di rilascio (proposto a Stefano, in attesa OK)
+**Fase 1 — Modello dati + tipi testuali + scoring**
+- Migration `challenges` (1:N con stages); backfill dei quiz esistenti come challenge `multiple-choice`.
+- Tipi testuali: multiple-choice, logic, culture, riddle, anagram (5 tipi).
+- LLM generator esteso: produce 6-10 challenges di tipi misti per ogni stage; backfill richiamabile sulle mappe esistenti.
+- Backend: flusso tentativi (max 3, pesca random non-vista), speed bonus lineare 10s→60s, penalità -10%.
+- Frontend GameStagePage: timer visibile, transizione fra tentativi, mostra punti rimanenti dopo ogni fallimento.
+- Editor creator: form dinamico per challenge in CreatorMapStagePage.
+
+**Fase 2 — AR**
+- Integrazione MindAR (image-target via JS).
+- Editor creator: upload immagine target + descrizione "trova questa nave/oggetto".
+- LLM suggerisce cosa cercare in base al luogo (testo "cerca la statua del leone" → poi creator carica la foto).
+- Challenge type `ar-find` con timer condiviso.
 
 ### [2026-04-29] Frontend layout "telefono al centro"
 App mobile-first ma usabile anche su desktop/tablet centrata.
