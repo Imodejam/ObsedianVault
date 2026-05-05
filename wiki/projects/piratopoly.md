@@ -9,6 +9,15 @@ PWA AI-powered urban treasure hunt: i giocatori pianificano da remoto itinerari 
 - **UGC**: i giocatori creano mappe → marketplace community
 - **Esplorazione con purpose**: tappe reali (monumenti, festival, trattorie)
 
+## Regola architetturale: tutto pre-creato (Stefano, msg 1129, 2026-05-05)
+Le mappe, le tappe, i contenuti narrativi e i quiz **non** vengono generati a runtime dal backend. Tutto deve essere creato e validato **prima** che la mappa venga pubblicata. Il flusso:
+1. Stefano chiede "crea mappa X" → Claude Code (CLI, fuori runtime) genera mappa+tappe+narrative+quiz.
+2. I quiz passano per Concilium (validazione multi-LLM) → solo gli `approved` finiscono in `quiz_pool`.
+3. Stefano riceve l'OK → la mappa viene pubblicata.
+4. Backend runtime serve solo dati già in DB. Nessuna chiamata `client.messages.create` su path utente.
+
+L'`ANTHROPIC_API_KEY` è riservata a Concilium. Trigger storico del bug: `/resume-quiz` chiamava `ensureStagePool` → `generateChallengePool` → API HTTP → 400 "API usage limits". Fix 2026-05-05: `ensureStagePool` e `ensureStageContent` ora sono read-only.
+
 ## Target
 - Turisti internazionali (25-45 anni, visita 2-5 giorni)
 - Residenti locali (25-50 anni, riscoprire la propria città)
