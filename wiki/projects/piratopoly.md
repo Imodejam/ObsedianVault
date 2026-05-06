@@ -203,6 +203,28 @@ Queste 4 regole valgono per **tutti i quiz** (esistenti e nuovi). Sono nel syste
 - `backend/scripts/regenerate-banal-riddles.ts` (e qualunque altro caller offline) deve passare `wiki?.extract ?? null` da `fetchStageWikipedia`.
 - Validazione finale via Concilium (multi-LLM) prima dell'`approved` in `quiz_pool`.
 
+### Regole "descrizione" e "curiosità" della tappa (Stefano, msg 1171, 2026-05-06)
+
+La pagina Tappa (GameStopPage) mostra due campi distinti, generati da `generateStageContent` in `claude.service.ts` e salvati in `stage_content_i18n`.
+
+**`narrative` (la "descrizione"):**
+- Deve **incuriosire**: aggancio iniziale che apra una domanda o presenti un'immagine forte; mantenere viva la curiosità in tutto il testo.
+- Deve essere **chiara**: frasi pulite, niente giri di parole, una sola lettura basta a capire cos'è il luogo.
+- Deve riportare **tutte le notizie importanti** (chi/cosa/quando + significato storico/culturale/architettonico). Il giocatore non deve dover andare su Wikipedia.
+- 100-180 parole, mai oltre 220, testo unico narrativo (no bullet/titoli).
+- Niente aneddoti curiosi/sorprendenti/secondari qui — quelli vivono in `curiosities`.
+
+**`curiosities`:**
+- Esattamente 3 frasi, ognuna < 110 caratteri.
+- Sono **informazioni curiose da sapere** — fatti laterali, sorprendenti, gustosi: "lo sapevi che…", record, primati, dettagli invisibili a colpo d'occhio, aneddoti, leggende minori.
+- **Mai sovrapposte alla narrative**: se un fatto è già nel narrative, scartarlo e scegliere un altro angolo.
+- Memorabili, sorprendenti, verificabili.
+
+**Architettura: tutto pre-creato, niente runtime LLM** (msg 1129):
+- `ensureStageContent` è read-only. Se manca → throw 500 esplicito ("stage_content missing for stage=…").
+- I content vanno generati offline via Claude Code CLI o inseriti inline (no API HTTP — riservata a Concilium).
+- Prima di pubblicare una mappa, ogni tappa DEVE avere un record `stage_content_i18n` con `narrative.length > 0` per ogni lingua supportata. Audit script: `backend/scripts/audit-stage-content.ts`.
+
 **Status**: decisioni prese. Implementazione in 2 fasi (vedi sotto).
 
 ### Piano di rilascio (proposto a Stefano, in attesa OK)
