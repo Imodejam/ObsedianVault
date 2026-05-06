@@ -189,6 +189,20 @@ Stefano vuole che rispondere sia facile, niente testo libero. Tutti i tipi testu
 
 Vantaggi: tap-to-answer, niente parsing testo libero, validazione deterministica, aspetto coerente fra i tipi, performance veloce su mobile.
 
+### Regole qualità contenuto quiz (Stefano, msg 1153, 2026-05-06)
+
+Queste 4 regole valgono per **tutti i quiz** (esistenti e nuovi). Sono nel system/user prompt del generator (`generateChallengePool` in `claude.service.ts`) e devono essere aggiornate insieme alla pagina wiki ogni volta che cambiano.
+
+1. **Non-banalità.** Una domanda è banale quando la risposta è il soggetto stesso della tappa. Se la tappa si chiama "X", la risposta corretta NON può essere "X" né una sua parafrasi/sinonimo/contenitore. Anche la domanda non deve rendere "X" l'opzione ovvia. *Esempio banale rifiutato:* tappa "Castello Svevo di Cosenza" → "Che tipo di edificio è?" → "castello". *Esempio corretto:* dettaglio verificabile (data, iscrizione, materiale, episodio, persona, dimensione) tratto dalle fonti.
+2. **Distribuzione `correctIndex`.** Su un pool di 8 quiz, `correctIndex` distribuito ~uniformemente fra 0/1/2/3 (target 2 per ciascuno, tolleranza ±1). Mai più di 3 occorrenze sullo stesso indice. Niente default a 0.
+3. **Sourcing & incontestabilità.** Per `multiple-choice`, `culture`, `riddle`, `anagram` ogni risposta corretta deve essere un fatto verificabile via Wikipedia (estratto fornito al prompt) o materiale di riferimento ampiamente accettato. Niente leggende presentate come fatto, niente attribuzioni contestate. La `explanation` deve citare il fatto specifico. `logic` è esente (puzzle puro di ragionamento).
+4. **Livello sfidante.** Almeno 3 quiz su 8 devono essere "challenging": dettaglio specifico non ovvio (data, nome, numero, dimensione, iscrizione) o piccola inferenza, tale che un visitatore casuale che ha solo dato un'occhiata NON indovinerebbe. La `explanation` chiarisce *perché* non è banalmente deducibile. Gli altri possono essere medi. Evitare trivia da manuale ("in che anno morì X") salvo date iconiche e centrali nelle fonti.
+
+**Where it's enforced:**
+- `backend/src/services/claude.service.ts` → `generateChallengePool` riceve `sources?: string | null` (estratto Wikipedia) e include le 4 regole nel prompt.
+- `backend/scripts/regenerate-banal-riddles.ts` (e qualunque altro caller offline) deve passare `wiki?.extract ?? null` da `fetchStageWikipedia`.
+- Validazione finale via Concilium (multi-LLM) prima dell'`approved` in `quiz_pool`.
+
 **Status**: decisioni prese. Implementazione in 2 fasi (vedi sotto).
 
 ### Piano di rilascio (proposto a Stefano, in attesa OK)
