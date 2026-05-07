@@ -227,6 +227,12 @@ La pagina Tappa (GameStopPage) mostra due campi distinti, generati da `generateS
 
 **Status**: decisioni prese. Implementazione in 2 fasi (vedi sotto).
 
+### [2026-05-07] Counter "Mappe" nel profilo = sessioni completate (msg 1198)
+Stefano (msg 1196 → 1198): nel profilo vedeva 2 mentre in `MyMapsPage` chip "completate" diceva 6 → discrepanza. La regola di ieri (msg 1190/1192, 2026-05-06) imponeva DISTINCT map.id per evitare di gonfiare con i replay; oggi Stefano ribalta: vuole **sessioni di gioco** (replay incluso, allineato col chip di MyMapsPage).
+- `ProfilePage.tsx` (`reloadCompletedCount`): `items.filter(m => m.playStatus === 'completed').length`, niente più `Set`.
+- Tooltip "Mappe terminate" resta (generico, OK per entrambe le semantiche).
+- Backend `/game/sessions/my-maps` immutato: ritorna ogni sessione (decisione msg 1053, no dedup per mappa).
+
 ### Piano di rilascio (proposto a Stefano, in attesa OK)
 **Fase 1 — Modello dati + tipi testuali + scoring**
 - Migration `challenges` (1:N con stages); backfill dei quiz esistenti come challenge `multiple-choice`.
