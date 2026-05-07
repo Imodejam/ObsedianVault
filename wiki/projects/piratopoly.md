@@ -227,6 +227,14 @@ La pagina Tappa (GameStopPage) mostra due campi distinti, generati da `generateS
 
 **Status**: decisioni prese. Implementazione in 2 fasi (vedi sotto).
 
+### [2026-05-07] Stage-complete deep-link riapribile (msg 1208)
+Stefano (msg 1208): la pagina `/game/:sessionId/stage-complete` mostrava il riepilogo della tappa solo subito dopo aver risposto al quiz, perché leggeva da uno store volatile (`lastStageOutcome`). Adesso deve poter essere aperta più volte.
+- Route: aggiunta `/game/:sessionId/stage-complete/:stageId` (path nuovo). Vecchio path senza stageId mantenuto per fallback ma reindirizza alla mappa se store vuoto.
+- `LastStageOutcome` ora porta `stageId` per disambiguare.
+- `StageCompletePage` se store match → render con count-up come prima; altrimenti `GET /sessions/:id/stages/:stageId/result` ricostruisce il payload (senza animazione) e mostra la stessa UI.
+- Backend `/sessions/:id/stages/:stageId/result` ora ritorna anche `stageName` (join `stages(name)`).
+- `PlayedMapDetailPage`: ogni tappa nella lista è cliccabile e apre il deep-link.
+
 ### [2026-05-07] Counter "Mappe" nel profilo = sessioni completate (msg 1198)
 Stefano (msg 1196 → 1198): nel profilo vedeva 2 mentre in `MyMapsPage` chip "completate" diceva 6 → discrepanza. La regola di ieri (msg 1190/1192, 2026-05-06) imponeva DISTINCT map.id per evitare di gonfiare con i replay; oggi Stefano ribalta: vuole **sessioni di gioco** (replay incluso, allineato col chip di MyMapsPage).
 - `ProfilePage.tsx` (`reloadCompletedCount`): `items.filter(m => m.playStatus === 'completed').length`, niente più `Set`.
