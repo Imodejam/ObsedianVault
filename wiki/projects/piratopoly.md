@@ -52,6 +52,21 @@ L'`ANTHROPIC_API_KEY` è riservata a Concilium. Trigger storico del bug: `/resum
 - Value prop: mappa 7,99€ + voucher 15-20€ = ROI positivo
 
 ## Pricing
+
+> ⚠️ **2026-05-08 — superato dal GDD V1.** Vedi [[piratopoly-pricing-v1-execution|Pricing V1 — Piano di Esecuzione]] e [[../../raw/docs/piratopoly/pricing-v1-2026-05-08.md|documento sorgente]].
+
+### V1 (target MVP, in attesa implementazione)
+| SKU | Tappe | Validità | Prezzo |
+|---|---|---|---|
+| Demo Città | 1–2 | Illimitata | Gratis |
+| Mini Mappa | 3–4 | 24h | 5,99 € |
+| Mappa Classica | 5–7 | 48h | 11,99 € |
+| Mappa Estesa | 8–10 | 72h | 14,99 € (8,99 € con Pass) |
+| Pack Esploratore | 3 mappe | 12 mesi | 24,99 € |
+| Pirate Pass mensile | Catalogo + EL illimitata | 30gg | 11,99 €/mese |
+| Pirate Pass annuale | Catalogo + EL illimitata | 12 mesi | 79 €/anno |
+
+### V0 (pricing legacy attualmente nel codice)
 | Piano | Prezzo |
 |-------|--------|
 | Trial Gratuito | 0€ (1 mappa ridotta, 1 giorno, 3 tappe, no voucher) |
