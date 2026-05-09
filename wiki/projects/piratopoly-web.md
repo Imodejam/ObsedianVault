@@ -35,19 +35,43 @@ Studio embedded a `/studio/[[...index]]` (NextStudio). Middleware i18n esclude `
 
 ## Stato attuale (2026-05-09)
 
-Plan in `docs/superpowers/plans/2026-05-08-piratopoly-vetrina.md`. Phases 1-6 completate (foundation, design system, layout, tutte le 10 sezioni home, template città/mappa, pagine statiche, blog index empty state, traduzioni i18n). Phase 7 (Sanity CMS) avanzata:
+**MVP chiuso, tag git `v0.1.0-mvp`.**
 
-- ✅ Task 34 — Studio scaffold: `studio/sanity.config.ts`, schemas city/map/testimonial/blogPost/seasonalMap, mount `/studio` route, `styled-components` aggiunto come peer dep di NextStudio (commit `1019c19`).
-- ✅ Task 35 — `lib/sanity/{client,queries,types}.ts`: GROQ per cities/maps/seasonal/blog/testimonials, types TS manuali (commit `cf2b5b4`).
-- ✅ Task 36 — `lib/sanity/fetch.ts` + wire consumer: city/map templates con loadCity/loadMap, CuratedMaps split server+client, SeasonalMaps async (commit `e67e349`).
+Plan in `docs/superpowers/plans/2026-05-08-piratopoly-vetrina.md`. Phases 1-9 completate (foundation, design system, layout, tutte le 10 sezioni home, template città/mappa, pagine statiche, blog index empty state, traduzioni i18n, Sanity CMS hybrid, SEO/JSON-LD/sitemap/robots, GA4 stub, cookie banner, newsletter aside, smoke test).
 
-Type-check + production build passano puliti. Build size: home + 10 sezioni e template generano correttamente; `/studio/[[...index]]` reso dinamico (1.48 MB chunk Sanity, isolato).
+### Storia commit
 
-## Prossimi step (plan)
+- Task 34 — Sanity Studio scaffold (commit `1019c19`)
+- Task 35 — `lib/sanity/{client,queries,types}.ts` (`cf2b5b4`)
+- Task 36 — `fetchOrFallback` + wire consumer (`e67e349`)
+- Task 37 — README con Sanity onboarding (`d4cdccb`)
+- Task 38 — `lib/seo.ts buildMetadata` + `[locale]/layout` generateMetadata (`8c59400`)
+- Task 39 — JSON-LD: LocalBusiness/TouristAttraction/BreadcrumbList/FAQPage (`e471b9a`)
+- Task 40 — `app/sitemap.ts` (75 URL) + `app/robots.ts` + fix next-intl locale return (`82c6dfb`)
+- Task 41 — GA4 stub, no-op senza env (`b918231`)
+- Task 42 — image audit, no change necessaria
+- Task 45 — Cookie banner minimal (`ebea21d`)
+- Task 46 — Newsletter aside + i18n `newsletter` ×5 locales (`2ff76aa`)
+- Task 48 — Smoke test: build, lint, 17 URL prod 200
+- Task 49 — Tag `v0.1.0-mvp`
 
-- Task 37 — Stub README per onboarding Sanity (creare project, env vars, primo deploy studio).
-- Phase 8 — SEO (meta, JSON-LD, sitemap, robots), GA4 stub, image optimization, a11y axe pass, Lighthouse run.
-- Phase 9 — README finale, smoke test produzione, tag MVP.
+### Numeri build MVP
+
+- Sitemap: 75 URL (5 locali × 15 path: 8 statiche + 3 città + 4 mappe)
+- JSON-LD verificato in HTML SSR: home (LocalBusiness + FAQPage), map (TouristAttraction + BreadcrumbList)
+- Studio embedded `/studio/[[...index]]`: dynamic, 1.48 MB chunk isolato
+
+## TODO post-MVP (handoff Stefano)
+
+- Wire Sanity progetto reale: creare project su sanity.io, settare `NEXT_PUBLIC_SANITY_PROJECT_ID/DATASET` su Vercel, popolare città+mappe via Studio.
+- Wire GA4 production ID (`NEXT_PUBLIC_GA4_ID` su Vercel).
+- Wire endpoint newsletter (oggi posta a `/api/newsletter` placeholder — collegare a Brevo/Mailchimp/altro).
+- Pass nativi traduttori sulle 5 i18n (oggi machine + style guide).
+- Foto reali per città / mappe (oggi placeholder SVG decos).
+- Contenuti reali blog (oggi empty state + 404 stub).
+- Pagina partner: dati reali esercenti.
+- A11y deep pass con axe DevTools + screen reader (Hero/PiratePass/Pricing) + Lighthouse production.
+- Eventuale Phase 2: integrazione 3D map / parallax avanzata, Pricing → Stripe.
 
 ## Layout repo
 
