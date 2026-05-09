@@ -6,6 +6,18 @@ Sito vetrina marketing per Piratopoly. Repository separato dalla PWA di gioco: `
 
 Production-ready Next.js 14 marketing site: dark-mode pirate aesthetic, 5 lingue, Sanity CMS hybrid, tutte le sezioni home + template città/mappa, target Lighthouse 90+/95+/95+/100. Stefano deploya via Vercel UI; gli agenti consegnano scaffold + build verificata.
 
+## Deployment dev
+- **URL pubblico:** http://piratopoly-dev-web.duckdns.org/
+- **Repo:** `/home/progetti/piratopoly-web/` (Next.js standalone, no workspaces).
+- **Servizio systemd:** `piratopoly-web.service` (User=`claudebot`, WorkingDirectory=`/home/progetti/piratopoly-web`).
+- **Comando:** `npx next dev -p 6010 -H 0.0.0.0`.
+- **Porta:** `127.0.0.1:6010` (dietro Nginx).
+- **Nginx:** `/etc/nginx/sites-available/piratopoly-dev-web.duckdns.org` → proxy a `:6010`, WS upgrade, listen 80.
+- **Restart:** `Restart=always`, `RestartSec=10`. Enabled al boot.
+- **Log:** `journalctl -u piratopoly-web -f` (identifier `piratopoly-web`).
+- **Comandi:** `sudo systemctl status|restart piratopoly-web`.
+- **Note:** è un dev server (`next dev`), non build di produzione. Prod futura: `piratopoly.com` su server dedicato separato.
+
 ## Stack
 
 - Next.js 14 App Router (Server Components + streaming SSR)
