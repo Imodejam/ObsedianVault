@@ -4,6 +4,7 @@
 - [[wiki/projects/concilium|Concilium]] — Piattaforma di deliberazione multi-LLM con Synthesizer (Praeses Concilii). Repo: github.com/Imodejam/Concilium. _Priorità attuale, MVP live._
 - [[wiki/projects/puntify|Puntify]] — Fidelity card digitale per esercenti (primo target Roma)
 - [[wiki/projects/piratopoly|Piratopoly]] — AI-powered urban treasure hunt PWA. _In pausa dal 2026-05-03._
+  - [[wiki/projects/piratopoly-pricing-strategy|Piratopoly · Strategia prezzi V1]] — posizionamento, 4 SKU mappa + 2 piani Pass, Piastre, decisioni e gap codice/vetrina
   - [[wiki/projects/piratopoly-pricing-v1-execution|Piratopoly · Pricing V1 — Piano di Esecuzione]] — gap analysis vs GDD 2026-05-08 e fasi (Catalogo / Pass / EL / Voucher / Stagionalità)
   - [[wiki/projects/piratopoly-web|Piratopoly Web]] — sito vetrina marketing Next.js 14 (5 lingue). Sanity rimosso 2026-05-09: ora legge dal Supabase della PWA (mappe `is_official` published).
 - [[wiki/projects/openclaw-setup|OpenClaw Setup]] — Ottimizzazione configurazione OpenClaw, agenti, monitoraggio
