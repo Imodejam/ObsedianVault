@@ -1,12 +1,12 @@
-# Piratopoly · Strategia prezzi V1
+# Piracity · Strategia prezzi V1
 
-**Status:** strategia approvata da Stefano sul GDD 2026-05-08. Copy finali allineati su [[piratopoly-web|vetrina]] e [[piratopoly|app PWA]] in 5 lingue. Implementazione SKU/Stripe da fare (vedi [[piratopoly-pricing-v1-execution]]).
+**Status:** strategia approvata da Stefano sul GDD 2026-05-08. Copy finali allineati su [[piracity-web|vetrina]] e [[piracity|app PWA]] in 5 lingue. Implementazione SKU/Stripe da fare (vedi [[piracity-pricing-v1-execution]]).
 
-**Documento sorgente:** [[../../raw/docs/piratopoly/pricing-v1-2026-05-08.md|GDD Modello Commerciale e Pricing V1]].
+**Documento sorgente:** [[../../raw/docs/piracity/pricing-v1-2026-05-08.md|GDD Modello Commerciale e Pricing V1]].
 
 ## Posizionamento
 
-Piratopoly è venduta come **esperienza esperienziale urbana** (non gioco gratis con micro-transazioni). Il prezzo deve far percepire:
+Piracity è venduta come **esperienza esperienziale urbana** (non gioco gratis con micro-transazioni). Il prezzo deve far percepire:
 - la mappa come **prodotto editoriale curato** (paragonabile a un audio-tour premium tipo Wandar/Voicemap a 5–15 €);
 - il Pirate Pass come **abbonamento da turista frequente / local explorer** (paragonabile a Headspace o Calm in fascia 8–12 €/mese);
 - ROI tangibile: prezzo mappa + voucher partner ≥ valore percepito.
@@ -103,14 +103,14 @@ Decisione 2026-05-02: un creator può giocare gratuitamente le proprie mappe in 
 | Sconto Estesa con Pass | Mostrato nei prezzi (€8,99) | Non implementato |
 | Piastre come moneta | Non mostrato in vetrina | `users.available_piastre` ancora da introdurre via migration |
 
-**Gap implementativo**: la vetrina **comunica** il pricing V1 ma il codice PWA fattura ancora V0. La transizione è descritta in [[piratopoly-pricing-v1-execution|Pricing V1 — Piano di Esecuzione]] (5 fasi, in attesa OK Stefano per partire dalla Fase 1: Catalogo).
+**Gap implementativo**: la vetrina **comunica** il pricing V1 ma il codice PWA fattura ancora V0. La transizione è descritta in [[piracity-pricing-v1-execution|Pricing V1 — Piano di Esecuzione]] (5 fasi, in attesa OK Stefano per partire dalla Fase 1: Catalogo).
 
 ## Copy multilingua
 
 I micro-copy finali per ognuno dei 4 tier e 2 piani Pass sono nei file `content/i18n/{it,en,es,de,fr}.json` della vetrina (chiavi `pricing.tiers.*` e `piratePass.*`). Tradotti nativamente per ogni lingua con lessico pirata coerente (Set sail / Zarpa / In See stechen / Lever l'ancre).
 
 ## Link correlati
-- [[piratopoly|Piratopoly (PWA)]]
-- [[piratopoly-web|Piratopoly Web (vetrina)]]
-- [[piratopoly-pricing-v1-execution|Pricing V1 — Piano di Esecuzione]]
-- Doc sorgente: `raw/docs/piratopoly/pricing-v1-2026-05-08.md`
+- [[piracity|Piracity (PWA)]]
+- [[piracity-web|Piracity Web (vetrina)]]
+- [[piracity-pricing-v1-execution|Pricing V1 — Piano di Esecuzione]]
+- Doc sorgente: `raw/docs/piracity/pricing-v1-2026-05-08.md`

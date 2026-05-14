@@ -5,7 +5,7 @@ Piattaforma di deliberazione multi-agent per umani e agenti AI. Le richieste dec
 **Sorgente specifiche:** [[../../raw/docs/concilium-mvp-spec_2026-05-03|Spec MVP del 2026-05-03]] (immutabile).
 
 ## Stato
-- [2026-05-03] Specifiche ricevute da Stefano via Telegram. Piratopoly messo in pausa per dare priorità a Concilium.
+- [2026-05-03] Specifiche ricevute da Stefano via Telegram. Piracity messo in pausa per dare priorità a Concilium.
 - [2026-05-03] **MVP scaffold completo** in `/home/progetti/concilium/` — 59 file, 1 commit (`c549677`). Componenti: monorepo npm workspaces, packages/shared (zod schemi), apps/api (Fastify + storage markdown + Anthropic + orchestrator), apps/web (React + Vite + Tailwind, 4 pagine), apps/bot (telegraf, 4 comandi), data/senators (7 ruoli) + data/providers/anthropic-default, Docker compose multi-stage.
 - [2026-05-03] **Ambiente live**: `concilium.service` systemd attivo (user claudebot, npm run dev), Nginx `concilium.duckdns.org` con SSL Let's Encrypt valido fino al 2026-08-01 (proxy `/api/*` → 7001, `/*` → 7002). Smoke test passati: `https://concilium.duckdns.org/` HTTP 200, `https://concilium.duckdns.org/api/health` ritorna `{"status":"ok","service":"concilium-api"}`.
 - [2026-05-03] **Pubblicazione open-source**: licenza MIT in repo, README aperto al pubblico. **Push GitHub bloccato**: il PAT di Stefano (Imodejam) salvato in `~/.git-credentials` ha solo accesso al repo `ObsedianVault`, non può creare nuovi repo (`Resource not accessible by personal access token`). In attesa che Stefano crei manualmente `Imodejam/concilium` (public, vuoto, no auto-init) per pushare.
@@ -150,8 +150,8 @@ Confidenza: 0.91
 - Docker ready (compose).
 
 ## Stack proposto (da confermare con Stefano)
-- **Backend:** Node.js 20 + TypeScript + Fastify (più leggero di Express, OpenAPI nativo). Oppure Express se Stefano preferisce coerenza con Piratopoly.
-- **Frontend:** React 18 + TypeScript + Vite + TailwindCSS (coerente con Piratopoly).
+- **Backend:** Node.js 20 + TypeScript + Fastify (più leggero di Express, OpenAPI nativo). Oppure Express se Stefano preferisce coerenza con Piracity.
+- **Frontend:** React 18 + TypeScript + Vite + TailwindCSS (coerente con Piracity).
 - **LLM:** Anthropic SDK (Claude Sonnet/Opus) come senatore di default; provider plugabili (OpenAI, Gemini) via interfaccia comune.
 - **Telegram:** [`telegraf`](https://telegraf.js.org/) o `node-telegram-bot-api`.
 - **Persistenza:** filesystem + `gray-matter` per parsare frontmatter YAML.

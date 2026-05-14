@@ -5,7 +5,7 @@ Questo documento definisce gli standard obbligatori di interazione, documentazio
 ## 1. AVVIO SESSIONE
 Ogni volta che vieni spawnato, devi:
 1. Leggere `[[wiki/index.md]]` per avere la panoramica dei progetti.
-2. Leggere la pagina wiki del progetto specifico su cui stai lavorando (es. `[[wiki/projects/piratopoly]]`).
+2. Leggere la pagina wiki del progetto specifico su cui stai lavorando (es. `[[wiki/projects/piracity]]`).
 3. Verificare lo stato dei task in `tasks.json`.
 
 ## 2. GESTIONE KANBAN (tasks.json)

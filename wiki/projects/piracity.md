@@ -1,4 +1,4 @@
-# Piratopoly
+# Piracity
 
 ## Obiettivo
 PWA AI-powered urban treasure hunt: i giocatori pianificano da remoto itinerari personalizzati, poi li eseguono fisicamente esplorando la città.
@@ -53,7 +53,7 @@ L'`ANTHROPIC_API_KEY` è riservata a Concilium. Trigger storico del bug: `/resum
 
 ## Pricing
 
-> ⚠️ **2026-05-08 — superato dal GDD V1.** Vedi [[piratopoly-pricing-v1-execution|Pricing V1 — Piano di Esecuzione]] e [[../../raw/docs/piratopoly/pricing-v1-2026-05-08.md|documento sorgente]].
+> ⚠️ **2026-05-08 — superato dal GDD V1.** Vedi [[piracity-pricing-v1-execution|Pricing V1 — Piano di Esecuzione]] e [[../../raw/docs/piracity/pricing-v1-2026-05-08.md|documento sorgente]].
 
 ### V1 (target MVP, in attesa implementazione)
 | SKU | Tappe | Validità | Prezzo |
@@ -102,22 +102,22 @@ Lingue al lancio: italiano, inglese, spagnolo, tedesco, francese
 
 ## Stato attuale
 [2026-04-21] — GDD v2.0 completato. In fase di sviluppo.
-[2026-04-27] — Setup ambiente delegato a Carlo: dipendenze installate (shared, backend, frontend), Nginx config su `piratopoly-dev.duckdns.org`.
+[2026-04-27] — Setup ambiente delegato a Carlo: dipendenze installate (shared, backend, frontend), Nginx config su `piracity-dev-app.duckdns.org`.
 [2026-04-29] — Frontend: implementato layout "telefono al centro" (mobile-first usabile su desktop/tablet).
 [2026-05-01] — Definito sistema gradi giocatore (10 rank, 5 tier, soglie Piastre lifetime, decay -1 grado/6 mesi dopo 12 mesi inattività). Annual Pass = mappe illimitate. Piastre solo da gioco (no streak/eventi al lancio). Definito sistema gradi creator separato (Cartografo, 3 livelli, valuta "Carte"). Vantaggi per grado da definire.
 [2026-05-01] — Pagina bussola: aggiunto loader full-screen che resta finché GPS non acquisito, con retry continui (vedi sezione Decisioni di sviluppo).
 
 ## Deployment dev
-- **URL pubblico:** http://piratopoly-dev.duckdns.org/
-- **Repo:** `/home/progetti/piratopoly/` (npm workspaces: `shared`, `backend`, `frontend`).
-- **Servizio systemd:** `piratopoly.service` (User=`claudebot`, WorkingDirectory=`/home/progetti/piratopoly`).
+- **URL pubblico:** http://piracity-dev-app.duckdns.org/
+- **Repo:** `/home/progetti/piracity/` (npm workspaces: `shared`, `backend`, `frontend`).
+- **Servizio systemd:** `piracity.service` (User=`claudebot`, WorkingDirectory=`/home/progetti/piracity`).
 - **Comando:** `npm run dev` → `concurrently "npm run dev --workspace=backend" "npm run dev --workspace=frontend"`.
 - **Porte:** `127.0.0.1:6002` (frontend Vite, dietro Nginx) / `*:6001` (backend Express, `npx tsx watch`).
-- **Nginx:** `/etc/nginx/sites-available/piratopoly-dev.duckdns.org` → proxy a `:6002`.
+- **Nginx:** `/etc/nginx/sites-available/piracity-dev-app.duckdns.org` → proxy a `:6002`.
 - **Node:** nvm `v20.20.2` (`/home/claudebot/.nvm/versions/node/v20.20.2/bin/`).
 - **Restart:** `Restart=always`, `RestartSec=10`. Enabled al boot.
-- **Log:** `journalctl -u piratopoly -f` (identifier: `piratopoly`).
-- **Comandi:** `sudo systemctl status|restart piratopoly`.
+- **Log:** `journalctl -u piracity -f` (identifier: `piracity`).
+- **Comandi:** `sudo systemctl status|restart piracity`.
 - **Note:** è un dev server (vite + tsx watch), non build di produzione.
 
 ## Flusso di gioco di riferimento (msg Stefano 897, 2026-05-04)
@@ -314,7 +314,7 @@ Regole della modalità test:
 - ✅ Tutto il flow restante funziona (check-in GPS, quiz, recap) per consentire un vero test sul campo.
 
 **Implementazione (TODO, quando si introduce il flusso pagamenti):**
-- Aggiungere colonna `mode TEXT NOT NULL DEFAULT 'play' CHECK (mode IN ('play','test'))` a `piratopoly.game_sessions`.
+- Aggiungere colonna `mode TEXT NOT NULL DEFAULT 'play' CHECK (mode IN ('play','test'))` a `piracity.game_sessions`.
 - `POST /game/sessions`: se `req.userId === map.creator_id`, marcare la sessione come `mode='test'`.
 - `POST /sessions/:id/complete`: se `mode='test'`, saltare `update_user_score` e `maps.plays_count++`. Salvare comunque le `game_stage_results` per il recap.
 - Frontend: badge "🧪 Modalità test" su `GameMapPage`, `GameCompassPage`, `GameCompletePage`, `PlayedMapDetailPage` quando `session.mode === 'test'`.
@@ -339,7 +339,7 @@ Decisione di game design Stefano 2026-05-02: una mappa acquistata si può rigioc
 
 ### [2026-05-02] Recensioni mappe (eligibility = aver completato)
 Implementato sistema review per le mappe.
-- **Tabella `piratopoly.reviews`** già esistente (id, map_id, reviewer_id, stars 1-5, body, created_at, UNIQUE(map_id, reviewer_id)).
+- **Tabella `piracity.reviews`** già esistente (id, map_id, reviewer_id, stars 1-5, body, created_at, UNIQUE(map_id, reviewer_id)).
 - **Backend (in `maps.routes.ts`):** `GET /maps/:mapId/review/me` ritorna `{ canReview, review }` (canReview = ha ≥1 sessione completed su quella mappa). `PUT /maps/:mapId/review` upserta su (map_id, reviewer_id), bocca con 403 se l'utente non ha mai completato. Dopo upsert ricalcola `maps.avg_rating` (NUMERIC(3,2)) e `maps.reviews_count`.
 - **Frontend componente riusabile `<MapReviewBlock mapId hideWhenIneligible? />`** in `components/maps/MapReviewBlock.tsx`: gestisce loading, eligibility, fetch della review esistente, form (stelle clickable + textarea body 0-1000 char), bottone Pubblica/Aggiorna, modalità readonly con CTA Modifica.
 - **Inserito in 3 punti:**
@@ -369,7 +369,7 @@ Implementata sezione profilo per rivedere le mappe già completate.
 
 ### [2026-05-02] Bug critico: total_score utente sempre 0 — fixato
 **Sintomo:** Stefano dopo aver finito una mappa (715 punti su `game_sessions`, status `completed`) vedeva ancora `total_score = 0` nel profilo. **Causa:** `game.routes.ts` chiamava `supabase.rpc('update_user_score', …)` ma la funzione **non esisteva** nel database (mai migrata) — `.maybeSingle()` swallow-ava l'errore. **Fix:**
-- Creata migration `supabase/migrations/006_update_user_score_function.sql`: definisce `piratopoly.update_user_score(p_user_id uuid, p_score integer)` che incrementa cumulativamente `total_score` e `maps_completed`. Eseguita sul DB come `supabase_admin` (lo schema `piratopoly` è di sua proprietà, `postgres` non ha grant).
+- Creata migration `supabase/migrations/006_update_user_score_function.sql`: definisce `piracity.update_user_score(p_user_id uuid, p_score integer)` che incrementa cumulativamente `total_score` e `maps_completed`. Eseguita sul DB come `supabase_admin` (lo schema `piracity` è di sua proprietà, `postgres` non ha grant).
 - Backfillato `users.total_score` e `maps_completed` ricomputando dalle sessioni `completed` esistenti (Stefano: 0 → 715, 0 → 1).
 - `game.routes.ts` ora estrae `error` dall'RPC e logga con `console.error` se fallisce (no più silent failure).
 - `auth.store.ts` aggiunto metodo `refreshUser()` (rifatch profile da Supabase).
@@ -388,7 +388,7 @@ Realizzato il sistema di rank giocatore definito 2026-05-01.
 ### [2026-05-02] Performance: bypass DNS su Supabase via /etc/hosts
 Stefano segnalava che ogni pagina caricava lentamente (sospettava DB). **Diagnosi vera:** il resolver di sistema (systemd-resolved → upstream 1&1 DNS) impiegava 3,12s a risolvere `supabase-cat.duckdns.org` (vs 0,005s via IP diretto, 600× più lento) e falliva ~40 volte/ora con `EAI_AGAIN`. Le pagine come Esplora — che fanno 7 chiamate API parallele — pagavano ~3s di overhead DNS ciascuna; alcune andavano in timeout completo.
 
-**Fix applicato:** aggiunta riga `212.227.21.104   supabase-cat.duckdns.org` a `/etc/hosts` + `systemctl restart piratopoly`.
+**Fix applicato:** aggiunta riga `212.227.21.104   supabase-cat.duckdns.org` a `/etc/hosts` + `systemctl restart piracity`.
 
 **Misurazioni post-fix:**
 | Endpoint | Prima | Dopo |
@@ -505,7 +505,7 @@ Solo da attività di creazione/curatela mappe (NON dal gioco delle proprie mappe
 - Definire vantaggi per ogni grado del sistema rank
 
 ## Assets
-- GDD v2.0: Google Drive (2026 - Piratopoly_GDD_v2.docx)
+- GDD v2.0: Google Drive (2026 - Piracity_GDD_v2.docx)
 - Regolamenti storici (2019, 2022)
 
 ## Link correlati

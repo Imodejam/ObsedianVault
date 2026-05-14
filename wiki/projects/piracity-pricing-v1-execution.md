@@ -1,12 +1,12 @@
-# Piratopoly · Pricing V1 — Piano di Esecuzione
+# Piracity · Pricing V1 — Piano di Esecuzione
 
-**Documento sorgente:** [[../../raw/docs/piratopoly/pricing-v1-2026-05-08.md|GDD Modello Commerciale e Pricing V1 (2026-05-08)]]
+**Documento sorgente:** [[../../raw/docs/piracity/pricing-v1-2026-05-08.md|GDD Modello Commerciale e Pricing V1 (2026-05-08)]]
 **Stato implementazione:** non avviato — piano in attesa di OK
 **Owner:** Stefano + Claude
 
 ## Stato attuale (gap analysis)
 
-Confronto del repo `piratopoly` (branch `feat/v1-autonomous-build`) col GDD.
+Confronto del repo `piracity` (branch `feat/v1-autonomous-build`) col GDD.
 
 | Area | Stato attuale | GDD V1 | Delta |
 |---|---|---|---|
@@ -27,8 +27,8 @@ Confronto del repo `piratopoly` (branch `feat/v1-autonomous-build`) col GDD.
 
 ### Fase 0 — Allineamento documenti ✅ in corso
 Senza codice. Solo:
-- Doc archiviato in `vault/raw/docs/piratopoly/`.
-- Wiki di progetto Piratopoly aggiornato con link a questa pagina.
+- Doc archiviato in `vault/raw/docs/piracity/`.
+- Wiki di progetto Piracity aggiornato con link a questa pagina.
 - Log vault.
 
 ### Fase 1 — Catalogo prodotti (Mini / Classica / Estesa / Pack)

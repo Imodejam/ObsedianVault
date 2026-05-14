@@ -1,22 +1,22 @@
-# Piratopoly Web (sito vetrina)
+# Piracity Web (sito vetrina)
 
-Sito vetrina marketing per Piratopoly. Repository separato dalla PWA di gioco: `/home/progetti/piratopoly-web` (vs `/home/progetti/piratopoly` per la PWA).
+Sito vetrina marketing per Piracity. Repository separato dalla PWA di gioco: `/home/progetti/piracity-web` (vs `/home/progetti/piracity` per la PWA).
 
 ## Obiettivo
 
 Production-ready Next.js 14 marketing site: dark-mode pirate aesthetic, 5 lingue, Sanity CMS hybrid, tutte le sezioni home + template città/mappa, target Lighthouse 90+/95+/95+/100. Stefano deploya via Vercel UI; gli agenti consegnano scaffold + build verificata.
 
 ## Deployment dev
-- **URL pubblico:** http://piratopoly-dev-web.duckdns.org/
-- **Repo:** `/home/progetti/piratopoly-web/` (Next.js standalone, no workspaces).
-- **Servizio systemd:** `piratopoly-web.service` (User=`claudebot`, WorkingDirectory=`/home/progetti/piratopoly-web`).
+- **URL pubblico:** http://piracity-dev-web.duckdns.org/
+- **Repo:** `/home/progetti/piracity-web/` (Next.js standalone, no workspaces).
+- **Servizio systemd:** `piracity-web.service` (User=`claudebot`, WorkingDirectory=`/home/progetti/piracity-web`).
 - **Comando:** `npx next dev -p 6010 -H 0.0.0.0`.
 - **Porta:** `127.0.0.1:6010` (dietro Nginx).
-- **Nginx:** `/etc/nginx/sites-available/piratopoly-dev-web.duckdns.org` → proxy a `:6010`, WS upgrade, listen 80.
+- **Nginx:** `/etc/nginx/sites-available/piracity-dev-web.duckdns.org` → proxy a `:6010`, WS upgrade, listen 80.
 - **Restart:** `Restart=always`, `RestartSec=10`. Enabled al boot.
-- **Log:** `journalctl -u piratopoly-web -f` (identifier `piratopoly-web`).
-- **Comandi:** `sudo systemctl status|restart piratopoly-web`.
-- **Note:** è un dev server (`next dev`), non build di produzione. Prod futura: `piratopoly.com` su server dedicato separato.
+- **Log:** `journalctl -u piracity-web -f` (identifier `piracity-web`).
+- **Comandi:** `sudo systemctl status|restart piracity-web`.
+- **Note:** è un dev server (`next dev`), non build di produzione. Prod futura: `piracity.app` su server dedicato separato.
 
 ## Stack
 
@@ -25,14 +25,14 @@ Production-ready Next.js 14 marketing site: dark-mode pirate aesthetic, 5 lingue
 - Tailwind CSS con design tokens custom (gold/wine/parchment/night, font Cinzel + Inter)
 - next-intl per i18n
 - Framer Motion (component) + GSAP/ScrollTrigger (scroll-driven hero map trace)
-- **Supabase** (`@supabase/supabase-js`, schema `piratopoly`, anon key) — sorgente dati condivisa con la PWA
-- Asset reuse: SVG copiati da `/home/progetti/piratopoly/frontend/public/assets/`
+- **Supabase** (`@supabase/supabase-js`, schema `piracity`, anon key) — sorgente dati condivisa con la PWA
+- Asset reuse: SVG copiati da `/home/progetti/piracity/frontend/public/assets/`
 - GA4 stubbed per il lancio
 
 > **2026-05-09**: Sanity rimosso (deps + studio + lib + sample-data). La vetrina punta direttamente al Supabase della PWA. Vedi sezione "Architettura dati" qui sotto.
 
 ## Lingue
-it (default), en, es, de, fr — tutte e 5 al lancio. Copy statico in `content/i18n/{locale}.json`. Le descrizioni delle mappe vengono pescate da `piratopoly.map_descriptions(map_id, lang, text)` con fallback IT.
+it (default), en, es, de, fr — tutte e 5 al lancio. Copy statico in `content/i18n/{locale}.json`. Le descrizioni delle mappe vengono pescate da `piracity.map_descriptions(map_id, lang, text)` con fallback IT.
 
 ## Architettura dati (Supabase)
 
@@ -68,12 +68,12 @@ Migration 015 aggiunge `maps.season_tag TEXT NULL`. Stringa (es. `halloween`, `n
 ```
 NEXT_PUBLIC_SUPABASE_URL=https://supabase-cat.duckdns.org
 NEXT_PUBLIC_SUPABASE_ANON_KEY=<anon JWT>
-NEXT_PUBLIC_SITE_URL=https://piratopoly.com
+NEXT_PUBLIC_SITE_URL=https://piracity.app
 NEXT_PUBLIC_GA4_ID=
 ```
 
 ### Cover images
-Oggi servite da `https://piratopoly-dev.duckdns.org/assets/webp/maps/...` (server PWA). `next.config.mjs > images.remotePatterns` whitelist sia `piratopoly-dev.duckdns.org` sia `supabase-cat.duckdns.org` (per le cover servite direttamente dallo storage Supabase). Quando si passerà a S3/CDN, aggiungere il dominio definitivo.
+Oggi servite da `https://piracity-dev-app.duckdns.org/assets/webp/maps/...` (server PWA). `next.config.mjs > images.remotePatterns` whitelist sia `piracity-dev-app.duckdns.org` sia `supabase-cat.duckdns.org` (per le cover servite direttamente dallo storage Supabase). Quando si passerà a S3/CDN, aggiungere il dominio definitivo.
 
 ## Stato attuale (2026-05-09)
 
@@ -81,7 +81,7 @@ Oggi servite da `https://piratopoly-dev.duckdns.org/assets/webp/maps/...` (serve
 
 **MVP precedente: tag git `v0.1.0-mvp`.**
 
-Plan in `docs/superpowers/plans/2026-05-08-piratopoly-vetrina.md`. Phases 1-9 completate (foundation, design system, layout, tutte le 10 sezioni home, template città/mappa, pagine statiche, blog index empty state, traduzioni i18n, Sanity CMS hybrid, SEO/JSON-LD/sitemap/robots, GA4 stub, cookie banner, newsletter aside, smoke test).
+Plan in `docs/superpowers/plans/2026-05-08-piracity-vetrina.md`. Phases 1-9 completate (foundation, design system, layout, tutte le 10 sezioni home, template città/mappa, pagine statiche, blog index empty state, traduzioni i18n, Sanity CMS hybrid, SEO/JSON-LD/sitemap/robots, GA4 stub, cookie banner, newsletter aside, smoke test).
 
 ### Storia commit
 
@@ -122,7 +122,7 @@ Plan in `docs/superpowers/plans/2026-05-08-piratopoly-vetrina.md`. Phases 1-9 co
 ## Layout repo
 
 ```
-piratopoly-web/
+piracity-web/
 ├── app/[locale]/        # routes localizzate (home, città, mappe, blog, statiche)
 │   ├── citta/[slug]/page.tsx                  # pagina città (Supabase)
 │   └── mappe/[citySlug]/[mapSlug]/page.tsx    # dettaglio mappa (Supabase)
@@ -141,13 +141,13 @@ piratopoly-web/
 
 ## Differenze chiave con la PWA
 
-- Repo separato (no monorepo). La PWA gira su `piratopoly-dev.duckdns.org` con `npm run dev`; il vetrina deploya su Vercel.
+- Repo separato (no monorepo). La PWA gira su `piracity-dev-app.duckdns.org` con `npm run dev`; il vetrina deploya su Vercel.
 - Stack frontend diverso: Next.js 14 (App Router) qui, Vite + React qui dietro la PWA.
 - Asset condivisi via copia (NON symlink) per evitare accoppiamento di build.
-- Pricing/contenuti narrativi del vetrina seguono **GDD V1** ([[piratopoly-pricing-v1-execution]]).
+- Pricing/contenuti narrativi del vetrina seguono **GDD V1** ([[piracity-pricing-v1-execution]]).
 
 ## Link correlati
 
-- [[piratopoly|Piratopoly (PWA)]]
-- [[piratopoly-pricing-v1-execution|Pricing V1 — Piano di Esecuzione]]
-- Plan attivo: `piratopoly-web/docs/superpowers/plans/2026-05-08-piratopoly-vetrina.md`
+- [[piracity|Piracity (PWA)]]
+- [[piracity-pricing-v1-execution|Pricing V1 — Piano di Esecuzione]]
+- Plan attivo: `piracity-web/docs/superpowers/plans/2026-05-08-piracity-vetrina.md`
