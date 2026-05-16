@@ -113,7 +113,7 @@ Lingue al lancio: italiano, inglese, spagnolo, tedesco, francese
 - **Servizio systemd:** `piracity.service` (User=`claudebot`, WorkingDirectory=`/home/progetti/piracity`).
 - **Comando:** `npm run dev` → `concurrently "npm run dev --workspace=backend" "npm run dev --workspace=frontend"`.
 - **Porte:** `127.0.0.1:6002` (frontend Vite, dietro Nginx) / `*:6001` (backend Express, `npx tsx watch`).
-- **Nginx:** `/etc/nginx/sites-available/piracity-dev-app.duckdns.org` → proxy a `:6002`.
+- **Nginx:** `/etc/nginx/sites-available/piracity-dev-app.duckdns.org` → proxy a `:6002`. `client_max_body_size 16m` per upload foto avatar/cover (Express limit JSON: 8MB).
 - **Node:** nvm `v20.20.2` (`/home/claudebot/.nvm/versions/node/v20.20.2/bin/`).
 - **Restart:** `Restart=always`, `RestartSec=10`. Enabled al boot.
 - **Log:** `journalctl -u piracity -f` (identifier: `piracity`).

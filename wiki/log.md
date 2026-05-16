@@ -115,3 +115,6 @@
 
 ## [2026-05-14] decision | Rename progetto Piratopoly → Piracity
 Rinominati: cartelle (/home/progetti/piracity, /home/progetti/piracity-web), systemd services (piracity.service, piracity-web.service), git remote (Imodejam/piracity), ssh alias (github-piracity), 549+ occorrenze testuali, domini di codice (piracity.app), nginx config (piracity-dev-app/piracity-dev-web.duckdns.org). Wiki ed indice aggiornati. **Schema DB Supabase** lasciato come 'piratopoly' (cambiare richiede ALTER SCHEMA + ri-sed).
+
+## [2026-05-16] fix | Piracity avatar upload — nginx 413 silenzioso
+Stefano segnalava "errore di trasformazione foto" su /profile (msg 1565). Nei log piracity.service nessuna traccia di `[auth.avatar.transform]`: la richiesta non arrivava al backend. Root cause: nginx `piracity-dev-app.duckdns.org` senza `client_max_body_size` → default 1MB; foto iPhone (~3.7MB base64) rifiutate con 413 prima del proxy. Fix: aggiunto `client_max_body_size 16m` al server block + `sudo systemctl reload nginx`. Aggiunto anche log diagnostico (`payloadKB`, `bufferKB`, stack errore) su `backend/src/routes/auth.routes.ts` POST /avatar/transform per debug futuro.
