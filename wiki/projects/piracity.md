@@ -9,6 +9,9 @@ PWA AI-powered urban treasure hunt: i giocatori pianificano da remoto itinerari 
 - **UGC**: i giocatori creano mappe → marketplace community
 - **Esplorazione con purpose**: tappe reali (monumenti, festival, trattorie)
 
+## Roadmap: app nativa wrapper (Stefano, msg 1599, 2026-05-16)
+PWA attuale resta su piracity-dev-app.duckdns.org. In futuro: **app iOS+Android come webview wrapper** della PWA. Il Binocolo AR completo (con vero SLAM 6-DoF) verrà ricostruito nativamente con ARKit/ARCore in quel contesto — il binocolo in browser via 8th Wall ha drift catastrofico su Safari iOS 26.
+
 ## Regola architetturale: tutto pre-creato (Stefano, msg 1129, 2026-05-05)
 Le mappe, le tappe, i contenuti narrativi e i quiz **non** vengono generati a runtime dal backend. Tutto deve essere creato e validato **prima** che la mappa venga pubblicata. Il flusso:
 1. Stefano chiede "crea mappa X" → Claude Code (CLI, fuori runtime) genera mappa+tappe+narrative+quiz.
