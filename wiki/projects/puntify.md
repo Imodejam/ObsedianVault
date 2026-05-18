@@ -145,6 +145,30 @@ Vedi [[wiki/projects/cat-stack|CAT Stack]] per i dettagli infrastrutturali. Riep
 - **Storage**: 5 objects metadata migrati; file fisici restano su MinIO esterno (`files.puntify.it` bucket `*-cat`).
 - **OAuth Google**: redirect URI `https://api-cat.puntify.it/auth/v1/callback` aggiunto su client OAuth prod.
 
+## Integrazione Google Calendar (pianificata 2026-05-18)
+
+Sincronizzazione **bidirezionale** appuntamenti ↔ Google Calendar. Piano dettagliato: `puntify/docs/Requests/20260518.1.md`.
+
+### Scelte chiave
+- **Granularità**: per **shop** (1 calendar Google per shop), non per operator.
+- **Token**: riuso OAuth Google esistente (`SupabaseService.GetGoogleSignInUrl`) estendendo scope con `calendar.events` + `calendar.readonly` + `access_type=offline&prompt=consent`.
+- **Outbound** Puntify → Google: ogni create/update/cancel di `bookings` o `booking_manual_blocks` push evento via `Google.Apis.Calendar.v3`.
+- **Inbound** Google → Puntify: `events.watch` + webhook `POST /api/google/calendar/webhook` → eventi esterni diventano `booking_manual_blocks` con `origin='google'` (bloccano disponibilità, non creano `bookings`).
+- **Attendees**: `customer_email` aggiunto come attendee Google → invito + reminder automatici, condizionato a `gdpr_consent=true` della prenotazione.
+- **Fallback calendar**: `primary` dell'account Google connesso.
+- **Timezone**: nuova colonna `shops.timezone` default `Europe/Rome`.
+
+### Modello dati nuovo
+- `puntify.shop_google_tokens` (PK `shop_id`, refresh+access cifrati AES-GCM).
+- `puntify.google_calendar_watches` (canale push, sync_token, scadenza).
+- `puntify.shops` + colonne `timezone`, `google_calendar_id`, `google_sync_enabled`, `google_send_invites`.
+- `puntify.bookings` + `puntify.booking_manual_blocks` + colonne `google_event_id`, `google_calendar_id`, `google_etag`, `google_synced_at` (`+ origin` su manual_blocks).
+
+### GDPR
+- Privacy Policy aggiornata: nuovo **art. 4-bis** in `Puntify.Vetrina/Pages/Privacy.razor` (sub-responsabile Google LLC esteso, basi giuridiche, diritti del Cliente, disattivazione).
+- Pagina vetrina `Pages/Prenotazioni.razor` aggiornata: sezione dedicata "Sincronizzazione Google Calendar bidirezionale" con link a Privacy art. 4-bis.
+- Trasferimento extra-UE: SCC + DPF UE-USA (Google LLC sub-responsabile ex art. 28).
+
 ## Mercato target
 - **Prima zona: ROMA** — bar, caffetterie, parrucchieri, lavanderie (alta frequentazione, basso ticket)
 - Prodotto LIVE: sito + app up and running
