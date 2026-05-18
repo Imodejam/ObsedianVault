@@ -79,10 +79,25 @@ Env vars chiave (in unit file):
 - `DOTNET_WATCH_RESTART_ON_RUDE_EDIT=true` → rebuild su edit hot non applicabile.
 - `User=claudebot`, `Restart=always`.
 
-### Config dev (in `/home/progetti/puntify/...`, chmod 600, NON committate)
-- `Puntify.Server/appsettings.Development.json` → `Supabase.Url=https://api-cat.puntify.it`, `Supabase.AnonKey=$PUNTIFY_ANON_KEY`, `Supabase.ServiceRoleKey=$PUNTIFY_SERVICE_ROLE_KEY`, `Firebase.CredentialPath` → JSON service account già in repo (`Config/puntify-firebase-adminsdk.json`).
-- `Puntify.App/wwwroot/appsettings.json` (chmod 644, client WASM lo legge in chiaro) → Supabase URL/AnonKey + `ServerUrl=http://127.0.0.1:7001` + Security.ApiKey vuota (da popolare quando il flusso API key viene definito).
-- `Puntify.Vetrina/appsettings.Development.json` → Supabase URL/AnonKey + **`AppUrl=https://app-cat.puntify.it`** (override default `https://www.puntify.it` di `AppConfiguration.cs`: `LoginUrl => $"{AppUrl}/login"` → senza override puntava a prod).
+### Config dev (in `/home/progetti/puntify/...`, gitignored)
+Tutti e 3 i file sono coperti da `.gitignore` (`appsettings.Development.json` riga 348, `**/wwwroot/appsettings.json` riga 350).
+
+**`Puntify.Server/appsettings.Development.json`** (chmod 600):
+- `Supabase.{Url=https://api-cat.puntify.it, AnonKey=$PUNTIFY_ANON_KEY, ServiceRoleKey=$PUNTIFY_SERVICE_ROLE_KEY, Schema=puntify}`
+- `Firebase.CredentialPath` → JSON service account già committato in repo (`Config/puntify-firebase-adminsdk.json`)
+- `Resend.ApiKey=re_…` + `Resend.FromAddress="Puntify CAT <noreply@puntify.it>"`
+- `Storage.{Endpoint, PublicBaseUrl}=https://files.puntify.it`, `Storage.{AccessKey=puntify-api, SecretKey, Region=us-east-1, ForcePathStyle=true, PresignedUrlExpiryMinutes=60}`
+- `Storage.Buckets`: `Shops=shopimages-cat`, `Accounts=accountimages-cat`, `Receipts=receiptimages-cat` (pattern `*-cat` per separare CAT da prod su MinIO esterno condiviso `files.puntify.it`)
+
+**`Puntify.App/wwwroot/appsettings.json`** (chmod 644, client WASM lo legge in chiaro):
+- `Supabase.{Url, AnonKey, Schema=puntify}`
+- `ServerUrl=http://127.0.0.1:8001`
+- `Security.ApiKey=""` (da popolare quando flusso API key definito)
+- `StorageClient.PublicBaseUrl=https://files.puntify.it` + `StorageClient.Buckets` (`*-cat`)
+
+**`Puntify.Vetrina/appsettings.Development.json`** (chmod 600):
+- `Supabase.{Url, AnonKey, Schema=puntify}`
+- **`AppUrl=https://app-cat.puntify.it`** (override default `https://www.puntify.it` di `AppConfiguration.cs`: `LoginUrl => $"{AppUrl}/login"`)
 
 ### Fix Supabase Schema (2026-05-18)
 PGRST106 risolto: Supabase C# SDK 0.16.2 invia `Accept-Profile: public` di default. PostgREST con `PGRST_DB_SCHEMAS=puntify,storage` rifiuta. **Fix codice committabile** (cross-platform CAT/prod): in tutti e 3 i `Program.cs` (App, Server, Vetrina) lettura schema da config:
