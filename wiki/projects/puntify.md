@@ -66,9 +66,11 @@ Pattern identico a Piracity dev. Tutti su `127.0.0.1` (loopback), Caddy reverse-
 
 | Service | Porta | Workdir | Comando | Note |
 |---|---|---|---|---|
-| `puntify-server.service` | `127.0.0.1:7001` | `Puntify.Server/` | `dotnet watch run --non-interactive` | API ASP.NET. Swagger su `/swagger`. |
-| `puntify-app.service` | `127.0.0.1:7002` | `Puntify.App/` | `dotnet watch run --non-interactive` | Blazor WASM client, servito via DevServer. `StaticWebAssetBasePath=app`. |
-| `puntify-vetrina.service` | `127.0.0.1:7003` | `Puntify.Vetrina/` | `dotnet watch run --non-interactive` | Blazor Server interattivo, 10 lingue. |
+| `puntify-server.service` | `127.0.0.1:8001` | `Puntify.Server/` | `dotnet watch run --non-interactive` | API ASP.NET. Swagger su `/swagger`. |
+| `puntify-app.service` | `127.0.0.1:8002` | `Puntify.App/` | `dotnet watch run --non-interactive` | Blazor WASM client, servito via DevServer. `StaticWebAssetBasePath=app`. |
+| `puntify-vetrina.service` | `127.0.0.1:8003` | `Puntify.Vetrina/` | `dotnet watch run --non-interactive` | Blazor Server interattivo, 10 lingue. |
+
+Serie porte 8001/8002/8003 (non 7001/7002 per evitare conflitto con `concilium.service` enabled — bind API/web Concilium su quelle porte; salta al boot se occupate).
 
 Env vars chiave (in unit file):
 - `ASPNETCORE_ENVIRONMENT=Development` → carica `appsettings.Development.json`.
@@ -85,11 +87,31 @@ Env vars chiave (in unit file):
 ### Bug aperti post-standup (2026-05-18)
 - **Vetrina · PGRST106**: client Supabase C# SDK invia richiesta a PostgREST senza `Accept-Profile: puntify` → errore `"The schema must be one of the following: puntify, storage"`. Fix lato codice: nel `SupabaseOptions` aggiungere `Schema = "puntify"` (verificato richiesto dopo rename schema `public` → `puntify` su CAT). Da applicare anche a Server e App se chiamano REST diretto su tabelle.
 
+### Caddy reverse-proxy (cat.puntify.it)
+Pattern single-domain, path-routing (Caddyfile in `/opt/ops/caddy/Caddyfile`):
+- `https://cat.puntify.it/` → :8003 (Vetrina)
+- `https://cat.puntify.it/app/*` → :8002 (App Blazor WASM — `StaticWebAssetBasePath=app` lo rende già montato su `/app/`)
+- `https://cat.puntify.it/api/*` → :8001 (Server API, Controllers `[Route("api/...")]`)
+- `https://cat.puntify.it/swagger*` → :8001 (Swagger UI per debug)
+
+Cert ACME ECDSA Let's Encrypt automatico. WebSocket SignalR (`/_blazor/negotiate`) supportato di default. DNS `cat.puntify.it` → 212.227.21.104 già attivo.
+
+Smoke verificato:
+| Path | Expected | Got |
+|---|---|---|
+| `GET /` | 200 (Vetrina home) | 200 |
+| `GET /app/` | 200 (Blazor index) | 200 |
+| `GET /api/` | 401 (auth) | 401 |
+| `GET /swagger` | 301 → /swagger/index.html | 301 |
+| `GET /swagger/index.html` | 200 | 200 |
+| `POST /_blazor/negotiate` | 200 (SignalR) | 200 |
+
 ### Comandi utili
 ```bash
 sudo systemctl restart puntify-server
 sudo journalctl -u puntify-app -f
-ss -tlnp | grep -E ':700[1-3]'
+ss -tlnp | grep -E ':800[1-3]'
+sudo docker compose -f /opt/ops/docker-compose.yml restart ops-caddy
 ```
 
 ## Ambiente CAT
