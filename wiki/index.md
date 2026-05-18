@@ -10,6 +10,9 @@
 - [[wiki/projects/openclaw-setup|OpenClaw Setup]] — Ottimizzazione configurazione OpenClaw, agenti, monitoraggio
 - [[wiki/projects/clawroom|ClawRoom]] — Dashboard operativa Blazor per team AI (Kanban, costi, modelli)
 
+## Infrastruttura
+- [[wiki/projects/cat-stack|CAT Stack]] — Ambiente collaudo condiviso su pro-open `/opt/ops/`: ops-postgres multi-DB (puntify_cat + piracity_cat), GoTrue+PostgREST per app, Caddy reverse-proxy 10 domini. Supabase OSS legacy dismesso 2026-05-17.
+
 ## Persone
 - [[wiki/people/stefano|Stefano Gitto]] — Owner, Software Architect
 - [[wiki/people/team|Team AI]] — Struttura team: Alfred, Carlo, Luca, Massimo, Lidia

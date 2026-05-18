@@ -47,6 +47,17 @@ Fidelity card digitale per esercenti: il cliente accumula punti mostrando un QR 
 ## Stack / Architettura
 _(da definire nel dettaglio)_
 
+## Ambiente CAT
+Vedi [[wiki/projects/cat-stack|CAT Stack]] per i dettagli infrastrutturali. Riepilogo Puntify:
+- **DB**: `puntify_cat` su cluster `ops-postgres` in `/opt/ops/` (pro-open). Schema `puntify` (29 tabelle, match prod, rinominato da `public` il 2026-05-17).
+- **Auth**: GoTrue v2.179.0 dedicato (`gotrue-puntify-cat`, 127.0.0.1:18999).
+- **REST**: PostgREST v12.2.3 dedicato (`postgrest-puntify-cat`, 127.0.0.1:18998), `PGRST_DB_SCHEMAS=puntify,storage`.
+- **Endpoint client**: `SUPABASE_URL=https://api-cat.puntify.it`, anon key in `/opt/ops/.env`. Client devono inviare `Accept-Profile: puntify` (Supabase C# SDK: `options.Schema = "puntify"`).
+- **Frontend CAT**: `https://cat.puntify.it` (`GOTRUE_SITE_URL`).
+- **DbGate**: `https://db-cat.puntify.it`.
+- **Storage**: 5 objects metadata migrati; file fisici restano su MinIO esterno (`files.puntify.it` bucket `*-cat`).
+- **OAuth Google**: redirect URI `https://api-cat.puntify.it/auth/v1/callback` aggiunto su client OAuth prod.
+
 ## Mercato target
 - **Prima zona: ROMA** — bar, caffetterie, parrucchieri, lavanderie (alta frequentazione, basso ticket)
 - Prodotto LIVE: sito + app up and running

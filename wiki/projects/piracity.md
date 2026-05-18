@@ -501,6 +501,16 @@ Solo da attività di creazione/curatela mappe (NON dal gioco delle proprie mappe
 - **Storage:** tabella `carte_events (user_id, value, source_map_id, created_at)` analoga a `piastre_events`.
 - **Vantaggi creator (TODO):** verosimilmente sblocchi sul marketplace (visibilità, possibilità di pubblicare mappe a pagamento custom?, % sui voucher dei propri esercenti partner). Da decidere insieme ai vantaggi giocatore.
 
+## Ambiente CAT
+Vedi [[wiki/projects/cat-stack|CAT Stack]] per i dettagli infrastrutturali. Riepilogo Piracity (standup 2026-05-17):
+- **DB**: `piracity_cat` su cluster `ops-postgres` condiviso multi-DB con Puntify (`/opt/ops/` su pro-open). Cluster image: `postgis/postgis:16-3.5-alpine` (switch da `postgres:16-alpine` per PostGIS richiesto da 2 geography cols + `nearby_vouchers` RPC). Schema `piracity` (19 tabelle, 589 rows migrate da Supabase OSS).
+- **Auth**: GoTrue v2.179.0 dedicato (`gotrue-piracity-cat`, 127.0.0.1:18995). 17 users + 18 identities riusati con stessi UUID dal vecchio `auth` Puntify, ma JWT secret distinto → token non interscambiabili tra app.
+- **REST**: PostgREST v12.2.3 dedicato (`postgrest-piracity-cat`, 127.0.0.1:18994), `PGRST_DB_SCHEMAS=piracity,storage`.
+- **Endpoint client**: `SUPABASE_URL=https://api-cat.piracity.app`, anon key in `/opt/ops/.env`. Client devono inviare `Accept-Profile: piracity`.
+- **Domini**: `cat.piracity.app` (Next.js web, :6010) · `app-cat.piracity.app` (app server, :6002) · `api-cat.piracity.app` (GoTrue+PostgREST). Reverse-proxy Caddy unico con cert ACME ECDSA.
+- **Bug fix portato in CAT (non in prod):** `piracity.nearby_vouchers` RPC citava `piratopoly.vouchers` (relation inesistente) → corretta a `piracity.vouchers`.
+- **TODO**: redirect URI Google OAuth `api-cat.piracity.app/auth/v1/callback` da aggiungere su Google Cloud Console (riusa client di Puntify); audit users tagging per separare puntify-only vs piracity-only.
+
 ## Prossimi passi
 - Definire dettaglio architettura tecnica
 - Sviluppo Alpha PWA
