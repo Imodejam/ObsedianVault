@@ -3,6 +3,7 @@
 ## Progetti
 - [[wiki/projects/concilium|Concilium]] — Piattaforma di deliberazione multi-LLM con Synthesizer (Praeses Concilii). Repo: github.com/Imodejam/Concilium. _Priorità attuale, MVP live._
 - [[wiki/projects/puntify|Puntify]] — Fidelity card digitale per esercenti (primo target Roma). Ambiente CAT live 2026-05-16.
+  - [[wiki/projects/puntify-design-system|Puntify · Design System (cfg-*)]] — sistema visivo SaaS condiviso (Stripe/Linear/Notion-style), obbligatorio per nuove pagine
   - [[wiki/projects/puntify-nomi-alternativi|Puntify · Nomi alternativi]] — lista 35 nomi (top 10 raccomandati) dopo diffida Spotify
   - [[wiki/projects/puntify-lista-esercenti-trastevere-testaccio|Puntify · Lista esercenti Trastevere+Testaccio]] — 20 target prima zona Roma
   - [[wiki/projects/puntify-template-approccio-esercenti|Puntify · Template approccio esercenti]] — script vendita iniziale
