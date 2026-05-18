@@ -84,8 +84,14 @@ Env vars chiave (in unit file):
 - `Puntify.App/wwwroot/appsettings.json` (chmod 644, client WASM lo legge in chiaro) → Supabase URL/AnonKey + `ServerUrl=http://127.0.0.1:7001` + Security.ApiKey vuota (da popolare quando il flusso API key viene definito).
 - `Puntify.Vetrina/appsettings.Development.json` → Supabase URL/AnonKey + **`AppUrl=https://app-cat.puntify.it`** (override default `https://www.puntify.it` di `AppConfiguration.cs`: `LoginUrl => $"{AppUrl}/login"` → senza override puntava a prod).
 
-### Bug aperti post-standup (2026-05-18)
-- **Vetrina · PGRST106**: client Supabase C# SDK invia richiesta a PostgREST senza `Accept-Profile: puntify` → errore `"The schema must be one of the following: puntify, storage"`. Fix lato codice: nel `SupabaseOptions` aggiungere `Schema = "puntify"` (verificato richiesto dopo rename schema `public` → `puntify` su CAT). Da applicare anche a Server e App se chiamano REST diretto su tabelle.
+### Fix Supabase Schema (2026-05-18)
+PGRST106 risolto: Supabase C# SDK 0.16.2 invia `Accept-Profile: public` di default. PostgREST con `PGRST_DB_SCHEMAS=puntify,storage` rifiuta. **Fix codice committabile** (cross-platform CAT/prod): in tutti e 3 i `Program.cs` (App, Server, Vetrina) lettura schema da config:
+```csharp
+var supabaseSchema = builder.Configuration["Supabase:Schema"];
+// ...
+if (!string.IsNullOrEmpty(supabaseSchema)) options.Schema = supabaseSchema;
+```
+CAT setta `"Supabase:Schema": "puntify"` negli `appsettings.Development.json`/`wwwroot/appsettings.json`. Prod lascia chiave assente → default SDK (`public`) → compat con prod attuale.
 
 ### Caddy reverse-proxy (cat.puntify.it + app-cat.puntify.it)
 Pattern multi-domain (DevServer Blazor WASM ignora `StaticWebAssetBasePath=app` — vedi commento `Puntify.App/wwwroot/index.html:17` di Stefano; assets `/_framework/*`, `/js/*` puntano sempre alla root del DevServer, quindi se servita sotto path `/app/*` su single-domain → 404 a cascata).
