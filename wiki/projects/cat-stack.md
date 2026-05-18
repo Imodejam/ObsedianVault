@@ -44,7 +44,8 @@ NOLOGIN: `anon`, `authenticated`, `service_role` (BYPASSRLS).
 11 domini gestiti, cert ACME ECDSA auto in volume `ops_caddy_data`:
 - `api-cat.puntify.it` → GoTrue+PostgREST Puntify (CORS via Caddy: senza Kong davanti i container raw non emettono header CORS. Aggiunti con prefix `>` (replace, evita duplicati con `*` di PostgREST). Origin reflesso da `{header.origin}`, Allow-Credentials true, preflight OPTIONS gestito separato con `respond 204`)
 - `db-cat.puntify.it` → DbGate
-- `cat.puntify.it` → path-routing Puntify dev/CAT: `/` → :8003 (Vetrina Blazor Server), `/app/*` → :8002 (Blazor WASM), `/api/*` + `/swagger*` → :8001 (Server API .NET)
+- `cat.puntify.it` → Puntify dev/CAT: `/` → :8003 (Vetrina Blazor Server), `/api/*` + `/swagger*` → :8001 (Server API .NET)
+- `app-cat.puntify.it` → :8002 (Puntify.App Blazor WASM). Sub-domain dedicato perché DevServer ignora `StaticWebAssetBasePath` → asset `/_framework/*`, `/js/*` 404 se servito sotto path `/app/*`. DNS da creare (record A → 212.227.21.104 lato registrar Puntify).
 - `api-cat.piracity.app` → GoTrue+PostgREST Piracity (CORS identico)
 - `cat.piracity.app` → :6010 (Next.js web Piracity)
 - `app-cat.piracity.app` → :6002 (app server Piracity)

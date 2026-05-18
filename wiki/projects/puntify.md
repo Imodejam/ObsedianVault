@@ -82,29 +82,28 @@ Env vars chiave (in unit file):
 ### Config dev (in `/home/progetti/puntify/...`, chmod 600, NON committate)
 - `Puntify.Server/appsettings.Development.json` → `Supabase.Url=https://api-cat.puntify.it`, `Supabase.AnonKey=$PUNTIFY_ANON_KEY`, `Supabase.ServiceRoleKey=$PUNTIFY_SERVICE_ROLE_KEY`, `Firebase.CredentialPath` → JSON service account già in repo (`Config/puntify-firebase-adminsdk.json`).
 - `Puntify.App/wwwroot/appsettings.json` (chmod 644, client WASM lo legge in chiaro) → Supabase URL/AnonKey + `ServerUrl=http://127.0.0.1:7001` + Security.ApiKey vuota (da popolare quando il flusso API key viene definito).
-- `Puntify.Vetrina/appsettings.Development.json` → Supabase URL/AnonKey + **`AppUrl=https://cat.puntify.it/app`** (override default `https://www.puntify.it` di `AppConfiguration.cs`: `LoginUrl => $"{AppUrl}/login"` → senza override punta a prod + manca `/app/` → bottone "Accedi" andava su `https://www.puntify.it/login` invece di `cat.puntify.it/app/login`).
+- `Puntify.Vetrina/appsettings.Development.json` → Supabase URL/AnonKey + **`AppUrl=https://app-cat.puntify.it`** (override default `https://www.puntify.it` di `AppConfiguration.cs`: `LoginUrl => $"{AppUrl}/login"` → senza override puntava a prod).
 
 ### Bug aperti post-standup (2026-05-18)
 - **Vetrina · PGRST106**: client Supabase C# SDK invia richiesta a PostgREST senza `Accept-Profile: puntify` → errore `"The schema must be one of the following: puntify, storage"`. Fix lato codice: nel `SupabaseOptions` aggiungere `Schema = "puntify"` (verificato richiesto dopo rename schema `public` → `puntify` su CAT). Da applicare anche a Server e App se chiamano REST diretto su tabelle.
 
-### Caddy reverse-proxy (cat.puntify.it)
-Pattern single-domain, path-routing (Caddyfile in `/opt/ops/caddy/Caddyfile`):
-- `https://cat.puntify.it/` → :8003 (Vetrina)
-- `https://cat.puntify.it/app/*` → :8002 (App Blazor WASM — `StaticWebAssetBasePath=app` lo rende già montato su `/app/`)
+### Caddy reverse-proxy (cat.puntify.it + app-cat.puntify.it)
+Pattern multi-domain (DevServer Blazor WASM ignora `StaticWebAssetBasePath=app` — vedi commento `Puntify.App/wwwroot/index.html:17` di Stefano; assets `/_framework/*`, `/js/*` puntano sempre alla root del DevServer, quindi se servita sotto path `/app/*` su single-domain → 404 a cascata).
+
+Caddyfile in `/opt/ops/caddy/Caddyfile`:
+
+**`cat.puntify.it`** (Vetrina + Server):
+- `https://cat.puntify.it/` → :8003 (Vetrina Blazor Server)
 - `https://cat.puntify.it/api/*` → :8001 (Server API, Controllers `[Route("api/...")]`)
 - `https://cat.puntify.it/swagger*` → :8001 (Swagger UI per debug)
 
-Cert ACME ECDSA Let's Encrypt automatico. WebSocket SignalR (`/_blazor/negotiate`) supportato di default. DNS `cat.puntify.it` → 212.227.21.104 già attivo.
+**`app-cat.puntify.it`** (App Blazor WASM su sub-domain dedicato):
+- `https://app-cat.puntify.it/` → :8002 (App index)
+- `LoginUrl` Vetrina = `https://app-cat.puntify.it/login` (via `AppUrl` in `appsettings.Development.json`)
 
-Smoke verificato:
-| Path | Expected | Got |
-|---|---|---|
-| `GET /` | 200 (Vetrina home) | 200 |
-| `GET /app/` | 200 (Blazor index) | 200 |
-| `GET /api/` | 401 (auth) | 401 |
-| `GET /swagger` | 301 → /swagger/index.html | 301 |
-| `GET /swagger/index.html` | 200 | 200 |
-| `POST /_blazor/negotiate` | 200 (SignalR) | 200 |
+Cert ACME ECDSA Let's Encrypt automatico per entrambi i domini. WebSocket SignalR (`/_blazor/negotiate`) supportato di default. DNS:
+- `cat.puntify.it` → 212.227.21.104 ✓ attivo
+- `app-cat.puntify.it` → **DA CREARE** (record A → 212.227.21.104 lato Hetzner/registrar Puntify). Caddy emette cert al primo accesso.
 
 ### Comandi utili
 ```bash
