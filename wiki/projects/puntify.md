@@ -71,5 +71,11 @@ Vedi [[wiki/projects/cat-stack|CAT Stack]] per i dettagli infrastrutturali. Riep
 - Sito: https://puntify.it
 - Google Drive: `OpenClawData/progetti/Puntify`
 
+## Documenti collegati
+- [[wiki/projects/puntify-nomi-alternativi|Nomi alternativi]] — lista 35 (top 10 raccomandati) post-diffida Spotify
+- [[wiki/projects/puntify-lista-esercenti-trastevere-testaccio|Lista esercenti Trastevere+Testaccio]] — 20 target prima zona
+- [[wiki/projects/puntify-template-approccio-esercenti|Template approccio esercenti]] — script vendita
+
 ## Link correlati
 - [[wiki/people/stefano|Stefano Gitto]]
+- [[wiki/projects/cat-stack|CAT Stack]]
