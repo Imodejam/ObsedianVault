@@ -45,7 +45,19 @@ Fidelity card digitale per esercenti: il cliente accumula punti mostrando un QR 
 [2026-04-21] — Early stage. Sito live con Home, Prezzi, FAQ, Privacy, Termini. Alcune funzionalità ancora in sviluppo.
 
 ## Stack / Architettura
-_(da definire nel dettaglio)_
+Monorepo `.NET` su `github.com/Imodejam/puntify` (branch `master`):
+- **Puntify.Server** — API .NET (Controllers, Services, Models, Middleware, Templates, EF migrations sotto `Database/`). `Puntify.Server.csproj`.
+- **Puntify.App** — Blazor app (PWA cliente/esercente: `App.razor`, Components, Pages, wwwroot). `Puntify.App.csproj`.
+- **Puntify.Vetrina** — Blazor sito marketing (`Pages`, `Resources` i18n, `Routes.razor`). `Puntify.Vetrina.csproj`.
+- **Punto.Shared** — libs condivise (DTOs, Models, Services). `Puntify.Shared.csproj`.
+- Solution: `Puntify.sln` (+ `Punto.slnx`).
+- Build helper: `clean-build.sh` / `.bat`.
+- Docs: `docs/README_PROGETTO.md`, `docs/puntify-product-overview.md`, `docs/Tracciamento Modifiche Database.sql`.
+
+### Clone dev/CAT su pro-open (2026-05-18)
+- Path: `/home/progetti/puntify/` (clone monorepo intero, owner `claudebot`, ~150M).
+- Branch checkout: `master`.
+- Remote: `git@github.com:Imodejam/puntify.git` (clonato come `root` con SSH-key host di Imodejam → chiave deploy claudebot specifica `github_piracity` non ha accesso a questo repo; per push futuri lato claudebot serve aggiungere chiave dedicata o usare workflow root).
 
 ## Ambiente CAT
 Vedi [[wiki/projects/cat-stack|CAT Stack]] per i dettagli infrastrutturali. Riepilogo Puntify:
