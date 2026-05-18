@@ -82,7 +82,7 @@ Env vars chiave (in unit file):
 ### Config dev (in `/home/progetti/puntify/...`, chmod 600, NON committate)
 - `Puntify.Server/appsettings.Development.json` → `Supabase.Url=https://api-cat.puntify.it`, `Supabase.AnonKey=$PUNTIFY_ANON_KEY`, `Supabase.ServiceRoleKey=$PUNTIFY_SERVICE_ROLE_KEY`, `Firebase.CredentialPath` → JSON service account già in repo (`Config/puntify-firebase-adminsdk.json`).
 - `Puntify.App/wwwroot/appsettings.json` (chmod 644, client WASM lo legge in chiaro) → Supabase URL/AnonKey + `ServerUrl=http://127.0.0.1:7001` + Security.ApiKey vuota (da popolare quando il flusso API key viene definito).
-- `Puntify.Vetrina/appsettings.Development.json` → Supabase URL/AnonKey.
+- `Puntify.Vetrina/appsettings.Development.json` → Supabase URL/AnonKey + **`AppUrl=https://cat.puntify.it/app`** (override default `https://www.puntify.it` di `AppConfiguration.cs`: `LoginUrl => $"{AppUrl}/login"` → senza override punta a prod + manca `/app/` → bottone "Accedi" andava su `https://www.puntify.it/login` invece di `cat.puntify.it/app/login`).
 
 ### Bug aperti post-standup (2026-05-18)
 - **Vetrina · PGRST106**: client Supabase C# SDK invia richiesta a PostgREST senza `Accept-Profile: puntify` → errore `"The schema must be one of the following: puntify, storage"`. Fix lato codice: nel `SupabaseOptions` aggiungere `Schema = "puntify"` (verificato richiesto dopo rename schema `public` → `puntify` su CAT). Da applicare anche a Server e App se chiamano REST diretto su tabelle.
