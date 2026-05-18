@@ -58,6 +58,39 @@ Monorepo `.NET` su `github.com/Imodejam/puntify` (branch `master`):
 - Path: `/home/progetti/puntify/` (clone monorepo intero, owner `claudebot`, ~150M).
 - Branch checkout: `master`.
 - Remote: `git@github.com:Imodejam/puntify.git` (clonato come `root` con SSH-key host di Imodejam → chiave deploy claudebot specifica `github_piracity` non ha accesso a questo repo; per push futuri lato claudebot serve aggiungere chiave dedicata o usare workflow root).
+- **.NET SDK 8.0.126** installato system-wide via `apt install dotnet-sdk-8.0` (`/usr/bin/dotnet`).
+- Fix locale (committabile): `Puntify.Vetrina/Directory.Build.props` aveva path Windows hardcoded (`C:\Builds\...`) per `BaseOutputPath`/`BaseIntermediateOutputPath`. Avvolti in `Condition="'$(OS)' == 'Windows_NT'"` → build cross-platform funzionante.
+
+### Systemd services dev/CAT (2026-05-18)
+Pattern identico a Piracity dev. Tutti su `127.0.0.1` (loopback), Caddy reverse-proxy futuro davanti.
+
+| Service | Porta | Workdir | Comando | Note |
+|---|---|---|---|---|
+| `puntify-server.service` | `127.0.0.1:7001` | `Puntify.Server/` | `dotnet watch run --non-interactive` | API ASP.NET. Swagger su `/swagger`. |
+| `puntify-app.service` | `127.0.0.1:7002` | `Puntify.App/` | `dotnet watch run --non-interactive` | Blazor WASM client, servito via DevServer. `StaticWebAssetBasePath=app`. |
+| `puntify-vetrina.service` | `127.0.0.1:7003` | `Puntify.Vetrina/` | `dotnet watch run --non-interactive` | Blazor Server interattivo, 10 lingue. |
+
+Env vars chiave (in unit file):
+- `ASPNETCORE_ENVIRONMENT=Development` → carica `appsettings.Development.json`.
+- `ASPNETCORE_URLS=http://127.0.0.1:700x` → bind locale.
+- `DOTNET_USE_POLLING_FILE_WATCHER=true` → file watcher polling (evita inotify limits).
+- `DOTNET_WATCH_RESTART_ON_RUDE_EDIT=true` → rebuild su edit hot non applicabile.
+- `User=claudebot`, `Restart=always`.
+
+### Config dev (in `/home/progetti/puntify/...`, chmod 600, NON committate)
+- `Puntify.Server/appsettings.Development.json` → `Supabase.Url=https://api-cat.puntify.it`, `Supabase.AnonKey=$PUNTIFY_ANON_KEY`, `Supabase.ServiceRoleKey=$PUNTIFY_SERVICE_ROLE_KEY`, `Firebase.CredentialPath` → JSON service account già in repo (`Config/puntify-firebase-adminsdk.json`).
+- `Puntify.App/wwwroot/appsettings.json` (chmod 644, client WASM lo legge in chiaro) → Supabase URL/AnonKey + `ServerUrl=http://127.0.0.1:7001` + Security.ApiKey vuota (da popolare quando il flusso API key viene definito).
+- `Puntify.Vetrina/appsettings.Development.json` → Supabase URL/AnonKey.
+
+### Bug aperti post-standup (2026-05-18)
+- **Vetrina · PGRST106**: client Supabase C# SDK invia richiesta a PostgREST senza `Accept-Profile: puntify` → errore `"The schema must be one of the following: puntify, storage"`. Fix lato codice: nel `SupabaseOptions` aggiungere `Schema = "puntify"` (verificato richiesto dopo rename schema `public` → `puntify` su CAT). Da applicare anche a Server e App se chiamano REST diretto su tabelle.
+
+### Comandi utili
+```bash
+sudo systemctl restart puntify-server
+sudo journalctl -u puntify-app -f
+ss -tlnp | grep -E ':700[1-3]'
+```
 
 ## Ambiente CAT
 Vedi [[wiki/projects/cat-stack|CAT Stack]] per i dettagli infrastrutturali. Riepilogo Puntify:
