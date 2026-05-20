@@ -290,3 +290,9 @@ Stack `/root/supabase/docker/` (12 container: gotrue v2.186.0, postgrest v14.8, 
 - File: Puntify.App/Pages/Merchant/MerchantHome.razor — aggiunta icona "social-studio" (route /merchant/socialstudio/{ShopId}); marketing coming-soon ora usa Marketing2.webp
 - Spostamento: Pages/Merchant/ShopSettings.razor → Pages/Merchant/SocialStudio/Settings.razor (route /merchant/socialstudio/{ShopId}/settings/{Tab})
 - Nuova: Pages/Merchant/SocialStudio/SocialStudio.razor (landing /merchant/socialstudio/{ShopId}) con riepilogo provider AI + callout configurazione + scorciatoie tab
+
+## [2026-05-20] task | Puntify Social Studio: IShopAiClient + endpoint sentiment + Prova AI nella landing
+- Backend: IShopAiClient/ShopAiClient (HTTP diretto Anthropic Messages API + OpenAI chat/completions). Risolve credential del shop e dispatcha per provider.
+- Endpoint: POST /api/shop/{ShopId}/ai/sentiment con body {text} → JSON {sentiment, score, summary, topics}. System prompt analista reputazione locale (categorie: positivo/neutro/negativo/polemico/aggressivo/ironico/entusiasta).
+- Frontend: ShopCredentialsApiService.AnalyzeSentimentAsync + sezione "Prova l'AI" nella landing SocialStudio (textarea + bottone + badge sentiment + summary + topics chips). Visibile solo se LLM è configurato.
+- Smoke test endpoint OK (401 atteso senza API-Key, raggiungibile).
