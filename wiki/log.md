@@ -259,3 +259,8 @@ Stack `/root/supabase/docker/` (12 container: gotrue v2.186.0, postgrest v14.8, 
 - File: Puntify.App/Pages/Merchant/ClientDetail.razor
 - Le righe `<div class="cfg-row">` nel tab Appuntamenti ora sono cliccabili (role=button, tabindex 0)
 - Handler OpenBooking → Navigation.NavigateTo("/merchant/shop/{ShopId}/booking?BookingId={id}"), riusa FocusBookingId di BookingHub → BookingAgenda che apre il modale dettaglio
+
+## [2026-05-20] task | Puntify.App ClientDetail: aggregazione alias per email/phone
+- Problema: scheda cliente mostrava tutto a 0 perché il ClientId in URL spesso è un account "guest" generato da EnsureCustomerForBooking, mentre punti/transazioni sono su un altro account con stessa email/phone.
+- Fix: in LoadAll raccoglie aliasIds = {ClientId} ∪ accounts con stessa email ∪ accounts con stessa mobile_number. Poi somma punti, transactions, bookings su tutto il set.
+- Workaround temporaneo: la soluzione definitiva è un account-merge a livello DB.
