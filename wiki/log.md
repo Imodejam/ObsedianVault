@@ -215,3 +215,7 @@ Stack `/root/supabase/docker/` (12 container: gotrue v2.186.0, postgrest v14.8, 
 - Trial: 3 mesi (Codice Amico) o 2 mesi gratis di fidelizzazione+prenotazioni; Nemi separato a consumo
 - 10 lingue aggiornate: it/en/es/fr/pt/ru/ar/zh/hi/bn (21 file, 63 sostituzioni)
 - JSON-LD SEO (FAQ.razor) allineato IT
+
+## [2026-05-20] task | Puntify Vetrina: fix mega-panel desktop fuori schermo
+- Causa: class Tailwind `relative` sul wrapper "Funzionalità" sovrascriveva il CSS `position:static` (Tailwind CDN inietta dopo). Panel absolute ancorato al bottone (decentrato), non al viewport.
+- Fix: rimossa class `relative` da `.mega-wrapper` in Header.razor; cambiato `.mega-panel` da `position:absolute` a `position:fixed; top:5rem; left:50%; translateX(-50%)`; width: min(960px, calc(100vw - 2rem)); max-height: calc(100vh - 6rem); overflow-y:auto; rimosso bridge `::after` ridondante (200ms timeout su mouseleave sufficiente).
