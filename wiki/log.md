@@ -254,3 +254,8 @@ Stack `/root/supabase/docker/` (12 container: gotrue v2.186.0, postgrest v14.8, 
 - "Aggiungi cliente" spostato da header a footer fisso cfg-actionbar (cfg-btn-primary), coerente con "Nuovo operatore"
 - Contenuto premium (search/chips/KPI/customer cards/paginazione) preservato dentro cfg-main (max-w 1160)
 - Pulito CSS clients.css: rimossi stili cli-page/container/header/back/title/subtitle/cta e relative media query
+
+## [2026-05-20] task | Puntify.App ClientDetail: appuntamenti cliccabili
+- File: Puntify.App/Pages/Merchant/ClientDetail.razor
+- Le righe `<div class="cfg-row">` nel tab Appuntamenti ora sono cliccabili (role=button, tabindex 0)
+- Handler OpenBooking → Navigation.NavigateTo("/merchant/shop/{ShopId}/booking?BookingId={id}"), riusa FocusBookingId di BookingHub → BookingAgenda che apre il modale dettaglio
