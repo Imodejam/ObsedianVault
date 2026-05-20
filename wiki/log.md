@@ -229,3 +229,9 @@ Stack `/root/supabase/docker/` (12 container: gotrue v2.186.0, postgrest v14.8, 
 - File: Puntify.App/Pages/Merchant/Booking/BookingAgenda.razor + wwwroot/css/booking.css
 - Nome cliente nel modale "Dettaglio appuntamento" ora è button-link che chiama OpenClientCardFor(b) (stesso handler di "Scheda cliente"). Reso link-style con classe .bk-detail-link.
 - Rimosso pulsante "Chiudi" dalle azioni del form (overlay click già chiude).
+
+## [2026-05-20] task | Puntify.App Clients merchant: include anche clienti solo-prenotazione
+- File: Puntify.App/Pages/Merchant/Clients.razor
+- Prima: lista clienti caricata solo da `GetAllShopTransactions(ShopId)` → mancavano clienti che hanno solo prenotazioni
+- Ora: aggiunto secondo passo che chiama `BookingApi.GetAgendaAsync(slug, -5y, +1y)`, raggruppa per CustomerId, per ogni account non già presente recupera profilo via `GetAccountById` e crea entry ClientEnhanced (TotalPoints=0, LastVisit=ultima booking).
+- Aggiunto inject `BookingApiService BookingApi`. Build OK.
