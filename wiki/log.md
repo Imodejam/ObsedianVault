@@ -198,3 +198,9 @@ Clonato `github.com:Imodejam/puntify` in `/home/progetti/puntify/` (branch `mast
 
 ## [2026-05-17] decision | Supabase OSS legacy dismesso
 Stack `/root/supabase/docker/` (12 container: gotrue v2.186.0, postgrest v14.8, kong, studio, realtime, storage, edge-functions, pooler, analytics, vector, meta, imgproxy, db) ora stopped via `docker compose -f /root/supabase/docker/docker-compose.yml stop`. Esposizione `supabase-cat.duckdns.org` rimossa dal Caddyfile. Volumes `supabase_db-config`, `supabase_deno-cache` intatti (NO `down -v` ancora) per rollback rapido. Backup safety finali in `/opt/ops/backups/local/`: `supabase-db-final-cluster-20260517-013015.sql.gz` (5.3M, pg_dumpall), `supabase-db-final-postgres-20260517-013015.dump` (935K), `supabase-db-final-supadb-20260517-013015.dump` (5.1M), `supabase-piracity-schema-20260517-011543.dump`, `supabase-puntify-schema-20260517-011032.dump`. Quarantena consigliata 7-14gg, poi cleanup definitivo via `docker compose down -v` + `rm -rf /root/supabase/docker/volumes`. DNS `supabase-cat.duckdns.org` ancora attivo su www.duckdns.org ma non gestito da Caddy: rimuoverlo se non serve.
+
+## [2026-05-20] task | Puntify Vetrina: fix burger mobile su sub-menu Funzionalità
+- Drawer: w-[300px] → w-[85vw] max-w-sm, aggiunto overflow-y-auto
+- Rimossi headline/subtitle/CTA enormi dal sub-menu Funzionalità mobile (restano le 3 card)
+- Card mobile: padding/icona/font ridotti per leggibilità
+- File: Puntify.Vetrina/Shared/Header.razor + wwwroot/css/app.css
