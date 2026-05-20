@@ -311,3 +311,12 @@ Stack `/root/supabase/docker/` (12 container: gotrue v2.186.0, postgrest v14.8, 
 - UI Settings tab "Social": tabella piattaforme (Google Business, IG, FB, TikTok, YouTube, Pinterest, Threads) con stato Connesso/Non connesso + bottoni Connetti (disabilitato in attesa setup esterno) / Disconnetti.
 - CSS social-studio.css: drawer + modal + variant cards + platform pills.
 - Test: aggiunti 5 nuovi test (chat empty body 400, chat OK/409/500 paths, generate-content validation, sentiment validation, alert dismiss roundtrip). Totale **16/16 PASS**.
+
+## [2026-05-20] task | Puntify Social Studio: Google Business OAuth scaffold + drafts + background sync + test 20/20
+- DB: nuova tabella puntify.social_drafts (RLS, trigger updated_at). Migration applicata + restart postgrest.
+- Backend: IGoogleBusinessService/GoogleBusinessService — OAuth Google diretto (config Google:ClientId/Secret/RedirectUri), HandleCallback scambia code→token e salva cifrato in shop_credentials. SyncReviewsAsync chiama mybusinessaccountmanagement v1 + mybusinessbusinessinformation v1 + mybusiness v4 reviews, mappa starRating ONE..FIVE, dedup per (provider,external_id), inserisce in social_reviews.
+- Backend: SocialSyncBackgroundService HostedService — ogni Social:SyncIntervalMinutes (default 360min/6h) cicla shop con OAuth Google Business attivo e chiama SyncReviewsAsync.
+- Controller: GET /google-business/status, GET /google-business/auth-url (503 se non configurato), POST /google-business/sync, GET/POST/DELETE /drafts.
+- Frontend: tab Social ora ha Google Business "Connetti" attivo che apre auth-url in popup. Composer.Publish ora chiama SaveDraftAsync che salva su DB social_drafts.
+- Test: 4 nuovi (Google status, auth-url 503-if-not-configured, drafts CRUD roundtrip, drafts validate empty). Totale **20/20 PASS**.
+- Per attivare Google Business reale: Stefano deve creare client OAuth in Google Cloud Console (scope business.manage) e mettere Google:ClientId/ClientSecret/RedirectUri in appsettings server. Endpoint callback redirect URI da registrare: https://api-cat.puntify.it/api/google-business/oauth/callback (callback handler controller verrà aggiunto quando ClientId disponibili).
