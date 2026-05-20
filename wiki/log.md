@@ -264,3 +264,11 @@ Stack `/root/supabase/docker/` (12 container: gotrue v2.186.0, postgrest v14.8, 
 - Problema: scheda cliente mostrava tutto a 0 perché il ClientId in URL spesso è un account "guest" generato da EnsureCustomerForBooking, mentre punti/transazioni sono su un altro account con stessa email/phone.
 - Fix: in LoadAll raccoglie aliasIds = {ClientId} ∪ accounts con stessa email ∪ accounts con stessa mobile_number. Poi somma punti, transactions, bookings su tutto il set.
 - Workaround temporaneo: la soluzione definitiva è un account-merge a livello DB.
+
+## [2026-05-20] task | Puntify Vetrina /prezzi: menzione sistema prenotazione
+- File: Puntify.Vetrina/Pages/Prezzi.razor + Resources/*.resx + translations_*.xml
+- Aggiornato HeroDesc, MonthlyDesc, AnnualDesc per dire "fidelizzazione + prenotazioni in unico abbonamento"
+- Lista 7 feature riscritta: aggiunte "Programma fedeltà a punti" + "Sistema di prenotazione online" come prime due, mergiate dashboard+analytics e pwa+supporto
+- Tabella confronto: nuova riga Cmp7 "Sistema di prenotazione" (Altri: a pagamento, Puntify: incluso)
+- FAQ: nuova Faq5 ("Il sistema di prenotazione è compreso?"), aggiornata Faq1_A con clarification "Nemi a consumo"
+- Lingue: it/en/es/fr/pt/ar/zh/hi/bn (9 — il russo non era nei resource Vetrina)
