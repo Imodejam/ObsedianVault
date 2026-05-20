@@ -296,3 +296,10 @@ Stack `/root/supabase/docker/` (12 container: gotrue v2.186.0, postgrest v14.8, 
 - Endpoint: POST /api/shop/{ShopId}/ai/sentiment con body {text} → JSON {sentiment, score, summary, topics}. System prompt analista reputazione locale (categorie: positivo/neutro/negativo/polemico/aggressivo/ironico/entusiasta).
 - Frontend: ShopCredentialsApiService.AnalyzeSentimentAsync + sezione "Prova l'AI" nella landing SocialStudio (textarea + bottone + badge sentiment + summary + topics chips). Visibile solo se LLM è configurato.
 - Smoke test endpoint OK (401 atteso senza API-Key, raggiungibile).
+
+## [2026-05-20] task | Puntify Social Studio: dashboard + feed + alert + seed-demo + test 11/11
+- Schema DB: nuove tabelle puntify.social_reviews, social_posts, social_alerts, social_sync_state (RLS authenticated, FK shop, unique (provider,external_id), trigger updated_at). Migration social_studio_schema.sql applicata su CAT + restart postgrest-puntify-cat per reload schema.
+- Backend: SocialStudioService + Controller. Endpoint: GET dashboard / GET feed (filtro provider) / GET alerts / POST alerts/{id}/dismiss / POST seed-demo (genera 5 review + 3 post + 3 alert e arricchisce con sentiment AI se configurato).
+- Formula AI Score: 0.40 reputazione + 0.25 engagement + 0.15 costanza + 0.20 sentiment positive ratio.
+- UI: SocialStudio.razor riscritta come dashboard premium (KPI 4 card, chip filtri social, feed card con thumbnail/meta/sentiment pill/insight inline, sidebar alert+azioni rapide, header CTA "Impostazioni"+"Pubblica contenuto"). CSS social-studio.css linkato in index.html.
+- Test: Puntify.Tests/SocialStudioTests.cs (xunit). 4 unit crypto + 7 integration HTTP. **11/11 PASS** dopo restart postgrest (cache schema). Aggiunto ProjectReference Puntify.Server al test csproj.
