@@ -303,3 +303,11 @@ Stack `/root/supabase/docker/` (12 container: gotrue v2.186.0, postgrest v14.8, 
 - Formula AI Score: 0.40 reputazione + 0.25 engagement + 0.15 costanza + 0.20 sentiment positive ratio.
 - UI: SocialStudio.razor riscritta come dashboard premium (KPI 4 card, chip filtri social, feed card con thumbnail/meta/sentiment pill/insight inline, sidebar alert+azioni rapide, header CTA "Impostazioni"+"Pubblica contenuto"). CSS social-studio.css linkato in index.html.
 - Test: Puntify.Tests/SocialStudioTests.cs (xunit). 4 unit crypto + 7 integration HTTP. **11/11 PASS** dopo restart postgrest (cache schema). Aggiunto ProjectReference Puntify.Server al test csproj.
+
+## [2026-05-20] task | Puntify Social Studio: AI Assistant drawer + Composer multi-step + endpoint chat + endpoint generate-content + tab Social con lista piattaforme + test 16/16
+- Backend: IShopAiClient.ChatAsync (multi-turn) per Anthropic + OpenAI. Endpoint POST /api/shop/{id}/ai/chat (system prompt assistant social locale) + POST /api/shop/{id}/ai/generate-content (3 varianti caption + hashtag).
+- UI dashboard: drawer laterale "AI Assistant" con system prompt + suggerimenti rapidi (4) + cronologia chat + invio testo. Bottoni nella header card.
+- UI dashboard: modal "Pubblica contenuto" 4-step (Brief → AI varianti → Targets pill multi-select → Preview). Genera 3 varianti via endpoint, selezione, "Pubblica draft" (publishing reale richiede OAuth social).
+- UI Settings tab "Social": tabella piattaforme (Google Business, IG, FB, TikTok, YouTube, Pinterest, Threads) con stato Connesso/Non connesso + bottoni Connetti (disabilitato in attesa setup esterno) / Disconnetti.
+- CSS social-studio.css: drawer + modal + variant cards + platform pills.
+- Test: aggiunti 5 nuovi test (chat empty body 400, chat OK/409/500 paths, generate-content validation, sentiment validation, alert dismiss roundtrip). Totale **16/16 PASS**.
