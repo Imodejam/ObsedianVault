@@ -272,3 +272,16 @@ Stack `/root/supabase/docker/` (12 container: gotrue v2.186.0, postgrest v14.8, 
 - Tabella confronto: nuova riga Cmp7 "Sistema di prenotazione" (Altri: a pagamento, Puntify: incluso)
 - FAQ: nuova Faq5 ("Il sistema di prenotazione è compreso?"), aggiornata Faq1_A con clarification "Nemi a consumo"
 - Lingue: it/en/es/fr/pt/ar/zh/hi/bn (9 — il russo non era nei resource Vetrina)
+
+## [2026-05-20] task | Puntify Fase 0.5 — Modulo Credentials per shop completato
+- Migration: `Puntify.Server/Database/shop_credentials_schema.sql` applicata su `puntify_cat` (tabella + indici + RLS authenticated + trigger updated_at + check constraints type/provider)
+- Model: `Punto.Shared/Models/ShopCredential.cs` + costanti `ShopCredentialTypes` / `LlmProviders`
+- Backend: `Services/Credentials/`
+  - `CredentialCryptoService` AES-GCM 256 (master key da `Credentials:MasterKey`, 32 byte base64)
+  - `ShopCredentialsService` CRUD + ResolveLlmAsync (decrypt) + TestLlmAsync (ping Anthropic Messages / OpenAI /models)
+- Controller: `ShopCredentialsController` con endpoint `GET /credentials`, `GET /credentials/{type}`, `POST /credentials/llm`, `POST /credentials/llm/test`, `DELETE /credentials/{type}`
+- DI registrato in `Puntify.Server/Program.cs` (Singleton crypto, Scoped service)
+- Master key dev generata: in `appsettings.Development.json` chiave `Credentials:MasterKey`. PRODUZIONE: da generare separatamente e mettere in secrets Puntify prod.
+- Frontend: `Puntify.App/Services/ShopCredentialsApiService.cs` + DI Program.cs
+- Pagina: `Puntify.App/Pages/Merchant/ShopSettings.razor` route `/merchant/shop/{ShopId}/settings/{Tab}` con bk-tabs (Provider AI funzionante, Social placeholder, Stato funzionante)
+- Build pulito su entrambi i progetti, puntify-server riavviato. Endpoint smoke test ritorna 401 (auth API-Key required, normale).
