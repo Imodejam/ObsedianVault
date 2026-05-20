@@ -342,3 +342,26 @@ File chiave:
 - Puntify.Server/Controllers/{SocialOAuth, GoogleOAuthCallback, SocialOAuthCallback}Controller.cs
 - Puntify.Server/Middleware/ApiKeyAuthMiddleware.cs (whitelist /api/oauth/callback/*)
 - Puntify.App/Pages/Merchant/SocialStudio/Calendar.razor
+
+## [2026-05-20] task | Puntify Social Studio: allineamento totale a screenshot + pensiero laterale
+13 task addizionali (14-25) completati:
+14. Sottotitolo header sotto "Social Studio" + icona sparkle viola lato titolo
+15. KPI cards estese con delta% vs ieri + sparkline SVG inline (serie 14gg calcolata server-side)
+16. Chip filtri completi tutti 7 provider + "..." overflow menu per provider extra
+17. Toolbar dx con "Filtra" + dropdown range "Ultimi 7gg" (24h/7gg/30gg/90gg)
+18. Insight inline con button azione contestuale (Rispondi con AI / Analizza commenti / Crea Reel)
+19. Kebab menu "⋮" su card con 5 azioni (Rispondi AI, Apri originale, Trasforma promo, Sponsorizza, Nascondi)
+20. "Vedi tutte" link in sidebar alert + chevron freccia → su ogni azione rapida
+21. Sentiment % score sotto pill + "Vedi dettagli" come outline button
+22. Endpoint POST /social/seed-provider-demo/{provider} per IG/FB/TikTok/YT/Pinterest/Threads (2 post per provider, idempotente)
+23. Composer Step 4 "Anteprima" mostra mock platform-specific con hint dimensioni per ogni target
+24. Tabella social_kpi_snapshots + KpiSnapshotBackgroundService (giornaliero)
+25. Test xunit 36/36 PASS (+5 nuovi: dashboard kpi shape, seed provider per provider, idempotency, unknown provider 400, dashboard counts)
+Pensiero laterale: logo Google a colori nel KPI Reputazione, icone tone-specific per insight (warning triangle / positive sparkle / suggestion sparkle viola), badge durata video tipo "00:23" su TikTok/YouTube card.
+File chiave aggiornati:
+- Services/SocialStudio/SocialStudioService.cs (sparkline + delta)
+- Services/SocialStudio/KpiSnapshotBackgroundService.cs (nuovo)
+- Database/social_kpi_snapshots_schema.sql (applicato)
+- Pages/Merchant/SocialStudio/SocialStudio.razor (refactor massivo dashboard)
+- wwwroot/css/social-studio.css (delta, toolbar, kebab, overflow, insight-row, preview-platform, google logo bg)
+- Controllers/SocialStudioController.cs (seed-provider-demo endpoint)
