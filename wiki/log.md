@@ -219,3 +219,8 @@ Stack `/root/supabase/docker/` (12 container: gotrue v2.186.0, postgrest v14.8, 
 ## [2026-05-20] task | Puntify Vetrina: fix mega-panel desktop fuori schermo
 - Causa: class Tailwind `relative` sul wrapper "Funzionalità" sovrascriveva il CSS `position:static` (Tailwind CDN inietta dopo). Panel absolute ancorato al bottone (decentrato), non al viewport.
 - Fix: rimossa class `relative` da `.mega-wrapper` in Header.razor; cambiato `.mega-panel` da `position:absolute` a `position:fixed; top:5rem; left:50%; translateX(-50%)`; width: min(960px, calc(100vw - 2rem)); max-height: calc(100vh - 6rem); overflow-y:auto; rimosso bridge `::after` ridondante (200ms timeout su mouseleave sufficiente).
+
+## [2026-05-20] task | Puntify.App Dashboard merchant: rimossa sezione "Gestione premi"
+- File: Puntify.App/Pages/Merchant/Dashboard.razor
+- Rimosso: blocco UI rewards (header + strip + callout empty-state), field `_rewards`, fetch `GetShopRewards`, metodi `GoToRewards` / `GoToRewardEdit`
+- Build pulita (0 errors). I premi restano accessibili via Rewards.razor dedicata.
