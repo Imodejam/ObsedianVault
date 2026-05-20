@@ -208,3 +208,10 @@ Stack `/root/supabase/docker/` (12 container: gotrue v2.186.0, postgrest v14.8, 
 ## [2026-05-20] task | Puntify Vetrina FAQ: categoria "Per Esercenti" → "Fidelizzazione"
 - Aggiornata chiave i18n `Faq_Cat_Merchants` su 21 file Resources/ (10 lingue × 2 formati resx+xml)
 - it: Fidelizzazione, en: Loyalty, es: Fidelización, fr: Fidélisation, pt: Fidelização, ru: Лояльность, ar: الولاء, zh: 忠诚度, hi: वफ़ादारी, bn: আনুগত্য
+
+## [2026-05-20] task | Puntify Vetrina FAQ Gen1/Gen2/Gen5: rewrite per nuovo positioning (Customer Engagement Platform)
+- Pitch aggiornato: fidelizzazione + prenotazioni online + Nemi AI (assistente)
+- Pricing precisato: abbonamento 9,99€/mese include fidelizzazione + sistema prenotazione; **Nemi NON è inclusa, ha pacchetti a consumo dedicati**
+- Trial: 3 mesi (Codice Amico) o 2 mesi gratis di fidelizzazione+prenotazioni; Nemi separato a consumo
+- 10 lingue aggiornate: it/en/es/fr/pt/ru/ar/zh/hi/bn (21 file, 63 sostituzioni)
+- JSON-LD SEO (FAQ.razor) allineato IT
