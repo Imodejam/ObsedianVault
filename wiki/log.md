@@ -320,3 +320,25 @@ Stack `/root/supabase/docker/` (12 container: gotrue v2.186.0, postgrest v14.8, 
 - Frontend: tab Social ora ha Google Business "Connetti" attivo che apre auth-url in popup. Composer.Publish ora chiama SaveDraftAsync che salva su DB social_drafts.
 - Test: 4 nuovi (Google status, auth-url 503-if-not-configured, drafts CRUD roundtrip, drafts validate empty). Totale **20/20 PASS**.
 - Per attivare Google Business reale: Stefano deve creare client OAuth in Google Cloud Console (scope business.manage) e mettere Google:ClientId/ClientSecret/RedirectUri in appsettings server. Endpoint callback redirect URI da registrare: https://api-cat.puntify.it/api/google-business/oauth/callback (callback handler controller verrà aggiunto quando ClientId disponibili).
+
+## [2026-05-20] task | Puntify Social Studio: round finale completo, test 31/31
+13 task completati:
+1. Google OAuth callback HTML page (whitelistato in ApiKeyAuthMiddleware) /api/google-business/oauth/callback
+2. Google refresh token flow: auto-refresh in SyncReviewsAsync se token scaduto
+3. OAuth scaffold generico per 6 social (IG/FB/TikTok/YT/Pinterest/Threads): GenericOAuthProvider base + 6 derivati + SocialOAuthRegistry. Endpoint /api/shop/{id}/social/oauth/{provider}/{status|auth-url|sync}. Callback generico /api/oauth/callback/{provider}
+4. IPublisherService + PublisherService: dispatch per target con stub publishing finché OAuth attivo. Aggiorna draft status published/failed
+5. DraftPublishBackgroundService: HostedService ogni 2min cerca drafts scheduled scaduti e publica
+6. Composer Step 5: scelta "Subito" vs "Pianifica" con date+time picker. Salva scheduledAt UTC
+7. Pagina /merchant/socialstudio/{id}/calendar: vista mese con drafts colorati per status. Nav prev/next mese
+8. Sezione "Bozze recenti" nella dashboard SocialStudio con Pubblica/Elimina
+9. Bottone "Rispondi con AI" sulle review nel feed → apre chat con prompt pre-impostato per generare risposta empatica
+10. ISocialAlertNotifier: crea alert E (se priority=alta) accoda notifica push merchant via INotificationQueueService
+11. AI Score refinement: 6 componenti (35% rep + 20% engagement + 15% costanza + 15% sentiment + 10% response_rate + 5% recency)
+12. Trend analysis endpoint /trends (top topic + sentiment by week 4 settimane) + tabella social_competitors + CRUD
+13. Test: 31/31 PASS (+15 nuovi vs round precedente)
+File chiave:
+- Punto.Shared/Models/SocialModels.cs (+ SocialDraft model)
+- Puntify.Server/Services/SocialStudio/* (8 nuovi service)
+- Puntify.Server/Controllers/{SocialOAuth, GoogleOAuthCallback, SocialOAuthCallback}Controller.cs
+- Puntify.Server/Middleware/ApiKeyAuthMiddleware.cs (whitelist /api/oauth/callback/*)
+- Puntify.App/Pages/Merchant/SocialStudio/Calendar.razor
