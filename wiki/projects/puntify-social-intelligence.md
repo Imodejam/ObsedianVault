@@ -62,12 +62,19 @@ Layout merchant pattern (back + titolo "Social Intelligence" + sottotitolo) con 
 - Grammar/branding check su post
 - AI Score (composito)
 
-**Vincolo memoria progetto**: Anthropic API HTTP è riservata a Concilium per Puntify. → Per Puntify serve provider alternativo. Opzioni:
-- OpenAI (gpt-4o-mini per sentiment economico, gpt-4o per generation)
-- Modello locale (es. Llama 3.1 via Ollama sul server pro-open)
-- Servizio terze parti tipo Cohere
+**Vincolo memoria progetto**: Anthropic API HTTP è riservata a Concilium per Puntify.
 
-Decisione richiesta da Stefano prima dell'inizio.
+**Raccomandazione LLM (2026-05-20)**: split a 2 livelli su **OpenAI**:
+- **Tier 1 batch** — sentiment, topic detection, classificazione: `gpt-4o-mini` ($0.15/M input, $0.60/M output). Strutturato JSON, throughput alto.
+- **Tier 2 qualità** — insight generation, risposte AI a recensioni, AI Assistant, content gen: `gpt-4o` ($2.5/M input, $10/M output). Italiano top, function calling per Assistant.
+
+Stima MVP (1000 contenuti/giorno + 50 insight + 20 risposte + 100 chat): ~75 USD/mese.
+
+Alternative valutate e scartate:
+- Gemini 2.0 Flash (Google): piano B per tier batch se ottimizzazione costi. Italiano leggermente sotto su tone.
+- Mistral (EU/GDPR): solo se priorità data residency
+- Llama locale: scartato, pro-open è KVM senza GPU dedicata
+- Anthropic: bloccata (Concilium)
 
 ### Richiedono backend nuovo (lato Puntify.Server)
 - Tabelle: `social_connections` (provider, account_id, token cifrato, scope, expiry), `social_posts` (provider, post_id, type, text, media, metrics, sentiment, topics, fetched_at), `social_comments`, `social_reviews`, `social_alerts`, `social_drafts`, `social_schedules`, `ai_insights`
