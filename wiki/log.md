@@ -235,3 +235,10 @@ Stack `/root/supabase/docker/` (12 container: gotrue v2.186.0, postgrest v14.8, 
 - Prima: lista clienti caricata solo da `GetAllShopTransactions(ShopId)` → mancavano clienti che hanno solo prenotazioni
 - Ora: aggiunto secondo passo che chiama `BookingApi.GetAgendaAsync(slug, -5y, +1y)`, raggruppa per CustomerId, per ogni account non già presente recupera profilo via `GetAccountById` e crea entry ClientEnhanced (TotalPoints=0, LastVisit=ultima booking).
 - Aggiunto inject `BookingApiService BookingApi`. Build OK.
+
+## [2026-05-20] task | Puntify.App Clients merchant: redesign premium CRM/Loyalty
+- File: Puntify.App/Pages/Merchant/Clients.razor (rewrite markup), wwwroot/css/clients.css (nuovo), wwwroot/index.html (link CSS)
+- Stile ispirato a Linear/Stripe/Attio/Apple: bg #F5F5F7, card bianche radius 20px, ombre soft, palette graphite/violet/amber/green/rose
+- Sezioni: header con CTA "Aggiungi cliente" (placeholder), search 56px con ⌘K, chips filtri con contatori dinamici, sort dropdown custom, 4 KPI cards, customer card a 5 colonne (avatar/info/metrics/badge/arrow), paginazione numerica con ellipsi
+- KPI: totali, VIP, spesa media (7gg), inattivi. Variazione % NON calcolata (serve storico).
+- Responsive 1100/900/640. Build pulita.
