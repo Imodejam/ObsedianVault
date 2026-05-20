@@ -224,3 +224,8 @@ Stack `/root/supabase/docker/` (12 container: gotrue v2.186.0, postgrest v14.8, 
 - File: Puntify.App/Pages/Merchant/Dashboard.razor
 - Rimosso: blocco UI rewards (header + strip + callout empty-state), field `_rewards`, fetch `GetShopRewards`, metodi `GoToRewards` / `GoToRewardEdit`
 - Build pulita (0 errors). I premi restano accessibili via Rewards.razor dedicata.
+
+## [2026-05-20] task | Puntify.App BookingAgenda: nome cliente cliccabile + rimosso tasto Chiudi
+- File: Puntify.App/Pages/Merchant/Booking/BookingAgenda.razor + wwwroot/css/booking.css
+- Nome cliente nel modale "Dettaglio appuntamento" ora è button-link che chiama OpenClientCardFor(b) (stesso handler di "Scheda cliente"). Reso link-style con classe .bk-detail-link.
+- Rimosso pulsante "Chiudi" dalle azioni del form (overlay click già chiude).
