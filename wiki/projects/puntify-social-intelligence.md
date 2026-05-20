@@ -62,19 +62,27 @@ Layout merchant pattern (back + titolo "Social Intelligence" + sottotitolo) con 
 - Grammar/branding check su post
 - AI Score (composito)
 
-**Vincolo memoria progetto**: Anthropic API HTTP è riservata a Concilium per Puntify.
+**Raccomandazione LLM (2026-05-20, aggiornata msg 1645)**: stack **Anthropic** puro.
 
-**Raccomandazione LLM (2026-05-20)**: split a 2 livelli su **OpenAI**:
-- **Tier 1 batch** — sentiment, topic detection, classificazione: `gpt-4o-mini` ($0.15/M input, $0.60/M output). Strutturato JSON, throughput alto.
-- **Tier 2 qualità** — insight generation, risposte AI a recensioni, AI Assistant, content gen: `gpt-4o` ($2.5/M input, $10/M output). Italiano top, function calling per Assistant.
+- **Tier 1 batch** — sentiment, topic detection, classificazione: `claude-haiku-4-5-20251001` (~$0.80/M input, ~$4/M output). Veloce, beneficia di prompt caching sul system prompt ricorrente.
+- **Tier 2 qualità** — insight generation, risposte AI a recensioni, AI Assistant chat, content gen: `claude-sonnet-4-6` (~$3/M input, ~$15/M output). Vantaggio su tone empatico/diplomatico delle risposte (task reputazionalmente sensibile).
+- **Tier critico opzionale** — `claude-opus-4-7` per casi quality-critical (recensione critica VIP).
 
-Stima MVP (1000 contenuti/giorno + 50 insight + 20 risposte + 100 chat): ~75 USD/mese.
+Stima MVP (1000 contenuti/giorno + 50 insight + 20 risposte + 100 chat con prompt caching attivo): **~30 USD/mese**.
 
-Alternative valutate e scartate:
-- Gemini 2.0 Flash (Google): piano B per tier batch se ottimizzazione costi. Italiano leggermente sotto su tone.
-- Mistral (EU/GDPR): solo se priorità data residency
-- Llama locale: scartato, pro-open è KVM senza GPU dedicata
-- Anthropic: bloccata (Concilium)
+Vantaggi vs OpenAI:
+- Prompt caching aggressivo riduce costi reali a parità
+- Tone empatico migliore per risposte recensioni
+- Tool use maturo per AI Assistant
+- Context window 200K (1M variant disponibile)
+
+Alternative scartate:
+- OpenAI (gpt-4o-mini + gpt-4o): valida ma senza vantaggio di tone
+- Gemini Flash: piano B se serve ulteriore cost optimization
+- Llama locale: KVM senza GPU dedicata su pro-open
+- Mistral: solo se priorità GDPR/data-residency UE diventa stringente
+
+NOTA: il vincolo "Anthropic API solo offline" riguarda Piracity, non Puntify.
 
 ### Richiedono backend nuovo (lato Puntify.Server)
 - Tabelle: `social_connections` (provider, account_id, token cifrato, scope, expiry), `social_posts` (provider, post_id, type, text, media, metrics, sentiment, topics, fetched_at), `social_comments`, `social_reviews`, `social_alerts`, `social_drafts`, `social_schedules`, `ai_insights`
