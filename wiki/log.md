@@ -242,3 +242,9 @@ Stack `/root/supabase/docker/` (12 container: gotrue v2.186.0, postgrest v14.8, 
 - Sezioni: header con CTA "Aggiungi cliente" (placeholder), search 56px con ⌘K, chips filtri con contatori dinamici, sort dropdown custom, 4 KPI cards, customer card a 5 colonne (avatar/info/metrics/badge/arrow), paginazione numerica con ellipsi
 - KPI: totali, VIP, spesa media (7gg), inattivi. Variazione % NON calcolata (serve storico).
 - Responsive 1100/900/640. Build pulita.
+
+## [2026-05-20] task | Puntify.App Clients: metrica Prenotazioni + fix sub-label "Ultimo acquisto"
+- ClientEnhanced + BookingCount/TransactionCount
+- Booking count: dict per CustomerId su tutte le bookings (-5y/+1y), aggiornato sia per clienti con transazioni che per quelli solo-prenotazione
+- Card metrics 3→4 colonne: Punti, Prenotazioni, Ultimo acquisto, Frequenza
+- "Ultimo acquisto" sub-label "Ieri/Oggi/..." mostrato solo se TransactionCount > 0
