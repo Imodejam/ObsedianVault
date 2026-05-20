@@ -285,3 +285,8 @@ Stack `/root/supabase/docker/` (12 container: gotrue v2.186.0, postgrest v14.8, 
 - Frontend: `Puntify.App/Services/ShopCredentialsApiService.cs` + DI Program.cs
 - Pagina: `Puntify.App/Pages/Merchant/ShopSettings.razor` route `/merchant/shop/{ShopId}/settings/{Tab}` con bk-tabs (Provider AI funzionante, Social placeholder, Stato funzionante)
 - Build pulito su entrambi i progetti, puntify-server riavviato. Endpoint smoke test ritorna 401 (auth API-Key required, normale).
+
+## [2026-05-20] task | Puntify.App: icona Social Studio in home merchant + cartella dedicata
+- File: Puntify.App/Pages/Merchant/MerchantHome.razor — aggiunta icona "social-studio" (route /merchant/socialstudio/{ShopId}); marketing coming-soon ora usa Marketing2.webp
+- Spostamento: Pages/Merchant/ShopSettings.razor → Pages/Merchant/SocialStudio/Settings.razor (route /merchant/socialstudio/{ShopId}/settings/{Tab})
+- Nuova: Pages/Merchant/SocialStudio/SocialStudio.razor (landing /merchant/socialstudio/{ShopId}) con riepilogo provider AI + callout configurazione + scorciatoie tab
