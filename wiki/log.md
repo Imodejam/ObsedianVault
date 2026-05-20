@@ -204,3 +204,7 @@ Stack `/root/supabase/docker/` (12 container: gotrue v2.186.0, postgrest v14.8, 
 - Rimossi headline/subtitle/CTA enormi dal sub-menu Funzionalità mobile (restano le 3 card)
 - Card mobile: padding/icona/font ridotti per leggibilità
 - File: Puntify.Vetrina/Shared/Header.razor + wwwroot/css/app.css
+
+## [2026-05-20] task | Puntify Vetrina FAQ: categoria "Per Esercenti" → "Fidelizzazione"
+- Aggiornata chiave i18n `Faq_Cat_Merchants` su 21 file Resources/ (10 lingue × 2 formati resx+xml)
+- it: Fidelizzazione, en: Loyalty, es: Fidelización, fr: Fidélisation, pt: Fidelização, ru: Лояльность, ar: الولاء, zh: 忠诚度, hi: वफ़ादारी, bn: আনুগত্য
