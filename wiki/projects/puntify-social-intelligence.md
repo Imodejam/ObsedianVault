@@ -92,13 +92,50 @@ NOTA: il vincolo "Anthropic API solo offline" riguarda Piracity, non Puntify.
 
 ## Piano implementativo per fasi
 
-### Fase 0 — Decisioni preliminari (Stefano)
-1. **LLM provider** per Puntify (non Anthropic)
-2. **Budget** per API a pagamento (X, Meta review, WhatsApp conversation, LLM tokens)
-3. **Priorità piattaforme** per MVP — propongo: Google Business + Instagram + Facebook (coperture immediate, già OAuth Google esistente per Calendar)
-4. **AI Score** — formula proprietaria: pesi su reputazione/engagement/costanza/qualità/risposta/sentiment
-5. **AI Assistant**: chat in panel laterale o pagina dedicata?
-6. **Account model**: una connessione per shop o per merchant globale?
+### Fase 0 — Decisioni preliminari (chiuse 2026-05-20)
+1. **LLM provider**: Anthropic + OpenAI (entrambi supportati, merchant sceglie). Gemini escluso dal day-1.
+2. **Budget**: tutto gratis lato API social. LLM tokens a carico del merchant (sua chiave). Puntify non assorbe né ribalta.
+3. **Piattaforme MVP**: Google Business + Instagram + Facebook + TikTok + YouTube + Pinterest + Threads. Escluse: X, LinkedIn, Trustpilot, TripAdvisor, WhatsApp (no API gratis o ToS critici). Scraping/MCP scartati per rischio ban/legal.
+4. **AI Score**: da definire — formula composita su reputazione/engagement/costanza/qualità/risposta/sentiment.
+5. **AI Assistant**: panel laterale (default) o pagina dedicata — da decidere durante UI.
+6. **Account model**: una connessione per piattaforma per shop (no multi-account stesso shop).
+
+### Fase 0.5 — Modulo Credentials per shop (prerequisito, ~5-7 giorni)
+Prima di Social Intelligence serve il sistema "n8n-style" di credenziali per shop.
+
+**Tabella `puntify.shop_credentials`**:
+- `id` PK, `shop_id` FK, `type` (enum)
+- `provider` (anthropic/openai per LLM)
+- `api_key` TEXT cifrato AES-GCM
+- `model` (es. claude-sonnet-4-6, gpt-4o)
+- `oauth_token` / `oauth_refresh_token` / `oauth_expires_at` cifrati (per social)
+- `metadata` JSONB
+- `last_validated_at`, `last_validation_status`, `is_active`
+- RLS: solo merchant del shop
+
+**Tipi**:
+- `llm_provider` (Anthropic, OpenAI)
+- `oauth_instagram`, `oauth_facebook`, `oauth_tiktok`, `oauth_google_business`, `oauth_youtube`, `oauth_pinterest`, `oauth_threads`
+
+**Pagina UI**: `/merchant/shop/{ShopId}/settings` + `/{Tab}` con pattern `bk-tabs` come BookingHub.
+
+Tab iniziali:
+- **Provider AI**: dropdown provider, input chiave password-masked, dropdown modello (filtrato per provider), "Testa connessione" che chiama health check del provider, stato "Connesso/Non valido" + last_validated_at
+- **Social**: per ogni piattaforma blocco con "Connetti" → OAuth flow → "Connesso come @nome" + "Disconnetti"
+- **Stato**: riepilogo connessioni + ultima sync
+
+**Sicurezza**:
+- Master key `CREDENTIALS_MASTER_KEY` in env Puntify.Server (pattern già usato per shop_google_tokens)
+- Chiavi mai esposte client dopo save (write-only in input)
+- RLS Supabase: `accountid IN (account_shops WHERE shopid = X)`
+
+**Backend abstraction**:
+- `IShopAiClient` data `shopId` risolve provider+model+key → ritorna client tipato (Anthropic SDK o OpenAI SDK)
+- Endpoint CRUD `/api/shop/{shopId}/credentials`
+- Endpoint `/api/shop/{shopId}/credentials/{type}/test` per validazione
+
+**Implicazione business**:
+Merchant porta la SUA chiave LLM, paga direttamente Anthropic/OpenAI. Puntify SaaS resta 9.99€/mese, no markup LLM. Coerente con positioning "Nemi a consumo separato".
 
 ### Fase 1 — Skeleton UI + dati Google (2 settimane)
 - Route `/merchant/shop/{ShopId}/social` con layout cfg-page coerente con Clients
