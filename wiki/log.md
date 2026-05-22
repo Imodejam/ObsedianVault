@@ -366,3 +366,4 @@ File chiave aggiornati:
 - wwwroot/css/social-studio.css (delta, toolbar, kebab, overflow, insight-row, preview-platform, google logo bg)
 - Controllers/SocialStudioController.cs (seed-provider-demo endpoint)
 ## [2026-05-22] fix | Puntify BookingAgenda autocomplete clienti: NormalizePhone(query)="" su input alfabetico faceva passare tutti i clienti con mobile (Contains(""))
+## [2026-05-22] update | Puntify MerchantHome: icona Nemi sostituita con video nemi-idle.mp4 (autoplay+muted+loop+playsinline, poster=Assistant.webp)
