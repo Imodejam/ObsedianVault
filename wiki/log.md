@@ -367,3 +367,4 @@ File chiave aggiornati:
 - Controllers/SocialStudioController.cs (seed-provider-demo endpoint)
 ## [2026-05-22] fix | Puntify BookingAgenda autocomplete clienti: NormalizePhone(query)="" su input alfabetico faceva passare tutti i clienti con mobile (Contains(""))
 ## [2026-05-22] update | Puntify MerchantHome: icona Nemi sostituita con video nemi-idle.mp4 (autoplay+muted+loop+playsinline, poster=Assistant.webp)
+## [2026-05-22] update | Puntify /consent rifatta in stile cfg-* (cards/toggle/actionbar), pagina unica con ClientBottomNav solo per ruolo cliente
