@@ -365,3 +365,4 @@ File chiave aggiornati:
 - Pages/Merchant/SocialStudio/SocialStudio.razor (refactor massivo dashboard)
 - wwwroot/css/social-studio.css (delta, toolbar, kebab, overflow, insight-row, preview-platform, google logo bg)
 - Controllers/SocialStudioController.cs (seed-provider-demo endpoint)
+## [2026-05-22] fix | Puntify BookingAgenda autocomplete clienti: NormalizePhone(query)="" su input alfabetico faceva passare tutti i clienti con mobile (Contains(""))
