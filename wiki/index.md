@@ -24,6 +24,7 @@
 ## Decisioni
 - [[wiki/decisions/standard-operating-procedures|SOP Agenti]] — Standard obbligatori per documentazione, Kanban e Vault
 - [[wiki/decisions/agent-writing-standards|Agent Writing Standards]] — (Redirect a SOP)
+- [[wiki/decisions/telegram-nemi-multi-pv-topics|Puntify Telegram-Nemi multi-PV via Forum Topics]] — 2026-05-25, un gruppo per account, un topic per PV
 
 
 ## Concetti
