@@ -369,3 +369,7 @@ File chiave aggiornati:
 ## [2026-05-22] update | Puntify MerchantHome: icona Nemi sostituita con video nemi-idle.mp4 (autoplay+muted+loop+playsinline, poster=Assistant.webp)
 ## [2026-05-22] update | Puntify /consent rifatta in stile cfg-* (cards/toggle/actionbar), pagina unica con ClientBottomNav solo per ruolo cliente
 ## [2026-05-25] feature | Puntify Telegram-Nemi: bot @PuntifyNemiBot, un gruppo per account + un Forum Topic per ogni PV. Notifiche merchant (scontrini/booking/asporto) instradate nel topic del PV; chat Nemi multi-PV via webhook. Migration 20260605, decisione in wiki/decisions/telegram-nemi-multi-pv-topics.md. In attesa: applicazione migration + token BotFather da Stefano.
+
+## [2026-05-27] task | Puntify sessione lunga: menu pubblico UX, POS, display sala/cucina, ordini, Nemi limiti, feature toggle, sitemap dinamica, pagina shop rifatta
+## [2026-05-27] task | Fix serializzazione Postgrest (extension methods), notifica ordini, BookingModesCount, auto-retry Blazor
+## [2026-05-27] task | Nuove icone Transazioni.webp e Monitor.webp nella home merchant

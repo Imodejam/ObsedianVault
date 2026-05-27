@@ -174,8 +174,58 @@ Sincronizzazione **bidirezionale** appuntamenti ↔ Google Calendar. Piano detta
 - Prodotto LIVE: sito + app up and running
 - Obiettivo: primi 300 esercenti
 
+## Sessione 2026-05-26/27 — Feature principali aggiunte
+
+### Menu pubblico (/m/{slug}/menu)
+- Hero 280px con proporzioni da mockup, card categorie lista su mobile / griglia su desktop
+- Badge piatti consigliati delicati, filtri applicati anche su evidenza
+- Sezioni vuote nascoste, zoom bloccato, auto-retry riconnessione Blazor
+- Dettaglio piatto con tasto + rapido, X visibile su mobile
+- Tavoli: fix deserializzazione JSON, label "Tavolo N" tradotto 20 lingue
+
+### Pagina shop (/m/{slug})
+- Rifatta con stile menu-public.css: hero, info locale, wifi con copia password, CTA menu/prenotazioni
+- Vista ?v=locale rimossa dal menu, brand name nel menu linka alla pagina shop
+- Sitemap dinamica con pagine shop e menu generate da DB
+
+### Menu editor (merchant)
+- Drag-and-drop sezioni e piatti con SortableJS
+- Sezioni collassabili (default chiuse)
+- Sistema bozza/pubblica: snapshot JSON al publish, modifiche non visibili finché non pubblicate
+
+### Ordini e POS
+- Flusso ordini completo: menu pubblico → menu_public_orders → dashboard merchant
+- Tavoli occupati automaticamente da ordini attivi
+- POS esercente: overlay con 3 modalità (tavolo/asporto/delivery), browse menu, codice ordine sequenziale (#A01)
+- Notifica ordini dedicata (non più "scontrino")
+- Campo ricerca ordini/tavoli nella dashboard (tab bar)
+
+### Display sala e cucina
+- Display sala clienti (stile McDonald's): sfondo scuro, codici ordine grandi, auto-refresh 10s
+- Display cucina: 3 colonne kanban, dettaglio piatti, bottone avanza stato
+- Pagina hub "Monitor" nella home merchant, icona dedicata
+- FAB Nemi nascosto nelle pagine display
+
+### Nemi (AI assistant)
+- Feedback obbligatorio nel system prompt: ACK + report finale
+- Rate limit: max 5 richieste/giorno per shop
+- Max 3 retry task, max 30min età, max 10 step
+- Badge notifica (pallino rosso) su FAB e icona home
+
+### Servizi e feature toggle
+- Nuova sezione "Ordinazioni" nei servizi: menu digitale, asporto, tavoli, schermi
+- Feature flags persistenti (bitmask enabled_features: menu=16, screens=32)
+- Icone home nascoste quando servizio disattivato
+- Fix serializzazione Postgrest: proprietà computed → extension methods
+- WiFi spostato dopo Prenotazioni con toggle switch
+
+### Icone
+- Nuova icona Transazioni.webp
+- Nuova icona Monitor.webp (rinominata da Schermi)
+
 ## Prossimi passi
-- [ ] Definire stack tecnico
+- [ ] Display ordini pubblico per TV (completare UX)
+- [ ] POS: importi manuali (da decidere)
 - [ ] Piano editoriale social
 
 ## Assets
