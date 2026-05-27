@@ -373,3 +373,4 @@ File chiave aggiornati:
 ## [2026-05-27] task | Puntify sessione lunga: menu pubblico UX, POS, display sala/cucina, ordini, Nemi limiti, feature toggle, sitemap dinamica, pagina shop rifatta
 ## [2026-05-27] task | Fix serializzazione Postgrest (extension methods), notifica ordini, BookingModesCount, auto-retry Blazor
 ## [2026-05-27] task | Nuove icone Transazioni.webp e Monitor.webp nella home merchant
+## [2026-05-27] task | Redesign pagina prenotazione tavolo: layout premium sidebar+card, responsive mobile, palette calda, guest stepper, chip orari

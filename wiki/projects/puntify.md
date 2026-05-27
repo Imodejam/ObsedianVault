@@ -223,6 +223,18 @@ Sincronizzazione **bidirezionale** appuntamenti ↔ Google Calendar. Piano detta
 - Nuova icona Transazioni.webp
 - Nuova icona Monitor.webp (rinominata da Schermi)
 
+## Sessione 2026-05-27 — Redesign prenotazione tavolo
+
+### Pagina prenotazione tavolo (QuickTableBooking)
+- Redesign completo da form piatto a esperienza guidata premium
+- Layout desktop: sidebar (brand, riepilogo scuro, stepper verticale, info card) + card principale con 3 sezioni form
+- Layout mobile: header compatto sticky, stepper orizzontale, summary compatto 4-cell, card per sezione, CTA sticky bottom
+- Palette neutra calda (#FAF7F0 bg, #2E3A18 primary, #A9823A accent) personalizzabile per merchant via --accent
+- Guest stepper +/- al posto della select, chip orari al posto di datetime-local, date e time separati
+- CSS :has() per nascondere book-header/book-footer del parent quando table booking è attivo
+- Componente estratto fuori da .book-body in PublicBookingFlow per avere layout autonomo
+- File modificati: QuickTableBooking.razor (riscrittura), PublicBookingFlow.razor (estrazione), booking.css (Vetrina, +400 righe)
+
 ## Prossimi passi
 - [ ] Display ordini pubblico per TV (completare UX)
 - [ ] POS: importi manuali (da decidere)
