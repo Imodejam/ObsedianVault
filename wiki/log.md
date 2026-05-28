@@ -378,3 +378,4 @@ File chiave aggiornati:
 ## [2026-05-28] task | Puntify: aggiunte 15 categorie shop "service business" (id 51-65: Lido, Software House, Agenzia Web, Commercialista, Legale, Immobiliare, Assicurativa, Hotel, Edile, Servizi Casa, Pulizie, Centro Medico, Fisioterapia, Scuola, Tipografia) + 90 sotto-servizi su DB api-cat
 ## [2026-05-28] task | Puntify AddShop.razor: spostato campo Categoria dalla sezione "Programma fedeltà" alla sezione "Anagrafica"
 ## [2026-05-28] task | Puntify Vetrina BookingStrings.cs: titolo step 1 booking "Scegli il servizio" -> "Prenota il servizio" (componente booking italiano-only, i18n non ancora attiva)
+## [2026-05-28] task | Puntify Vetrina PublicBookingFlow.razor: sidebar (Riepilogo + stepper) e progress bar nascoste nello step iniziale Service; compaiono solo dopo aver scelto il servizio
