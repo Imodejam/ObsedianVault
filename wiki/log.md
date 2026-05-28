@@ -375,3 +375,4 @@ File chiave aggiornati:
 ## [2026-05-27] task | Nuove icone Transazioni.webp e Monitor.webp nella home merchant
 ## [2026-05-27] task | Redesign pagina prenotazione tavolo: layout premium sidebar+card, responsive mobile, palette calda, guest stepper, chip orari
 ## [2026-05-28] task | Puntify fix JWT expired (PGRST301): refresh+retry automatico in GetOrCreateCurrentAccount, no sign-out su blip rete; causa = timer auto-refresh sospeso in background su WASM/PWA mobile
+## [2026-05-28] task | Puntify: aggiunte 15 categorie shop "service business" (id 51-65: Lido, Software House, Agenzia Web, Commercialista, Legale, Immobiliare, Assicurativa, Hotel, Edile, Servizi Casa, Pulizie, Centro Medico, Fisioterapia, Scuola, Tipografia) + 90 sotto-servizi su DB api-cat
