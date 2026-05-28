@@ -2,7 +2,7 @@
 
 ## Stato attuale: Puntify — Menu per tipologia shop (prodotti vs servizi)
 
-**In attesa di OK di Stefano sul piano** (inviato via Telegram 2026-05-28).
+**FASI 1-2 fatte e verificate. Restano: edit campi servizio (foto/video/tag), FASE 3 cascata, FASE 4 cross-sell.**
 
 ### Contesto / decisioni raccolte da Stefano
 - Tipo shop dedotto AUTOMATICAMENTE dalla categoria (`shop.categoryid` → tabella `puntify.category`).
