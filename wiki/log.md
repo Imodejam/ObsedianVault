@@ -384,3 +384,6 @@ File chiave aggiornati:
 ## [2026-05-28] task | Puntify Vetrina BookingStrings.cs: rimossa parola "Allergie" dal placeholder campo Note -> "Preferenze, richieste particolari..."
 ## [2026-05-28] task | Puntify Vetrina booking step Conferma: nascosta sidebar (riepilogo+step) perché ridondante col centro; icone riepilogo conferma da emoji a SVG line-icon (store, map-pin, tag, users, calendar, clock, credit-card)
 ## [2026-05-28] task | Puntify Vetrina: spunta conferma sostituita con animazione Lottie (lottie-player self-hosted in wwwroot/js, animazione wwwroot/animations/booking-success.json) sia in ConfirmationStep (appuntamenti) sia in QuickTableBooking (tavolo); script in App.razor
+## [2026-05-28] task | Puntify App MerchantHome.razor: tile "Appuntamenti" rinominata "Agenda" (id invariato), badge con conteggio appuntamenti odierni (GetAgendaAsync today)
+## [2026-05-28] task | Puntify App ShopEdit.razor: sezione "Programma fedeltà" nascosta se shop non ha loyalty (HasLoyalty()==false)
+## [2026-05-28] task | Puntify Vetrina Merchant.razor (/m/{slug}): pulsante hero "Vedi il menu" nascosto se shop non ha menu (HasMenu()==false)
