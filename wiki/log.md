@@ -379,3 +379,4 @@ File chiave aggiornati:
 ## [2026-05-28] task | Puntify AddShop.razor: spostato campo Categoria dalla sezione "Programma fedeltà" alla sezione "Anagrafica"
 ## [2026-05-28] task | Puntify Vetrina BookingStrings.cs: titolo step 1 booking "Scegli il servizio" -> "Prenota il servizio" (componente booking italiano-only, i18n non ancora attiva)
 ## [2026-05-28] task | Puntify Vetrina PublicBookingFlow.razor: sidebar (Riepilogo + stepper) e progress bar nascoste nello step iniziale Service; compaiono solo dopo aver scelto il servizio
+## [2026-05-28] task | Puntify Vetrina booking: servizio singolo salta lo step scelta servizio e va diretto alla data (_skippedService); icone riepilogo da emoji a SVG line-icon stile QuickTableBooking (sidebar + CustomerFormStep); +10px spazio tra riepilogo e Nome e cognome
