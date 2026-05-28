@@ -382,3 +382,4 @@ File chiave aggiornati:
 ## [2026-05-28] task | Puntify Vetrina booking: servizio singolo salta lo step scelta servizio e va diretto alla data (_skippedService); icone riepilogo da emoji a SVG line-icon stile QuickTableBooking (sidebar + CustomerFormStep); +10px spazio tra riepilogo e Nome e cognome
 ## [2026-05-28] task | Puntify App ShopOperators.razor: foto operatore caricabile da file su MinIO (toggle URL/Carica file, UploadShopImageAsync cartella "operators"), prima solo URL
 ## [2026-05-28] task | Puntify Vetrina BookingStrings.cs: rimossa parola "Allergie" dal placeholder campo Note -> "Preferenze, richieste particolari..."
+## [2026-05-28] task | Puntify Vetrina booking step Conferma: nascosta sidebar (riepilogo+step) perché ridondante col centro; icone riepilogo conferma da emoji a SVG line-icon (store, map-pin, tag, users, calendar, clock, credit-card)
