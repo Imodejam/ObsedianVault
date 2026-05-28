@@ -33,7 +33,7 @@
 
 ## STATO 2026-05-28 fine sessione
 
-FATTE e VERIFICATE (build+restart+test live), NON committate:
+FATTE e VERIFICATE (build+restart+test live), COMMITTATE (55081be, push su master 2026-05-28):
 - FASE 1 (servizi nel menu pubblico) — vedi daily.
 - FASE 2 (editor: servizi nelle sezioni) — vedi daily, E2E verificato.
 - Point A: campi servizio foto/video/etichette in `ShopServices.razor`.
@@ -56,4 +56,4 @@ Chiave: `SlotEngine.GetAvailableSlots` (Punto.Shared/Services/SlotEngine.cs) usa
 ### Backlog
 - Comprimere foto prima di upload MinIO (strategia da concordare).
 - (Sicurezza minore) valutare RLS su shop_menu_section_services / booking_services (ora accesso solo via server service_role).
-- Commit: Fasi 1-2 + campi servizio pronte da committare quando Stefano dà ok.
+- Commit FATTO: 55081be. FASE 3-4 in attesa di "via" da Stefano (sta revisionando).
