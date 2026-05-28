@@ -28,3 +28,32 @@
 
 ### Prossimi passi
 - Attendere OK/correzioni → poi creare pagina decisione in `wiki/decisions/` e iniziare Fase 1.
+
+---
+
+## STATO 2026-05-28 fine sessione
+
+FATTE e VERIFICATE (build+restart+test live), NON committate:
+- FASE 1 (servizi nel menu pubblico) — vedi daily.
+- FASE 2 (editor: servizi nelle sezioni) — vedi daily, E2E verificato.
+- Point A: campi servizio foto/video/etichette in `ShopServices.razor`.
+
+Decisioni Stefano per FASE 3-4 (raccolte 2026-05-28):
+- Cascata: operatore OPZIONALE (uno o nessuno, sceglie il cliente). Slot calcolati sulla durata TOTALE. Se sceglie un operatore, dev'essere uno che offre i servizi scelti; se nessuno → assegna il negozio.
+- Cross-sell (FASE 4): AUTOMATICO (servizi più abbinati), nessuna config merchant.
+
+### PIANO FASE 3 (additivo, retro-compatibile — singolo servizio resta identico)
+Chiave: `SlotEngine.GetAvailableSlots` (Punto.Shared/Services/SlotEngine.cs) usa `service.BufferBefore + DurationMinutes + BufferAfter` (riga 32). → passare un BookingService SINTETICO con durata sommata.
+1. DB: tabella `booking_services (id, booking_id FK ON DELETE CASCADE, service_id FK, sort_order)`. Modello `BookingServiceLink`.
+2. `IBookingService`/`BookingServiceImpl`: overload `GetSlotsAsync(shopId, List<Guid> serviceIds, date, operatorId?)` → costruisce servizio sintetico (Duration=Σdurate; BufferBefore=primo.BufferBefore; BufferAfter=ultimo.BufferAfter) e riusa l'engine. Il metodo singolo delega a quello a lista.
+3. `PublicBookingController`: `GetSlots` accetta `serviceIds` (csv) oltre a `serviceId`; `GetOperators` (riga ~168) filtra operatori che offrono TUTTI i serviceIds; `CreateBooking` accetta `ServiceIds` (fallback singolo), EndAt=start+durata totale, salva righe in booking_services, `bookings.service_id`=primo (compat), prezzo=Σ.
+4. UI `Components/Booking/ServiceStep.razor` + `PublicBookingFlow.razor`: multi-selezione servizi (checkbox/aggiungi), mostra durata e prezzo totali; passa serviceIds. `ConfirmationStep` + notifiche/email elencano i servizi (join booking_services). Reschedule (PublicBookingController ~539) usa durata totale.
+5. Verifica E2E come Fase 2: creare servizi+operatore+availability di test, controllare slot con durata combinata, poi pulire.
+
+### PIANO FASE 4 (cross-sell automatico)
+- In `PublicBookingFlow` dopo la scelta servizio, proporre 1-2 servizi aggiuntivi "più abbinati": calcolo da co-occorrenza in `booking_services` (quali servizi vengono prenotati insieme) con fallback ai più prenotati del PV. Endpoint pubblico `GET /api/public/booking/{slug}/service-suggestions?serviceIds=...`. Aggiungere al carrello servizi → confluisce in Fase 3.
+
+### Backlog
+- Comprimere foto prima di upload MinIO (strategia da concordare).
+- (Sicurezza minore) valutare RLS su shop_menu_section_services / booking_services (ora accesso solo via server service_role).
+- Commit: Fasi 1-2 + campi servizio pronte da committare quando Stefano dà ok.
