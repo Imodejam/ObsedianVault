@@ -374,3 +374,4 @@ File chiave aggiornati:
 ## [2026-05-27] task | Fix serializzazione Postgrest (extension methods), notifica ordini, BookingModesCount, auto-retry Blazor
 ## [2026-05-27] task | Nuove icone Transazioni.webp e Monitor.webp nella home merchant
 ## [2026-05-27] task | Redesign pagina prenotazione tavolo: layout premium sidebar+card, responsive mobile, palette calda, guest stepper, chip orari
+## [2026-05-28] task | Puntify fix JWT expired (PGRST301): refresh+retry automatico in GetOrCreateCurrentAccount, no sign-out su blip rete; causa = timer auto-refresh sospeso in background su WASM/PWA mobile
