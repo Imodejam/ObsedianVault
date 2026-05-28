@@ -1,33 +1,30 @@
-# Working context · 2026-05-25
+# Working context · 2026-05-28
 
-## Stato attuale: Puntify Telegram-Nemi
+## Stato attuale: Puntify — Menu per tipologia shop (prodotti vs servizi)
 
-**Obiettivo sessione**: collegare Nemi a Telegram per ricevere notifiche merchant + chattare con l'AI dal telefono. Multi-PV via Forum Topics.
+**In attesa di OK di Stefano sul piano** (inviato via Telegram 2026-05-28).
 
-### Implementato (code-complete, live su CAT)
-- Migration `docs/DB Migrations/20260605_telegram_nemi_link.sql` (3 tabelle + RLS + grants) — pronta, **NON ancora applicata**
-- Modelli C# `AccountTelegramLink`, `ShopTelegramTopic`, `TelegramLinkCode` in `Punto.Shared/Models/`
-- `Puntify.Server/Services/Telegram/`: `NemiTelegramBot`, `TelegramDtos`, `TelegramNemiRouter`, `TelegramMerchantNotifier`, `TelegramWebhookSetupHostedService`
-- `INemiChatService` estratto da `ShopAiController.NemiSend` (no loopback HTTP)
-- Controller `TelegramWebhookController` (webhook pubblico validato via secret) + `AccountTelegramLinkController` (start/get/sync/delete)
-- `NotificationHelper.NotifyReceiptRequestAsync` e `NotifyNewPublicBookingForMerchantAsync` cablati → Telegram
-- UI App `Pages/Merchant/MerchantTelegram.razor` + voce in `MerchantAccount.razor` + `TelegramLinkApiService`
-- DI registrazioni in `Program.cs`
-- Config in `appsettings.Development.json` (token placeholder, secret generato, WebhookPublicUrl=`https://cat.puntify.it/api/public/telegram/webhook`)
+### Contesto / decisioni raccolte da Stefano
+- Tipo shop dedotto AUTOMATICAMENTE dalla categoria (`shop.categoryid` → tabella `puntify.category`).
+- Categorie "a servizi" (3 Parrucchiere, 4 Centro Estetico, 5 Barbiere, e simili: estetica, tatuatore, fisio, ecc.) → menu MISTO: servizi + prodotti (es. barbiere: taglio/piega + shampoo).
+- Ristorante/Bar/retail → menu solo prodotti (comportamento attuale).
+- Fonte unica servizi = `shop_services` (durata, prezzo) già usata per le prenotazioni. Il menu li RIFLETTE/RIUSA, NON li duplica. Servizio lato prenotazione = tempo+costo stimato; lato menu = vetrina prezzi pubblica.
 
-### Verificato in CAT
-- Build server OK (0 errori)
-- Build App OK (0 errori)
-- Endpoint `GET /api/account/telegram-link?accountId=...` raggiungibile via `cat.puntify.it` → ritorna 400 con accountId vuoto (validazione attiva)
+### Architettura attuale rilevata
+- Menu: `shop_menus` → `shop_menu_sections` → `shop_menu_dishes` (allergeni, ingredienti, dietary_tags, feature_tags, opzioni, abbinamenti `shop_menu_dish_pairings`, carrello via `menu_public_orders`).
+- Servizi prenotazione: `shop_services` (BookingService: name, description, duration_minutes, price, price_display, buffer_before/after, service_kind). Operatori: `shop_operator_services`.
+- Classificazione categoria esistente da riusare: `Puntify.Server/Services/Booking/BookingModesDefaults.FromCategoryId` (bit appointments/tables/takeaway).
+- Editor: `Puntify.App/Pages/Merchant/Menu/MenuEditor.razor`. Pubblico: `Puntify.Vetrina/Pages/MerchantMenuPreview.razor` + `Components/Menu/MenuView.razor`.
 
-### In attesa di Stefano (bloccanti per E2E)
-1. **Applicare migration** su Supabase + `docker restart postgrest-puntify-cat`
-2. **Creare bot @BotFather** → fornire NemiBotToken (set anche `/setjoingroups=ON` e `/setprivacy=DISABLE`)
+### Piano proposto (4 fasi)
+1. Classificazione categoria→tipo + menu pubblico misto (servizi nome/durata/costo, no carrello; prodotti con carrello). Terminologia + niente allergeni sui servizi.
+2. Editor: "Aggiungi servizio" pesca da shop_services nelle sezioni (link table sezione↔servizio); durata/prezzo editati solo nel modulo Prenotazioni.
+3. Prenotazione servizi in cascata: selezione multipla → durata = somma (+buffer), slot ricalcolati.
+4. Cross-selling in prenotazione: proporre servizio aggiuntivo (estendere il meccanismo abbinamenti dei piatti).
 
-### Quando entrambi pronti
-1. Aggiornare `appsettings.Development.json` con vero `Telegram:NemiBotToken`
-2. Restart `puntify-server` → `TelegramWebhookSetupHostedService` registra webhook
-3. E2E: app → "Collega Telegram" → codice → crea gruppo TG con Topics → invia `/start CODE` → server crea N topic per PV → notifica scontrino di test → chat Nemi nel topic
+### Da decidere con Stefano
+- Info specifiche servizio oltre durata+prezzo (le fornirà lui).
+- Tutto in sequenza vs partire solo da Fase 1 (menu) e rimandare 3-4 (prenotazione).
 
-### Decisione architetturale
-Vedi `wiki/decisions/telegram-nemi-multi-pv-topics.md`: un gruppo Telegram per account, un Forum Topic per ogni PV. Routing notifiche e chat Nemi via `(chat_id, message_thread_id)` → `shopId`.
+### Prossimi passi
+- Attendere OK/correzioni → poi creare pagina decisione in `wiki/decisions/` e iniziare Fase 1.
