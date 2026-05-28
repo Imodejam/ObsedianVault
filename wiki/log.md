@@ -387,3 +387,4 @@ File chiave aggiornati:
 ## [2026-05-28] task | Puntify App MerchantHome.razor: tile "Appuntamenti" rinominata "Agenda" (id invariato), badge con conteggio appuntamenti odierni (GetAgendaAsync today)
 ## [2026-05-28] task | Puntify App ShopEdit.razor: sezione "Programma fedeltà" nascosta se shop non ha loyalty (HasLoyalty()==false)
 ## [2026-05-28] task | Puntify Vetrina Merchant.razor (/m/{slug}): pulsante hero "Vedi il menu" nascosto se shop non ha menu (HasMenu()==false)
+## [2026-05-28] task | Puntify Vetrina meta tag: Book.razor title+description+og+twitter dinamici; Merchant.razor title con categoria + twitter card. NOTA aperta: App.razor ha <title>/og statici globali che ombreggiano i meta di pagina per i crawler social — fix pulito (rimuoverli, HeadOutlet unica fonte) da concordare con Stefano
