@@ -459,3 +459,5 @@ File chiave aggiornati:
 ## [2026-05-29] task | Puntify Risorse: impostazioni prenotazione (booking_settings.resource_max_per_customer/max_days/max_advance_days) configurabili in Opzioni prenotazione e applicate in resource/reserve — commit bd591c9. FEATURE RISORSE PRENOTABILI COMPLETA (Fasi 1-5 + planimetria scenario/decorazioni/zoom + impostazioni).
 
 ## [2026-05-29] task | Puntify planimetria rifiniture: icone decorazioni attinenti (ombrellone/lettino/sdraio/palma/piscina/cabina/tavolino/bagno/doccia/bar/ferrovia/parcheggio); scenario spiaggia mare+sabbia estesi all'infinito; aggiunta risorsa non-tavolo immediata alla scelta tipo (forme solo tavoli) — commit 348b8b2
+
+## [2026-05-29] task | Puntify planimetria: aggiunta risorse a 2 step (ambito Ristorazione/Spiaggia/Sport/Intrattenimento -> tipo) con nomi brevi univoci per tipo (O1,T1,L1); risorsa legata all'area selezionata; tasto Forme (rett/cerchio/ellisse colorati, ridimensionabili, es. piscina); decorazioni/forme duplicabili e ridimensionabili; ombrellone/risorse non-tavolo senza coperti/forma; padding inferiore popup. Commit a26f3b0..(forme)
