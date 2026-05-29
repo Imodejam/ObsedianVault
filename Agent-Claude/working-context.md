@@ -56,4 +56,4 @@ Chiave: `SlotEngine.GetAvailableSlots` (Punto.Shared/Services/SlotEngine.cs) usa
 ### Backlog
 - Comprimere foto prima di upload MinIO (strategia da concordare).
 - (Sicurezza minore) valutare RLS su shop_menu_section_services / booking_services (ora accesso solo via server service_role).
-- Commit FATTO: 55081be. FASE 3-4 in attesa di "via" da Stefano (sta revisionando).
+- Auth JWT FASE A committata (32dad34). FASE B (enforcement per-shop) da fare con test coordinato. JwtSecret recuperato dai container.
