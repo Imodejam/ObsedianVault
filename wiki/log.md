@@ -451,3 +451,5 @@ File chiave aggiornati:
 ## [2026-05-29] task | Puntify Risorse Fase 5b: pagina pubblica /m/{slug}/risorse (BookingPublicService.GetResourcesAsync; elenco per area/zona, data+periodo, accessori incluso/extra, totale con stagione×giorni) — commit 75e21be. Seedati 4 ombrelloni demo sul lido (Prima fila €35, Seconda fila €25). Resta 5c: conferma prenotazione risorsa (giorno/periodo + accessori) + persistenza.
 
 ## [2026-05-29] task | Puntify: pagina recensione con template home pubblica (header + ShopHero); recensioni multi-dimensione (Qualità generale=rating_shop, Ambiente, Pulizia, Staff + operatore); rinomina Sale->Aree e Piani->Livelli nella sezione Risorse — commit 4421228
+
+## [2026-05-29] task | Puntify planimetria: zoom +/− con limiti (PlanimetryZoom.zoomBy); tasto Scenario (shop_floors.scenario + ShopFloor.Scenario; sfondi spiaggia/cinema/giardino/parcheggio/generico); tasto Decorazione (palette lettini/sedie/sdraio/alberi/case/tettoie/ferrovia/parcheggio... add/drag/delete su shop_floor_decorations) — commit 6419868. In coda: impostazioni prenotazione risorse (max per cliente/sessione, max giorni) e Fase 5c (conferma prenotazione risorsa).
