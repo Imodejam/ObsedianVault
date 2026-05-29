@@ -427,3 +427,5 @@ File chiave aggiornati:
 ## [2026-05-29] task | Puntify booking page: percorso /m/{slug}/book (alias vecchio mantenuto) + nome header cliccabile verso home locale — commit 0e892f3
 
 ## [2026-05-29] task | Puntify: deep-link login con returnUrl (app), scroll-to-top su nuova prenotazione, footer bar book = barra menu, cover hero più scura a sx, area recensioni sempre visibile e spostata in fondo, nomi tavoli univoci (server+client) — commit ca881a9
+
+## [2026-05-29] task | Puntify menu/prenotazioni: drag servizi + spostamento prodotti/servizi tra sezioni (commit 3acb9dc), alberatura servizi (sezioni) nella selezione del book (commit 5b5784c), avviso impatto prenotazioni in config menu, header 'Recensioni di {nome}', calendario book giorni disponibili sempre evidenziati, nomi tavoli univoci (ca881a9)
