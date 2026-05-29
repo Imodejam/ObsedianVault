@@ -441,3 +441,5 @@ File chiave aggiornati:
 ## [2026-05-29] task | Puntify Risorse Fase 1: shop_operators generalizzato (resource_kind, booking_unit; backfill tavoli=table/slot); catalogo ResourceKinds; sezione 'Risorse' multi-tipo (planimetria 'Aggiungi risorsa' con scelta tipo) — commit b4b988e. Fasi successive: 2 booking giorno/periodo+zona, 3 accessori incluso/extra, 4 stagionalità, 5 mappa pubblica lido.
 
 ## [2026-05-29] task | Puntify Risorse Fase 2: prezzo per risorsa (shop_operators.price) + unità prenotazione (slot/day/period) + zona/fila editabili nella scheda risorsa — commit c299347. Prossime: 3 accessori incluso/extra, 4 stagionalità, 5 mappa pubblica lido + checkout.
+
+## [2026-05-29] task | Puntify Risorse Fase 3: accessori (tabella shop_resource_addons + model ShopResourceAddon, CRUD /api/tables/addons, tab "Accessori" nella sezione Risorse) — incluso(qta)/extra(prezzo+qta max) per tipo risorsa — commit 434f299. Prossime: 4 stagionalità, 5 mappa pubblica + checkout.
