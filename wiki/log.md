@@ -449,3 +449,5 @@ File chiave aggiornati:
 ## [2026-05-29] task | Puntify Risorse Fase 5a: endpoint pubblico GET /api/public/merchants/{slug}/resources (prezzo effettivo base×stagione, disponibilità per data, aree, accessori) — DTO ResourcesResponse; SeasonsTab slider moltiplicatore con % sconto/sovrapprezzo — commit 1ce256b. Prossimi: 5b pagina pubblica (mappa/elenco, giorno/periodo, accessori, totale), 5c conferma prenotazione risorsa.
 
 ## [2026-05-29] task | Puntify Risorse Fase 5b: pagina pubblica /m/{slug}/risorse (BookingPublicService.GetResourcesAsync; elenco per area/zona, data+periodo, accessori incluso/extra, totale con stagione×giorni) — commit 75e21be. Seedati 4 ombrelloni demo sul lido (Prima fila €35, Seconda fila €25). Resta 5c: conferma prenotazione risorsa (giorno/periodo + accessori) + persistenza.
+
+## [2026-05-29] task | Puntify: pagina recensione con template home pubblica (header + ShopHero); recensioni multi-dimensione (Qualità generale=rating_shop, Ambiente, Pulizia, Staff + operatore); rinomina Sale->Aree e Piani->Livelli nella sezione Risorse — commit 4421228
