@@ -435,3 +435,5 @@ File chiave aggiornati:
 ## [2026-05-29] task | Puntify batch: carrello menu in localStorage; foto servizi (thumbnail lista + lightbox form); agenda mostra servizi+operatore e cambio operatore da dettaglio (PUT /api/booking/{id}/operator); transactions tasto Elimina testuale a dx; dashboard tab+ricerca allineate; profilo tasto Recensioni scrolla a sezione; carrello header menu mobile a dx; lido "Lido del Sole" (Ostia) creato per stefano.gitto (categoria 51 Stabilimento Balneare/Lido) — commit b249297..
 
 ## [2026-05-29] task | Puntify: email esercente pulsante → agenda dello shop (AppUrl + /merchant/shop/{id}/booking/agenda); cover hero ancora più scura a sinistra (commit 2e28ceb)
+
+## [2026-05-29] task | Puntify: icone pannello info col colore primario shop; book sezioni servizi collassabili; tasto "Descrivi con AI" sui campi descrizione (shop/servizio/piatto) via POST /api/menu/ai/describe (Claude Haiku, ≤500 char, context-aware, ownership check); proposta design risorse prenotabili (ombrelloni) inviata a Stefano — commit 728f268
