@@ -431,3 +431,5 @@ File chiave aggiornati:
 ## [2026-05-29] task | Puntify menu/prenotazioni: drag servizi + spostamento prodotti/servizi tra sezioni (commit 3acb9dc), alberatura servizi (sezioni) nella selezione del book (commit 5b5784c), avviso impatto prenotazioni in config menu, header 'Recensioni di {nome}', calendario book giorni disponibili sempre evidenziati, nomi tavoli univoci (ca881a9)
 
 ## [2026-05-29] task | Puntify tavoli: dedup duplicato + indice DB univoco puntify.ux_shop_operators_table_name (shop_id, lower(trim(name))) WHERE type='table' AND is_active; carrello header menu mobile a destra; bump versioni CSS cache-busting — commit ecbcd3e
+
+## [2026-05-29] task | Puntify batch: carrello menu in localStorage; foto servizi (thumbnail lista + lightbox form); agenda mostra servizi+operatore e cambio operatore da dettaglio (PUT /api/booking/{id}/operator); transactions tasto Elimina testuale a dx; dashboard tab+ricerca allineate; profilo tasto Recensioni scrolla a sezione; carrello header menu mobile a dx; lido "Lido del Sole" (Ostia) creato per stefano.gitto (categoria 51 Stabilimento Balneare/Lido) — commit b249297..
