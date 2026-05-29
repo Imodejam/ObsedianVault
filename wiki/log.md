@@ -433,3 +433,5 @@ File chiave aggiornati:
 ## [2026-05-29] task | Puntify tavoli: dedup duplicato + indice DB univoco puntify.ux_shop_operators_table_name (shop_id, lower(trim(name))) WHERE type='table' AND is_active; carrello header menu mobile a destra; bump versioni CSS cache-busting — commit ecbcd3e
 
 ## [2026-05-29] task | Puntify batch: carrello menu in localStorage; foto servizi (thumbnail lista + lightbox form); agenda mostra servizi+operatore e cambio operatore da dettaglio (PUT /api/booking/{id}/operator); transactions tasto Elimina testuale a dx; dashboard tab+ricerca allineate; profilo tasto Recensioni scrolla a sezione; carrello header menu mobile a dx; lido "Lido del Sole" (Ostia) creato per stefano.gitto (categoria 51 Stabilimento Balneare/Lido) — commit b249297..
+
+## [2026-05-29] task | Puntify: email esercente pulsante → agenda dello shop (AppUrl + /merchant/shop/{id}/booking/agenda); cover hero ancora più scura a sinistra (commit 2e28ceb)
