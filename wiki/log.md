@@ -461,3 +461,5 @@ File chiave aggiornati:
 ## [2026-05-29] task | Puntify planimetria rifiniture: icone decorazioni attinenti (ombrellone/lettino/sdraio/palma/piscina/cabina/tavolino/bagno/doccia/bar/ferrovia/parcheggio); scenario spiaggia mare+sabbia estesi all'infinito; aggiunta risorsa non-tavolo immediata alla scelta tipo (forme solo tavoli) — commit 348b8b2
 
 ## [2026-05-29] task | Puntify planimetria: aggiunta risorse a 2 step (ambito Ristorazione/Spiaggia/Sport/Intrattenimento -> tipo) con nomi brevi univoci per tipo (O1,T1,L1); risorsa legata all'area selezionata; tasto Forme (rett/cerchio/ellisse colorati, ridimensionabili, es. piscina); decorazioni/forme duplicabili e ridimensionabili; ombrellone/risorse non-tavolo senza coperti/forma; padding inferiore popup. Commit a26f3b0..(forme)
+
+## [2026-05-29] task | Puntify planimetria: Sport campo calcio/tennis grafici realistici, postazione=poltrona cinema, lettino/sdraio/cabina grafica realistica; Zona/Fila solo risorse Spiaggia; postazione singola. Commit 451cb21 + grafica realistica.
