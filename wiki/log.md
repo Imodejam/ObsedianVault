@@ -445,3 +445,5 @@ File chiave aggiornati:
 ## [2026-05-29] task | Puntify Risorse Fase 3: accessori (tabella shop_resource_addons + model ShopResourceAddon, CRUD /api/tables/addons, tab "Accessori" nella sezione Risorse) — incluso(qta)/extra(prezzo+qta max) per tipo risorsa — commit 434f299. Prossime: 4 stagionalità, 5 mappa pubblica + checkout.
 
 ## [2026-05-29] task | Puntify Risorse Fase 4: stagioni/listini per periodo (shop_resource_seasons + ShopResourceSeason, CRUD /api/tables/seasons, tab "Stagioni" con intervallo date + moltiplicatore prezzo, opz. per tipo); rinomina "Sale"->"Aree" nella sezione Risorse — commit 374d699. Resta Fase 5: mappa pubblica lido + checkout (giorno/periodo, accessori, prezzo con stagione).
+
+## [2026-05-29] task | Puntify Risorse Fase 5a: endpoint pubblico GET /api/public/merchants/{slug}/resources (prezzo effettivo base×stagione, disponibilità per data, aree, accessori) — DTO ResourcesResponse; SeasonsTab slider moltiplicatore con % sconto/sovrapprezzo — commit 1ce256b. Prossimi: 5b pagina pubblica (mappa/elenco, giorno/periodo, accessori, totale), 5c conferma prenotazione risorsa.
