@@ -437,3 +437,5 @@ File chiave aggiornati:
 ## [2026-05-29] task | Puntify: email esercente pulsante → agenda dello shop (AppUrl + /merchant/shop/{id}/booking/agenda); cover hero ancora più scura a sinistra (commit 2e28ceb)
 
 ## [2026-05-29] task | Puntify: icone pannello info col colore primario shop; book sezioni servizi collassabili; tasto "Descrivi con AI" sui campi descrizione (shop/servizio/piatto) via POST /api/menu/ai/describe (Claude Haiku, ≤500 char, context-aware, ownership check); proposta design risorse prenotabili (ombrelloni) inviata a Stefano — commit 728f268
+
+## [2026-05-29] task | Puntify Risorse Fase 1: shop_operators generalizzato (resource_kind, booking_unit; backfill tavoli=table/slot); catalogo ResourceKinds; sezione 'Risorse' multi-tipo (planimetria 'Aggiungi risorsa' con scelta tipo) — commit b4b988e. Fasi successive: 2 booking giorno/periodo+zona, 3 accessori incluso/extra, 4 stagionalità, 5 mappa pubblica lido.
