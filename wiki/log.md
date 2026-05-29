@@ -425,3 +425,5 @@ File chiave aggiornati:
 
 ## [2026-05-29] task | Puntify fix: cover/hero non renderizzata (mancava @using Puntify.Vetrina.Components in _Imports) — commit 2949f80
 ## [2026-05-29] task | Puntify booking page: percorso /m/{slug}/book (alias vecchio mantenuto) + nome header cliccabile verso home locale — commit 0e892f3
+
+## [2026-05-29] task | Puntify: deep-link login con returnUrl (app), scroll-to-top su nuova prenotazione, footer bar book = barra menu, cover hero più scura a sx, area recensioni sempre visibile e spostata in fondo, nomi tavoli univoci (server+client) — commit ca881a9
