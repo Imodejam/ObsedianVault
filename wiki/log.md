@@ -422,3 +422,6 @@ File chiave aggiornati:
 ## [2026-05-29] feature | Puntify: prompt AI menu context-aware (categoria+sezione+contenuto, stile studio) ae17826; Recensioni Tappa 2 (pagina /recensione/{token} + endpoint info/submit, voto locale+operatore+commento+max3 foto base64→storage, verificata via booking completato, una per prenotazione) c79e366, E2E ok; wording menu "servizi" per shop a servizi (TCtx) d8f8f04; foto servizio URL/file/AI e1e0101; elimina servizio fallback disattiva a82c3d1. RIMANE: Recensioni Tappa 3 (email link post-appuntamento); test push (Stefano login+permesso). VapidKey configurata.
 
 ## [2026-05-29] task | Puntify booking multi-servizio: conferma/email/riepiloghi/reschedule con tutti i servizi e prezzo totale (commit 2b040d7) — verificato E2E (slot 60min, conferma "Piega seta + Piega cosmetica" €57, booking_service_items salvati)
+
+## [2026-05-29] task | Puntify fix: cover/hero non renderizzata (mancava @using Puntify.Vetrina.Components in _Imports) — commit 2949f80
+## [2026-05-29] task | Puntify booking page: percorso /m/{slug}/book (alias vecchio mantenuto) + nome header cliccabile verso home locale — commit 0e892f3
