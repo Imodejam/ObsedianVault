@@ -70,8 +70,16 @@ FATTO:
 - Build OK, restart `puntify-vetrina.service` (porta interna 127.0.0.1:8003). Verificato live: /it/menu e /en/menu 200, zero chiavi non risolte; Home/Prezzi/FAQ integrati.
 NOTA: pagine feature precedenti (Prenotazioni/Nemi) erano tradotte solo IT+EN+default; questa Menu è tradotta in tutte le lingue (regola Stefano).
 
-### TODO APERTO (richiesta Stefano 2026-05-30): cross-sell servizi nell'APP (Fase 4)
-Verificato: NON esiste endpoint service-suggestions. Implementare secondo piano FASE 4 (co-occorrenza booking_services + fallback più prenotati; endpoint pubblico; UI in PublicBookingFlow → confluisce in cascata Fase 3).
+### FASE 4 cross-sell servizi nell'APP — FATTO + verificato live (2026-05-30)
+Richiesta Stefano: "includi nell'app anche la fase di cross sell se manca".
+- Server `IBookingService`/`BookingServiceImpl.GetServiceSuggestionsAsync(shopId, selectedIds, max=2)`: co-occorrenza su `booking_service_items` (servizi prenotati insieme), fallback ai più prenotati del negozio, fallback finale per sort_order; esclude i selezionati; solo servizi attivi; try/catch → lista vuota.
+- Endpoint pubblico `GET /api/public/merchants/{slug}/service-suggestions?serviceIds=csv&serviceId=&max=` (PublicBookingController), mappa a ServicePublicDto, max clamp 1-4.
+- Client Vetrina `BookingPublicService.GetServiceSuggestionsAsync`.
+- UI: `ServiceStep.razor` nuova sezione "Spesso aggiunti insieme" (param Suggestions, mostra max 2 non selezionati, riusa RenderServiceCard → tap = OnToggleService). `PublicBookingFlow.razor`: campo `_suggestions`, `ToggleService` ora async chiama `RefreshSuggestions()` (fetch endpoint sui selezionati). CSS `.service-suggestions*` in booking.css.
+- NOTA tabella: il link booking↔servizio è `booking_service_items` (NON booking_services). Definizioni servizi in `shop_services`.
+- Build Server+Vetrina OK (0 errori). Restart puntify-server + puntify-vetrina (server 127.0.0.1:8001, vetrina 8003).
+- VERIFICA LIVE su shop reale `barbiere-classico-testaccio-roma`: "Piega seta"→[Piega cosmetica, Taglio donna]; "Taglio donna"→[Piega seta, Piega cosmetica]; combo 2 servizi→[Piega cosmetica + popolare], esclude i selezionati; nessuna selezione→3 più prenotati. Ranking co-occorrenza+fallback corretto.
+- NON committato (Stefano non l'ha chiesto). Modifiche in working tree.
 
 ## 2026-05-30 — VERIFICA STATO (codice reale, note sotto erano stale)
 Controllato il repo /home/progetti/puntify (master):
