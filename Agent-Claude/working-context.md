@@ -58,6 +58,21 @@ Chiave: `SlotEngine.GetAvailableSlots` (Punto.Shared/Services/SlotEngine.cs) usa
 - (Sicurezza minore) valutare RLS su shop_menu_section_services / booking_services (ora accesso solo via server service_role).
 - Auth JWT FASE A committata (32dad34). FASE B (enforcement per-shop) da fare con test coordinato. JwtSecret recuperato dai container.
 
+## 2026-05-30 — Vetrina Puntify: funzionalità "Menu & Ordini" (FATTO + verificato live)
+Richiesta Stefano: esporre nella vetrina che Puntify gestisce anche menu digitali e ordinazioni al tavolo/postazione (es. lidi) + ordini ritiro/asporto, tutto nel pacchetto standard; rivedere e integrare tutte le pagine.
+FATTO:
+- Nuova pagina `Puntify.Vetrina/Pages/Menu.razor` (route `/menu` + `/{Lang}/menu`), stile pagina Prenotazioni, riusa `css/prenotazioni.css` (classi bkg-*). Sezioni: hero, 6 feature (menu digitale, ordine tavolo, ordine postazione/lidi, ritiro/asporto, servizi+prodotti, tutto incluso), how-it-works 4 step, sectors 8 pill, CTA.
+- Header.razor: voce mega-menu "Menu & Ordini" (/menu) + icona `menu`.
+- Home.razor: 4ª card prodotto "Menu & Ordini" (griglia ora `sm:grid-cols-2 lg:grid-cols-4`), voce Home_Pricing_Incl6, rewording Home_ProductsTitle/Desc (non più "tre strumenti").
+- Prezzi.razor: Prz_Feat8 + riga confronto Prz_Cmp8.
+- FAQ.razor: categoria "Menu & Ordini" + 5 Q&A (Faq_Men1-5).
+- i18n: 71 chiavi nuove tradotte in TUTTE e 10 le lingue (default,it,en,es,fr,pt,ar,bn,hi,zh) — XML valido tutti.
+- Build OK, restart `puntify-vetrina.service` (porta interna 127.0.0.1:8003). Verificato live: /it/menu e /en/menu 200, zero chiavi non risolte; Home/Prezzi/FAQ integrati.
+NOTA: pagine feature precedenti (Prenotazioni/Nemi) erano tradotte solo IT+EN+default; questa Menu è tradotta in tutte le lingue (regola Stefano).
+
+### TODO APERTO (richiesta Stefano 2026-05-30): cross-sell servizi nell'APP (Fase 4)
+Verificato: NON esiste endpoint service-suggestions. Implementare secondo piano FASE 4 (co-occorrenza booking_services + fallback più prenotati; endpoint pubblico; UI in PublicBookingFlow → confluisce in cascata Fase 3).
+
 ## 2026-05-30 — VERIFICA STATO (codice reale, note sotto erano stale)
 Controllato il repo /home/progetti/puntify (master):
 - Fase 1, Fase 2 ✅ committate.
