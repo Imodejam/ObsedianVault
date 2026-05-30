@@ -58,7 +58,15 @@ Chiave: `SlotEngine.GetAvailableSlots` (Punto.Shared/Services/SlotEngine.cs) usa
 - (Sicurezza minore) valutare RLS su shop_menu_section_services / booking_services (ora accesso solo via server service_role).
 - Auth JWT FASE A committata (32dad34). FASE B (enforcement per-shop) da fare con test coordinato. JwtSecret recuperato dai container.
 
-## 2026-05-29 — Treatwell-style home + recensioni (IN ATTESA scelte Stefano)
+## 2026-05-30 — VERIFICA STATO (codice reale, note sotto erano stale)
+Controllato il repo /home/progetti/puntify (master):
+- Fase 1, Fase 2 ✅ committate.
+- Fase 3 cascata ✅ FATTA: `BookingServiceImpl.GetSlotsAsync(shopId, IReadOnlyList<Guid> serviceIds, ...)` costruisce servizio sintetico (Duration=Σ, buffer primo/ultimo); serviceIds in PublicBookingFlow/BookingDtos/PublicBookingController.
+- Recensioni ✅ FATTE ed estese: `Punto.Shared/Models/Review.cs` (rating_shop, rating_operator, rating_ambiente, rating_pulizia, commento, foto), pagina `Puntify.Vetrina/Pages/Recensione.razor`, sezione in Merchant.razor.
+- Lavoro nuovo non tracciato qui: Risorse / Planimetria / Mappa risorse (molti commit recenti su master).
+- Fase 4 cross-sell servizi: NON presente (nessun endpoint service-suggestions). → resta backlog, in attesa conferma scope da Stefano.
+
+## 2026-05-29 — Treatwell-style home + recensioni (FATTO — vedi verifica 2026-05-30 sopra)
 Ordine sezioni Treatwell (salone): Hero(nome+Prenota+rating+nrecensioni+foto) → Info/orari → Servizi evidenziati → Lista servizi → Recensioni(media,totale,filtri,singole con autore/data+operatore) → Team(operatori) → Amenità → Orari completi.
 PIANO HOME (Merchant.razor): Hero con rating → Info/orari → Servizi(anteprima+link menu) → Recensioni → Staff → Fedeltà.
 RECENSIONI: legate a prenotazione Puntify completata, voto LOCALE + OPERATORE + commento. Domande a Stefano: (1) solo chi ha prenotazione completata via link email post-appuntamento? (2) stelle 1-5 locale+operatore+commento? (3) pubblicazione immediata o approvazione merchant?
