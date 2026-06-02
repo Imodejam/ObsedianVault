@@ -178,7 +178,11 @@ Per dimostrarlo sul lido ho cambiato ombrellone day→period (campo editabile). 
   - ResourceBooking: rb-map sostituito da `<ResourceMapView>` (passa _resources/_decorations/_mapScenario/selected/primary).
   - Verificato: endpoint lido ritorna decorations:1 (shape_roof) + 6 ombrelloni + scenario beach. Build Server+Vetrina OK, restart. Le classi rs-* già in booking.css (no bump).
 - NB: Risorse.razor non ancora refactorato per usare il componente (duplica lo stesso markup; valutare per DRY). 
-TODO: verifica browser mappa default+fedele; eventualmente refactor Risorse.razor su ResourceMapView; addons nel wizard; half_day/event; uniformare tavolo. NON committato.
+### Mappa: aspect-ratio + zoom + no pinch pagina (msg 2989/2990)
+- (2989 "non vedo spiaggia/mare") Dati OK (scenario=beach, posizioni ok). Causa: SVG senza altezza definita (height:auto collassava). FIX: aspect-ratio:1000/700 inline sull'SVG in ResourceMapView → ora lo sfondo beach (mare+sabbia) si vede.
+- (2990) Pagina prenotazione NON pinch-zoom (CSS .rb-wizard touch-action:pan-y); la MAPPA invece si ingrandisce con pulsanti +/− (rs-map-zoom; transform scale attorno al centro, zoom 1→4). Pinch nativo non implementato (no JS) — pulsanti.
+- CSS bump → ?v=20260602f. Build Vetrina OK, restart.
+TODO: verifica browser (beach visibile + zoom mappa + no pinch pagina); valutare pinch nativo via JS se serve; refactor Risorse.razor su ResourceMapView; addons; half_day/event; uniformare tavolo. NON committato.
 
 ## 2026-05-30 — Vetrina Puntify: funzionalità "Menu & Ordini" (FATTO + verificato live)
 Richiesta Stefano: esporre nella vetrina che Puntify gestisce anche menu digitali e ordinazioni al tavolo/postazione (es. lidi) + ordini ritiro/asporto, tutto nel pacchetto standard; rivedere e integrare tutte le pagine.
