@@ -160,7 +160,11 @@ Per dimostrarlo sul lido ho cambiato ombrellone day→period (campo editabile). 
 - (msg 2977) Range a 2 click: MiniCalendar ora usa stato INTERNO _selStart/_selEnd (prima la logica leggeva i param RangeStart/RangeEnd che il parent teneva =today → ogni stato sembrava "completo" e il 2° click resettava). Ora: 1° click=inizio (azzera fine), 2° click(>=inizio)=fine. QuickPick aggiorna lo stato interno (weekend=sab+dom). Highlight da stato interno.
 - ⚠️ Ribumpato booking.css → ?v=20260602b in Book.razor (modifiche CSS devono sempre bumpare la versione).
 - Screenshot confermava: wizard step OK, weekend evidenziato OK, sab+dom selezionati OK.
-TODO: verifica browser (recap sotto + range 2 click); addons (lettino/sdraio); half_day/event; risorse-slot non-tavolo; uniformare stile tavolo. NON committato.
+### Full-width mobile + conteggio giorni (2026-06-02)
+- (msg 2979) Smartphone full width: media query max-width 639px → .rb-wizard max-width 100%, padding laterale 0; .rb-card edge-to-edge (no border-radius/laterali, padding 14px 10px); head/steps/powered con piccolo padding 10px. Calendario (grid 7×1fr) ora pieno.
+- (msg 2980) Riepilogo periodo mostra i giorni: "6 giu → 7 giu (2 giorni)" (PeriodDays = end-start+1).
+- CSS bump → ?v=20260602c.
+TODO: verifica browser; addons (lettino/sdraio); half_day/event; risorse-slot non-tavolo; uniformare stile tavolo (anche QuickTableBooking full-width/step se richiesto). NON committato.
 
 ## 2026-05-30 — Vetrina Puntify: funzionalità "Menu & Ordini" (FATTO + verificato live)
 Richiesta Stefano: esporre nella vetrina che Puntify gestisce anche menu digitali e ordinazioni al tavolo/postazione (es. lidi) + ordini ritiro/asporto, tutto nel pacchetto standard; rivedere e integrare tutte le pagine.
