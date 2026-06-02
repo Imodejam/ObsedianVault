@@ -137,7 +137,13 @@ Confermato da Stefano (msg 2961). Rimosso il bivio ModeStep: il tasto "Prenota" 
 - NB: "entries" = servizi + voci sintetiche tavolo/asporto. Test col lido a 1 servizio: lista comparsa lo stesso perché il lido HasTables senza service-tavolo → +voce sintetica Tavolo = 2 voci (corretto). Col lido normale (2 servizi) lista corretta. Per shop davvero a 1 voce → salta.
 - Da chiarire con Stefano se intende: shop con 1 SERVIZIO ma con tavoli/operatori configurati deve comunque saltare al servizio (regola diversa).
 
-TODO: verifica browser (calendario settimana/range/quick + skip); addons (lettino/sdraio) nel ResourceBooking; rifiniture half_day/event; risorse-slot non-tavolo (campi) con orari dedicati. NON committato.
+### ResourceBooking a STEP (mobile-first) — FATTO (msg "wizard")
+Stefano: la prenotazione deve essere a step (data → risorse → dati), una schermata per volta, ottima su smartphone.
+- ResourceBooking riscritto come WIZARD: enum Step {Period, Resource, Customer}; _steps dinamico (Resource solo se CustomerCanChooseResource); stepper in alto, una card per step, barra azioni sticky in basso (Indietro/Annulla + Continua/Prenota). Validazione per step. Conferma finale.
+- Layout single-column max 560px, sticky actionbar (statica ≥640px). Nuove classi rb-wizard/rb-head/rb-steps/rb-step/rb-card/rb-field/rb-actionbar/rb-rescard in booking.css. Resta MiniCalendar week/range/quick dentro lo step Data.
+- Build Vetrina OK, restart, /book 200. Click-through da verificare in browser.
+NB: QuickTableBooking e il flusso appuntamenti sono già a step/mobile. Per ora ho reso a step il flusso RISORSA (descrizione esplicita di Stefano data→risorse→dati).
+TODO: verifica browser (wizard step + calendario + skip); addons (lettino/sdraio); half_day/event raffinati; risorse-slot non-tavolo; valutare se rendere a step anche QuickTableBooking. NON committato.
 
 ## 2026-05-30 — Vetrina Puntify: funzionalità "Menu & Ordini" (FATTO + verificato live)
 Richiesta Stefano: esporre nella vetrina che Puntify gestisce anche menu digitali e ordinazioni al tavolo/postazione (es. lidi) + ordini ritiro/asporto, tutto nel pacchetto standard; rivedere e integrare tutte le pagine.
