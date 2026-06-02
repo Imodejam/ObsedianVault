@@ -164,7 +164,11 @@ Per dimostrarlo sul lido ho cambiato ombrellone day→period (campo editabile). 
 - (msg 2979) Smartphone full width: media query max-width 639px → .rb-wizard max-width 100%, padding laterale 0; .rb-card edge-to-edge (no border-radius/laterali, padding 14px 10px); head/steps/powered con piccolo padding 10px. Calendario (grid 7×1fr) ora pieno.
 - (msg 2980) Riepilogo periodo mostra i giorni: "6 giu → 7 giu (2 giorni)" (PeriodDays = end-start+1).
 - CSS bump → ?v=20260602c.
-TODO: verifica browser; addons (lettino/sdraio); half_day/event; risorse-slot non-tavolo; uniformare stile tavolo (anche QuickTableBooking full-width/step se richiesto). NON committato.
+### Full-width fix + tasti grigi (2026-06-02, 2° screenshot)
+- (msg 2982 "fasce bianche ai lati") CAUSA: breakpoint full-width era max-width:639px ma la viewport di test era ~642px → restava il `max-width:560px` centrato (bande). FIX: breakpoint alzato → full-width fino a max-width:767px (resetta max-width/margin), desktop centrato da min-width:768px.
+- (msg 2983) Tasti Oggi/Domani/Weekend: grigio chiaro (#f3f4f6, testo #6b7280) se non selezionati; hover accent-light; attivo rosso pieno.
+- CSS bump → ?v=20260602e.
+TODO: verifica browser; addons (lettino/sdraio); half_day/event; risorse-slot non-tavolo; uniformare stile tavolo. NON committato.
 
 ## 2026-05-30 — Vetrina Puntify: funzionalità "Menu & Ordini" (FATTO + verificato live)
 Richiesta Stefano: esporre nella vetrina che Puntify gestisce anche menu digitali e ordinazioni al tavolo/postazione (es. lidi) + ordini ritiro/asporto, tutto nel pacchetto standard; rivedere e integrare tutte le pagine.
