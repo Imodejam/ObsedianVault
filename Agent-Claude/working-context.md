@@ -151,7 +151,11 @@ Per dimostrarlo sul lido ho cambiato ombrellone day→period (campo editabile). 
 - (msg 2971) Flusso TAVOLO (QuickTableBooking): riepilogo selezione spostato in BASSO (nuova .tb-bottom-summary a fondo form); nascosti il riepilogo laterale (.booking-summary-card) e quello in alto (.mobile-summary).
 - (msg 2972) MiniCalendar: tasti rapidi Oggi/Domani/Questo weekend ora mostrano lo stato ATTIVO (_activeQuick, .mini-cal-quick button.active); click su un giorno manuale azzera l'evidenza.
 - Build Vetrina OK, restart. Da verificare in browser.
-TODO: verifica browser; addons (lettino/sdraio); half_day/event raffinati; risorse-slot non-tavolo; valutare step+riepilogo-basso anche stile uniforme tavolo↔risorsa. NON committato.
+### CACHE-BUST booking.css (2026-06-02) — IMPORTANTE
+- (msg 2974 "dal>al sempre a destra sullo smartphone") CAUSA: `Book.razor` linkava `css/booking.css?v=20260529c` (versione vecchia) → il browser usava il CSS cachato SENZA le regole nuove (rb-wizard, .tb-bottom-summary, .mini-cal-quick.active, range). Tutte le mie modifiche CSS recenti NON arrivavano al device.
+- FIX: bump a `booking.css?v=20260602a` in Book.razor. Verificato nel render.
+- ⚠️ REGOLA: ogni volta che modifico Puntify.Vetrina/wwwroot/css/booking.css devo bumpare il `?v=` in Book.razor (e se serve Risorse.razor). Stesso pattern di menu-public.css.
+TODO: verifica browser (ora con CSS fresco): wizard step, riepilogo in basso, tasti attivi, calendario week/range/weekend, skip; poi addons (lettino/sdraio); half_day/event; risorse-slot non-tavolo. NON committato.
 
 ## 2026-05-30 — Vetrina Puntify: funzionalità "Menu & Ordini" (FATTO + verificato live)
 Richiesta Stefano: esporre nella vetrina che Puntify gestisce anche menu digitali e ordinazioni al tavolo/postazione (es. lidi) + ordini ritiro/asporto, tutto nel pacchetto standard; rivedere e integrare tutte le pagine.
