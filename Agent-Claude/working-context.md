@@ -108,6 +108,15 @@ B.2 TODO (la parte grossa, UI pubblica): flusso unico "Prenota":
 - Tavolo/asporto confluiscono nello stesso "Prenota".
 NON committato (tutta la feature).
 
+### Test data lido + regola UI-editable (2026-06-02)
+Stefano (msg 2955): tutto ciò che configuro deve essere fruibile/modificabile da lui dall'interfaccia → salvata memory feedback_ui_editable. I dati di test li metto solo con campi già editabili nell'editor.
+Lido ha già: floor "Spiaggia" (beach, pubblico) + "Cinema"; rooms Area Spiaggia/Area 1; risorse type=table con resource_kind umbrella×10, lettino×4, sdraio×6, table×6, court_*, cabina, gazebo, ecc.
+Convertiti i 2 servizi lido (campi editabili):
+- "Prenotazione Tavolo" → resource/table/slot, customer_can_choose=false (auto per posti), max 1.
+- "Ombrellone e Lettino" → resource/umbrella/day, mappa=Spiaggia(40a8d224), show_map=true, customer_can_choose=true, max 2.
+Verificato: GET /merchants/lido.../resources?kind=umbrella&date= ritorna mapScenario=beach, aree, 6 ombrelloni con pos/prezzo(stagione Media ×1.2)/disponibilità + addon Lettino/Sdraio. Data-path B.2 (ombrellone) pronto.
+PROSSIMO INCREMENTO B.2: UI pubblica. ServiceStep→routing: resource-service apre nuovo ResourceStep. Estendere /resources per accettare il service (deriva resource_kind+map+stagione) e scoping al floor della mappa associata. Day-picker → lista/mappa risorse con liberi/occupati → selezione fino a max → reserve (ReserveResourceAsync). Poi half_day/period/event e auto-assegna tavolo (fn_find_best_table). Tavolo/asporto confluiscono.
+
 ## 2026-05-30 — Vetrina Puntify: funzionalità "Menu & Ordini" (FATTO + verificato live)
 Richiesta Stefano: esporre nella vetrina che Puntify gestisce anche menu digitali e ordinazioni al tavolo/postazione (es. lidi) + ordini ritiro/asporto, tutto nel pacchetto standard; rivedere e integrare tutte le pagine.
 FATTO:
