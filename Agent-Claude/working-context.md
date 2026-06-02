@@ -212,7 +212,12 @@ RISPOSTE (msg 2994/2996): 1) Stripe sì. 2) carrello multi-servizio stesso shop.
 - Editor ShopServices.razor: sezione "Pagamento e condizioni" (modalità pagamento + %acconto, costi servizio %, rimborso voucher + giorni, min/max sedute per risorse, nota). Save su insert/update.
 - Build App OK, restart. PostgREST espone i campi (200), scrittura ok. Default free/none.
 - Test data: ombrellone lido → payment_mode=full, fee 6%, refund=voucher, cancellation_days=2 (come screenshot).
-TODO F2: pagina RECAP risorsa (descrizione+leggi di più, Allestimento addon lettino/sedia/sdraio +/− con icone e min/max sedute, servizi inclusi, breakdown prezzo+costi servizio, box Condizioni generato da payment_mode/refund_type/cancellation_days+nota). Esporre i campi in ServicePublicDto. F3 carrello multi-servizio. F4 Stripe Connect (chiavi da Stefano). NON committato.
+### FASE 2 — pagina RECAP (FATTO 2026-06-02, da verificare in browser)
+- ServicePublicDto + ToServiceDto espongono payment_mode/deposit_percent/service_fee_percent/refund_type/cancellation_days/min_seats/max_seats/conditions_note. Verificato: ombrellone DTO = full/6%/voucher/2gg.
+- ResourceBooking: nuovo step Recap (tra Resource e Customer). Mostra: nome+data, descrizione servizio, ALLESTIMENTO (addon non inclusi con +/− stepper, icone AddonIcon lettino🛏️/sdraio🏖️/sedia🪑/ombrellone⛱️, totale sedute + min/max), SERVIZI INCLUSI (addon included), BREAKDOWN prezzo (risorse×giorni + costi servizio% + Totale + acconto se deposit), box CONDIZIONI generato (Pagamento anticipato/acconto, Rimborso voucher+giorni / non rimborsabile, nota). Validazione min/max sedute nel passaggio. Addon passati alla reserve (ResourceReserveRequest.Addons).
+- _addons/_addonQty in ResourceBooking; LoadResources carica res.Addons. CSS rb-desc/rb-sub/rb-addon-row/rb-stepper/rb-seats/rb-inc/rb-breakdown*/rb-cond* in booking.css. Bump ?v=20260602g. Build OK, restart server+vetrina.
+- NB: footer recap per ora ha solo "Continua"→Dati; "Aggiungi al carrello" arriva in F3.
+TODO F3: carrello multi-servizio stesso shop ("Aggiungi postazione al carrello" nel recap, riepilogo carrello, checkout). F4: Stripe CONNECT (incasso diretto merchant; chiavi da Stefano). Verifica browser recap. NON committato.
 
 ## 2026-05-30 — Vetrina Puntify: funzionalità "Menu & Ordini" (FATTO + verificato live)
 Richiesta Stefano: esporre nella vetrina che Puntify gestisce anche menu digitali e ordinazioni al tavolo/postazione (es. lidi) + ordini ritiro/asporto, tutto nel pacchetto standard; rivedere e integrare tutte le pagine.
