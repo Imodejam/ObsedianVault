@@ -189,6 +189,23 @@ Per dimostrarlo sul lido ho cambiato ombrellone day→period (campo editabile). 
 - Build Vetrina OK, restart. (Risorse.razro pubblica resta col suo SVG semplificato invertito — valutare se allinearla/refactor su ResourceMapView.)
 TODO: verifica browser (scenario corretto + no pinch pagina + zoom mappa); allineare Risorse.razro; addons; half_day/event; uniformare tavolo. NON committato.
 
+### NUOVA RICHIESTA GROSSA (2026-06-02 ~23:30, screenshot tipo Spiaggia.it): pagina RECAP risorsa + carrello + pagamento
+Dopo aver selezionato la risorsa → pagina recap simile allo screenshot:
+- Titolo risorsa + "Info utili"; banner condizione rimborso (voucher entro N giorni).
+- Descrizione con "Leggi di più".
+- "Allestimento" = addon con stepper (lettino/sedia/sdraio) — RIUSARE shop_resource_addons esistenti; con icone dedicate (lettino arancio, sedia regista, sdraio).
+- "Totale sedute" con Min/Max (vincolo, es. 5/5).
+- "Servizi inclusi".
+- Breakdown prezzo: prezzo risorsa + "Costi di servizio" (fee) + "Totale per un giorno".
+- Footer: "Aggiungi postazione al carrello" + "Concludi prenotazione" → pagina dati → pagamento.
+- PAGAMENTO: totale anticipato / acconto / gratuito (es. tavoli ristorante).
+- CONDIZIONI di prenotazione definite dalla STRUTTURA sul SERVIZIO (personalizzabili): es. "Pagamento anticipato", "Rimborsabile tramite voucher", "Orario di rimborso". Da mostrare nel recap.
+DOMANDE INVIATE (prima di costruire):
+1. Pagamento: gateway reale (Stripe/altro) già previsto o per ora solo stato (anticipato/acconto/gratuito) senza incasso online?
+2. Carrello: più postazioni/servizi diversi insieme (multi-articolo) o una per volta?
+3. Condizioni+tipo pagamento+% acconto+giorni cancellazione: li configuro sul servizio in /services (nuovi campi)?
+ATTENDERE risposte prima del lavoro grosso.
+
 ## 2026-05-30 — Vetrina Puntify: funzionalità "Menu & Ordini" (FATTO + verificato live)
 Richiesta Stefano: esporre nella vetrina che Puntify gestisce anche menu digitali e ordinazioni al tavolo/postazione (es. lidi) + ordini ritiro/asporto, tutto nel pacchetto standard; rivedere e integrare tutte le pagine.
 FATTO:
