@@ -168,7 +168,17 @@ Per dimostrarlo sul lido ho cambiato ombrellone day→period (campo editabile). 
 - (msg 2982 "fasce bianche ai lati") CAUSA: breakpoint full-width era max-width:639px ma la viewport di test era ~642px → restava il `max-width:560px` centrato (bande). FIX: breakpoint alzato → full-width fino a max-width:767px (resetta max-width/margin), desktop centrato da min-width:768px.
 - (msg 2983) Tasti Oggi/Domani/Weekend: grigio chiaro (#f3f4f6, testo #6b7280) se non selezionati; hover accent-light; attivo rosso pieno.
 - CSS bump → ?v=20260602e.
-TODO: verifica browser; addons (lettino/sdraio); half_day/event; risorse-slot non-tavolo; uniformare stile tavolo. NON committato.
+### Mappa booking = mappa risorse (msg 2987)
+- Stefano: se il merchant abilita la mappa → mostrala di DEFAULT in booking; dev'essere ESATTAMENTE la mappa risorse; verdi ok.
+- Scoperto: esiste già pagina pubblica `/m/{slug}/risorse` (Risorse.razor) con la mappa vera (SVG viewBox 1000×700, scenario, disponibilità #34c759 verde). Il mio rb-map (marker %) era diverso.
+- FATTO: 
+  - `_mapView = Service.ShowMapInBooking` → mappa default quando abilitata.
+  - Nuovo componente condiviso `Components/Booking/ResourceMapView.razor` = stesso SVG di Risorse.razor (scenario beach/cinema/garden/parking/sport/generic, risorse per forma round/rect, fill verde libera/grigio occupata/accent selezionata, classi rs-map*). Usa SelectedIds (multi-select) + OnResourceClick. Render anche decorazioni.
+  - Esposte DECORAZIONI nel pubblico: nuovo `ResourceDecorationPublicDto` + `ResourcesResponse.Decorations`; endpoint GetResources fetcha shop_floor_decorations dei floor pubblici. DecoSvg semplice nel componente (albero/ombrellone/bar/piscina/casa/shape_*).
+  - ResourceBooking: rb-map sostituito da `<ResourceMapView>` (passa _resources/_decorations/_mapScenario/selected/primary).
+  - Verificato: endpoint lido ritorna decorations:1 (shape_roof) + 6 ombrelloni + scenario beach. Build Server+Vetrina OK, restart. Le classi rs-* già in booking.css (no bump).
+- NB: Risorse.razor non ancora refactorato per usare il componente (duplica lo stesso markup; valutare per DRY). 
+TODO: verifica browser mappa default+fedele; eventualmente refactor Risorse.razor su ResourceMapView; addons nel wizard; half_day/event; uniformare tavolo. NON committato.
 
 ## 2026-05-30 — Vetrina Puntify: funzionalità "Menu & Ordini" (FATTO + verificato live)
 Richiesta Stefano: esporre nella vetrina che Puntify gestisce anche menu digitali e ordinazioni al tavolo/postazione (es. lidi) + ordini ritiro/asporto, tutto nel pacchetto standard; rivedere e integrare tutte le pagine.
