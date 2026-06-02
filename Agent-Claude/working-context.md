@@ -89,7 +89,15 @@ Nuovi campi shop_services:
 - customer_can_choose_resource (bool; false→auto-assegna per caratteristiche)
 Flusso pubblico unico "Prenota": lista voci attive → servizio → periodo (selettore per unità) → se risorsa & può scegliere: mappa(se assoc.) o lista, fino a max → dati → conferma. Tavolo/asporto confluiscono.
 FASI: A) DB+editor /services unificato; B) flusso pubblico+mappa/lista+auto-assegna. Verifica live ad ogni fase.
-ATTENDERE conferma set unità/campi prima di iniziare.
+Stefano: OK (msg 2951) → procedere.
+
+### FASE A — FATTA + verificata (2026-06-02)
+- DB: ALTER shop_services + colonne booking_target, booking_unit, resource_kind, resource_map_id (FK shop_floors ON DELETE SET NULL), show_map_in_booking, max_selectable, customer_can_choose_resource, event_capacity. NOTIFY pgrst reload.
+- Modello `BookingService` (BookingModels.cs) esteso con i campi; nuove costanti `BookingTargets` (operator|resource) e `BookingUnits` (slot|day|half_day|period|event, con .All e .Label).
+- Editor `Puntify.App/Pages/Merchant/Booking/ShopServices.razor`: nuovi campi — Tipo (Operatore/Risorsa, segmented), Unità (select), Durata slot (solo unit=slot), Capienza (solo unit=event), Prezzo con help dinamico, Buffer (solo operatore), e blocco risorsa: tipo risorsa (ResourceKinds per ambito), max selezionabili, "cliente può scegliere", mappa associata (shop_floors dello shop), "mostra mappa in prenotazione". RowMeta in lista riflette tipo/unità. Salvataggio via Supabase client su tutti i campi.
+- Build App OK (0 err). Restart app+server+vetrina. Verifiche live: round-trip DB su colonne risorsa OK; server GetServices lido 200 (modello deserializza); PostgREST /rest/v1 espone le nuove colonne (200) → path scrittura editor OK.
+- NON committato.
+TODO FASE B: flusso pubblico unico "Prenota" (lista voci attive → servizio → selettore per unità → se risorsa & può scegliere: mappa(se assoc, show_map) o lista, fino a max → dati → conferma; se non può scegliere: auto-assegna per caratteristiche). Tavolo/asporto confluiscono. Esporre i nuovi campi in ServicePublicDto + GetServices.
 
 ## 2026-05-30 — Vetrina Puntify: funzionalità "Menu & Ordini" (FATTO + verificato live)
 Richiesta Stefano: esporre nella vetrina che Puntify gestisce anche menu digitali e ordinazioni al tavolo/postazione (es. lidi) + ordini ritiro/asporto, tutto nel pacchetto standard; rivedere e integrare tutte le pagine.
