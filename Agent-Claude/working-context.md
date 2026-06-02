@@ -74,7 +74,11 @@ DOMANDE INVIATE a Stefano (msg 2945), proposte default mie:
 2) unità = Giornata/Slot(min)/Periodo, guida il selettore pubblico → DEFAULT sì.
 3) servizio-risorsa mostra auto tutte le risorse di quel tipo sulla mappa, libero/occupato per periodo → DEFAULT automatico per tipo.
 4) tavolo/asporto restano modalità ma confluiscono nello stesso "Prenota" → DEFAULT sì.
-ATTENDERE risposte prima di iniziare il lavoro grosso (DB + editor + flusso pubblico).
+RISPOSTE STEFANO (msg 2946):
+1) CONFERMATO: /services elenco unico tipizzato; mappa+risorse restano nell'editor Risorse.
+2) Unità: decido io, allargare per coprire più situazioni (oltre giornata/slot/periodo: es. fascia intera, evento a data, ecc.).
+3) Se servizio ha MAPPA associata → mostra mappa, cliente seleziona 1+ entità (max selezionabili configurabile nel servizio). Se NO mappa → mostra le risorse come lista, seleziona fino al max. → servizio ha campo "max entità selezionabili per prenotazione".
+4) TRONCATO ("nel servizio il merchant deve scegliere se l'ute...") → richiesto reinvio (msg 2947). ATTENDERE punto 4 prima di iniziare il lavoro grosso.
 
 ## 2026-05-30 — Vetrina Puntify: funzionalità "Menu & Ordini" (FATTO + verificato live)
 Richiesta Stefano: esporre nella vetrina che Puntify gestisce anche menu digitali e ordinazioni al tavolo/postazione (es. lidi) + ordini ritiro/asporto, tutto nel pacchetto standard; rivedere e integrare tutte le pagine.
