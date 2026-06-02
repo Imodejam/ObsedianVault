@@ -155,7 +155,12 @@ Per dimostrarlo sul lido ho cambiato ombrellone day→period (campo editabile). 
 - (msg 2974 "dal>al sempre a destra sullo smartphone") CAUSA: `Book.razor` linkava `css/booking.css?v=20260529c` (versione vecchia) → il browser usava il CSS cachato SENZA le regole nuove (rb-wizard, .tb-bottom-summary, .mini-cal-quick.active, range). Tutte le mie modifiche CSS recenti NON arrivavano al device.
 - FIX: bump a `booking.css?v=20260602a` in Book.razor. Verificato nel render.
 - ⚠️ REGOLA: ogni volta che modifico Puntify.Vetrina/wwwroot/css/booking.css devo bumpare il `?v=` in Book.razor (e se serve Risorse.razor). Stesso pattern di menu-public.css.
-TODO: verifica browser (ora con CSS fresco): wizard step, riepilogo in basso, tasti attivi, calendario week/range/weekend, skip; poi addons (lettino/sdraio); half_day/event; risorse-slot non-tavolo. NON committato.
+### Fix layout+range (2026-06-02, screenshot lido)
+- (msg 2976) BUG: riepilogo "dal→al" a destra del calendario. CAUSA: residuo CSS `.rb-card{display:flex}` della prima B.2 in conflitto col `.rb-card` del wizard → step-body diventava flex-row (calendario+recap affiancati). FIX: rimosse le regole obsolete `.rb-card*`/`.rb-auto` (il wizard usa .rb-rescard). Ora recap va sotto i tasti.
+- (msg 2977) Range a 2 click: MiniCalendar ora usa stato INTERNO _selStart/_selEnd (prima la logica leggeva i param RangeStart/RangeEnd che il parent teneva =today → ogni stato sembrava "completo" e il 2° click resettava). Ora: 1° click=inizio (azzera fine), 2° click(>=inizio)=fine. QuickPick aggiorna lo stato interno (weekend=sab+dom). Highlight da stato interno.
+- ⚠️ Ribumpato booking.css → ?v=20260602b in Book.razor (modifiche CSS devono sempre bumpare la versione).
+- Screenshot confermava: wizard step OK, weekend evidenziato OK, sab+dom selezionati OK.
+TODO: verifica browser (recap sotto + range 2 click); addons (lettino/sdraio); half_day/event; risorse-slot non-tavolo; uniformare stile tavolo. NON committato.
 
 ## 2026-05-30 — Vetrina Puntify: funzionalità "Menu & Ordini" (FATTO + verificato live)
 Richiesta Stefano: esporre nella vetrina che Puntify gestisce anche menu digitali e ordinazioni al tavolo/postazione (es. lidi) + ordini ritiro/asporto, tutto nel pacchetto standard; rivedere e integrare tutte le pagine.
