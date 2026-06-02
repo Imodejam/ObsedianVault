@@ -182,7 +182,12 @@ Per dimostrarlo sul lido ho cambiato ombrellone day→period (campo editabile). 
 - (2989 "non vedo spiaggia/mare") Dati OK (scenario=beach, posizioni ok). Causa: SVG senza altezza definita (height:auto collassava). FIX: aspect-ratio:1000/700 inline sull'SVG in ResourceMapView → ora lo sfondo beach (mare+sabbia) si vede.
 - (2990) Pagina prenotazione NON pinch-zoom (CSS .rb-wizard touch-action:pan-y); la MAPPA invece si ingrandisce con pulsanti +/− (rs-map-zoom; transform scale attorno al centro, zoom 1→4). Pinch nativo non implementato (no JS) — pulsanti.
 - CSS bump → ?v=20260602f. Build Vetrina OK, restart.
-TODO: verifica browser (beach visibile + zoom mappa + no pinch pagina); valutare pinch nativo via JS se serve; refactor Risorse.razor su ResourceMapView; addons; half_day/event; uniformare tavolo. NON committato.
+### Scenario grigio + posizioni + pinch pagina (screenshot + msg)
+- BUG scenario grigio: in Blazor `MapScenario="_mapScenario"` (param STRING) passava la stringa LETTERALE "_mapScenario", non il valore → mai "beach" → grigio. FIX: `MapScenario="@_mapScenario"` (con @). (Lezione: parametri string ai componenti richiedono @ per passare un'espressione.)
+- Posizioni scenario invertite: avevo copiato da Risorse.razro (mare sopra/sabbia sotto) = CONTRARIO dell'editor. FIX: replicato ESATTAMENTE l'editor in ResourceMapView — sabbia = base #FBEFD2 su tutto, MARE in basso (#4FB0D6, battigia ondulata baseline 0.7·H) + schiuma bianca (ShoreTop 34/0/10) + "🌊 Mare" in basso; sport doghe, garden strisce+vialetto, cinema schermo, parking asfalto. Helper ShoreTop/SeaFill/BaseColor portati. (NB `<text>` va avvolto in `<g>` per Razor.)
+- Pinch pagina: viewport meta `maximum-scale=1, user-scalable=no` in Book.razor HeadContent (touch-action da solo non basta per lo zoom-viewport). Zoom mappa resta via pulsanti +/−.
+- Build Vetrina OK, restart. (Risorse.razro pubblica resta col suo SVG semplificato invertito — valutare se allinearla/refactor su ResourceMapView.)
+TODO: verifica browser (scenario corretto + no pinch pagina + zoom mappa); allineare Risorse.razro; addons; half_day/event; uniformare tavolo. NON committato.
 
 ## 2026-05-30 — Vetrina Puntify: funzionalità "Menu & Ordini" (FATTO + verificato live)
 Richiesta Stefano: esporre nella vetrina che Puntify gestisce anche menu digitali e ordinazioni al tavolo/postazione (es. lidi) + ordini ritiro/asporto, tutto nel pacchetto standard; rivedere e integrare tutte le pagine.
