@@ -126,7 +126,18 @@ Confermato da Stefano (msg 2961). Rimosso il bivio ModeStep: il tasto "Prenota" 
 - ServiceStep: nuovo param `ModeEntries` (rese come card con icona+descrizione+freccia, RenderModeCard); messaggio "nessun servizio" solo se servizi E mode entries vuoti; `CardMeta()` unit-aware (es. "Ombrellone · Giornata intera", "Asporto", "30 min"). Subtitle "Scegli cosa prenotare".
 - Build Vetrina OK, restart. Verifica prerender /it/m/lido.../book: elenca direttamente "Ombrellone e Lettino" + "Prenotazione Tavolo", prompt "Scegli cosa prenotare", NESSUNa card ModeStep. Casi merchant analizzati (solo-tavolo, tavolo+asporto senza servizi, takeaway-service+tavoli) → nessuna modalità persa.
 - Click-through interattivo (tap → ResourceBooking/QuickTableBooking) ancora da provare in browser.
-TODO: verifica browser; addons (lettino/sdraio) nel ResourceBooking; rifiniture half_day/event; risorse-slot non-tavolo (campi) con orari dedicati. NON committato.
+### Rifiniture calendario (2026-06-02, msg 2963) — FATTO
+- MiniCalendar esteso (retro-compatibile): `WeekView` (una settimana per volta, nav settimanale, header "2 – 8 giu"), `RangeMode` (dal/al con giorni evidenziati: in-range/range-start/range-end, callback RangeChanged), `ShowQuickButtons` (Oggi/Domani/Questo weekend sotto il calendario; weekend = sabato, in range sab→dom).
+- QuickTableBooking: MiniCalendar ora WeekView+ShowQuickButtons.
+- ResourceBooking: periodo → un solo calendario RangeMode+quick (sostituite le 2 mini); giorno/mezza/evento → WeekView+quick. OnRangeChanged aggiorna start/end (ricarica risorse sulla data inizio). CSS .in-range/.range-*/.mini-cal-quick in booking.css.
+- Build Vetrina OK, restart, /book 200.
+
+### Skip scelta servizio se unico (msg 2964) — GIÀ implementato in B.3
+- Auto-route: `entries.Count == 1` → RouteEntry diretto (resource→ResourceBooking, operatore→datetime, mode→tavolo/asporto), salta la lista.
+- NB: "entries" = servizi + voci sintetiche tavolo/asporto. Test col lido a 1 servizio: lista comparsa lo stesso perché il lido HasTables senza service-tavolo → +voce sintetica Tavolo = 2 voci (corretto). Col lido normale (2 servizi) lista corretta. Per shop davvero a 1 voce → salta.
+- Da chiarire con Stefano se intende: shop con 1 SERVIZIO ma con tavoli/operatori configurati deve comunque saltare al servizio (regola diversa).
+
+TODO: verifica browser (calendario settimana/range/quick + skip); addons (lettino/sdraio) nel ResourceBooking; rifiniture half_day/event; risorse-slot non-tavolo (campi) con orari dedicati. NON committato.
 
 ## 2026-05-30 — Vetrina Puntify: funzionalità "Menu & Ordini" (FATTO + verificato live)
 Richiesta Stefano: esporre nella vetrina che Puntify gestisce anche menu digitali e ordinazioni al tavolo/postazione (es. lidi) + ordini ritiro/asporto, tutto nel pacchetto standard; rivedere e integrare tutte le pagine.
