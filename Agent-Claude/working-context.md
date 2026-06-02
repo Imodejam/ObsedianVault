@@ -204,7 +204,15 @@ DOMANDE INVIATE (prima di costruire):
 1. Pagamento: gateway reale (Stripe/altro) già previsto o per ora solo stato (anticipato/acconto/gratuito) senza incasso online?
 2. Carrello: più postazioni/servizi diversi insieme (multi-articolo) o una per volta?
 3. Condizioni+tipo pagamento+% acconto+giorni cancellazione: li configuro sul servizio in /services (nuovi campi)?
-ATTENDERE risposte prima del lavoro grosso.
+RISPOSTE (msg 2994/2996): 1) Stripe sì. 2) carrello multi-servizio stesso shop. 3) condizioni su /services sì. A) soldi DIRETTI al merchant → **Stripe CONNECT** (account collegato per merchant). B) chiavi dopo.
+
+### FASE 1 — config pagamento/condizioni sul servizio (FATTO + verificato 2026-06-02)
+- DB shop_services + colonne: payment_mode (free|full|deposit), deposit_percent, service_fee_percent, refund_type (none|voucher), cancellation_days, min_seats, max_seats, conditions_note. NOTIFY pgrst.
+- Modello BookingService esteso + costanti PaymentModes/RefundTypes.
+- Editor ShopServices.razor: sezione "Pagamento e condizioni" (modalità pagamento + %acconto, costi servizio %, rimborso voucher + giorni, min/max sedute per risorse, nota). Save su insert/update.
+- Build App OK, restart. PostgREST espone i campi (200), scrittura ok. Default free/none.
+- Test data: ombrellone lido → payment_mode=full, fee 6%, refund=voucher, cancellation_days=2 (come screenshot).
+TODO F2: pagina RECAP risorsa (descrizione+leggi di più, Allestimento addon lettino/sedia/sdraio +/− con icone e min/max sedute, servizi inclusi, breakdown prezzo+costi servizio, box Condizioni generato da payment_mode/refund_type/cancellation_days+nota). Esporre i campi in ServicePublicDto. F3 carrello multi-servizio. F4 Stripe Connect (chiavi da Stefano). NON committato.
 
 ## 2026-05-30 — Vetrina Puntify: funzionalità "Menu & Ordini" (FATTO + verificato live)
 Richiesta Stefano: esporre nella vetrina che Puntify gestisce anche menu digitali e ordinazioni al tavolo/postazione (es. lidi) + ordini ritiro/asporto, tutto nel pacchetto standard; rivedere e integrare tutte le pagine.
