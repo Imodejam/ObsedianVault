@@ -146,7 +146,12 @@ NB: QuickTableBooking e il flusso appuntamenti sono già a step/mobile. Per ora 
 ### Weekend = sab+dom (msg 2967)
 Regola già nel codice: il tasto "Questo weekend" in MiniCalendar RangeMode seleziona sab→dom (RangeChanged(Sat, Sat+1)); in modalità singola (risorse a giornata) seleziona un solo giorno. = "se la risorsa la consente" (consente = unit period/multi-giorno).
 Per dimostrarlo sul lido ho cambiato ombrellone day→period (campo editabile). Ora ResourceBooking usa RangeMode → weekend = sab+dom. Period copre sia giorno singolo (click 1 giorno) sia weekend/più giorni.
-TODO: verifica browser (wizard step + calendario week/range + weekend + skip); addons (lettino/sdraio); half_day/event raffinati; risorse-slot non-tavolo; valutare step anche per QuickTableBooking. NON committato.
+### Micro-fix UI (2026-06-02)
+- (msg 2969) Rimosso titolo "Scegli la data"/"Scegli il periodo" nello step Period del wizard risorsa (ridondante con lo stepper).
+- (msg 2971) Flusso TAVOLO (QuickTableBooking): riepilogo selezione spostato in BASSO (nuova .tb-bottom-summary a fondo form); nascosti il riepilogo laterale (.booking-summary-card) e quello in alto (.mobile-summary).
+- (msg 2972) MiniCalendar: tasti rapidi Oggi/Domani/Questo weekend ora mostrano lo stato ATTIVO (_activeQuick, .mini-cal-quick button.active); click su un giorno manuale azzera l'evidenza.
+- Build Vetrina OK, restart. Da verificare in browser.
+TODO: verifica browser; addons (lettino/sdraio); half_day/event raffinati; risorse-slot non-tavolo; valutare step+riepilogo-basso anche stile uniforme tavolo↔risorsa. NON committato.
 
 ## 2026-05-30 — Vetrina Puntify: funzionalità "Menu & Ordini" (FATTO + verificato live)
 Richiesta Stefano: esporre nella vetrina che Puntify gestisce anche menu digitali e ordinazioni al tavolo/postazione (es. lidi) + ordini ritiro/asporto, tutto nel pacchetto standard; rivedere e integrare tutte le pagine.
