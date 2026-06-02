@@ -143,7 +143,10 @@ Stefano: la prenotazione deve essere a step (data → risorse → dati), una sch
 - Layout single-column max 560px, sticky actionbar (statica ≥640px). Nuove classi rb-wizard/rb-head/rb-steps/rb-step/rb-card/rb-field/rb-actionbar/rb-rescard in booking.css. Resta MiniCalendar week/range/quick dentro lo step Data.
 - Build Vetrina OK, restart, /book 200. Click-through da verificare in browser.
 NB: QuickTableBooking e il flusso appuntamenti sono già a step/mobile. Per ora ho reso a step il flusso RISORSA (descrizione esplicita di Stefano data→risorse→dati).
-TODO: verifica browser (wizard step + calendario + skip); addons (lettino/sdraio); half_day/event raffinati; risorse-slot non-tavolo; valutare se rendere a step anche QuickTableBooking. NON committato.
+### Weekend = sab+dom (msg 2967)
+Regola già nel codice: il tasto "Questo weekend" in MiniCalendar RangeMode seleziona sab→dom (RangeChanged(Sat, Sat+1)); in modalità singola (risorse a giornata) seleziona un solo giorno. = "se la risorsa la consente" (consente = unit period/multi-giorno).
+Per dimostrarlo sul lido ho cambiato ombrellone day→period (campo editabile). Ora ResourceBooking usa RangeMode → weekend = sab+dom. Period copre sia giorno singolo (click 1 giorno) sia weekend/più giorni.
+TODO: verifica browser (wizard step + calendario week/range + weekend + skip); addons (lettino/sdraio); half_day/event raffinati; risorse-slot non-tavolo; valutare step anche per QuickTableBooking. NON committato.
 
 ## 2026-05-30 — Vetrina Puntify: funzionalità "Menu & Ordini" (FATTO + verificato live)
 Richiesta Stefano: esporre nella vetrina che Puntify gestisce anche menu digitali e ordinazioni al tavolo/postazione (es. lidi) + ordini ritiro/asporto, tutto nel pacchetto standard; rivedere e integrare tutte le pagine.
