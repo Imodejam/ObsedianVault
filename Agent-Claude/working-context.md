@@ -78,7 +78,18 @@ RISPOSTE STEFANO (msg 2946):
 1) CONFERMATO: /services elenco unico tipizzato; mappa+risorse restano nell'editor Risorse.
 2) Unità: decido io, allargare per coprire più situazioni (oltre giornata/slot/periodo: es. fascia intera, evento a data, ecc.).
 3) Se servizio ha MAPPA associata → mostra mappa, cliente seleziona 1+ entità (max selezionabili configurabile nel servizio). Se NO mappa → mostra le risorse come lista, seleziona fino al max. → servizio ha campo "max entità selezionabili per prenotazione".
-4) TRONCATO ("nel servizio il merchant deve scegliere se l'ute...") → richiesto reinvio (msg 2947). ATTENDERE punto 4 prima di iniziare il lavoro grosso.
+4) (msg 2949) Flag per-servizio: il cliente può SCEGLIERE la risorsa o no. Sì→mostra tavoli/risorse (mappa o lista). No→assegna il sistema per caratteristiche (es. tavolo 3 posti per 3 persone).
+
+DESIGN PROPOSTO (msg 2950, in attesa OK finale):
+Nuovi campi shop_services:
+- booking_target: operator|resource
+- booking_unit (set scelto da me): slot(durata min) | day(giornata) | half_day(mezza giornata mattina/pomeriggio) | period(multi-giorno) | event(ingresso a data, capienza, no orario)
+- se resource: resource_kind + resource_map_id(floor, opz) + show_map_in_booking(bool)
+- max_selectable (max entità per prenotazione)
+- customer_can_choose_resource (bool; false→auto-assegna per caratteristiche)
+Flusso pubblico unico "Prenota": lista voci attive → servizio → periodo (selettore per unità) → se risorsa & può scegliere: mappa(se assoc.) o lista, fino a max → dati → conferma. Tavolo/asporto confluiscono.
+FASI: A) DB+editor /services unificato; B) flusso pubblico+mappa/lista+auto-assegna. Verifica live ad ogni fase.
+ATTENDERE conferma set unità/campi prima di iniziare.
 
 ## 2026-05-30 — Vetrina Puntify: funzionalità "Menu & Ordini" (FATTO + verificato live)
 Richiesta Stefano: esporre nella vetrina che Puntify gestisce anche menu digitali e ordinazioni al tavolo/postazione (es. lidi) + ordini ritiro/asporto, tutto nel pacchetto standard; rivedere e integrare tutte le pagine.
