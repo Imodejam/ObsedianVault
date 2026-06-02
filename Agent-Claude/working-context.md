@@ -58,6 +58,24 @@ Chiave: `SlotEngine.GetAvailableSlots` (Punto.Shared/Services/SlotEngine.cs) usa
 - (Sicurezza minore) valutare RLS su shop_menu_section_services / booking_services (ora accesso solo via server service_role).
 - Auth JWT FASE A committata (32dad34). FASE B (enforcement per-shop) da fare con test coordinato. JwtSecret recuperato dai container.
 
+## 2026-06-02 — Puntify: prenotazione unificata risorse+operatori (IN ATTESA risposte Stefano)
+Richiesta: su /m/{slug}/book mostrare TUTTE le prenotazioni attive del locale (es. lido: tavolo + ombrellone + lettino) da un solo tasto "Prenota". Sulla pagina merchant /services ogni servizio deve indicare: unità di prenotazione (giornata / slot orario con durata min / periodo) e se riguarda una RISORSA (es. campo) o un OPERATORE (consulente). Se risorsa: associare una mappa risorse + flag "mostra in prenotazione coi posti liberi"; nel pubblico, dopo la scelta del periodo, mostrare la mappa con le risorse libere.
+
+ARCHITETTURA ESISTENTE rilevata (gran parte già c'è):
+- shop_services (BookingModels.cs ~143): ServiceKind appointment|takeaway_window, DurationMinutes, Price, PriceDisplay, SlotCapacity. NESSUN campo tipo(risorsa/operatore) né booking_unit → da aggiungere.
+- shop_operators (~249): Type operator|resource|table (OperatorTypes), ResourceKind, **BookingUnit slot|day|period**, Price, Capacity/Zone, campi planimetria (RoomId,Shape,PosX/Y,W/H,Rotation), QrToken.
+- ResourceKinds.cs: catalogo (table,umbrella,lettino,sdraio,gazebo,cabina,court_soccer/tennis,room,posto_auto…) con DefaultBookingUnit e DefaultShape.
+- Mappe: shop_floors (IsPublic, Scenario beach/cinema/…), shop_rooms, shop_floor_decorations. Editor Puntify.App/Pages/Merchant/Tables/TablesPlanimetry.razor.
+- Modalità pubbliche: bitmask BookingModes (1 appointments,2 tables,4 takeaway) — NO bit "resources". ModeStep + QuickTableBooking + QuickTakeawayBooking + flusso appuntamenti (ServiceStep→Operator→DateTime→…). Endpoint GET /merchants/{slug}/resources già ritorna risorse con bookingUnit, mapScenario, aree, prezzo stagionale, disponibilità, addons.
+- Editor servizi: Puntify.App/Pages/Merchant/Booking/ShopServices.razor (oggi solo nome/descr/durata/prezzo/buffer/foto/video/tag).
+
+DOMANDE INVIATE a Stefano (msg 2945), proposte default mie:
+1) /services elenco unico tipizzato (operatore/risorsa); mappa+risorse restano nell'editor Risorse → DEFAULT sì.
+2) unità = Giornata/Slot(min)/Periodo, guida il selettore pubblico → DEFAULT sì.
+3) servizio-risorsa mostra auto tutte le risorse di quel tipo sulla mappa, libero/occupato per periodo → DEFAULT automatico per tipo.
+4) tavolo/asporto restano modalità ma confluiscono nello stesso "Prenota" → DEFAULT sì.
+ATTENDERE risposte prima di iniziare il lavoro grosso (DB + editor + flusso pubblico).
+
 ## 2026-05-30 — Vetrina Puntify: funzionalità "Menu & Ordini" (FATTO + verificato live)
 Richiesta Stefano: esporre nella vetrina che Puntify gestisce anche menu digitali e ordinazioni al tavolo/postazione (es. lidi) + ordini ritiro/asporto, tutto nel pacchetto standard; rivedere e integrare tutte le pagine.
 FATTO:
