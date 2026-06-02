@@ -97,7 +97,16 @@ Stefano: OK (msg 2951) → procedere.
 - Editor `Puntify.App/Pages/Merchant/Booking/ShopServices.razor`: nuovi campi — Tipo (Operatore/Risorsa, segmented), Unità (select), Durata slot (solo unit=slot), Capienza (solo unit=event), Prezzo con help dinamico, Buffer (solo operatore), e blocco risorsa: tipo risorsa (ResourceKinds per ambito), max selezionabili, "cliente può scegliere", mappa associata (shop_floors dello shop), "mostra mappa in prenotazione". RowMeta in lista riflette tipo/unità. Salvataggio via Supabase client su tutti i campi.
 - Build App OK (0 err). Restart app+server+vetrina. Verifiche live: round-trip DB su colonne risorsa OK; server GetServices lido 200 (modello deserializza); PostgREST /rest/v1 espone le nuove colonne (200) → path scrittura editor OK.
 - NON committato.
-TODO FASE B: flusso pubblico unico "Prenota" (lista voci attive → servizio → selettore per unità → se risorsa & può scegliere: mappa(se assoc, show_map) o lista, fino a max → dati → conferma; se non può scegliere: auto-assegna per caratteristiche). Tavolo/asporto confluiscono. Esporre i nuovi campi in ServicePublicDto + GetServices.
+### FASE B — in corso (incrementi verificati)
+B.1 FATTO+verificato (2026-06-02): ServicePublicDto esteso con bookingTarget/bookingUnit/resourceKind/resourceMapId/showMapInBooking/maxSelectable/customerCanChooseResource/eventCapacity; helper `ToServiceDto` in PublicBookingController usato da GetServices e service-suggestions. Build Server+Vetrina OK, restart server, curl GetServices lido mostra i nuovi campi (default operator/slot). Il client Vetrina (GetPublicServicesAsync→ServicePublicDto) li riceve già.
+B.2 TODO (la parte grossa, UI pubblica): flusso unico "Prenota":
+- ServiceStep già lista TUTTI i servizi attivi (no filtro kind) → ok come elenco unico.
+- Routing per servizio selezionato: se target=operator→flusso attuale (slot/operatore). Se target=resource→nuovo step risorsa.
+- Selettore periodo per unità: slot→data+orari; day→data; half_day→data+mattina/pomeriggio; period→intervallo date; event→data (+capienza).
+- Se resource & customerCanChoose: mappa (se resourceMapId & showMapInBooking) con liberi/occupati, oppure lista risorse del resource_kind; selezione fino a maxSelectable. Se !customerCanChoose: auto-assegna per caratteristiche (riusa fn_find_best_table per tavoli; per risorse a giornata assegna prima libera).
+- Backend riuso: GET /merchants/{slug}/resources (già ritorna risorse+mappa+disponibilità per data) — da estendere per accettare il service_id e derivare resource_kind/map/periodo; reservation via TableBookingController ReserveResourceAsync.
+- Tavolo/asporto confluiscono nello stesso "Prenota".
+NON committato (tutta la feature).
 
 ## 2026-05-30 — Vetrina Puntify: funzionalità "Menu & Ordini" (FATTO + verificato live)
 Richiesta Stefano: esporre nella vetrina che Puntify gestisce anche menu digitali e ordinazioni al tavolo/postazione (es. lidi) + ordini ritiro/asporto, tutto nel pacchetto standard; rivedere e integrare tutte le pagine.
