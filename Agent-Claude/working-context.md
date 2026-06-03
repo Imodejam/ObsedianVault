@@ -223,7 +223,9 @@ RISPOSTE (msg 2994/2996): 1) Stripe sì. 2) carrello multi-servizio stesso shop.
 - PublicBookingFlow: `_cart`, `_showCheckout`; AddToCart/Conclude/RemoveFromCart/OnCartDone; barra carrello nell'elenco servizi ("🛒 N · €tot · Vai al carrello"); render `<CartCheckout>` quando _showCheckout.
 - Nuovo `CartCheckout.razor`: lista articoli (icona, nome, risorse, data, totale, rimuovi) + dati cliente (una volta) + gdpr + conferma → prenota TUTTI gli articoli (loop ReserveResourceAsync per risorsa, con addon). Totale + acconto. Se ci sono articoli a pagamento → nota "pagamento online (Stripe) in arrivo, prenotazione registrata" (F4).
 - CSS cart-bar/cart-row*/tb-btn-outline. Bump ?v=20260603a. Build OK, restart vetrina 200.
-TODO F4: Stripe CONNECT (incasso diretto merchant; chiavi da Stefano) — sostituire la nota con pagamento reale (acconto/totale; gratuito salta). Pulire codice morto ResourceBooking (Customer/Submit/_done). Verifica browser intero flusso. NON committato.
+- (msg 3002) Desktop: rb-wizard allargato a max-width 860px (era 560 → horror vacui) + condizioni recap su 2 colonne (.rb-conds grid). Bump ?v=20260603b. CartCheckout eredita (usa rb-wizard).
+- NB: Book.razro ora usa @layout BookLayout (modificato da Stefano/linter).
+TODO F4: Stripe CONNECT (incasso diretto merchant). Stefano (msg 3003) chiede come creare le chiavi → spiegate: dashboard.stripe.com, modalità Test, Developers→API keys (pk_test_/sk_test_), abilitare Connect (platform); webhook secret dopo. Attendo pk_test+sk_test da mettere in config server (non committate). Poi: sostituire la nota con pagamento reale (acconto/totale; gratuito salta). Pulire codice morto ResourceBooking (Customer/Submit/_done). Verifica browser intero flusso. NON committato.
 
 ## 2026-05-30 — Vetrina Puntify: funzionalità "Menu & Ordini" (FATTO + verificato live)
 Richiesta Stefano: esporre nella vetrina che Puntify gestisce anche menu digitali e ordinazioni al tavolo/postazione (es. lidi) + ordini ritiro/asporto, tutto nel pacchetto standard; rivedere e integrare tutte le pagine.
