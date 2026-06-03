@@ -536,3 +536,5 @@ File chiave aggiornati:
 ## [2026-06-03] task | Puntify App ShopServices: (1) textarea (descrizione, nota, regolamento, condizioni) auto-estese con classe cfg-textarea--grow (field-sizing:content + min-height, fallback rows 3/6). (2) Rimossi dal form e dalle logiche il campo Rimborso (refund_type) e Giorni cancellazione voucher — il PV li dichiara testualmente nelle condizioni; SaveService scrive sempre none/null.
 
 ## [2026-06-03] task | Puntify /book riepilogo: box in alto mostra ora 'TipoRisorsa Nome' (es. Ombrellone O1, Gazebo G2) invece del solo nome — helper ResourceLabel usa ResourceKinds.Label(r.ResourceKind). booking.css?v=20260603y.
+
+## [2026-06-03] task | Puntify /book riepilogo: per servizi di tipo risorsa il nome del servizio è reso come 'Postazione' (helper ServiceTitle) in h2, box recap, riga breakdown e box dati. Header wizard e record prenotazione restano col nome reale. booking.css?v=20260603z.
