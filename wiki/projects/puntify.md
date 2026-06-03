@@ -235,7 +235,15 @@ Sincronizzazione **bidirezionale** appuntamenti ↔ Google Calendar. Piano detta
 - Componente estratto fuori da .book-body in PublicBookingFlow per avere layout autonomo
 - File modificati: QuickTableBooking.razor (riscrittura), PublicBookingFlow.razor (estrazione), booking.css (Vetrina, +400 righe)
 
+## Pagamenti booking — Stripe Connect (Fase 4, in definizione 2026-06-03)
+Incasso reale delle prenotazioni postazioni/ombrelloni. I soldi vanno al **lido** (esercente), Puntify è la piattaforma → **Stripe Connect (marketplace)**, NON l'abbonamento esercente.
+
+- **Stato pre-pagamento (Fase 3 carrello DONE)**: `Puntify.Vetrina/Components/Booking/CartCheckout.razor` registra le prenotazioni via `BookingPublicService.ReserveResourceAsync` (`POST /api/public/booking/table/resource/reserve`). Item a pagamento (`CartItem.PaymentMode` = free|full|deposit, `DueNow`=acconto/saldo) mostrano nota "pagamento Stripe in arrivo"; nessun incasso effettivo.
+- **Chiavi**: test (pk/sk) in `Puntify.Server/appsettings.Development.json` → sezione `Stripe` {PublishableKey, SecretKey, WebhookSecret}. File gitignored (riga 348), chmod 600. Mai committare la SecretKey.
+- **Decisioni aperte** (da Stefano): commissione piattaforma %; tipo account Connect lidi (Express vs Standard); dove il lido collega Stripe (pagina merchant App); flusso prenota→Checkout→conferma su webhook + gestione acconto.
+
 ## Prossimi passi
+- [ ] Stripe Connect Fase 4: onboarding lido + Checkout + webhook conferma prenotazione
 - [ ] Display ordini pubblico per TV (completare UX)
 - [ ] POS: importi manuali (da decidere)
 - [ ] Piano editoriale social

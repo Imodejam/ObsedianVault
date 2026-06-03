@@ -1,3 +1,28 @@
+# Working context · 2026-06-03
+
+## Stato attuale: Puntify — Pagamenti booking (Stripe Connect)
+
+Sessione nuova (post-compaction). Stefano ha passato chiavi Stripe TEST (pk/sk) e ricordato il lavoro di ieri:
+- **Fase 3 carrello DONE** (vetrina): tap risorsa → Riepilogo → "Aggiungi al carrello"/"Concludi" → checkout multi-articolo stesso shop, dati cliente una volta, totale +acconto, "Concludi prenotazione" prenota tutte le postazioni. Build ok, CSS `?v=20260603a`.
+- **Fase 4 = incasso reale via Stripe Connect** (i soldi vanno al LIDO, non a Puntify → marketplace, non subscription).
+
+### Stato codice rilevato
+- Checkout: `Puntify.Vetrina/Components/Booking/CartCheckout.razor`. Oggi `Confirm()` chiama solo `BookingPublicService.ReserveResourceAsync` per ogni risorsa → registra prenotazione, nessun incasso. Bottone "Vai al pagamento" mostrato se `DueNow>0` ma non paga. Nota "pagamento Stripe in arrivo" su item a pagamento (`PaymentMode` free|full|deposit, `DueNow`=acconto/saldo).
+- `CartItem.cs`: PaymentMode, GrandTotal, DueNow.
+- API server resource reserve: `POST /api/public/booking/table/resource/reserve` (Puntify.Server).
+- Chiavi Stripe test salvate in `Puntify.Server/appsettings.Development.json` (gitignored riga 348, chmod 600) → sezione `Stripe` {PublishableKey, SecretKey, WebhookSecret:""}. Webhook secret da generare.
+
+### Decisioni Connect aperte (chieste a Stefano via Telegram)
+- Commissione piattaforma Puntify su ogni incasso? (% o 0)
+- Tipo account Connect lidi: Express (consigliato, KYC gestito da Stripe) vs Standard
+- Onboarding lido: pagina merchant in App (BookingSettings o nuova "Pagamenti")
+- Flusso: prenota→Checkout→conferma su webhook; acconto = paga ora, saldo in loco
+
+### Prossimi passi
+- Attendere risposte decisioni Connect → poi implementare onboarding + Checkout + webhook.
+
+---
+
 # Working context · 2026-05-28
 
 ## Stato attuale: Puntify — Menu per tipologia shop (prodotti vs servizi)
