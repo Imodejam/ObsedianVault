@@ -21,7 +21,12 @@ Messaggi Telegram 3085-3089:
    - DB migration: `docs/DB Migrations/20260603_lido_booking_settings.sql` (INSERT booking_settings con max_future_days=180 per il lido). Da applicare via dbgate.
    - `booking.css?v=20260603j`, server+vetrina riavviati, live.
 
-### Pending
+### Pending (2026-06-03 sera)
+- **Punti fedeltà pending-24h** (msg 3185/3189): core 'account trovato→accredito' FATTO (StripeController.CreditLoyaltyOnPaidAsync). DA FARE: account non trovato → tabella pending_loyalty_points 24h + email invito + claim alla registrazione.
+- **Transazioni = incassi prenotazione** (msg 3195): far comparire gli incassi delle prenotazioni pagate nella pagina /merchant/{shopId}/transactions con dettagli (cosa/quanto/quando/servizio-risorsa/accessori/cliente). Proposto a Stefano: due tab "Incassi" e "Punti" (in attesa conferma). + aggiungere ora/data incasso al dettaglio prenotazione (serve colonna paid_at su bookings).
+- **Agenda L3/L4** (msg 3184): L1+L2 FATTI. L3 = vista planning griglia risorsa×giorni + overlap; L4 = azioni (segna incassato, sposta, totali). In attesa priorità + risposte 4 domande.
+
+### Pending (precedenti)
 - msg 3090: estendere allestimenti/addon (AddonsTab.razor esiste, gestisce per resource_kind) con FOTO (upload o AI) + link a una o più risorse/tipi. DB shop_resource_addons NON ha photo_url né link multi-kind. FEATURE GRANDE — chiesto a Stefano scoping (multi-kind vs istanze specifiche; AI sì/no) prima di costruire.
 
 ### FATTO (chiusura pending 2026-06-03 pomeriggio)
