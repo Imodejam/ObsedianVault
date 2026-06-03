@@ -482,3 +482,5 @@ File chiave aggiornati:
 
 ## [2026-06-03] task | Puntify legale: generalizzati i documenti (Condizioni Prenotazione IT+EN + product-overview) a TUTTI gli esercenti (ristoranti, bar, parrucchieri, barbieri, centri estetici, balneari, ecc.), non solo lidi. Build+restart vetrina OK.
 ## [2026-06-03] decision | Puntify SRLS senza dipendenti, Stefano amministratore con altro lavoro: lecito. INPS Gestione Commercianti NON dovuta (prevalenza altrove) → costi fissi rivisti ~2.000–3.400€/anno, break-even ~17–28 esercenti/mese. Da confermare col commercialista (inquadramento INPS; pubblico impiego→autorizzazioni).
+
+## [2026-06-03] task | Puntify vetrina fix: icona "Menu & Ordini" nel mega-menu Funzionalità invisibile (tile bianca) — mancava regola CSS .mega-card-icon--menu in app.css. Aggiunto gradiente verde smeraldo + bump app.css ?v=20260603b. Verificato live.
