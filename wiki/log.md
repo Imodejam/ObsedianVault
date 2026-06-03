@@ -488,3 +488,5 @@ File chiave aggiornati:
 ## [2026-06-03] task | Puntify vetrina: allineata larghezza flusso prenotazione risorsa (calendario/mappa/riepilogo) a quella della selezione servizio. Selezione servizio = .book-body 960px (sidebar nascosta su step Service); ResourceBooking usava rb-wizard 860px. Aggiunto modificatore .rb-wizard--wide (960px, padding 1.5rem) su ResourceBooking, senza toccare CartCheckout. Bump booking.css?v=20260603c. Verificato.
 
 ## [2026-06-03] task | Puntify vetrina fix (vero): larghezza calendario/mappa prenotazione risorsa. Causa: .rb-wizard mancava di width:100% (a differenza di .book-body) → in .book-page (flex column) si restringeva al contenuto (~260px), max-width inefficace. Aggiunto width:100% a .rb-wizard + modificatore .rb-wizard--wide 960px su ResourceBooking. booking.css?v=20260603d. Il primo tentativo (solo max-width) non bastava.
+
+## [2026-06-03] task | Puntify vetrina: rimosso il tipo di risorsa (ResourceKind, es. "Ombrellone · ") dalla meta delle card nella lista servizi (ServiceStep.CardMeta) perché superfluo; resta solo l'unità. Build+restart, verificato.
