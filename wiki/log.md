@@ -532,3 +532,5 @@ File chiave aggiornati:
 ## [2026-06-03] task | Puntify pending: (1) Applicata migration lido booking_settings max_future_days=180 (riga non esisteva; ora ombrelloni prenotabili tutta la stagione). (2) msg 3124: regolamento/condizioni nel riepilogo /book ora resi con Markdown COMPLETO (Markdig 1.2.0 aggiunto a Vetrina; pipeline DisableHtml + UseSoftlineBreakAsHardlineBreak per sicurezza/a-capo; @using Markdig). CSS per ul/ol/h*/p/a/code dentro .rb-cond-body. booking.css?v=20260603v.
 
 ## [2026-06-03] task | Puntify /book riepilogo: icone allestimenti ingrandite (16→22) e allineate (flex align-items center) con le icone sopra (ombrellone+calendario, portate a 22). CSS .rb-addon-name flex + .bk-ico 22px. booking.css?v=20260603w.
+
+## [2026-06-03] task | Puntify App ShopServices: (1) textarea (descrizione, nota, regolamento, condizioni) auto-estese con classe cfg-textarea--grow (field-sizing:content + min-height, fallback rows 3/6). (2) Rimossi dal form e dalle logiche il campo Rimborso (refund_type) e Giorni cancellazione voucher — il PV li dichiara testualmente nelle condizioni; SaveService scrive sempre none/null.
