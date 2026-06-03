@@ -479,3 +479,6 @@ File chiave aggiornati:
 
 ## [2026-06-03] task | Puntify: commissione prenotazioni confermata 6%+0,30€ (configurabile). FAQ+doc corrette (Puntify trattiene commissione di servizio; prima diceva 0). Nuova pagina Condizioni Generali di Prenotazione IT+EN (intermediario, due contratti, Stripe Connect, cancellazione per-lido, esclusione recesso art.59) live su CAT per review; Privacy aggiornata; link footer+checkout. Build+restart vetrina OK.
 ## [2026-06-03] decision | Puntify costituenda come SRLS (un socio-amministratore lavoratore). Costi fissi ~6.700–8.300€/anno (dominante INPS Gestione Commercianti ~4.612€). Break-even ~56–70 esercenti paganti/mese (solo abbonamento). Pagina: puntify-costi-srls.
+
+## [2026-06-03] task | Puntify legale: generalizzati i documenti (Condizioni Prenotazione IT+EN + product-overview) a TUTTI gli esercenti (ristoranti, bar, parrucchieri, barbieri, centri estetici, balneari, ecc.), non solo lidi. Build+restart vetrina OK.
+## [2026-06-03] decision | Puntify SRLS senza dipendenti, Stefano amministratore con altro lavoro: lecito. INPS Gestione Commercianti NON dovuta (prevalenza altrove) → costi fissi rivisti ~2.000–3.400€/anno, break-even ~17–28 esercenti/mese. Da confermare col commercialista (inquadramento INPS; pubblico impiego→autorizzazioni).

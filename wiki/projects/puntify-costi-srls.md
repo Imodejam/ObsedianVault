@@ -29,6 +29,16 @@ Ricavo per esercente base = 9,99€/mese × 12 = **119,88€/anno** (1 PV; scont
 - Best case con agevolazioni INPS (−35% regime agevolato / −50% nuovi iscritti, da verificare 2026): fisso ~4.400–5.000€ → **~37–42 esercenti**.
 - La **commissione prenotazioni 6%+0,30€** è ricavo aggiuntivo non conteggiato → abbassa ulteriormente la soglia.
 
+## Scenario realistico Stefano (no dipendenti + altro lavoro) — AGGIORNATO 2026-06-03
+Vincoli dati da Stefano: la SRL **non avrà dipendenti** e lui ha **un altro lavoro principale**. Una società senza dipendenti è pienamente lecita (lavoro svolto dall'amministratore o esternalizzato a freelance P.IVA = costi-fattura, non dipendenti).
+
+Effetto INPS (decisivo): l'iscrizione alla **Gestione Commercianti** scatta solo per lavoro operativo **abituale e prevalente** nella società; la sola carica di amministratore non basta. Con un altro lavoro principale la prevalenza è altrove → **Gestione Commercianti NON dovuta** (risparmio ~4.612€). Resta solo la **Gestione Separata**, dovuta **solo sul compenso amministratore** (35%, 2/3 a carico società, nessun minimo): compenso 0 → INPS 0.
+
+Costi fissi rivisti: commercialista 1.500–2.800€ + libri 309,87€ + CCIAA ~120€ + PEC/firma/software ~50–170€ + INPS ~0 + INAIL ~0 (no dipendenti, no lavoro operativo a rischio) → **~2.000–3.400€/anno**.
+Break-even rivisto (solo abbonamento 119,88€/anno): **~17–28 esercenti paganti/mese** (meno con la commissione prenotazioni).
+
+⚠️ Da confermare col commercialista: inquadramento INPS in base al lavoro effettivo (se amministratore unico con controllo + lavoro operativo prevalente → la Gestione Commercianti potrebbe tornare dovuta). Se l'altro lavoro è nel **pubblico impiego** servono autorizzazioni per cariche societarie.
+
 ## Leva chiave
 L'INPS è la voce che sposta di più il break-even. Da chiarire col commercialista: (a) inquadramento Gestione Commercianti vs Gestione Separata (mero amministratore senza compenso = INPS ~0, ma per founder full-time è di norma contestato); (b) accesso alle agevolazioni INPS.
 
