@@ -217,7 +217,13 @@ RISPOSTE (msg 2994/2996): 1) Stripe sì. 2) carrello multi-servizio stesso shop.
 - ResourceBooking: nuovo step Recap (tra Resource e Customer). Mostra: nome+data, descrizione servizio, ALLESTIMENTO (addon non inclusi con +/− stepper, icone AddonIcon lettino🛏️/sdraio🏖️/sedia🪑/ombrellone⛱️, totale sedute + min/max), SERVIZI INCLUSI (addon included), BREAKDOWN prezzo (risorse×giorni + costi servizio% + Totale + acconto se deposit), box CONDIZIONI generato (Pagamento anticipato/acconto, Rimborso voucher+giorni / non rimborsabile, nota). Validazione min/max sedute nel passaggio. Addon passati alla reserve (ResourceReserveRequest.Addons).
 - _addons/_addonQty in ResourceBooking; LoadResources carica res.Addons. CSS rb-desc/rb-sub/rb-addon-row/rb-stepper/rb-seats/rb-inc/rb-breakdown*/rb-cond* in booking.css. Bump ?v=20260602g. Build OK, restart server+vetrina.
 - NB: footer recap per ora ha solo "Continua"→Dati; "Aggiungi al carrello" arriva in F3.
-TODO F3: carrello multi-servizio stesso shop ("Aggiungi postazione al carrello" nel recap, riepilogo carrello, checkout). F4: Stripe CONNECT (incasso diretto merchant; chiavi da Stefano). Verifica browser recap. NON committato.
+### FASE 3 — carrello multi-servizio (FATTO 2026-06-03, da verificare browser)
+- Modello `CartItem`/`CartAddon` (Components/Booking/CartItem.cs).
+- ResourceBooking: rimosso step Customer interno; selezione risorsa SINGOLA → tap risorsa (mappa/lista) salta SUBITO al Recap (msg 3000). Recap footer: "Aggiungi al carrello 🛒" (→OnAddToCart, torna alla lista) + "Concludi" (→OnConclude, va al checkout). BuildCartItem() con servizio/risorse/date/addon/totali. (Submit/Customer vecchi resi morti, da pulire.)
+- PublicBookingFlow: `_cart`, `_showCheckout`; AddToCart/Conclude/RemoveFromCart/OnCartDone; barra carrello nell'elenco servizi ("🛒 N · €tot · Vai al carrello"); render `<CartCheckout>` quando _showCheckout.
+- Nuovo `CartCheckout.razor`: lista articoli (icona, nome, risorse, data, totale, rimuovi) + dati cliente (una volta) + gdpr + conferma → prenota TUTTI gli articoli (loop ReserveResourceAsync per risorsa, con addon). Totale + acconto. Se ci sono articoli a pagamento → nota "pagamento online (Stripe) in arrivo, prenotazione registrata" (F4).
+- CSS cart-bar/cart-row*/tb-btn-outline. Bump ?v=20260603a. Build OK, restart vetrina 200.
+TODO F4: Stripe CONNECT (incasso diretto merchant; chiavi da Stefano) — sostituire la nota con pagamento reale (acconto/totale; gratuito salta). Pulire codice morto ResourceBooking (Customer/Submit/_done). Verifica browser intero flusso. NON committato.
 
 ## 2026-05-30 — Vetrina Puntify: funzionalità "Menu & Ordini" (FATTO + verificato live)
 Richiesta Stefano: esporre nella vetrina che Puntify gestisce anche menu digitali e ordinazioni al tavolo/postazione (es. lidi) + ordini ritiro/asporto, tutto nel pacchetto standard; rivedere e integrare tutte le pagine.
