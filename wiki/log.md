@@ -473,3 +473,6 @@ File chiave aggiornati:
 ## [2026-05-30] task | Puntify Fase 4 cross-sell servizi nell'app: GetServiceSuggestionsAsync (co-occorrenza booking_service_items + fallback più prenotati) + endpoint pubblico service-suggestions + client Vetrina + UI "Spesso aggiunti insieme" in ServiceStep/PublicBookingFlow. Build+restart+verifica live OK (shop barbiere). Non committato.
 
 ## [2026-06-03] task | Puntify: sessione nuova, recuperato contesto Fase 3 carrello (DONE) da codice. Chiavi Stripe TEST salvate in Puntify.Server/appsettings.Development.json (sezione Stripe, gitignored). Fase 4 = incasso reale via Stripe Connect (marketplace, soldi al lido). Poste a Stefano decisioni Connect (commissione, Express vs Standard, onboarding, flusso checkout+webhook+acconto) prima di implementare.
+
+## [2026-06-03] decision | Puntify pagamenti booking: Stripe Connect Express, modello "Stripe gestisce le tariffe" (fee a carico del lido, Puntify 0 commissione), onboarding da nuova pagina "Pagamenti" in App, flusso Checkout+webhook con acconto. Decisioni confermate da Stefano.
+## [2026-06-03] task | Puntify: FAQ vetrina aggiornata (pagamento/acconto via Stripe + nuova Q "chi paga le commissioni": lido sull'incasso, Puntify 0) in 9 lingue + JSON-LD; doc puntify-product-overview.md sezione Pagamenti online. Build+restart vetrina OK, live IT/EN.

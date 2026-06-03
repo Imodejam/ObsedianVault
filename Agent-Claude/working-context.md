@@ -12,14 +12,21 @@ Sessione nuova (post-compaction). Stefano ha passato chiavi Stripe TEST (pk/sk) 
 - API server resource reserve: `POST /api/public/booking/table/resource/reserve` (Puntify.Server).
 - Chiavi Stripe test salvate in `Puntify.Server/appsettings.Development.json` (gitignored riga 348, chmod 600) → sezione `Stripe` {PublishableKey, SecretKey, WebhookSecret:""}. Webhook secret da generare.
 
-### Decisioni Connect aperte (chieste a Stefano via Telegram)
-- Commissione piattaforma Puntify su ogni incasso? (% o 0)
-- Tipo account Connect lidi: Express (consigliato, KYC gestito da Stripe) vs Standard
-- Onboarding lido: pagina merchant in App (BookingSettings o nuova "Pagamenti")
-- Flusso: prenota→Checkout→conferma su webhook; acconto = paga ora, saldo in loco
+### Decisioni Connect CONFERMATE (Stefano 2026-06-03)
+- Account = **Express**.
+- Commissione Puntify = **0**; fee Stripe a carico del lido sull'incasso.
+- Modello addebito = **"Stripe gestisce le tariffe"** (Stripe addebita il lido, Puntify 0). Costi Express IT: 2€/mese lido attivo + 0,25%+0,10€/payout + 1,5%+0,25€/txn, tutti sul lido.
+- Onboarding = nuova pagina **"Pagamenti"** in Puntify.App dal menu home, responsive.
+- Flusso = carrello → Checkout → webhook conferma; acconto = paga ora, saldo in loco.
 
-### Prossimi passi
-- Attendere risposte decisioni Connect → poi implementare onboarding + Checkout + webhook.
+### Fatto 2026-06-03
+- FAQ vetrina: Boo8 (pagamento/acconto → "supportato via Stripe") + nuova Boo9 (chi paga le commissioni) in 9 lingue + JSON-LD. Build+restart vetrina OK, live IT/EN.
+- Doc repo: `docs/puntify-product-overview.md` sezione "Pagamenti online prenotazioni".
+
+### Prossimi passi (implementazione Connect)
+- Server: SDK Stripe, create Express account + AccountLink onboarding, Checkout Session su account connesso, webhook handler. Colonne DB (shops.stripe_account_id + stato, stato pagamento prenotazione). Webhook secret whsec_ da generare.
+- App: pagina Pagamenti (collega Stripe + stato onboarding).
+- Vetrina: CartCheckout → redirect a Checkout + pagine success/cancel; conferma prenotazione solo su webhook pagato.
 
 ---
 

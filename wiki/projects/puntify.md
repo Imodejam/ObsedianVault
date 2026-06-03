@@ -240,7 +240,14 @@ Incasso reale delle prenotazioni postazioni/ombrelloni. I soldi vanno al **lido*
 
 - **Stato pre-pagamento (Fase 3 carrello DONE)**: `Puntify.Vetrina/Components/Booking/CartCheckout.razor` registra le prenotazioni via `BookingPublicService.ReserveResourceAsync` (`POST /api/public/booking/table/resource/reserve`). Item a pagamento (`CartItem.PaymentMode` = free|full|deposit, `DueNow`=acconto/saldo) mostrano nota "pagamento Stripe in arrivo"; nessun incasso effettivo.
 - **Chiavi**: test (pk/sk) in `Puntify.Server/appsettings.Development.json` → sezione `Stripe` {PublishableKey, SecretKey, WebhookSecret}. File gitignored (riga 348), chmod 600. Mai committare la SecretKey.
-- **Decisioni aperte** (da Stefano): commissione piattaforma %; tipo account Connect lidi (Express vs Standard); dove il lido collega Stripe (pagina merchant App); flusso prenota→Checkout→conferma su webhook + gestione acconto.
+- **Decisioni confermate da Stefano (2026-06-03)**:
+  - Account Connect lidi = **Express** (KYC/onboarding ospitati da Stripe, registrazione mobile).
+  - Commissione Puntify sulle prenotazioni = **0** (monetizza col canone abbonamento). Fee Stripe (≈1,5%+0,25€/transazione) **a carico del lido** sull'incasso.
+  - Modello di addebito Connect = **"Stripe gestisce le tariffe"** (Stripe addebita le fee direttamente all'account del lido → Puntify paga 0, nessun conteggio da gestire). Costi Express IT: 2€/mese per lido attivo + 0,25%+0,10€/payout + 1,5%+0,25€/transazione — tutti a carico del lido in questo modello.
+  - Onboarding lido = **nuova pagina "Pagamenti"** in `Puntify.App`, accessibile dal menu home. Responsive (mobile+desktop).
+  - Flusso = carrello → Stripe Checkout sull'account del lido → conferma su **webhook** → prenotazione confermata/pagata. Acconto: paga acconto ora, saldo in loco (PaymentMode deposit/full/free).
+- **Fatto 2026-06-03**: FAQ vetrina aggiornata (Boo8 pagamento/acconto ora "supportato via Stripe" + nuova Boo9 "chi paga le commissioni") in tutte le lingue + JSON-LD; doc `docs/puntify-product-overview.md` sezione "Pagamenti online prenotazioni". Build+restart vetrina OK, live IT/EN.
+- **Da implementare**: sezione `Stripe` SDK lato Server (create Express account + AccountLink onboarding, Checkout Session su account connesso, webhook handler), colonne DB (`shops.stripe_account_id`/stato onboarding, stato pagamento su prenotazione), pagina Pagamenti App, redirect Checkout + pagine success/cancel nel CartCheckout, webhook secret (whsec_) da generare.
 
 ## Prossimi passi
 - [ ] Stripe Connect Fase 4: onboarding lido + Checkout + webhook conferma prenotazione
