@@ -476,3 +476,6 @@ File chiave aggiornati:
 
 ## [2026-06-03] decision | Puntify pagamenti booking: Stripe Connect Express, modello "Stripe gestisce le tariffe" (fee a carico del lido, Puntify 0 commissione), onboarding da nuova pagina "Pagamenti" in App, flusso Checkout+webhook con acconto. Decisioni confermate da Stefano.
 ## [2026-06-03] task | Puntify: FAQ vetrina aggiornata (pagamento/acconto via Stripe + nuova Q "chi paga le commissioni": lido sull'incasso, Puntify 0) in 9 lingue + JSON-LD; doc puntify-product-overview.md sezione Pagamenti online. Build+restart vetrina OK, live IT/EN.
+
+## [2026-06-03] task | Puntify: commissione prenotazioni confermata 6%+0,30€ (configurabile). FAQ+doc corrette (Puntify trattiene commissione di servizio; prima diceva 0). Nuova pagina Condizioni Generali di Prenotazione IT+EN (intermediario, due contratti, Stripe Connect, cancellazione per-lido, esclusione recesso art.59) live su CAT per review; Privacy aggiornata; link footer+checkout. Build+restart vetrina OK.
+## [2026-06-03] decision | Puntify costituenda come SRLS (un socio-amministratore lavoratore). Costi fissi ~6.700–8.300€/anno (dominante INPS Gestione Commercianti ~4.612€). Break-even ~56–70 esercenti paganti/mese (solo abbonamento). Pagina: puntify-costi-srls.

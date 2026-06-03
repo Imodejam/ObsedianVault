@@ -7,6 +7,7 @@
   - [[wiki/projects/puntify-nomi-alternativi|Puntify · Nomi alternativi]] — lista 35 nomi (top 10 raccomandati) dopo diffida Spotify
   - [[wiki/projects/puntify-lista-esercenti-trastevere-testaccio|Puntify · Lista esercenti Trastevere+Testaccio]] — 20 target prima zona Roma
   - [[wiki/projects/puntify-template-approccio-esercenti|Puntify · Template approccio esercenti]] — script vendita iniziale
+  - [[wiki/projects/puntify-costi-srls|Puntify · Costi SRLS e Break-even]] — costi annui SRLS (~6,7–8,3k€/anno, dominati da INPS) e break-even ~56–70 esercenti/mese
 - [[wiki/projects/piracity|Piracity]] — AI-powered urban treasure hunt PWA. _Rinominato da Piratopoly il 2026-05-14. Ambiente CAT live 2026-05-17. Lavoro attivo (binocolo AR, pricing V1, restyle vetrina)._
   - [[wiki/projects/piracity-pricing-strategy|Piracity · Strategia prezzi V1]] — posizionamento, 4 SKU mappa + 2 piani Pass, Piastre, decisioni e gap codice/vetrina
   - [[wiki/projects/piracity-pricing-v1-execution|Piracity · Pricing V1 — Piano di Esecuzione]] — gap analysis vs GDD 2026-05-08 e fasi (Catalogo / Pass / EL / Voucher / Stagionalità)

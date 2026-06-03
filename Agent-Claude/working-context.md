@@ -20,8 +20,12 @@ Sessione nuova (post-compaction). Stefano ha passato chiavi Stripe TEST (pk/sk) 
 - Flusso = carrello → Checkout → webhook conferma; acconto = paga ora, saldo in loco.
 
 ### Fatto 2026-06-03
-- FAQ vetrina: Boo8 (pagamento/acconto → "supportato via Stripe") + nuova Boo9 (chi paga le commissioni) in 9 lingue + JSON-LD. Build+restart vetrina OK, live IT/EN.
-- Doc repo: `docs/puntify-product-overview.md` sezione "Pagamenti online prenotazioni".
+- FAQ vetrina: Boo8 (pagamento/acconto → "supportato via Stripe") + Boo9 in 9 lingue + JSON-LD. Boo9 RICORRETTA: ora "Puntify trattiene commissione di servizio 6%+0,30€" (prima diceva 0). Doc product-overview idem. Live IT/EN.
+- Commissione CONFERMATA da Stefano: **6% + 0,30€** (configurabile UI). Modello: Puntify assorbe fee Stripe, lido vede una sola trattenuta.
+- LEGALE: nuova pagina `CondizioniPrenotazione.razor` (IT+EN, route /condizioni-prenotazione) live su CAT per review — intermediario, due contratti, Stripe Connect (fondi al lido), cancellazione per-lido (Puntify non responsabile), esclusione recesso art.59, foro consumatore, ODR. Parte = "Puntify (gestore in definizione)" (no P.IVA finta). Privacy.razor aggiornata (riga contanti + Stripe Connect + ruoli). Link in Footer.razor + CartCheckout spunta GDPR. Build+restart OK.
+  - Risposte legali Stefano: (1) nessuna società ancora → SRLS; (2) cancellazione/rimborso = policy lido, Puntify non responsabile; (3) esclusione recesso art.59 SI; (4) lingue IT + EN.
+  - DA FARE: review Stefano → poi portare in prod (commit/deploy).
+- SRLS: pagina vault `puntify-costi-srls`. Fisso ~6,7–8,3k€/anno (INPS dominante ~4.612€), break-even ~56–70 esercenti/mese. Inviato a Stefano.
 
 ### CAMBIO 2026-06-03 (msg 3025): Puntify PRENDE commissione sulle prenotazioni
 Stefano ha ribaltato il "Puntify 0 commissione". Ora: commissione (application_fee) a Puntify che copre 2€/mese Stripe + transazione + margine.
