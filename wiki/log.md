@@ -492,3 +492,5 @@ File chiave aggiornati:
 ## [2026-06-03] task | Puntify vetrina: rimosso il tipo di risorsa (ResourceKind, es. "Ombrellone · ") dalla meta delle card nella lista servizi (ServiceStep.CardMeta) perché superfluo; resta solo l'unità. Build+restart, verificato.
 
 ## [2026-06-03] task | Puntify: etichetta unità "period" cambiata "Periodo (più giorni)" → "Periodo (uno o più giorni)" in Punto.Shared BookingUnits.All. Build+restart vetrina, verificato. (Editor planimetria ha stringa simile "A periodo (più giorni)" non ancora allineata.)
+
+## [2026-06-03] task | Puntify vetrina /book: rimosso "Powered by Puntify" duplicato (grigio .rb-powered) sulla pagina standalone, tenuto quello rosso del footer; rb-powered resta negli embed (footer nascosto) via .book-page:not(:has(.booking-page)) .rb-powered{display:none}. booking.css?v=20260603e.
