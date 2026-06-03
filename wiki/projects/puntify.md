@@ -242,7 +242,7 @@ Incasso reale delle prenotazioni postazioni/ombrelloni. I soldi vanno al **lido*
 - **Chiavi**: test (pk/sk) in `Puntify.Server/appsettings.Development.json` → sezione `Stripe` {PublishableKey, SecretKey, WebhookSecret}. File gitignored (riga 348), chmod 600. Mai committare la SecretKey.
 - **Decisioni confermate da Stefano (2026-06-03)**:
   - Account Connect lidi = **Express** (KYC/onboarding ospitati da Stripe, registrazione mobile).
-  - Commissione Puntify sulle prenotazioni = **0** (monetizza col canone abbonamento). Fee Stripe (≈1,5%+0,25€/transazione) **a carico del lido** sull'incasso.
+  - ⚠️ AGGIORNATO (2026-06-03, msg 3025): Commissione Puntify sulle prenotazioni = **6% + 0,30€** a prenotazione (application_fee, configurabile; default nel codice). Sostituisce il precedente "0 commissione". Fee Stripe (≈1,5%+0,25€/transazione, 2€/mese account Express, payout) restano **a carico del lido** sull'incasso (addebito diretto). I fondi vanno al lido; ricavo Puntify = abbonamento + commissione.
   - Modello di addebito Connect = **"Stripe gestisce le tariffe"** (Stripe addebita le fee direttamente all'account del lido → Puntify paga 0, nessun conteggio da gestire). Costi Express IT: 2€/mese per lido attivo + 0,25%+0,10€/payout + 1,5%+0,25€/transazione — tutti a carico del lido in questo modello.
   - Onboarding lido = **nuova pagina "Pagamenti"** in `Puntify.App`, accessibile dal menu home. Responsive (mobile+desktop).
   - Flusso = carrello → Stripe Checkout sull'account del lido → conferma su **webhook** → prenotazione confermata/pagata. Acconto: paga acconto ora, saldo in loco (PaymentMode deposit/full/free).
