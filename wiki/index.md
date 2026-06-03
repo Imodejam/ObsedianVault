@@ -26,6 +26,7 @@
 - [[wiki/decisions/standard-operating-procedures|SOP Agenti]] — Standard obbligatori per documentazione, Kanban e Vault
 - [[wiki/decisions/agent-writing-standards|Agent Writing Standards]] — (Redirect a SOP)
 - [[wiki/decisions/telegram-nemi-multi-pv-topics|Puntify Telegram-Nemi multi-PV via Forum Topics]] — 2026-05-25, un gruppo per account, un topic per PV
+- [[wiki/decisions/puntify-agenda-risorse|Puntify Agenda risorse/operatori — analisi]] — 2026-06-03, gap agenda (pagamento, durata, filtro tipo, planning, overlap) + proposta a livelli
 
 
 ## Concetti
