@@ -506,3 +506,5 @@ File chiave aggiornati:
 ## [2026-06-03] task | Puntify vetrina mappa risorse (ResourceMapView): nome decorazione mostrato (d.Label centrato) + tooltip <title> col nome risorsa al hover. Verificato prezzo addon: (risorsa+accessori)×giorni coerente client+server (no bug, 2gg×5€=10€). Build+restart.
 
 ## [2026-06-03] task | Puntify vetrina /book: (a) resume gating — _allowResume solo se URL ha ?step (reload), ingresso fresco "Prenota Ora" pulisce stato e mostra scelta servizio (ResourceBooking.RbRestore gated via AllowResume). (b) Tasto indietro sotto-flussi → BackToServiceOrShop: torna a scelta servizio; se AllEntries<=1 torna a pagina pubblica /m/{slug}. Build+restart, verificato lista servizi su /book.
+
+## [2026-06-03] task | Puntify vetrina mappa risorse: pan (mouse/dita), zoom rotella/pinch, doppio-tap reset via JS (bookingInterop.initMapPanZoom in booking.js); ResourceMapView usa <g data-panzoom> e init via @ref, rimosso zoom Blazor. Soppressione click su drag (no selezione accidentale). Build+restart.
