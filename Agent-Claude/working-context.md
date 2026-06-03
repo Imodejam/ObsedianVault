@@ -1,3 +1,32 @@
+# Working context · 2026-06-03 (aggiornato)
+
+## Task completati in questa sessione (post-compaction)
+
+### Fix UI pagina prenotazione (2026-06-03 pomeriggio)
+Messaggi Telegram 3085-3089:
+
+1. **Altezze bottoni uguali nel stacked actionbar** (msg 3085)
+   - CSS: `.rb-actionbar--stack > button` → aggiunti `padding-top:0; padding-bottom:0; box-sizing:border-box;`
+   - Causa: `.tb-btn-outline` aveva `padding:.8rem 1rem` che espandeva l'altezza oltre i 50px.
+
+2. **Accordion breakdown prezzi nel riepilogo** (msg 3086)
+   - `ResourceBooking.razor`: aggiunto `_showBreakdown` bool; nuovi computed `ResourcesBasePrice`, `AddonLineCost()`, `EffectiveTargets`. La sezione `rb-breakdown` sostituita da `rb-breakdown-acc` (accordion toggle con chevron). Espanso mostra: base × giorni + ogni addon (icon+nome+qty+costo) + fee + totale.
+   - CSS: nuovi `.rb-breakdown-acc`, `.rb-breakdown-head`, `.rb-breakdown-head-left/right`, `.rb-breakdown-body`.
+
+3. **"Torna al locale" naviga alla pagina PV** (msg 3087)
+   - `PublicBookingFlow.razor`: `OnCartDone` ora naviga a `/{lang}/m/{slug}` invece di resettare il flow.
+
+4. **MaxAdvanceDays ombrelloni** (msg 3089)
+   - Default server alzato da 30 a 90 giorni (`BookingServiceImpl.GetSettingsOrDefaultAsync`).
+   - DB migration: `docs/DB Migrations/20260603_lido_booking_settings.sql` (INSERT booking_settings con max_future_days=180 per il lido). Da applicare via dbgate.
+   - `booking.css?v=20260603j`, server+vetrina riavviati, live.
+
+### In attesa risposta Stefano
+- msg 3090: nuova sezione allestimenti in admin Risorse (foto, link risorse specifiche) — feature grande, in attesa conferma priorità.
+- Icone stile PV nel flow prenotazione (msg 3084 "lo stile delle icone") — da riprendere.
+
+---
+
 # Working context · 2026-06-03
 
 ## Stato attuale: Puntify — Pagamenti booking (Stripe Connect)
