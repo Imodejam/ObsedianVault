@@ -514,3 +514,5 @@ File chiave aggiornati:
 ## [2026-06-03] task | Puntify: fix altezze bottoni actionbar, accordion breakdown riepilogo prenotazione, nav Torna-al-locale, MaxAdvanceDays default 30→90
 
 ## [2026-06-03] task | Puntify: shop_rules + shop_booking_conditions su shop_services (DB ALTER TABLE + NOTIFY, model, DTO, controller, app textarea editor, vetrina conditions accordion con markdown SimpleMarkdown, GDPR text aggiornato in ResourceBooking+CartCheckout). CSS v20260603k.
+
+## [2026-06-03] task | Puntify vetrina /book: icone in stile pagina /m. Creato helper BookingIcons (SVG line-art Feather/Lucide, viewBox24 stroke currentColor) in Components/Booking/BookingIcons.cs. Sostituite tutte le emoji (⛱️🛏️🏖️🪑🍽️🥡📅📍💶🛒+✓) con SVG in ServiceStep, ResourceBooking, CartCheckout. CSS .bk-ico (color accent) + allineamenti. booking.css?v=20260603l. NB: riavvio servizi UNO alla volta (lock Puntify.Shared.dll aveva rotto il sito prima).
