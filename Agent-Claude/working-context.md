@@ -23,9 +23,22 @@ Sessione nuova (post-compaction). Stefano ha passato chiavi Stripe TEST (pk/sk) 
 - FAQ vetrina: Boo8 (pagamento/acconto → "supportato via Stripe") + nuova Boo9 (chi paga le commissioni) in 9 lingue + JSON-LD. Build+restart vetrina OK, live IT/EN.
 - Doc repo: `docs/puntify-product-overview.md` sezione "Pagamenti online prenotazioni".
 
-### Prossimi passi (implementazione Connect)
-- Server: SDK Stripe, create Express account + AccountLink onboarding, Checkout Session su account connesso, webhook handler. Colonne DB (shops.stripe_account_id + stato, stato pagamento prenotazione). Webhook secret whsec_ da generare.
-- App: pagina Pagamenti (collega Stripe + stato onboarding).
+### CAMBIO 2026-06-03 (msg 3025): Puntify PRENDE commissione sulle prenotazioni
+Stefano ha ribaltato il "Puntify 0 commissione". Ora: commissione (application_fee) a Puntify che copre 2€/mese Stripe + transazione + margine.
+- Modello proposto: cliente paga pieno → Puntify trattiene application_fee e gira il resto al lido → Puntify si fa carico delle fee Stripe (lido vede una sola trattenuta = commissione Puntify). = "platform manages pricing" + destination/direct charge con application_fee.
+- Commissione default proposta: **6% + 0,30€** a prenotazione (la quota fissa copre lo 0,25€ Stripe sui ticket piccoli). CONFIGURABILE da UI (memoria ui-editable).
+- IN ATTESA conferma % da Stefano ("vai" = parto col default).
+- DA RIFARE dopo conferma: FAQ Boo9 (ora dice "Puntify 0 commissione" — sbagliata; solo su CAT, non prod) + doc product-overview + clausola pagamento nelle Condizioni di Prenotazione.
+
+### Task legale parallelo (msg 3024): Condizioni di Prenotazione stile spiagge.it
+- Puntify intermediario cliente↔lido. Nuova pagina "Condizioni Generali di Prenotazione" (cliente-facing) + update Privacy.
+- Studiati spiagge.it/terms (12 art.) + /privacy. Termini.razor attuale = contratto Puntify↔Commerciante (IT-only hardcoded). Privacy.razor IT-only, cita già Stripe sub-resp. ma ha riga "pagamenti in contanti" DA CORREGGERE.
+- BLOCCANTE: P.IVA sito = 12345678912 = PLACEHOLDER, serve quella vera. + decisioni: policy cancellazione/rimborso per-lido?, esclusione recesso art.59 Cod.Consumo?, lingue IT-only vs tutte.
+- Piano: bozza su CAT, review Stefano prima di prod.
+
+### Prossimi passi (implementazione Connect) — dopo conferma commissione
+- Server: SDK Stripe.net, create Express account + AccountLink onboarding, Checkout Session su account connesso con application_fee, webhook handler. Colonne DB (shops.stripe_account_id + stato onboarding, stato pagamento prenotazione). Webhook secret whsec_ da generare. Commissione configurabile (settings/DB).
+- App: pagina Pagamenti (collega Stripe + stato onboarding) dal menu home, responsive.
 - Vetrina: CartCheckout → redirect a Checkout + pagine success/cancel; conferma prenotazione solo su webhook pagato.
 
 ---
