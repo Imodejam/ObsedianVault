@@ -512,3 +512,5 @@ File chiave aggiornati:
 ## [2026-06-03] task | Puntify vetrina /book: (1) tasti riepilogo fix altezza — flex:1 in colonna collassava; ora .rb-actionbar--stack>button height 50px centrato; "Aggiungi al carrello" tornato tb-btn-outline (secondary aveva var colore non definite → invisibile). (2) Condizioni prenotazione ad accordion (_showConds, "Leggi tutto" a destra, chiuso default). (3) Errori booking come toast rossi in alto auto-dismiss (bookingInterop.toast + #pf-toasts CSS); rimossi banner in ResourceBooking+CartCheckout, toast via OnAfterRender su _error. booking.css?v=20260603i. Build+restart.
 
 ## [2026-06-03] task | Puntify: fix altezze bottoni actionbar, accordion breakdown riepilogo prenotazione, nav Torna-al-locale, MaxAdvanceDays default 30→90
+
+## [2026-06-03] task | Puntify: shop_rules + shop_booking_conditions su shop_services (DB ALTER TABLE + NOTIFY, model, DTO, controller, app textarea editor, vetrina conditions accordion con markdown SimpleMarkdown, GDPR text aggiornato in ResourceBooking+CartCheckout). CSS v20260603k.
