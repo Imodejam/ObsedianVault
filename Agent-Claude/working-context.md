@@ -21,9 +21,13 @@ Messaggi Telegram 3085-3089:
    - DB migration: `docs/DB Migrations/20260603_lido_booking_settings.sql` (INSERT booking_settings con max_future_days=180 per il lido). Da applicare via dbgate.
    - `booking.css?v=20260603j`, server+vetrina riavviati, live.
 
-### In attesa risposta Stefano
-- msg 3090: nuova sezione allestimenti in admin Risorse (foto, link risorse specifiche) — feature grande, in attesa conferma priorità.
-- Icone stile PV nel flow prenotazione (msg 3084 "lo stile delle icone") — da riprendere.
+### Pending
+- msg 3090: estendere allestimenti/addon (AddonsTab.razor esiste, gestisce per resource_kind) con FOTO (upload o AI) + link a una o più risorse/tipi. DB shop_resource_addons NON ha photo_url né link multi-kind. FEATURE GRANDE — chiesto a Stefano scoping (multi-kind vs istanze specifiche; AI sì/no) prima di costruire.
+
+### FATTO (chiusura pending 2026-06-03 pomeriggio)
+- Migration lido booking_settings max_future_days=180 APPLICATA (riga creata via docker exec).
+- Icone flow prenotazione (msg 3084) — fatto: sweep completo SVG + icone custom rosse (lettino/sdraio/sedia/cabina) sorgente unica Punto.Shared/BookingIconSvg.
+- msg 3124: regolamento/condizioni in markdown completo (Markdig in Vetrina).
 
 ---
 
