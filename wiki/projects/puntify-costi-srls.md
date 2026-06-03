@@ -39,6 +39,18 @@ Break-even rivisto (solo abbonamento 119,88€/anno): **~17–28 esercenti pagan
 
 ⚠️ Da confermare col commercialista: inquadramento INPS in base al lavoro effettivo (se amministratore unico con controllo + lavoro operativo prevalente → la Gestione Commercianti potrebbe tornare dovuta). Se l'altro lavoro è nel **pubblico impiego** servono autorizzazioni per cariche societarie.
 
+## Fiscozen e alternativa ditta individuale forfettaria (2026-06-03)
+Fiscozen **non gestisce SRL/SRLS** — solo P.IVA individuali: Forfettario 499€/anno, Semplificato 1.199€/anno, Artigiani/commercianti 599–1.399€/anno. Quindi per la SRLS non fa risparmiare; la stima commercialista (1.500–2.800€) resta.
+
+Alternativa emersa: **ditta individuale forfettaria** (seguita da Fiscozen ~499–599€/anno):
+- No costituzione notarile, no tassa libri sociali (309€), no diritto camerale SRL.
+- Tassa piatta 5% (primi 5 anni nuove attività) poi 15%, vs IRES 24%+IRAP.
+- Tetto ricavi 85.000€/anno: compatibile perché con Stripe Connect i fondi prenotazione vanno al lido, il ricavo Puntify è solo abbonamenti+commissioni.
+- Costo fisso ~600–1.500€/anno → break-even ~5–13 esercenti/mese.
+- **Contro**: nessuna responsabilità limitata (patrimonio personale esposto) — rilevante per un marketplace che movimenta pagamenti di terzi. La SRLS protegge il patrimonio.
+
+Decisione aperta: SRLS (protezione, più costosa) vs ditta individuale forfettaria (economica, no protezione, poi convertire). Offerto a Stefano di cercare servizi online di contabilità SRL (~60–120€/mese) più economici del commercialista tradizionale.
+
 ## Leva chiave
 L'INPS è la voce che sposta di più il break-even. Da chiarire col commercialista: (a) inquadramento Gestione Commercianti vs Gestione Separata (mero amministratore senza compenso = INPS ~0, ma per founder full-time è di norma contestato); (b) accesso alle agevolazioni INPS.
 
