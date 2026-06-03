@@ -484,3 +484,5 @@ File chiave aggiornati:
 ## [2026-06-03] decision | Puntify SRLS senza dipendenti, Stefano amministratore con altro lavoro: lecito. INPS Gestione Commercianti NON dovuta (prevalenza altrove) → costi fissi rivisti ~2.000–3.400€/anno, break-even ~17–28 esercenti/mese. Da confermare col commercialista (inquadramento INPS; pubblico impiego→autorizzazioni).
 
 ## [2026-06-03] task | Puntify vetrina fix: icona "Menu & Ordini" nel mega-menu Funzionalità invisibile (tile bianca) — mancava regola CSS .mega-card-icon--menu in app.css. Aggiunto gradiente verde smeraldo + bump app.css ?v=20260603b. Verificato live.
+
+## [2026-06-03] task | Puntify vetrina: allineata larghezza flusso prenotazione risorsa (calendario/mappa/riepilogo) a quella della selezione servizio. Selezione servizio = .book-body 960px (sidebar nascosta su step Service); ResourceBooking usava rb-wizard 860px. Aggiunto modificatore .rb-wizard--wide (960px, padding 1.5rem) su ResourceBooking, senza toccare CartCheckout. Bump booking.css?v=20260603c. Verificato.
