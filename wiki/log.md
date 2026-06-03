@@ -585,3 +585,5 @@ File chiave aggiornati:
 ## [2026-06-03] task | Puntify punti fedeltà su pagamento Stripe — CORE 'account trovato' FATTO. StripeController.CreditLoyaltyOnPaidAsync(booking): se shop.EnabledFeatures&1 (loyalty on) e TotalPrice>0, punti=floor(TotalPrice×shop.Ratio); cerca account per email (account.email); se trovato → crea/garantisce account_shops link + inserisce transactions(reason=1 accredito, amount cents, points). Agganciato in Verify e Webhook quando booking passa a paid (idempotente: solo su transizione !=paid). Account ambiguo con Stripe.Account → qualificato Puntify.Shared.Models.Account. Server riavviato OK. TODO PROSSIMO STEP: account NON trovato → tabella pending_loyalty_points 24h + email invito iscrizione + claim alla registrazione.
 
 ## [2026-06-03] task | Modello B incassi unificati (transactions=incassi Stripe+manuali, accountid nullable) deploy server+app; "Prenotato il" nel dettaglio agenda
+
+## [2026-06-03] task | Puntify rifiniture agenda: settimana mobile/desktop fix, cella inizio→fine+gg, Periodo dopo Prenotato il; commissione 3%+0,75€ min1€ (Stripe+FAQ+docs+10 lingue); risorse escluse da pagina/dropdown Operatori
