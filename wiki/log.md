@@ -494,3 +494,5 @@ File chiave aggiornati:
 ## [2026-06-03] task | Puntify: etichetta unità "period" cambiata "Periodo (più giorni)" → "Periodo (uno o più giorni)" in Punto.Shared BookingUnits.All. Build+restart vetrina, verificato. (Editor planimetria ha stringa simile "A periodo (più giorni)" non ancora allineata.)
 
 ## [2026-06-03] task | Puntify vetrina /book: rimosso "Powered by Puntify" duplicato (grigio .rb-powered) sulla pagina standalone, tenuto quello rosso del footer; rb-powered resta negli embed (footer nascosto) via .book-page:not(:has(.booking-page)) .rb-powered{display:none}. booking.css?v=20260603e.
+
+## [2026-06-03] task | Puntify vetrina /book ResourceBooking: (1) icona ⓘ "Costi di servizio" con popup esplicativo (rb-info-btn/overlay/modal + _showFeeInfo); (2) step Riepilogo: rimosso tasto Indietro in basso (resta ← in alto), azioni impilate "Aggiungi al carrello" sopra e "Concludi prenotazione" sotto (.rb-actionbar--stack). booking.css?v=20260603g. Build+restart, verificato.
