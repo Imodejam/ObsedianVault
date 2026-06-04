@@ -48,6 +48,32 @@ Messaggi Telegram 3085-3089:
 
 # Working context · 2026-06-03
 
+## 2026-06-04 — IN CORSO: Migrazione 3213 risorse → tabella dedicata shop_resources
+Stefano (msg 3219) ha confermato: SI, procedo. Agenda L3/L4 DOPO questa.
+Approccio confermato: nuova tabella `shop_resources` con STESSI id delle righe shop_operators type=table/resource, + `bookings.resource_id`, migrazione ~55 record, refactor letture (editor mappa, agenda, vetrina, stagioni, addon).
+Step: mappare touchpoint → DB → modello → server → editor/agenda/vetrina, verifica a ogni passo. LAVORO GROSSO, tocca integrità prenotazioni.
+
+### SCOPERTA 2026-06-04: FASE 1 (DB) GIÀ FATTA da sessione precedente di oggi
+File `docs/DB Migrations/20260604_shop_resources.sql` (untracked) già APPLICATO sul CAT. Verificato consistente:
+- `shop_resources` 59 righe con STESSI id di shop_operators type table/resource (0 divergenze).
+- `bookings.resource_id` (FK→shop_resources) backfillato: 10 righe, tutte = operator_id, 0 mismatch.
+- `resource_id` aggiunto anche a booking_availability/booking_manual_blocks; `table_resource_id` su menu_public_orders. Tutti backfillati. RLS+grant+indici mirror.
+- Colonne legacy *operator_id RITENUTE → migrazione NON distruttiva, vecchio codice ancora funziona.
+- `fn_find_best_table` NON ancora aggiornata (legge ancora shop_operators type=table + bookings.operator_id).
+CODICE: 0 riferimenti a shop_resources in .cs/.razor → refactor (FASE 2) tutto da fare.
+NB working tree puntify ha GIÀ tantissime modifiche uncommitted (Stripe/cart/booking giorni scorsi) — non committare senza ok Stefano.
+
+### MIGRAZIONE 3213 COMPLETATA 2026-06-04 ✅ (fasi 1+2+3, deploy + E2E verificato sul CAT)
+- FASE 1 (DB additivo): era già stata fatta da sessione precedente (20260604_shop_resources.sql).
+- FASE 2 (codice): spostate tutte le letture/scritture risorse shop_operators→shop_resources; prenotazioni tavolo/risorsa usano bookings.resource_id. File: TablesController, MenuController, TableBookingController, PublicBookingController, BookingServiceImpl (operatori type=operator), StripeController (desc resource-aware), modello ShopResource [Table shop_resources] + BookingEntry.ResourceId + MenuPublicOrder→table_resource_id, App TablesManager→ShopResource, BookingAgenda (_resources + ResOf/IsResource via resource_id). fn_find_best_table→shop_resources+resource_id (20260604_shop_resources_phase2.sql). Build 0 err tutti i progetti, 3 servizi riavviati uno alla volta.
+- FASE 3 (cleanup): 20260604_shop_resources_phase3.sql (transazione+guard). shop_operators ora SOLO 16 operatori-persona; 59 righe risorsa rimosse; 10 prenotazioni risorsa con resource_id e operator_id azzerato. Colonne legacy *operator_id tenute per rollback.
+- VERIFICA E2E: reserve tavolo via API → resource_id valorizzato, operator_id null, slot occupato, cleanup ok; pre e post Phase3.
+- NB: lido umbrellas sono is_active=false (soft-deleted da prima) → endpoint resources umbrella non torna dati attivi, normale.
+- PROSSIMO: Agenda L3/L4 (Stefano msg 3219: dopo 3213). NB working tree puntify resta con TANTE modifiche uncommitted (Stripe/cart + questa migrazione) — non committato, attendere ok Stefano.
+
+### FASE 2 (refactor codice) — IN CORSO 2026-06-04
+Approccio cutover su CAT: spostare TUTTE le letture/scritture risorse da shop_operators→shop_resources e bookings operator_id→resource_id, aggiornare fn_find_best_table nello stesso deploy. Legacy columns restano come fallback/rollback. Verifica E2E poi FASE 3 cleanup.
+
 ## Stato attuale: Puntify — Pagamenti booking (Stripe Connect)
 
 Sessione nuova (post-compaction). Stefano ha passato chiavi Stripe TEST (pk/sk) e ricordato il lavoro di ieri:

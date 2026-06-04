@@ -589,3 +589,5 @@ File chiave aggiornati:
 ## [2026-06-03] task | Puntify rifiniture agenda: settimana mobile/desktop fix, cella inizio→fine+gg, Periodo dopo Prenotato il; commissione 3%+0,75€ min1€ (Stripe+FAQ+docs+10 lingue); risorse escluse da pagina/dropdown Operatori
 
 ## [2026-06-04] task | Puntify fix risorsa vuota agenda (lookup risorse disattivate); proposta migrazione risorse → tabella dedicata shop_resources in attesa decisione Stefano
+
+## [2026-06-04] task | Puntify: risorse in tabella dedicata shop_resources (migrazione 3213, fasi 1+2+3). Codice spostato da shop_operators→shop_resources, bookings.resource_id, fn_find_best_table aggiornata, 59 righe risorsa rimosse da shop_operators (solo operatori-persona). Deploy CAT + E2E verificato. Non committato.
