@@ -70,6 +70,13 @@ NB working tree puntify ha GIÀ tantissime modifiche uncommitted (Stripe/cart/bo
 - VERIFICATO a basso livello (reflection /tmp/reflcheck): typeof(ShopResource).GetCustomAttribute<TableAttribute>().Name == "shop_resources" → il subclass [Table] override funziona, le letture App vanno sulla tabella giusta.
 - Build 0 err, app riavviata, serve 200. (Tutto da vedere dopo hard-refresh di Stefano.)
 
+### BATCH 4 2026-06-04 (Risorse form + mappa mare) FATTO+DEPLOY
+- msg 3257: righe non attive uguali alle attive (tolto opacity .55/is-inactive; resta badge "Non attiva"); eliminazione OTTIMISTICA (rimuovo subito da _resources + StateHasChanged, poi HardDeleteTableAsync; se fallisce ripristino la riga).
+- msg 3258: form Risorsa = TIPO prima, poi Nome prevalorizzato per tipo (NextResourceName: ShortPrefix+nn es. T01/O01, primo libero), univoco per shop (NameExists validato in Save). OnKindChanged riprevalorizza se nome non toccato (_nameAuto); OnNameInput azzera _nameAuto.
+- msg 3259: checkbox "Attiva" → toggle iOS `.cfg-toggle` (come ShopServices). MEMORIA salvata feedback_ios_toggle_default (usarlo di default).
+- msg 3260: mappa BEACH, il mare era limitato (ShoreTop/SeaFill su -1×..2×). Esteso a -12×..13× canvas (come bg) → mare infinito come la sabbia.
+- Build 0 err, app riavviata 200. (Ctrl+F5.)
+
 ### BATCH 3 mappa 2026-06-04
 - msg 3251 SFONDO INFINITO + POSIZIONE LIBERA (FATTO+DEPLOY): TablesPlanimetry SVG ora ha `style="background:ScenarioBaseColor"` (copre letterbox/void ovunque) + rettangoli base/texture enormi (±12 schermate, bgX/bgY/bgW/bgH = ±12×/25× canvas) per ogni scenario (beach sand via CSS+rect, sport doghe loop esteso, garden grass pattern+stripe esteso, parking asfalto, generic/cinema base). Tolto il clamp ai bordi in ApplyGroupMove → oggetti posizionabili ovunque. Build 0 err, app riavviata.
 - msg 3253 DATI NON PUBBLICI FINO A SALVA — FATTO+DEPLOY: bufferizzazione completa in TablesPlanimetry. Campi `_newTableIds/_newDecoIds/_deletedTableIds/_deletedDecoIds` + ClearPending(). Tutte le mutazioni (AddTable/SaveEdit/Rotate90/DuplicateSelected/DeleteSelected/DeleteSelectedAll/AddDeco/DeleteDeco/AddShape/RenameDeco/DuplicateDeco + drag/resize) ora SOLO locali (id client-side Guid.NewGuid). Save() flush ordinato: delete(esistenti)→create(nuovi, cattura QrToken/CreatedAt dal ritorno per non azzerarlo dopo)→update(esistenti). LoadCurrentFloorContent/Reload fanno ClearPending (scartano). Persistenza API SOLO dentro Save(). ⚠️ NON testabile via curl (merchant loggato) → Stefano deve provare flusso create/move/delete→pubblico→Salva + Abbandona.
