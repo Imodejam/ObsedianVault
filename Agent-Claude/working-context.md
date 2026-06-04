@@ -69,7 +69,8 @@ NB working tree puntify ha GIÀ tantissime modifiche uncommitted (Stripe/cart/bo
 - FASE 3 (cleanup): 20260604_shop_resources_phase3.sql (transazione+guard). shop_operators ora SOLO 16 operatori-persona; 59 righe risorsa rimosse; 10 prenotazioni risorsa con resource_id e operator_id azzerato. Colonne legacy *operator_id tenute per rollback.
 - VERIFICA E2E: reserve tavolo via API → resource_id valorizzato, operator_id null, slot occupato, cleanup ok; pre e post Phase3.
 - NB: lido umbrellas sono is_active=false (soft-deleted da prima) → endpoint resources umbrella non torna dati attivi, normale.
-- PROSSIMO: Agenda L3/L4 (Stefano msg 3219: dopo 3213). NB working tree puntify resta con TANTE modifiche uncommitted (Stripe/cart + questa migrazione) — non committato, attendere ok Stefano.
+- PROSSIMO: Agenda L3/L4 (Stefano msg 3219: dopo 3213). NB working tree puntify resta con TANTE modifiche uncommitted (Stripe/cart + questa migrazione) — non committato, attendere ok Stefano (msg 3226: chiarito che non committo finché non dice cosa includere).
+- AGENDA L3/L4: piano inviato (msg 3227), IN ATTESA OK Stefano + risposta su planning settimana vs range scegliibile. Piano: L3 = nuova vista "planning" (3° toggle) griglia risorse×7gg con celle libero/occupato/badge-numero + riga totali giorno; L4 = azioni nel dettaglio: "segna incassato in loco" (payment_status=paid + transazione source=manual, nuovo endpoint) e "sposta su altra risorsa" (cambia resource_id con check disponibilità, nuovo endpoint). _resources già caricato in BookingAgenda dalla migrazione. CSS booking.css (App) cache-bust via build-info.js automatico. NON ancora iniziato.
 
 ### FASE 2 (refactor codice) — IN CORSO 2026-06-04
 Approccio cutover su CAT: spostare TUTTE le letture/scritture risorse da shop_operators→shop_resources e bookings operator_id→resource_id, aggiornare fn_find_best_table nello stesso deploy. Legacy columns restano come fallback/rollback. Verifica E2E poi FASE 3 cleanup.
