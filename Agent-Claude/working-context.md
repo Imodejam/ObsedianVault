@@ -70,6 +70,8 @@ NB working tree puntify ha GIÀ tantissime modifiche uncommitted (Stripe/cart/bo
 - VERIFICATO a basso livello (reflection /tmp/reflcheck): typeof(ShopResource).GetCustomAttribute<TableAttribute>().Name == "shop_resources" → il subclass [Table] override funziona, le letture App vanno sulla tabella giusta.
 - Build 0 err, app riavviata, serve 200. (Tutto da vedere dopo hard-refresh di Stefano.)
 
+### msg 3288 FATTO+DEPLOY: RisorseTab gruppi per tipo ora in accordion (cfg-accordion + _collapsedKinds/ToggleKind, default aperti).
+
 ### msg 3286 FATTO+DEPLOY: Planning a tutto schermo (.agenda-card--planning full-viewport width via margin calc(50%-50vw) + bk-plan-wrap max-height calc(100vh-200px)).
 
 ### msg 3283/3284 FATTO+DEPLOY
