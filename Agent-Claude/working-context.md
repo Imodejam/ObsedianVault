@@ -70,6 +70,9 @@ NB working tree puntify ha GIÀ tantissime modifiche uncommitted (Stripe/cart/bo
 - VERIFICATO a basso livello (reflection /tmp/reflcheck): typeof(ShopResource).GetCustomAttribute<TableAttribute>().Name == "shop_resources" → il subclass [Table] override funziona, le letture App vanno sulla tabella giusta.
 - Build 0 err, app riavviata, serve 200. (Tutto da vedere dopo hard-refresh di Stefano.)
 
+### msg 3262 FIX BUG auth cold-load (403 su F5) FATTO+DEPLOY
+Sintomo: F5 a freddo sulla mappa → "Nessun utente autenticato all'avvio" + /api/tables/.../floors 403 → nessun record; cambiando pagina e tornando funziona. Causa: corsa — le chiamate server partono prima del ripristino sessione → AuthHeaderHandler legge CurrentAccessToken=null → niente Bearer → 403. FIX: AuthHeaderHandler.SendAsync ora fa `await supa.IsAuthenticatedAsync()` (ripristina sessione da cookie/localStorage) PRIMA di leggere il token. Vale per TUTTE le chiamate al server. Build 0 err, app riavviata. (NB letture dirette Supabase usano anon in fallback → meno colpite.)
+
 ### BATCH 4 2026-06-04 (Risorse form + mappa mare) FATTO+DEPLOY
 - msg 3257: righe non attive uguali alle attive (tolto opacity .55/is-inactive; resta badge "Non attiva"); eliminazione OTTIMISTICA (rimuovo subito da _resources + StateHasChanged, poi HardDeleteTableAsync; se fallisce ripristino la riga).
 - msg 3258: form Risorsa = TIPO prima, poi Nome prevalorizzato per tipo (NextResourceName: ShortPrefix+nn es. T01/O01, primo libero), univoco per shop (NameExists validato in Save). OnKindChanged riprevalorizza se nome non toccato (_nameAuto); OnNameInput azzera _nameAuto.
