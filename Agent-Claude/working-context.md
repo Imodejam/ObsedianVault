@@ -63,6 +63,13 @@ File `docs/DB Migrations/20260604_shop_resources.sql` (untracked) già APPLICATO
 CODICE: 0 riferimenti a shop_resources in .cs/.razor → refactor (FASE 2) tutto da fare.
 NB working tree puntify ha GIÀ tantissime modifiche uncommitted (Stripe/cart/booking giorni scorsi) — non committare senza ok Stefano.
 
+### RINOMINA Tables→Risorse 2026-06-04 (msg 3231) FATTO+DEPLOY
+- Cartella `Puntify.App/Pages/Merchant/Tables/` → `Risorse/` (git mv, 6 componenti; nessun ref esterno ai tag → namespace interno ok).
+- Route `/merchant/shop/{id}/tables[/{tab}]` → `/risorse[/{tab}]` (TablesHome @page, SetTab, MerchantHome tile route, AiAssistantFab path.Contains). Tile Id "tavoli" lasciato invariato (persistenza ordine icone).
+- Tab "tavoli" → "mappa" (default + button + case) → URL .../risorse/mappa. Build 0 err, app riavviata, serve 200.
+
+### msg 3233 (mese + barre multi-giorno + griglia hotel): GIÀ COPERTO dal tab Planning (L3) appena fatto. Stefano probabilmente non l'ha ancora visto. Indicato dove (Agenda→Planning, preset Mese/2 mesi). Eventuale polish: barra continua (rimuovere bordo tra celle contigue stessa prenotazione).
+
 ### AGENDA L3/L4 COSTRUITA + DEPLOY 2026-06-04 (Stefano: range fino a 2 mesi, msg 3228)
 - L3 vista PLANNING (BookingAgenda): 3° toggle, selettore intervallo 7/14/30/60 gg + frecce, griglia risorse×giorni (colonna risorse sticky sx, giorni sticky top, scroll orizzontale), celle libero/occupato, period multi-day = celle contigue colorate, badge numero se >1 prenotazione/giorno, tap→dettaglio, riga totali (n · incassato · da incassare). CSS bk-plan-* in App booking.css.
 - L4 azioni nel dettaglio: "Segna incassato in loco" (PUT /api/booking/{id}/mark-paid → payment_status=paid + transazione source=manual Modello B, idempotente) e "Sposta su altra risorsa" (PUT /api/booking/{id}/resource → check stesso kind + disponibilità periodo → cambia resource_id). Metodi in IBookingService/BookingServiceImpl + BookingApiService.
