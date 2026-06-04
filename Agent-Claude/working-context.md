@@ -70,6 +70,10 @@ NB working tree puntify ha GIÀ tantissime modifiche uncommitted (Stripe/cart/bo
 - VERIFICATO a basso livello (reflection /tmp/reflcheck): typeof(ShopResource).GetCustomAttribute<TableAttribute>().Name == "shop_resources" → il subclass [Table] override funziona, le letture App vanno sulla tabella giusta.
 - Build 0 err, app riavviata, serve 200. (Tutto da vedere dopo hard-refresh di Stefano.)
 
+### msg 3264/3265 scenari mappa FATTO+DEPLOY
+- 3264 giardino: solo verde con erbetta (pattern pl-grass), tolte strisce di taglio + vialetto.
+- 3265 generico: carta quadrettata, nuovo pattern pl-grid (cella 100u, linea 0.5 #E2E5EA). Entrambi infiniti.
+
 ### msg 3262 FIX BUG auth cold-load (403 su F5) FATTO+DEPLOY
 Sintomo: F5 a freddo sulla mappa → "Nessun utente autenticato all'avvio" + /api/tables/.../floors 403 → nessun record; cambiando pagina e tornando funziona. Causa: corsa — le chiamate server partono prima del ripristino sessione → AuthHeaderHandler legge CurrentAccessToken=null → niente Bearer → 403. FIX: AuthHeaderHandler.SendAsync ora fa `await supa.IsAuthenticatedAsync()` (ripristina sessione da cookie/localStorage) PRIMA di leggere il token. Vale per TUTTE le chiamate al server. Build 0 err, app riavviata. (NB letture dirette Supabase usano anon in fallback → meno colpite.)
 
