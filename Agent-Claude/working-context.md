@@ -70,6 +70,10 @@ NB working tree puntify ha GIÀ tantissime modifiche uncommitted (Stripe/cart/bo
 - VERIFICATO a basso livello (reflection /tmp/reflcheck): typeof(ShopResource).GetCustomAttribute<TableAttribute>().Name == "shop_resources" → il subclass [Table] override funziona, le letture App vanno sulla tabella giusta.
 - Build 0 err, app riavviata, serve 200. (Tutto da vedere dopo hard-refresh di Stefano.)
 
+### msg 3242/3243 "non vedo risorse" → causa = SESSIONE scaduta (non bug risorse)
+Console di Stefano: POST /auth/v1/token 400 `refresh_token_already_used` → JWT non valido → /api/tables/... 403 Forbidden → liste vuote. Soluzione: logout+login (sessione fresca) + Ctrl+F5. Probabile concausa: i miei restart ripetuti dell'app + più tab che rinnovano il token insieme. SE RICORRE spesso → valutare single-flight refresh token nel client (per ora re-login basta).
+Inoltre migliorato RisorseTab: ora carica TUTTE le risorse via SupabaseClient.From<ShopResource>() (no filtro is_active, usa policy anon in lettura → funziona anche con sessione debole), badge "Non attiva" + tasto Riattiva/Disattiva (Api.UpdateTableAsync con is_active). NB Lido: tutte le risorse is_active=false → da riattivare dalla lista. Build 0 err, app riavviata 200.
+
 ### RINOMINA Tables→Risorse 2026-06-04 (msg 3231) FATTO+DEPLOY
 - Cartella `Puntify.App/Pages/Merchant/Tables/` → `Risorse/` (git mv, 6 componenti; nessun ref esterno ai tag → namespace interno ok).
 - Route `/merchant/shop/{id}/tables[/{tab}]` → `/risorse[/{tab}]` (TablesHome @page, SetTab, MerchantHome tile route, AiAssistantFab path.Contains). Tile Id "tavoli" lasciato invariato (persistenza ordine icone).
