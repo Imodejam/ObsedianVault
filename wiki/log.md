@@ -601,3 +601,5 @@ File chiave aggiornati:
 ## [2026-06-04] task | Puntify mappa: sfondo infinito tutti scenari + posizionamento libero; editor planimetria ora bufferizza TUTTE le modifiche e persiste solo al Salva (niente pubblico durante editing); comandi decorazioni allineati a quelli risorse. Deploy CAT. Non committato.
 
 ## [2026-06-04] task | Puntify mappa/risorse batch: drag ovunque, riuso numerazione, area inline editabile, mappa associata in lista, deep-link modifica risorsa in URL, pannello colore forme, copia/incolla Ctrl+C/V. Deploy CAT. Non committato.
+
+## [2026-06-04] task | Puntify commissione corretta: la "commissione" è il service_fee (service_fee_percent del servizio) AGGIUNTO sul prezzo base, non sottratto. Cliente paga base+fee (es. 30+1,80=31,80), esercente incassa base (30), Puntify trattiene fee (1,80). Fix display appuntamento (BookingAgenda) + transactions.commission_cents allineato (StripeController + BookingServiceImpl). Deploy CAT. Non committato.
