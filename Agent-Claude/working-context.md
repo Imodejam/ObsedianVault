@@ -70,6 +70,10 @@ NB working tree puntify ha GIÀ tantissime modifiche uncommitted (Stripe/cart/bo
 - VERIFICATO a basso livello (reflection /tmp/reflcheck): typeof(ShopResource).GetCustomAttribute<TableAttribute>().Name == "shop_resources" → il subclass [Table] override funziona, le letture App vanno sulla tabella giusta.
 - Build 0 err, app riavviata, serve 200. (Tutto da vedere dopo hard-refresh di Stefano.)
 
+### msg 3283/3284 FATTO+DEPLOY
+- 3283 forma non si aggiornava dopo edit popup: SaveDecoEdit ora applica all'oggetto VIVO (re-find by id in _decorations) + StateHasChanged. (Se persiste: verificare bind color/render.)
+- 3284 selettore Area: .pl-area-input ora height 34/radius 12/font 12.5 = come cfg-btn-small, affiancato ai tasti Aggiungi.
+
 ### BATCH 6 mappa 2026-06-04 FATTO+DEPLOY
 - 3278 barra comandi sempre sopra: estratti pill+maniglie+rotate dai loop, render in overlay DOPO tutti gli oggetti (z-order) per il singolo selezionato (tavolo o deco).
 - 3279 popup padding-bottom: regola `.cfg-modal-backdrop .cfg-modal .cfg-modal-body{padding-bottom:24px}` (config.css azzerava il bottom).
