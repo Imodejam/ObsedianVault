@@ -70,6 +70,16 @@ NB working tree puntify ha GIÀ tantissime modifiche uncommitted (Stripe/cart/bo
 - VERIFICATO a basso livello (reflection /tmp/reflcheck): typeof(ShopResource).GetCustomAttribute<TableAttribute>().Name == "shop_resources" → il subclass [Table] override funziona, le letture App vanno sulla tabella giusta.
 - Build 0 err, app riavviata, serve 200. (Tutto da vedere dopo hard-refresh di Stefano.)
 
+### BATCH 5 mappa/risorse 2026-06-04 FATTO+DEPLOY
+- 3269 spostamento ovunque: rimossi i clamp residui nel drag SINGOLO (OnPointerMove DragMode.Move tavolo 0..Canvas-mw + deco 0..Canvas). Ora trascini ovunque.
+- 3270 riuso numero: NextAvailableResourceName (mappa) usa _allResourceNames; ora DeleteSelected/DeleteSelectedAll rimuovono il nome dal set → O2 eliminato torna disponibile.
+- 3271 Area inline+editable: rimosso hint area dalla toolbar-left; aggiunto input area editabile nella riga comandi (pl-area-field/input) + OnAreaRename (UpdateRoomAsync immediato).
+- 3273 RisorseTab: mostra mappa associata (🗺️ nome floor via _roomToMap) o "nessuna mappa".
+- 3274 deep-link modifica: route /risorse/{guid} → TablesHome ActiveTab=risorse + FocusResourceId; RisorseTab OnParametersSet apre la scheda; EditAndNav naviga a .../risorse/{id}; Cancel/Save/Delete tornano a .../risorse/risorse.
+- 3275 modifica forma/deco: action "Modifica" apre pannello _editDeco (nome + colore per shape_*), SaveDecoEdit bufferizzato (_dirty).
+- 3276 copia/incolla: OnKeyDown Ctrl+C/V (+Meta); CopySelection→_clipTables/_clipDecos (Clone), PasteClipboard incolla +50px Y, nuovi Guid+nomi (NextAvailableResourceName), lascia selezionate.
+- Build 0 err, app riavviata. (Ctrl+F5.)
+
 ### msg 3267 FATTO+DEPLOY: tasto "Centra mappa" (⊙) ora primo e sempre visibile (rimossa condizione zoom!=1), prima di +/−.
 
 ### msg 3264/3265 scenari mappa FATTO+DEPLOY

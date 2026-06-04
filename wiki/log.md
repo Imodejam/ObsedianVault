@@ -599,3 +599,5 @@ File chiave aggiornati:
 ## [2026-06-04] task | Puntify batch: fix sessione auto-rinnovo (single-flight refresh, no più refresh_token_already_used/403) + pagina Risorse (click→modifica, Elimina hard-delete con guard, Attiva/Disattiva) + calendario pubblico nasconde giorni senza postazioni libere (nuovo endpoint resource-availability). Deploy CAT. Non committato.
 
 ## [2026-06-04] task | Puntify mappa: sfondo infinito tutti scenari + posizionamento libero; editor planimetria ora bufferizza TUTTE le modifiche e persiste solo al Salva (niente pubblico durante editing); comandi decorazioni allineati a quelli risorse. Deploy CAT. Non committato.
+
+## [2026-06-04] task | Puntify mappa/risorse batch: drag ovunque, riuso numerazione, area inline editabile, mappa associata in lista, deep-link modifica risorsa in URL, pannello colore forme, copia/incolla Ctrl+C/V. Deploy CAT. Non committato.
