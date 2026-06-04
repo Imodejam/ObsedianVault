@@ -485,3 +485,5 @@ PIANO DB previsto: tabella reviews (id, shop_id, booking_id, operator_id, custom
 ### msg 3306/3307 FATTO+DEPLOY (planning)
 - 3306 ricerca planning per cliente: nuovo PlanningSearchMatch (cliente nome/email/telefono OR risorsa nome/tipo/zona) + PlanningBookings (tipo+pagamento+match). PlanningResources con query mostra risorse che matchano O con prenotazione che matcha. CellBookings/PlanningTotals usano PlanningBookings. +email anche in _filteredBookings generico.
 - 3307 sezione vuota sotto matrice: agenda-card--planning da width:100vw (causava overflow orizz + box vuoto) a margin -24px (annulla padding pagina). + .appointments-content/page :has(.agenda-card--planning) padding-bottom 0/12px e min-height:0.
+
+### msg 3309 FATTO+DEPLOY: ClientDetail appuntamenti mostravano servizio sintetico+00:00 per le prenotazioni risorsa. Ora carica _resources (id→"Kind Name") e per b.ResourceId.HasValue mostra nome risorsa + periodo (singolo o dal→al·Ngiorni); appuntamenti veri invariati.
