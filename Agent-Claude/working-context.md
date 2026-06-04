@@ -68,6 +68,8 @@ NB working tree puntify ha GIÀ tantissime modifiche uncommitted (Stripe/cart/bo
 - Route `/merchant/shop/{id}/tables[/{tab}]` → `/risorse[/{tab}]` (TablesHome @page, SetTab, MerchantHome tile route, AiAssistantFab path.Contains). Tile Id "tavoli" lasciato invariato (persistenza ordine icone).
 - Tab "tavoli" → "mappa" (default + button + case) → URL .../risorse/mappa. Build 0 err, app riavviata, serve 200.
 
+### msg 3235 (planning vuota) FIX 2026-06-04: causa = PlanningResources filtrava is_active, ma le risorse del Lido sono soft-deleted (is_active=false) pur avendo prenotazioni → righe nascoste. Fix: PlanningResources = attive OR con prenotazioni nel periodo (_bookings.resource_id). Default range _planningDays 14→30 (Mese). Empty message chiarito (planning=risorse; appuntamenti in Giorno/Settimana). NB: lo shop dello screenshot non aveva prenotazioni-risorsa nel periodo (solo Lido del Sole=5 e Caffè=1 hanno booking in finestra). Build 0 err, app riavviata. DA CHIEDERE: planning anche per appuntamenti(operatore)?
+
 ### msg 3233 (mese + barre multi-giorno + griglia hotel): GIÀ COPERTO dal tab Planning (L3) appena fatto. Stefano probabilmente non l'ha ancora visto. Indicato dove (Agenda→Planning, preset Mese/2 mesi). Eventuale polish: barra continua (rimuovere bordo tra celle contigue stessa prenotazione).
 
 ### AGENDA L3/L4 COSTRUITA + DEPLOY 2026-06-04 (Stefano: range fino a 2 mesi, msg 3228)
