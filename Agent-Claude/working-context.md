@@ -70,6 +70,12 @@ NB working tree puntify ha GIÀ tantissime modifiche uncommitted (Stripe/cart/bo
 - VERIFICATO a basso livello (reflection /tmp/reflcheck): typeof(ShopResource).GetCustomAttribute<TableAttribute>().Name == "shop_resources" → il subclass [Table] override funziona, le letture App vanno sulla tabella giusta.
 - Build 0 err, app riavviata, serve 200. (Tutto da vedere dopo hard-refresh di Stefano.)
 
+### BATCH 6 mappa 2026-06-04 FATTO+DEPLOY
+- 3278 barra comandi sempre sopra: estratti pill+maniglie+rotate dai loop, render in overlay DOPO tutti gli oggetti (z-order) per il singolo selezionato (tavolo o deco).
+- 3279 popup padding-bottom: regola `.cfg-modal-backdrop .cfg-modal .cfg-modal-body{padding-bottom:24px}` (config.css azzerava il bottom).
+- 3280 area = SELECT tra aree esistenti (OnAreaSelect→OnRoomChanged), no input manuale, tolta icona 📍. (sostituisce OnAreaRename di 3271).
+- 3281 footer mappa full-width: .pl-footer-bar margin:12px -14px 0 (annulla padding overlay), niente border-radius.
+
 ### BATCH 5 mappa/risorse 2026-06-04 FATTO+DEPLOY
 - 3269 spostamento ovunque: rimossi i clamp residui nel drag SINGOLO (OnPointerMove DragMode.Move tavolo 0..Canvas-mw + deco 0..Canvas). Ora trascini ovunque.
 - 3270 riuso numero: NextAvailableResourceName (mappa) usa _allResourceNames; ora DeleteSelected/DeleteSelectedAll rimuovono il nome dal set → O2 eliminato torna disponibile.
