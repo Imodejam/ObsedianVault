@@ -70,6 +70,8 @@ NB working tree puntify ha GIÀ tantissime modifiche uncommitted (Stripe/cart/bo
 - VERIFICATO a basso livello (reflection /tmp/reflcheck): typeof(ShopResource).GetCustomAttribute<TableAttribute>().Name == "shop_resources" → il subclass [Table] override funziona, le letture App vanno sulla tabella giusta.
 - Build 0 err, app riavviata, serve 200. (Tutto da vedere dopo hard-refresh di Stefano.)
 
+### msg 3296 FATTO+DEPLOY: condizioni prenotazione non in grassetto — i titoli erano salvati come "#Titolo#" (no spazio, non markdown valido). Fix in BookingMarkdown.ToHtml: regex `(?m)^[ \t]*#(?!\s)(.+?)#[ \t]*$` → `**$1**`. Vale per cart popup + recap (entrambi usano BookingMarkdown/SimpleMarkdown). Vetrina rebuild.
+
 ### msg 3290-3293 FATTO+DEPLOY: accordion chiusi all'ingresso (_openKinds vuoto); icone risorse negli header (BookingIconSvg.KindSvg); scheda risorsa tasti ordine Elimina·spacer·Annulla/Salva; carrello vetrina meno linee divisione (rimossi border cart-row-detail/-total/rb-breakdown-total) + bump booking.css?v=20260604a.
 
 ### msg 3288 FATTO+DEPLOY: RisorseTab gruppi per tipo ora in accordion (cfg-accordion + _collapsedKinds→_openKinds/ToggleKind).
