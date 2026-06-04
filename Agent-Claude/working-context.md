@@ -70,6 +70,8 @@ NB working tree puntify ha GIÀ tantissime modifiche uncommitted (Stripe/cart/bo
 - VERIFICATO a basso livello (reflection /tmp/reflcheck): typeof(ShopResource).GetCustomAttribute<TableAttribute>().Name == "shop_resources" → il subclass [Table] override funziona, le letture App vanno sulla tabella giusta.
 - Build 0 err, app riavviata, serve 200. (Tutto da vedere dopo hard-refresh di Stefano.)
 
+### msg 3267 FATTO+DEPLOY: tasto "Centra mappa" (⊙) ora primo e sempre visibile (rimossa condizione zoom!=1), prima di +/−.
+
 ### msg 3264/3265 scenari mappa FATTO+DEPLOY
 - 3264 giardino: solo verde con erbetta (pattern pl-grass), tolte strisce di taglio + vialetto.
 - 3265 generico: carta quadrettata, nuovo pattern pl-grid (cella 100u, linea 0.5 #E2E5EA). Entrambi infiniti.
