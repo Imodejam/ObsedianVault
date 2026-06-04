@@ -470,3 +470,10 @@ Ordine sezioni Treatwell (salone): Hero(nome+Prenota+rating+nrecensioni+foto) �
 PIANO HOME (Merchant.razor): Hero con rating → Info/orari → Servizi(anteprima+link menu) → Recensioni → Staff → Fedeltà.
 RECENSIONI: legate a prenotazione Puntify completata, voto LOCALE + OPERATORE + commento. Domande a Stefano: (1) solo chi ha prenotazione completata via link email post-appuntamento? (2) stelle 1-5 locale+operatore+commento? (3) pubblicazione immediata o approvazione merchant?
 PIANO DB previsto: tabella reviews (id, shop_id, booking_id, operator_id, customer_name/id, rating_shop, rating_operator, comment, status, created_at) + token recensione su booking; endpoint pubblici submit/get; aggregati (media+count) per hero e sezione; sezione Recensioni in Merchant.razor + anchor #recensioni (nav menu già linka lì).
+
+### msg 3298/3299 FATTO+DEPLOY (planning)
+- 3298a URL vista: /booking/{giorno|settimana|planning}. BookingHub: _agendaViews mappano a sezione "agenda" + AgendaView→BookingAgenda.InitialView. BookingAgenda: SetView naviga (replace) + _appliedView guard; OnInitialized/OnParametersSet applicano la vista da URL.
+- 3298b summary stile Stripe/Apple: .bk-plan-stats/.bk-stat card (label uppercase + valore grande, pos/warn).
+- 3298c rimosso spazio sotto matrice: .agenda-card--planning min-height:0, padding-bottom:6px.
+- 3299 ricerca filtra anche le risorse del planning (PlanningResources filtra _searchQuery su nome/kind/zona).
+### msg 3300 IN ATTESA CHIARIMENTO: commissione non mostrata nel dettaglio appuntamento. NB: commissione Stripe (application_fee 3%+0.75 min 1€) NON è memorizzata su booking/transaction → calcolata da StripeService al checkout. Esiste anche service_fee_percent per-servizio (costi di servizio al cliente). Chiedere a Stefano QUALE commissione mostrare.
