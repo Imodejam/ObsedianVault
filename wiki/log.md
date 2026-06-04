@@ -595,3 +595,5 @@ File chiave aggiornati:
 ## [2026-06-04] task | Puntify Agenda L3/L4: vista Planning (griglia risorse×giorni, range 7/14/30/60gg) + azioni rapide (segna incassato in loco → transazione manual; sposta su altra risorsa con check disponibilità). Build+deploy CAT. Verifica browser in sospeso. Non committato.
 
 ## [2026-06-04] task | Puntify: pagina Risorse (nuovo tab lista RisorseTab in sezione Risorse, default) + toolbar agenda centrata/full-width mobile + diagnosi "planning vuoto" = cache WASM (serve Ctrl+F5). Deploy CAT. Non committato.
+
+## [2026-06-04] task | Puntify batch: fix sessione auto-rinnovo (single-flight refresh, no più refresh_token_already_used/403) + pagina Risorse (click→modifica, Elimina hard-delete con guard, Attiva/Disattiva) + calendario pubblico nasconde giorni senza postazioni libere (nuovo endpoint resource-availability). Deploy CAT. Non committato.
