@@ -593,3 +593,5 @@ File chiave aggiornati:
 ## [2026-06-04] task | Puntify: risorse in tabella dedicata shop_resources (migrazione 3213, fasi 1+2+3). Codice spostato da shop_operators→shop_resources, bookings.resource_id, fn_find_best_table aggiornata, 59 righe risorsa rimosse da shop_operators (solo operatori-persona). Deploy CAT + E2E verificato. Non committato.
 
 ## [2026-06-04] task | Puntify Agenda L3/L4: vista Planning (griglia risorse×giorni, range 7/14/30/60gg) + azioni rapide (segna incassato in loco → transazione manual; sposta su altra risorsa con check disponibilità). Build+deploy CAT. Verifica browser in sospeso. Non committato.
+
+## [2026-06-04] task | Puntify: pagina Risorse (nuovo tab lista RisorseTab in sezione Risorse, default) + toolbar agenda centrata/full-width mobile + diagnosi "planning vuoto" = cache WASM (serve Ctrl+F5). Deploy CAT. Non committato.

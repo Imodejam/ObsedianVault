@@ -63,6 +63,13 @@ File `docs/DB Migrations/20260604_shop_resources.sql` (untracked) già APPLICATO
 CODICE: 0 riferimenti a shop_resources in .cs/.razor → refactor (FASE 2) tutto da fare.
 NB working tree puntify ha GIÀ tantissime modifiche uncommitted (Stripe/cart/booking giorni scorsi) — non committare senza ok Stefano.
 
+### BATCH 2026-06-04 (msg 3237/3239/3240) FATTO+DEPLOY
+- msg 3237 PAGINA RISORSE: nuovo componente `RisorseTab.razor` (in Pages/Merchant/Risorse/) = lista di tutte le risorse (Api.ListTablesAsync, raggruppate per resource_kind; nome/tipo/area/prezzo/posti; Modifica/Elimina; + Nuova risorsa con default pos 100,100/60x60 così appare anche sulla Mappa). Aggiunto tab "Risorse" in TablesHome (Livelli, Aree, **Risorse**, Mappa, Accessori, Stagioni); "Mappa risorse"→"Mappa"; tab DEFAULT ora "risorse". Stessa tabella shop_resources, due viste (lista + mappa).
+- msg 3239 TOOLBAR: .agenda-view-switcher margin-left:auto→margin:0 auto (centrato); mobile: date-nav/switcher/plan-range width:100%, view-btn flex:1. (App booking.css)
+- msg 3240 "planning sempre vuoto": NON è un bug — è CACHE. App = Blazor WebAssembly; su CAT il service-worker.js si auto-unregister+pulisce cache ma serve UN hard-refresh manuale (Ctrl+F5). Dati verificati via PostgREST: Lido ha 51 risorse + 5 prenotazioni-risorsa in finestra con resource_id. Detto a Stefano di fare Ctrl+F5. ⚠️ MEMO: ogni deploy App su CAT richiede hard-refresh lato Stefano per vedere le modifiche WASM.
+- VERIFICATO a basso livello (reflection /tmp/reflcheck): typeof(ShopResource).GetCustomAttribute<TableAttribute>().Name == "shop_resources" → il subclass [Table] override funziona, le letture App vanno sulla tabella giusta.
+- Build 0 err, app riavviata, serve 200. (Tutto da vedere dopo hard-refresh di Stefano.)
+
 ### RINOMINA Tables→Risorse 2026-06-04 (msg 3231) FATTO+DEPLOY
 - Cartella `Puntify.App/Pages/Merchant/Tables/` → `Risorse/` (git mv, 6 componenti; nessun ref esterno ai tag → namespace interno ok).
 - Route `/merchant/shop/{id}/tables[/{tab}]` → `/risorse[/{tab}]` (TablesHome @page, SetTab, MerchantHome tile route, AiAssistantFab path.Contains). Tile Id "tavoli" lasciato invariato (persistenza ordine icone).
