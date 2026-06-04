@@ -63,6 +63,12 @@ File `docs/DB Migrations/20260604_shop_resources.sql` (untracked) già APPLICATO
 CODICE: 0 riferimenti a shop_resources in .cs/.razor → refactor (FASE 2) tutto da fare.
 NB working tree puntify ha GIÀ tantissime modifiche uncommitted (Stripe/cart/booking giorni scorsi) — non committare senza ok Stefano.
 
+### AGENDA L3/L4 COSTRUITA + DEPLOY 2026-06-04 (Stefano: range fino a 2 mesi, msg 3228)
+- L3 vista PLANNING (BookingAgenda): 3° toggle, selettore intervallo 7/14/30/60 gg + frecce, griglia risorse×giorni (colonna risorse sticky sx, giorni sticky top, scroll orizzontale), celle libero/occupato, period multi-day = celle contigue colorate, badge numero se >1 prenotazione/giorno, tap→dettaglio, riga totali (n · incassato · da incassare). CSS bk-plan-* in App booking.css.
+- L4 azioni nel dettaglio: "Segna incassato in loco" (PUT /api/booking/{id}/mark-paid → payment_status=paid + transazione source=manual Modello B, idempotente) e "Sposta su altra risorsa" (PUT /api/booking/{id}/resource → check stesso kind + disponibilità periodo → cambia resource_id). Metodi in IBookingService/BookingServiceImpl + BookingApiService.
+- Build 0 err (server+app), deploy: server :8001, app :8002 (gira sotto `dotnet watch run` → restart ~30s, lento a SIGTERM). Migrazione risorse: E2E già verificata. L3/L4 runtime NON curl-abile (auth API-key+JWT su /api/booking + Blazor merchant) → VERIFICA BROWSER da parte di Stefano in sospeso.
+- Inviato a Stefano per test browser (msg dopo 3229).
+
 ### MIGRAZIONE 3213 COMPLETATA 2026-06-04 ✅ (fasi 1+2+3, deploy + E2E verificato sul CAT)
 - FASE 1 (DB additivo): era già stata fatta da sessione precedente (20260604_shop_resources.sql).
 - FASE 2 (codice): spostate tutte le letture/scritture risorse shop_operators→shop_resources; prenotazioni tavolo/risorsa usano bookings.resource_id. File: TablesController, MenuController, TableBookingController, PublicBookingController, BookingServiceImpl (operatori type=operator), StripeController (desc resource-aware), modello ShopResource [Table shop_resources] + BookingEntry.ResourceId + MenuPublicOrder→table_resource_id, App TablesManager→ShopResource, BookingAgenda (_resources + ResOf/IsResource via resource_id). fn_find_best_table→shop_resources+resource_id (20260604_shop_resources_phase2.sql). Build 0 err tutti i progetti, 3 servizi riavviati uno alla volta.
