@@ -616,3 +616,5 @@ File chiave aggiornati:
 ## [2026-06-05] task | Puntify conferma delete: regola fissa "popup di conferma prima di ogni eliminazione record". Audit + aggiunta modale conferma in 11 pagine (BookingExceptions, BookingClosures, BookingManualBlocks, AddonsTab, SeasonsTab, FloorsTab, RoomsTab, RisorseTab, MenuEditor sezione+piatto, SocialStudio bozza, ShopServices [tolto browser confirm], ShopOperators). Pattern .delete-confirm-popup, logica originale preservata. Deploy CAT app. Non committato.
 
 ## [2026-06-05] decision | Puntify: pianificata nuova area Admin di sistema (/admin) multi-tenant. admin_users dedicata (primo admin Stefano.gitto@hotmail.com), RBAC Super/Support/Finance, v1 sola consultazione, sezioni clienti+esercenti+pagamenti+config, accesso dati via server service-role, UI Stripe/Apple responsive, audit log obbligatorio. Vedi wiki/projects/puntify-admin.md.
+
+## [2026-06-05] task | Puntify Area Admin F1 (fondamenta): DB admin_users+audit applicato, /api/admin/me (JWT+ruolo+log), HOME /admin (Stripe/Apple, responsive) + tasto Amministrazione in Wallet/Negozi. Deploy puntify-app. Checkpoint: attendo OK grafica HOME prima di F2-F5.

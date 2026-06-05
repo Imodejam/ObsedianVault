@@ -1,3 +1,18 @@
+# Working context · 2026-06-05 (aggiornato)
+
+## 2026-06-05 — Puntify Area Admin /admin · FASE 1 (Fondamenta) FATTO+DEPLOY
+Stefano (msg 3344) chiedeva "Fatto?" sulla F1 del piano Area Admin.
+- DB già applicato sul CAT (20260605_admin_area.sql): `admin_users` + `admin_activity_log` (audit), seed `stefano.gitto@hotmail.com` = super. Verificato via docker exec.
+- Server (già compilato 06:18): `AdminController` GET /api/admin/me → `AdminService.ResolveAdminAsync` valida JWT HS256 Supabase (firma+exp), risolve admin attivo, aggiorna last_login_at, logga via `LogAsync`. `AdminProfiles.CanSee` (super/support/finance → sezioni clients/merchants/payments/config). Modelli in Punto.Shared/Models/Admin/AdminModels.cs.
+- App (FATTO ora): `AdminApiService` (GetMeAsync cache sessione, IsAdmin/CanSee) già in DI. NUOVO: `Pages/Admin/AdminHome.razor` (@page "/admin") = HOME sobria stile Stripe/Apple, top bar (email+pill profilo+esci), 4 card sezioni filtrate per permesso, tap → toast "in arrivo" (F2-F5 non ancora costruite), logout. NUOVO css `wwwroot/css/admin.css` (namespace .admin-*, accento indaco #635BFF, responsive) aggiunto al loader index.html.
+- Tasto "Amministrazione" (solo se admin) aggiunto in Shops.razor (header) e Wallet.razor (page-header): l'email di Stefano ha ANCHE account normale → AuthStateProvider NON auto-redirige a /admin (redirige solo se account==null), quindi serviva l'ingresso manuale. _isAdmin = AdminApi.GetMeAsync()!=null in OnInitialized.
+- Build App 0 err, puntify-app riavviato (WASM, serve Ctrl+F5). build-info bumpato.
+- ACCESSO per Stefano: login con stefano.gitto@hotmail.com → tasto Amministrazione → /admin.
+- STOP CHECKPOINT come da piano: attendo OK grafica HOME prima di F2 (Clienti) … F5 (Config).
+- Memoria: [[project-puntify-admin]].
+
+---
+
 # Working context · 2026-06-03 (aggiornato)
 
 ## Task completati in questa sessione (post-compaction)
