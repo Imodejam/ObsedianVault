@@ -31,3 +31,4 @@
 
 ## Concetti
 _(nessun concetto ancora)_
+- [[projects/puntify-admin]] — Area Admin di sistema Puntify (pianificazione, F1)
