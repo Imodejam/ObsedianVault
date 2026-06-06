@@ -634,3 +634,5 @@ File chiave aggiornati:
 ## [2026-06-06] task | Puntify Admin PV detail: slug rimosso dal sottotitolo; campo "Slug pubblico" reso link cliccabile a {VetrinaUrl}/m/{slug} (target _blank).
 
 ## [2026-06-06] task | Puntify: flag isapproved lasciato come etichetta interna senza effetti (opzione 2). Creato resoconto funzionalità interno [[projects/puntify-funzionalita]] + 10 claim per meta/comunicazione esterna.
+
+## [2026-06-06] task | Puntify vetrina: meta description home aggiornata al claim scelto (nº1 + Nemi assistente digitale h24 che chiama e risponde). Impostato in App.razor (description+og:description, default statico SEO) e Meta_Home_Desc in tutte le 9 lingue (it/en/es/fr/pt/ar/hi/zh/bn). Deploy CAT.
