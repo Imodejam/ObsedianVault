@@ -630,3 +630,5 @@ File chiave aggiornati:
 ## [2026-06-06] task | Puntify Admin: lista esercenti ordinata per numero PV decrescente (SearchMerchantsAsync OrderByDescending ShopsCount).
 
 ## [2026-06-06] task | Puntify Admin: PV nel dettaglio esercente ordinati per numero prenotazioni decrescente (GetMerchantAsync OrderByDescending BookingsCount).
+
+## [2026-06-06] task | Puntify Admin PV detail: slug rimosso dal sottotitolo; campo "Slug pubblico" reso link cliccabile a {VetrinaUrl}/m/{slug} (target _blank).
