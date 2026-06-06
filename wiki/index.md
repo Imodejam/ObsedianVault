@@ -32,3 +32,5 @@
 ## Concetti
 _(nessun concetto ancora)_
 - [[projects/puntify-admin]] — Area Admin di sistema Puntify (pianificazione, F1)
+
+- [[projects/puntify-funzionalita|Puntify — Resoconto funzionalità]] — mappa completa funzioni (esercente/cliente/vetrina/admin) + 10 claim esterni

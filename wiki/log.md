@@ -632,3 +632,5 @@ File chiave aggiornati:
 ## [2026-06-06] task | Puntify Admin: PV nel dettaglio esercente ordinati per numero prenotazioni decrescente (GetMerchantAsync OrderByDescending BookingsCount).
 
 ## [2026-06-06] task | Puntify Admin PV detail: slug rimosso dal sottotitolo; campo "Slug pubblico" reso link cliccabile a {VetrinaUrl}/m/{slug} (target _blank).
+
+## [2026-06-06] task | Puntify: flag isapproved lasciato come etichetta interna senza effetti (opzione 2). Creato resoconto funzionalità interno [[projects/puntify-funzionalita]] + 10 claim per meta/comunicazione esterna.
