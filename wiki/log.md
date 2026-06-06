@@ -620,3 +620,5 @@ File chiave aggiornati:
 ## [2026-06-05] task | Puntify Area Admin F1 (fondamenta): DB admin_users+audit applicato, /api/admin/me (JWT+ruolo+log), HOME /admin (Stripe/Apple, responsive) + tasto Amministrazione in Wallet/Negozi. Deploy puntify-app. Checkpoint: attendo OK grafica HOME prima di F2-F5.
 
 ## [2026-06-05] task | Puntify App: fix login persistente — abilitata persistenza nativa gotrue su localStorage (SupabaseOptions.SessionHandler mancante) + refresh trasparente. Niente piu re-login a ogni avvio.
+
+## [2026-06-06] task | Puntify Admin: link "Amministrazione" spostato dalle home (Wallet/Negozi) alle pagine Account (ClientAccount + MerchantAccount), visibile solo se admin. stefano.gitto@hotmail.com unico admin (verificato).
