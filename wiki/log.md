@@ -628,3 +628,5 @@ File chiave aggiornati:
 ## [2026-06-06] task | Puntify Area Admin F2-F5 IMPLEMENTATE (sola consultazione): Clienti (lista+ricerca+dettaglio tab anagrafica/punti/appuntamenti/transazioni), Esercenti (lista+dettaglio+PV+shop detail), Pagamenti (KPI ricavi/volume/erogato + grafico mensile + per-esercente), Configurazione (scaglioni fee, feature flag, per-PV, abbonamenti). Endpoint server /api/admin/* con check ruolo + audit log; UI stile Stripe/Apple. Deploy app+server.
 
 ## [2026-06-06] task | Puntify Admin: lista esercenti ordinata per numero PV decrescente (SearchMerchantsAsync OrderByDescending ShopsCount).
+
+## [2026-06-06] task | Puntify Admin: PV nel dettaglio esercente ordinati per numero prenotazioni decrescente (GetMerchantAsync OrderByDescending BookingsCount).
