@@ -622,3 +622,5 @@ File chiave aggiornati:
 ## [2026-06-05] task | Puntify App: fix login persistente — abilitata persistenza nativa gotrue su localStorage (SupabaseOptions.SessionHandler mancante) + refresh trasparente. Niente piu re-login a ogni avvio.
 
 ## [2026-06-06] task | Puntify Admin: link "Amministrazione" spostato dalle home (Wallet/Negozi) alle pagine Account (ClientAccount + MerchantAccount), visibile solo se admin. stefano.gitto@hotmail.com unico admin (verificato).
+
+## [2026-06-06] task | Puntify Admin: ROOT CAUSE voce admin non appariva = puntify-server girava da 4 giu (pre-build) senza AdminController → /api/admin/me 404. Riavviato server (ora 200). Aggiunto tasto "Cambia ad amministratore" sotto "Cambia a cliente" (MerchantAccount) e in sezione Amministrazione (ClientAccount).
