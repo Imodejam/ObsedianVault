@@ -58,6 +58,6 @@ Puntify è una **piattaforma all-in-one per negozi e PMI italiane**: fidelizzazi
 10. Puntify è il modo più semplice per far tornare i clienti: programma a punti, prenotazioni online e assistente AI, tutto incluso.
 
 
-## Claim scelto (meta tag home / descrizione esterna) — 2026-06-06
-> "Puntify è la piattaforma all-in-one per negozi e PMI italiane: fidelizzazione a punti, prenotazioni online, menu e pagamenti, e Nemi, l'assistente digitale che chiama e risponde al telefono h24. Tutto in un solo abbonamento."
+## Claim scelto (meta tag home / descrizione esterna) — agg. 2026-06-07
+> "Puntify è la piattaforma all-in-one per negozi e PMI italiane. Gestisce fidelizzazione, prenotazioni online, menu e pagamenti, e l'assistente digitale che chiama e risponde al telefono h24."
 Impostato su vetrina CAT (App.razor description+og + Meta_Home_Desc in 9 lingue).

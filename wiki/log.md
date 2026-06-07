@@ -636,3 +636,5 @@ File chiave aggiornati:
 ## [2026-06-06] task | Puntify: flag isapproved lasciato come etichetta interna senza effetti (opzione 2). Creato resoconto funzionalità interno [[projects/puntify-funzionalita]] + 10 claim per meta/comunicazione esterna.
 
 ## [2026-06-06] task | Puntify vetrina: meta description home aggiornata al claim scelto (nº1 + Nemi assistente digitale h24 che chiama e risponde). Impostato in App.razor (description+og:description, default statico SEO) e Meta_Home_Desc in tutte le 9 lingue (it/en/es/fr/pt/ar/hi/zh/bn). Deploy CAT.
+
+## [2026-06-07] task | Puntify vetrina: meta description home aggiornata al testo definitivo di Stefano (versione "Gestisce fidelizzazione, prenotazioni online, menu e pagamenti, e l assistente digitale che chiama e risponde al telefono h24"). App.razor + Meta_Home_Desc 9 lingue. Deploy CAT.
