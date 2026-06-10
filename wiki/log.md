@@ -646,3 +646,5 @@ File chiave aggiornati:
 ## [2026-06-10] task | Puntify refactor servizi COMPLETO (stage 1-6): orari/chiusure/blocchi per-servizio (DB+slot engine+componenti), nuova pagina ServiceDetail con tab bar (Anagrafica/Tipo/Disponibilità/Prezzo/Media/Etichette), ShopServices a sola lista, ShopEdit a tab con orari/chiusure/blocchi shop-level, BookingHub ripulito. Build 0 errori
 
 ## [2026-06-10] task | Puntify: fatturazione come pagina dedicata MerchantBilling (link da account) + sezione Periodo di prova (iscrizione→fine, +1 mese/invito); fix tab Disponibilità servizio con sub-tab Orari/Chiusure/Blocchi (actionbar fisse si sovrapponevano)
+
+## [2026-06-10] task | Puntify: cap referral max 5 mesi (billing + FAQ/Earn vetrina tutte le lingue); fatture "Visualizza"; /account "Cambia ad amministratore" in sezione Cambia area di lavoro; vetrina prezzi con toggle Mensile/Annuale (default annuale) e colonna prezzo unica
