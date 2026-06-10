@@ -678,3 +678,5 @@ File chiave aggiornati:
 ## [2026-06-10] task | Puntify: rimossa linea sopra Powered by Puntify (.book-footer border-top, CSS v=20260610d); scroll-to-top al cambio step wizard tavolo (OnAfterRenderAsync + JS scrollTo); "tempo"/durata tavoli rimosso da mail cliente (EmailTemplates durata condizionale + TableBookingController passa "") e da BookingManage (IsTableBooking → solo orario inizio). Appuntamenti veri mantengono la durata
 
 ## [2026-06-10] task | Puntify vetrina tavolo: rb-actionbar resa NON fissa (.tb-resv .rb-actionbar position:static) così "Powered by" (book-footer) resta leggibile sotto i bottoni e si riduce lo scroll; padding footer adeguato; .tb-resv.rb-wizard padding-bottom ridotto. CSS v=20260610e
+
+## [2026-06-10] task | Puntify vetrina QuickTableBooking: persistenza sessione prenotazione corrente (ProtectedSessionStorage key pbtable:{shopId}, TableSnapshot: persone/data/ora/dati/step). Restore in OnAfterRenderAsync firstRender; svuota se data salvata < oggi; clear su done/reset/indietro. Persist su selezioni/step/onblur campi/gdpr
