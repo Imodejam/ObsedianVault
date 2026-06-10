@@ -652,3 +652,5 @@ File chiave aggiornati:
 ## [2026-06-10] task | Puntify vetrina FAQ: Faq_Men3 da domanda specifica lidi a "Per quali attività funziona la gestione ordini?" con elenco completo categorie esercenti, tutte le lingue
 
 ## [2026-06-10] task | Puntify App: sostituite icone home Menu.webp e Pagamenti.webp (nuove icone glossy fornite da Stefano, 1024² webp in wwwroot/images/icons); codice già referenziava i path, no rebuild
+
+## [2026-06-10] task | Puntify: BookingSchedule (Orari) tasto Salva spostato da cfg-section-footer a cfg-actionbar (footer fisso) come le altre pagine PV; vale in ShopEdit/edit/orari e ServiceDetail Disponibilità. NB: systemctl stop app/vetrina si impunta su dotnet watch → serve kill forzato per sbloccare build
