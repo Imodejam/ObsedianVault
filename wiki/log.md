@@ -658,3 +658,5 @@ File chiave aggiornati:
 ## [2026-06-10] task | Puntify App: "Dashboard" rinominato in "Ordini" (tile MerchantHome + icona Ordini.webp, PageTitle+h1 Dashboard.razor, label BottomNav+MerchantBottomNav); route /dashboard invariata. App buildata e riavviata (kill preventivo per evitare hang stop)
 
 ## [2026-06-10] task | Puntify ServiceDetail Disponibilità: sotto-tab Orari/Chiusure/Blocchi cambiati da bk-tabs (uguale alla tab bar superiore) a cfg-segmented (segmented control iOS-style, .svc-disp-segwrap centrato) per evitare due tabbar identiche
+
+## [2026-06-10] task | Puntify vetrina QuickTableBooking: nascosti gli orari passati (AllSlotsForDisplay ora filtra slot <= now per oggi). #2 restyle "come pagina periodo" IN ATTESA conferma scope Stefano (convertire a layout wizard rb-* o solo dettagli)
