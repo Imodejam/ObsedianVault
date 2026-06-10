@@ -662,3 +662,5 @@ File chiave aggiornati:
 ## [2026-06-10] task | Puntify vetrina QuickTableBooking: nascosti gli orari passati (AllSlotsForDisplay ora filtra slot <= now per oggi). #2 restyle "come pagina periodo" IN ATTESA conferma scope Stefano (convertire a layout wizard rb-* o solo dettagli)
 
 ## [2026-06-10] task | Puntify batch: Dashboard tabbar sx + tab in URL (/dashboard/Risorse|Ordini, rinominato Tavoli→Risorse) + sedie solo ResourceKind=table; QuickTableBooking calendario ShowQuickButtons=false (settimana già); MenuList descrizione "cataloghi prodotti/servizi"; menu-public.css consigliati scrollbar desktop (hover+pointer fine). RESTA: restyle completo Tavolo→layout periodo (rb-wizard) in corso
+
+## [2026-06-10] task | Puntify vetrina QuickTableBooking: restyle completo a layout wizard rb-* (rb-head+rb-steps+rb-card+rb-actionbar, niente sidebar) come pagina periodo; logica invariata. Build 0 err, deploy
