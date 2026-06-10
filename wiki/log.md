@@ -648,3 +648,5 @@ File chiave aggiornati:
 ## [2026-06-10] task | Puntify: fatturazione come pagina dedicata MerchantBilling (link da account) + sezione Periodo di prova (iscrizione→fine, +1 mese/invito); fix tab Disponibilità servizio con sub-tab Orari/Chiusure/Blocchi (actionbar fisse si sovrapponevano)
 
 ## [2026-06-10] task | Puntify: cap referral max 5 mesi (billing + FAQ/Earn vetrina tutte le lingue); fatture "Visualizza"; /account "Cambia ad amministratore" in sezione Cambia area di lavoro; vetrina prezzi con toggle Mensile/Annuale (default annuale) e colonna prezzo unica
+
+## [2026-06-10] task | Puntify vetrina FAQ: Faq_Men3 da domanda specifica lidi a "Per quali attività funziona la gestione ordini?" con elenco completo categorie esercenti, tutte le lingue

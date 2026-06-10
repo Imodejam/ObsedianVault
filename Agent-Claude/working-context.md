@@ -550,3 +550,6 @@ Pattern tab: bk-tabs/bk-tab + route {Tab} (vedi MerchantServices.razor:26-65).
 - 3393: ClientAccount (/account): "Cambia ad amministratore" spostato dentro la sezione "Cambia area di lavoro" (ora condizione Role 2/3 || _isAdmin, due bottoni dentro la stessa card; rimossa la card "Amministrazione" separata).
 - 3394: Vetrina Prezzi.razor — aggiunto @rendermode InteractiveServer + toggle Mensile/Annuale (default ANNUALE, _annual=true); tabella ora con UNA sola colonna "Prezzo / PV (annuale|mensile)" che cambia col toggle.
 - Build: App 0 err (riavviata), Vetrina 0 err (riavviata). Servizi: app :8002, vetrina (puntify-vetrina.service), server :? .
+
+### [2026-06-10] msg 3396 — FAQ ordini per categorie esercenti — FATTO
+- Vetrina FAQ Faq_Men3: da "Funziona per lidi e stabilimenti balneari?" a "Per quali attività funziona la gestione ordini?" con risposta che elenca TUTTE le categorie (ristoranti/trattorie/pizzerie, bar/caffetterie, pub/birrerie, gelaterie/pasticcerie, paninoteche/street food, chioschi/food truck, lidi/stabilimenti balneari, hotel/strutture ricettive) + modalità (tavolo/postazione ombrellone-lettino-cabina/ritiro-asporto). Aggiornato in tutte le 9 lingue resx (script /tmp/faq_men3.py, evitato '&' per XML). translations_*.xml NON contengono questa chiave (sottoinsieme; runtime usa resx). Build vetrina 0 err, restart.
