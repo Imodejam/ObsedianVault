@@ -670,3 +670,5 @@ File chiave aggiornati:
 ## [2026-06-10] task | Puntify vetrina: bump versione CSS pinnata (booking.css?v→20260610a in Book/Risorse, menu-public.css?v→20260610a in MerchantMenuPreview/Merchant/Recensione) — fix "modifiche CSS non visibili" causa cache su ?v= fisso
 
 ## [2026-06-10] task | Puntify vetrina QuickTableBooking: vero wizard multi-step a schermate separate (_step 0 Dettagli persone/data/ora → 1 I tuoi dati → 2 Conferma+privacy). Stepper con step done cliccabili, chip data torna a step1, Continua/Prenota disabilitati per validazione, no auto-select ora, recap su conferma. CSS bump v=20260610b
+
+## [2026-06-10] task | Puntify vetrina tavolo: fix selezione ora non visibile — le variabili palette (--tb-primary/--border/ecc.) erano definite solo su .booking-page (rimosso nel restyle wizard); ridefinite su .tb-resv. CSS bump v=20260610c
