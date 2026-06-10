@@ -530,3 +530,11 @@ Pattern tab: bk-tabs/bk-tab + route {Tab} (vedi MerchantServices.razor:26-65).
 - STAGE 3 client: BookingApiService.SaveAvailabilityAsync(+serviceId). BookingSchedule/BookingClosures/BookingManualBlocks: param ServiceId? + filtro load (ServiceId match) + ServiceId su insert. Usati in BookingHub senza ServiceId → scope shop (display corretto).
 - TEST: SlotEngine tests passano (87 pass; 33 fail = SocialStudioTests integrazione, preesistenti). Server buildato e UP. App in build.
 - RESTANO STAGE 4-5-6 (UI): 4 ShopEdit sezioni→tab + 3 componenti shop-level (orari/chiusure/blocchi shop). 5 nuovo ServiceDetail.razor 6 tab (Anagrafica/Tipo/Disponibilità/Prezzo e pagamento/Media/Etichette) + ShopServices a sola lista. 6 pulizia BookingHub (rimuove tab orari/chiusure/blocchi). Servizi DB: puntify-server :? , app :8002, DDL via sudo docker exec ops-postgres psql -U postgres -d puntify_cat.
+
+### [2026-06-10] REFACTOR SERVIZI — STAGE 4-5-6 FATTI (UI completa) — build 0 errori
+- STAGE 5: nuovo ServiceDetail.razor (/merchant/shop/{id}/services/{serviceId}[/{Tab}]) con tab bar Anagrafica/Tipo/Disponibilità/Prezzo e pagamento/Media/Etichette. Disponibilità monta BookingSchedule+BookingClosures+BookingManualBlocks con ServiceId. Carica singolo servizio, salva via Supabase. ShopServices.razor ora SOLA LISTA: riga→naviga a ServiceDetail; "Nuovo servizio" crea bozza (IsActive=false) e apre il dettaglio. Route Guid disambigua da {Tab} di MerchantServices.
+- STAGE 4: ShopEdit.razor (/edit[/{Tab}]) sezioni→tab: Anagrafica/Knowledge base/Fedeltà(se loyalty)/Immagini + Orari/Chiusure/Blocchi (montano i 3 componenti shop-level senza ServiceId). Actionbar Salva solo sui tab che editano _shop. ShowComponentToast per i componenti.
+- STAGE 6: BookingHub.razor rimossi tab+case orari/chiusure/blocchi (spostati in /edit). Nessun link esterno rotto (grep ok).
+- Billing CSS .bill-* in config.css; svc-disp in booking.css.
+- TUTTO buildato (dotnet build Puntify.App = 0 Error, 38 warning preesistenti). REFACTOR COMPLETO stage 1-6.
+- DA VALIDARE con Stefano: navigazione pagina servizio, tab Disponibilità per-servizio, orari shop in /edit, agenda senza le 3 tab.
