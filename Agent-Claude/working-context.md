@@ -538,3 +538,8 @@ Pattern tab: bk-tabs/bk-tab + route {Tab} (vedi MerchantServices.razor:26-65).
 - Billing CSS .bill-* in config.css; svc-disp in booking.css.
 - TUTTO buildato (dotnet build Puntify.App = 0 Error, 38 warning preesistenti). REFACTOR COMPLETO stage 1-6.
 - DA VALIDARE con Stefano: navigazione pagina servizio, tab Disponibilità per-servizio, orari shop in /edit, agenda senza le 3 tab.
+
+### [2026-06-10] msg 3387-3389 Fatturazione + fix Disponibilità — FATTO+DEPLOY
+- 3387: Fatturazione in MerchantAccount ora è solo una RIGA-LINK ("Gestisci fatturazione") → nuova pagina MerchantBilling.razor (/merchantAccount/fatturazione). Spostato lì tutto il contenuto (piano per-PV, metodo pagamento, fatture, cancella). Rimosso codice/markup billing inline da MerchantAccount, aggiunto GoToBilling (preserva from/shop querystring).
+- 3388: nuova sezione "Periodo di prova" in MerchantBilling: Inizio=data iscrizione (account.InsertDate), Fine=inizio+1 mese+mesi bonus, stato attiva/scaduta, giorni rimanenti, "+N mesi bonus da inviti". Logica: 1 mese gratis per ogni PV invitato che si registra e inizia a pagare (mock _bonusMonths=0; da cablare con referral reali + Stripe).
+- 3389 FIX: nella tab Disponibilità del servizio non si potevano inserire chiusure/blocchi perché i 3 componenti (Orari/Chiusure/Blocchi) impilati avevano ognuno la propria cfg-actionbar FISSA in fondo → si sovrapponevano (solo una cliccabile) + la actionbar pagina (Elimina) sopra. Risolto: SUB-TAB dentro Disponibilità (Orari/Chiusure/Blocchi, uno alla volta, _dispSub) + nascosta la actionbar pagina sul tab disponibilita. RLS exceptions/manual_blocks già permissiva (anon_all). Build 0 errori, app :8002 up.

@@ -644,3 +644,5 @@ File chiave aggiornati:
 ## [2026-06-10] task | Puntify CAT: sezione Fatturazione spostata da Payments shop a MerchantAccount (per-account); modello reale prezzo-per-PV con scaglioni volume (1/2-5/6+) e toggle Mensile/Annuale, PV count reale, metodo+fatture mock, cancella con conferma. Mock validato, manca connessione Stripe Billing
 
 ## [2026-06-10] task | Puntify refactor servizi COMPLETO (stage 1-6): orari/chiusure/blocchi per-servizio (DB+slot engine+componenti), nuova pagina ServiceDetail con tab bar (Anagrafica/Tipo/Disponibilità/Prezzo/Media/Etichette), ShopServices a sola lista, ShopEdit a tab con orari/chiusure/blocchi shop-level, BookingHub ripulito. Build 0 errori
+
+## [2026-06-10] task | Puntify: fatturazione come pagina dedicata MerchantBilling (link da account) + sezione Periodo di prova (iscrizione→fine, +1 mese/invito); fix tab Disponibilità servizio con sub-tab Orari/Chiusure/Blocchi (actionbar fisse si sovrapponevano)
