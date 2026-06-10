@@ -674,3 +674,5 @@ File chiave aggiornati:
 ## [2026-06-10] task | Puntify vetrina tavolo: fix selezione ora non visibile — le variabili palette (--tb-primary/--border/ecc.) erano definite solo su .booking-page (rimosso nel restyle wizard); ridefinite su .tb-resv. CSS bump v=20260610c
 
 ## [2026-06-10] task | Puntify vetrina tavolo (rifiniture): header "Prenota un tavolo · N persone" (no nome locale); rimosso tasto indietro in alto (resta in actionbar); autofocus sul campo Nome entrando nello step dati (OnAfterRenderAsync + ElementReference)
+
+## [2026-06-10] task | Puntify: rimossa linea sopra Powered by Puntify (.book-footer border-top, CSS v=20260610d); scroll-to-top al cambio step wizard tavolo (OnAfterRenderAsync + JS scrollTo); "tempo"/durata tavoli rimosso da mail cliente (EmailTemplates durata condizionale + TableBookingController passa "") e da BookingManage (IsTableBooking → solo orario inizio). Appuntamenti veri mantengono la durata
