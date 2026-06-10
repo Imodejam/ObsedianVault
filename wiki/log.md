@@ -654,3 +654,5 @@ File chiave aggiornati:
 ## [2026-06-10] task | Puntify App: sostituite icone home Menu.webp e Pagamenti.webp (nuove icone glossy fornite da Stefano, 1024² webp in wwwroot/images/icons); codice già referenziava i path, no rebuild
 
 ## [2026-06-10] task | Puntify: BookingSchedule (Orari) tasto Salva spostato da cfg-section-footer a cfg-actionbar (footer fisso) come le altre pagine PV; vale in ShopEdit/edit/orari e ServiceDetail Disponibilità. NB: systemctl stop app/vetrina si impunta su dotnet watch → serve kill forzato per sbloccare build
+
+## [2026-06-10] task | Puntify App: "Dashboard" rinominato in "Ordini" (tile MerchantHome + icona Ordini.webp, PageTitle+h1 Dashboard.razor, label BottomNav+MerchantBottomNav); route /dashboard invariata. App buildata e riavviata (kill preventivo per evitare hang stop)
