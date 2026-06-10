@@ -660,3 +660,5 @@ File chiave aggiornati:
 ## [2026-06-10] task | Puntify ServiceDetail Disponibilità: sotto-tab Orari/Chiusure/Blocchi cambiati da bk-tabs (uguale alla tab bar superiore) a cfg-segmented (segmented control iOS-style, .svc-disp-segwrap centrato) per evitare due tabbar identiche
 
 ## [2026-06-10] task | Puntify vetrina QuickTableBooking: nascosti gli orari passati (AllSlotsForDisplay ora filtra slot <= now per oggi). #2 restyle "come pagina periodo" IN ATTESA conferma scope Stefano (convertire a layout wizard rb-* o solo dettagli)
+
+## [2026-06-10] task | Puntify batch: Dashboard tabbar sx + tab in URL (/dashboard/Risorse|Ordini, rinominato Tavoli→Risorse) + sedie solo ResourceKind=table; QuickTableBooking calendario ShowQuickButtons=false (settimana già); MenuList descrizione "cataloghi prodotti/servizi"; menu-public.css consigliati scrollbar desktop (hover+pointer fine). RESTA: restyle completo Tavolo→layout periodo (rb-wizard) in corso
