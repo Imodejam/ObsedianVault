@@ -668,3 +668,5 @@ File chiave aggiornati:
 ## [2026-06-10] task | Puntify vetrina: menu "Consigliati" carosello desktop (menu-carousel.js: wheel+drag+auto-rotazione circolare, no cloni; scrollbar+cursor grab in menu-public.css; @ref+OnAfterRender in MerchantMenuPreview). QuickTableBooking: "I tuoi dati" mostrato solo dopo selezione ora; calendario/orari ingranditi+centrati (classe tb-resv CSS, max-width 600-640px, chip 96px); submit disabled finché no ora
 
 ## [2026-06-10] task | Puntify vetrina: bump versione CSS pinnata (booking.css?v→20260610a in Book/Risorse, menu-public.css?v→20260610a in MerchantMenuPreview/Merchant/Recensione) — fix "modifiche CSS non visibili" causa cache su ?v= fisso
+
+## [2026-06-10] task | Puntify vetrina QuickTableBooking: vero wizard multi-step a schermate separate (_step 0 Dettagli persone/data/ora → 1 I tuoi dati → 2 Conferma+privacy). Stepper con step done cliccabili, chip data torna a step1, Continua/Prenota disabilitati per validazione, no auto-select ora, recap su conferma. CSS bump v=20260610b
