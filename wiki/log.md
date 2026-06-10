@@ -680,3 +680,5 @@ File chiave aggiornati:
 ## [2026-06-10] task | Puntify vetrina tavolo: rb-actionbar resa NON fissa (.tb-resv .rb-actionbar position:static) così "Powered by" (book-footer) resta leggibile sotto i bottoni e si riduce lo scroll; padding footer adeguato; .tb-resv.rb-wizard padding-bottom ridotto. CSS v=20260610e
 
 ## [2026-06-10] task | Puntify vetrina QuickTableBooking: persistenza sessione prenotazione corrente (ProtectedSessionStorage key pbtable:{shopId}, TableSnapshot: persone/data/ora/dati/step). Restore in OnAfterRenderAsync firstRender; svuota se data salvata < oggi; clear su done/reset/indietro. Persist su selezioni/step/onblur campi/gdpr
+
+## [2026-06-10] task | Puntify vetrina tavolo: rb-actionbar di nuovo FISSA in basso (.tb-resv .rb-actionbar position:fixed, anche desktop, max-width 960 centrata, safe-area) con clearance per "Powered by" (book-footer padding-bottom 96px) così resta leggibile sopra la barra. CSS v=20260610f
