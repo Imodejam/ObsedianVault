@@ -640,3 +640,5 @@ File chiave aggiornati:
 ## [2026-06-07] task | Puntify vetrina: meta description home aggiornata al testo definitivo di Stefano (versione "Gestisce fidelizzazione, prenotazioni online, menu e pagamenti, e l assistente digitale che chiama e risponde al telefono h24"). App.razor + Meta_Home_Desc 9 lingue. Deploy CAT.
 
 ## [2026-06-10] task | Puntify CAT: "Gestione tavoli"→"Gestione risorse" in PuntifyFeaturesTab; commit+push master di tutto lo stato (admin, Stripe, Risorse) 8f15b51; area /admin account top-right cliccabile→/account (cambio ruolo/esci) in AdminTopBar+AdminHome
+
+## [2026-06-10] task | Puntify CAT: sezione Fatturazione spostata da Payments shop a MerchantAccount (per-account); modello reale prezzo-per-PV con scaglioni volume (1/2-5/6+) e toggle Mensile/Annuale, PV count reale, metodo+fatture mock, cancella con conferma. Mock validato, manca connessione Stripe Billing
