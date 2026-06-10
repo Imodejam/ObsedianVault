@@ -666,3 +666,5 @@ File chiave aggiornati:
 ## [2026-06-10] task | Puntify vetrina QuickTableBooking: restyle completo a layout wizard rb-* (rb-head+rb-steps+rb-card+rb-actionbar, niente sidebar) come pagina periodo; logica invariata. Build 0 err, deploy
 
 ## [2026-06-10] task | Puntify vetrina: menu "Consigliati" carosello desktop (menu-carousel.js: wheel+drag+auto-rotazione circolare, no cloni; scrollbar+cursor grab in menu-public.css; @ref+OnAfterRender in MerchantMenuPreview). QuickTableBooking: "I tuoi dati" mostrato solo dopo selezione ora; calendario/orari ingranditi+centrati (classe tb-resv CSS, max-width 600-640px, chip 96px); submit disabled finché no ora
+
+## [2026-06-10] task | Puntify vetrina: bump versione CSS pinnata (booking.css?v→20260610a in Book/Risorse, menu-public.css?v→20260610a in MerchantMenuPreview/Merchant/Recensione) — fix "modifiche CSS non visibili" causa cache su ?v= fisso
