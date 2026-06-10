@@ -650,3 +650,5 @@ File chiave aggiornati:
 ## [2026-06-10] task | Puntify: cap referral max 5 mesi (billing + FAQ/Earn vetrina tutte le lingue); fatture "Visualizza"; /account "Cambia ad amministratore" in sezione Cambia area di lavoro; vetrina prezzi con toggle Mensile/Annuale (default annuale) e colonna prezzo unica
 
 ## [2026-06-10] task | Puntify vetrina FAQ: Faq_Men3 da domanda specifica lidi a "Per quali attività funziona la gestione ordini?" con elenco completo categorie esercenti, tutte le lingue
+
+## [2026-06-10] task | Puntify App: sostituite icone home Menu.webp e Pagamenti.webp (nuove icone glossy fornite da Stefano, 1024² webp in wwwroot/images/icons); codice già referenziava i path, no rebuild
