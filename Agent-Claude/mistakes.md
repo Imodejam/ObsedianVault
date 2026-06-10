@@ -2,3 +2,7 @@
 ## [2026-05-20] Risposta solo nel transcript dopo richiesta da Telegram
 **Errore**: Su richiesta arrivata via Telegram (msg 1609) ho risposto nel transcript ma non ho chiamato `reply` su Telegram. Stefano ha dovuto sollecitare con "?".
 **Correzione**: Quando il messaggio in ingresso ha `source="telegram"`, la risposta sostanziale DEVE essere inviata via `mcp__plugin_telegram_telegram__reply`. Il transcript non arriva al telefono. Memoria già nota (`feedback_telegram_always_reply.md`) — ricaduta da rispettare per ogni risposta non solo per ack.
+
+## [2026-06-10] CSS pinnato in cache → modifiche non visibili
+ERRORE: dopo modifiche a booking.css/menu-public.css, Stefano vedeva "non funziona / problema css". Causa: i <link> CSS in Puntify.Vetrina/Pages/*.razor hanno una VERSIONE pinnata (es. booking.css?v=20260604a). Il browser serve il CSS cached finché ?v= non cambia.
+CORREZIONE: ad OGNI modifica di un CSS della Vetrina, BUMPARE la versione nel <link> della/e pagina/e che lo usano (Book.razor=booking.css; MerchantMenuPreview/Merchant/Recensione=menu-public.css; Risorse=booking.css).
