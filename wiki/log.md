@@ -656,3 +656,5 @@ File chiave aggiornati:
 ## [2026-06-10] task | Puntify: BookingSchedule (Orari) tasto Salva spostato da cfg-section-footer a cfg-actionbar (footer fisso) come le altre pagine PV; vale in ShopEdit/edit/orari e ServiceDetail Disponibilità. NB: systemctl stop app/vetrina si impunta su dotnet watch → serve kill forzato per sbloccare build
 
 ## [2026-06-10] task | Puntify App: "Dashboard" rinominato in "Ordini" (tile MerchantHome + icona Ordini.webp, PageTitle+h1 Dashboard.razor, label BottomNav+MerchantBottomNav); route /dashboard invariata. App buildata e riavviata (kill preventivo per evitare hang stop)
+
+## [2026-06-10] task | Puntify ServiceDetail Disponibilità: sotto-tab Orari/Chiusure/Blocchi cambiati da bk-tabs (uguale alla tab bar superiore) a cfg-segmented (segmented control iOS-style, .svc-disp-segwrap centrato) per evitare due tabbar identiche
