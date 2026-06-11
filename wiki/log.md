@@ -682,3 +682,5 @@ File chiave aggiornati:
 ## [2026-06-10] task | Puntify vetrina QuickTableBooking: persistenza sessione prenotazione corrente (ProtectedSessionStorage key pbtable:{shopId}, TableSnapshot: persone/data/ora/dati/step). Restore in OnAfterRenderAsync firstRender; svuota se data salvata < oggi; clear su done/reset/indietro. Persist su selezioni/step/onblur campi/gdpr
 
 ## [2026-06-10] task | Puntify vetrina tavolo: rb-actionbar di nuovo FISSA in basso (.tb-resv .rb-actionbar position:fixed, anche desktop, max-width 960 centrata, safe-area) con clearance per "Powered by" (book-footer padding-bottom 96px) così resta leggibile sopra la barra. CSS v=20260610f
+
+## [2026-06-11] task | Security review Puntify App completata — report docs/security-review-app-2026-06-11.md: 5 CRITICAL (admin_users senza RLS, account_shops takeover, transactions points-forge, X-API-Key pubblica unico gate, IDOR credenziali LLM), 7 HIGH, 8 MEDIUM. Verificato su DB live puntify_cat.
