@@ -702,3 +702,5 @@ File chiave aggiornati:
 ## [2026-06-11] task | Vetrina i18n hardcoded COMPLETATA pagine marketing: Guadagna(26) Prezzi(28) Negozi/Mappa/NegozioDetail(21) Nemi(45 markup+23 record @code) estratti in resx e tradotti 8 lingue via agent paralleli. Tutto buildato/verificato/committato. Resta opzionale: Risorse (widget funzionale) e storefront Merchant (label hardcoded). Prossimo: grafica (serve direzione da Stefano). Ricordare TODO cat.puntify.it noindex.
 
 ## [2026-06-11] task | cat.puntify.it noindex applicato (meta app + X-Robots-Tag/robots.txt server). Accesso-riservato sospeso: proxy cat.puntify.it non su questo box (Cloudflare?), in attesa info Stefano. Grafica: creato componente AppMockup (telefono stile app, CSS puro) usato in hero Clienti come primo esempio.
+
+## [2026-06-11] task | Vetrina: inserite 9 foto reali (ChatGPT) ottimizzate webp su Home/Clienti/Fidelizzazione/Prenotazioni/Menu/Social/Guadagna. Rimosso stat box finto Clienti (sostituito da foto). Manca IMG-H (Nemi) non inviata. Build+restart+verifica ok (immagini 200).
