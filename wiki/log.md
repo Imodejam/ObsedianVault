@@ -700,3 +700,5 @@ File chiave aggiornati:
 ## [2026-06-11] task | Vetrina i18n: 54 stringhe nuove (Social page, OCR scontrini, feature Stripe/MenuOCR/Telegram, GCal in arrivo) tradotte nelle 8 lingue en/es/fr/pt/ar/bn/hi/zh via agent paralleli. Build+verifica live ok. Resta: estrazione+traduzione dei blocchi HARDCODED in markup (Guadagna/Nemi/Prezzi/Negozi).
 
 ## [2026-06-11] task | Vetrina i18n hardcoded COMPLETATA pagine marketing: Guadagna(26) Prezzi(28) Negozi/Mappa/NegozioDetail(21) Nemi(45 markup+23 record @code) estratti in resx e tradotti 8 lingue via agent paralleli. Tutto buildato/verificato/committato. Resta opzionale: Risorse (widget funzionale) e storefront Merchant (label hardcoded). Prossimo: grafica (serve direzione da Stefano). Ricordare TODO cat.puntify.it noindex.
+
+## [2026-06-11] task | cat.puntify.it noindex applicato (meta app + X-Robots-Tag/robots.txt server). Accesso-riservato sospeso: proxy cat.puntify.it non su questo box (Cloudflare?), in attesa info Stefano. Grafica: creato componente AppMockup (telefono stile app, CSS puro) usato in hero Clienti come primo esempio.
