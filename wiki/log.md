@@ -747,3 +747,5 @@ File chiave aggiornati:
 ## [2026-06-12] task | GEO: creato /llms.txt (descrizione Puntify per AI generative) + fix /robots.txt (era servito come HTML); endpoint espliciti MapGet in Program.cs (static-assets host non esponeva i file root); html lang+og:locale dinamici
 
 ## [2026-06-12] task | GEO: copy claim+fattuale su llms.txt + meta description + JSON-LD (all-in-one positioning)
+
+## [2026-06-12] task | /negozi step2: pagina negozio ricca (aperto oggi, tasti, recensioni, team, recap+mappa+orari, simili) i18n x11
