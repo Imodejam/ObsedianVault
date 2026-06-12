@@ -708,3 +708,5 @@ File chiave aggiornati:
 ## [2026-06-11] task | Vetrina: creata pagina ricerca punti vendita (/negozi) stile Treatwell/Glovo: ricerca nome/indirizzo, chip categorie (top16), filtri servizi (fidelizzazione/prenotazioni/menu da bitfield shops), ordinamento, card curate. Aggiunto GetAllCategories + RLS anon su category + nav Punti vendita + i18n 8 lingue. InteractiveServer. Build+verifica ok (53 negozi demo).
 
 ## [2026-06-12] task | Puntify Vetrina: blog con 10 articoli (tabella puntify.blog_posts, tutti published) — scritti 2026-06-11/12 da sessione precedente, LIVE su /blog (puntify-vetrina :8003). Tracciamento retroattivo: il task non era stato segnato nel vault al momento dell'esecuzione (errore di processo, vedi mistakes.md).
+
+## [2026-06-12] task | Puntify Blog: 10 cover images caricate su MinIO (shopimages-cat/blog/<slug>.png) e settate in blog_posts.cover_image. Mappatura per contenuto visivo. LIVE su /blog. Vedi [[reference_puntify_blog]].

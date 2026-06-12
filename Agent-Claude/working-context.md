@@ -4,7 +4,9 @@
 Stefano (msg 3516/3518) ha chiesto se ho finito gli articoli del blog (richiesti 2026-06-11) e contestato che NON avevo tracciato il task nel vault.
 - STATO REALE: `puntify.blog_posts` = **10 articoli, tutti published**, contenuti completi (8,7–11,5k char), live su `/blog` (puntify-vetrina :8003, HTTP 200 verificato). Dettaglio in daily/2026-06-12.md.
 - ERRORE registrato: lavoro fatto ma non loggato → mistakes.md + correzione in people/stefano.md ("tracciare TUTTO sempre").
-- APERTO: traduzione articoli nelle altre lingue vetrina? cover image? → da confermare con Stefano.
+- APERTO: traduzione articoli nelle altre lingue vetrina? → da confermare con Stefano.
+- COVER IMAGES (msg 3523-3532) **FATTO**: Stefano ha inviato 10 PNG (art1..art10). Mappate per CONTENUTO visivo (non per numero) sugli slug → caricate su MinIO bucket `shopimages-cat` key `blog/<slug>.png` (public-read, via boto3 endpoint files.puntify.it, creds Storage di appsettings.Development) → `blog_posts.cover_image` aggiornato per tutti e 10. Verificato: 10/10 HTTP 200 + render su /it/blog (:8003). Originali in /tmp/blogcovers/.
+- NUOVO TASK (msg 3533): pagina negozio vetrina (es. /it/negozi/autolavaggio-splendente-tuscolana-roma) → immagine delle card dei PREMI a tutta ampiezza della card. DA FARE.
 
 ---
 
