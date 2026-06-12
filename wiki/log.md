@@ -729,3 +729,5 @@ File chiave aggiornati:
 ## [2026-06-12] task | Ordinazioni: inserite 3 foto reali (hero QR + schermo cucina + schermo sala), ottimizzate webp
 
 ## [2026-06-12] task | Video Nemi stop su nav + footer tagline allargata + mega menu Menu/Ordinazioni split + popup 2-col
+
+## [2026-06-12] task | Pagina Nemi riscritta sui 3 ambiti (gestione PV/inbound/outbound) + FAQ; Ordinazioni: 3 modi di ordinare
