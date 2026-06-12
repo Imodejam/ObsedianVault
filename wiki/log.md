@@ -753,3 +753,5 @@ File chiave aggiornati:
 ## [2026-06-12] task | /negozi step3: redirect 301 /m→/negozi, route /m rimosse, Merchant.razor eliminato, link+sitemap+preview app aggiornati. Consolidamento completo.
 
 ## [2026-06-12] task | Nemi: rimossa tabella confronto; PWA opzione A (tasto→app)+manifest servito; GEO LocalBusiness JSON-LD; /negozi: justify+accent primary color+Prenota Ora
+
+## [2026-06-12] task | /negozi: icone (pin indirizzo+mappa) e tasti Menu/Recensioni ora colore primario shop (Accent), non più rosso/blu
