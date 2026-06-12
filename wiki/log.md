@@ -765,3 +765,5 @@ File chiave aggiornati:
 ## [2026-06-12] task | Menu page: rimosso spazio vuoto header (--mp-header-h 0); carosello consigliati continuo/circolare senza barra (item ×2 + reset istantaneo)
 
 ## [2026-06-12] task | Booking: calendario settimanale a piena larghezza (.rb-wizard--wide .mini-calendar--week max-width:none, month resta 460px); booking.css?v bump
+
+## [2026-06-12] task | Meta: rimosso tag keywords (deprecato, Google lo ignora) da 18 pagine vetrina. Title/description/og già localizzati per lingua (indicizzabili). Scelta Stefano: opzione b (rimuovere).
