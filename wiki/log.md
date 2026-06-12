@@ -739,3 +739,5 @@ File chiave aggiornati:
 ## [2026-06-12] task | Lido del Sole: 4 premi+cover+logo (Unsplash) via DB. Consolidamento /negozi mappato, build in corso
 
 ## [2026-06-12] task | /negozi step1: metodi dati (orari+simili) + route flussi /negozi/{slug}/book|menu|risorse (additive)
+
+## [2026-06-12] task | Banner "compreso nel piano standard" su 5 pagine servizio (componente riusabile + i18n)
