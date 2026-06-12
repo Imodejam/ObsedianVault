@@ -769,3 +769,4 @@ File chiave aggiornati:
 ## [2026-06-12] task | Meta: rimosso tag keywords (deprecato, Google lo ignora) da 18 pagine vetrina. Title/description/og già localizzati per lingua (indicizzabili). Scelta Stefano: opzione b (rimuovere).
 
 ## [2026-06-12] task | Booking: calendario week full-width FIX REALE — il primo tentativo (max-width:none) non bastava: .tb-resv .mini-calendar{max-width:600px} (riga 2666, vince per ordine) + margin-left/right:auto (riga 340) restringevano il flex-item al contenuto (~200px). Fix: .tb-resv/.rb-wizard--wide .mini-calendar--week { max-width:none; width:100## [2026-06-12] task | Booking: calendario week full-width FIX REALE (tb-resv max-width:600 + auto-margin restringevano il flex-item; ora width:100%+margin:0). booking.css v->b
+## [2026-06-12] task | Commit+push di tutto il lavoro del giorno su master (9c026fb, 61 file: vetrina pages/resx/css/js/Program/Services + app Login/ShopEdit). Niente secret. Messaggio senza attribuzione Claude.
