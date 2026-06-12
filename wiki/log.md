@@ -761,3 +761,5 @@ File chiave aggiornati:
 ## [2026-06-12] task | /negozi: card premi uniformi (foto h-44 object-cover, no più object-contain natural-height); "Il nostro team"→"Scopri il team" (Nd_TeamTitle x9)
 
 ## [2026-06-12] task | Booking: servizi mai disponibili → "Non disponibile"; premi /negozi più compatti (4col); header pagina negozio bianco+ombra+scrim scuro
+
+## [2026-06-12] task | Menu page: rimosso spazio vuoto header (--mp-header-h 0); carosello consigliati continuo/circolare senza barra (item ×2 + reset istantaneo)
