@@ -743,3 +743,5 @@ File chiave aggiornati:
 ## [2026-06-12] task | Banner "compreso nel piano standard" su 5 pagine servizio (componente riusabile + i18n)
 
 ## [2026-06-12] task | Meta i18n: html lang + og:locale dinamici per lingua (era hardcoded IT). GEO = iniziativa da pianificare
+
+## [2026-06-12] task | GEO: creato /llms.txt (descrizione Puntify per AI generative) + fix /robots.txt (era servito come HTML); endpoint espliciti MapGet in Program.cs (static-assets host non esponeva i file root); html lang+og:locale dinamici
