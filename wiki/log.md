@@ -712,3 +712,5 @@ File chiave aggiornati:
 ## [2026-06-12] task | Puntify Blog: 10 cover images caricate su MinIO (shopimages-cat/blog/<slug>.png) e settate in blog_posts.cover_image. Mappatura per contenuto visivo. LIVE su /blog. Vedi [[reference_puntify_blog]].
 
 ## [2026-06-12] task | Vetrina NegozioDetail: immagine card premi a tutta ampiezza (h-auto/object-contain, no crop) — deploy puntify-vetrina, /it/negozi HTTP 200
+
+## [2026-06-12] task | Vetrina: menu burger mobile si chiude al cambio pagina (JSInvokable CloseMenusOnNavigation su blazor:navigated)
