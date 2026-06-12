@@ -741,3 +741,5 @@ File chiave aggiornati:
 ## [2026-06-12] task | /negozi step1: metodi dati (orari+simili) + route flussi /negozi/{slug}/book|menu|risorse (additive)
 
 ## [2026-06-12] task | Banner "compreso nel piano standard" su 5 pagine servizio (componente riusabile + i18n)
+
+## [2026-06-12] task | Meta i18n: html lang + og:locale dinamici per lingua (era hardcoded IT). GEO = iniziativa da pianificare
