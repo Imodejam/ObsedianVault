@@ -749,3 +749,5 @@ File chiave aggiornati:
 ## [2026-06-12] task | GEO: copy claim+fattuale su llms.txt + meta description + JSON-LD (all-in-one positioning)
 
 ## [2026-06-12] task | /negozi step2: pagina negozio ricca (aperto oggi, tasti, recensioni, team, recap+mappa+orari, simili) i18n x11
+
+## [2026-06-12] task | /negozi step3: redirect 301 /m→/negozi, route /m rimosse, Merchant.razor eliminato, link+sitemap+preview app aggiornati. Consolidamento completo.
