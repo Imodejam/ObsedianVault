@@ -725,3 +725,5 @@ File chiave aggiornati:
 ## [2026-06-12] task | Puntify.App: login+registrati unificati in una pagina con switch (no salti), Register.razor rimosso
 
 ## [2026-06-12] task | Footer: Guadagna rename + voce Ordinazioni; nuova pagina /ordinazioni con mock schermi cucina+sala (i18n x9)
+
+## [2026-06-12] task | Ordinazioni: inserite 3 foto reali (hero QR + schermo cucina + schermo sala), ottimizzate webp
