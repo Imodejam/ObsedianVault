@@ -706,3 +706,5 @@ File chiave aggiornati:
 ## [2026-06-11] task | Vetrina: inserite 9 foto reali (ChatGPT) ottimizzate webp su Home/Clienti/Fidelizzazione/Prenotazioni/Menu/Social/Guadagna. Rimosso stat box finto Clienti (sostituito da foto). Manca IMG-H (Nemi) non inviata. Build+restart+verifica ok (immagini 200).
 
 ## [2026-06-11] task | Vetrina: creata pagina ricerca punti vendita (/negozi) stile Treatwell/Glovo: ricerca nome/indirizzo, chip categorie (top16), filtri servizi (fidelizzazione/prenotazioni/menu da bitfield shops), ordinamento, card curate. Aggiunto GetAllCategories + RLS anon su category + nav Punti vendita + i18n 8 lingue. InteractiveServer. Build+verifica ok (53 negozi demo).
+
+## [2026-06-12] task | Puntify Vetrina: blog con 10 articoli (tabella puntify.blog_posts, tutti published) — scritti 2026-06-11/12 da sessione precedente, LIVE su /blog (puntify-vetrina :8003). Tracciamento retroattivo: il task non era stato segnato nel vault al momento dell'esecuzione (errore di processo, vedi mistakes.md).

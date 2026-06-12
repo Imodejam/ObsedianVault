@@ -1,3 +1,13 @@
+# Working context · 2026-06-12 (aggiornato)
+
+## 2026-06-12 — Blog Puntify Vetrina (verifica + tracciamento retroattivo)
+Stefano (msg 3516/3518) ha chiesto se ho finito gli articoli del blog (richiesti 2026-06-11) e contestato che NON avevo tracciato il task nel vault.
+- STATO REALE: `puntify.blog_posts` = **10 articoli, tutti published**, contenuti completi (8,7–11,5k char), live su `/blog` (puntify-vetrina :8003, HTTP 200 verificato). Dettaglio in daily/2026-06-12.md.
+- ERRORE registrato: lavoro fatto ma non loggato → mistakes.md + correzione in people/stefano.md ("tracciare TUTTO sempre").
+- APERTO: traduzione articoli nelle altre lingue vetrina? cover image? → da confermare con Stefano.
+
+---
+
 # Working context · 2026-06-05 (aggiornato)
 
 ## 2026-06-05 — Puntify Area Admin /admin · FASE 1 (Fondamenta) FATTO+DEPLOY

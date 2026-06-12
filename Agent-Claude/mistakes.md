@@ -6,3 +6,7 @@
 ## [2026-06-10] CSS pinnato in cache → modifiche non visibili
 ERRORE: dopo modifiche a booking.css/menu-public.css, Stefano vedeva "non funziona / problema css". Causa: i <link> CSS in Puntify.Vetrina/Pages/*.razor hanno una VERSIONE pinnata (es. booking.css?v=20260604a). Il browser serve il CSS cached finché ?v= non cambia.
 CORREZIONE: ad OGNI modifica di un CSS della Vetrina, BUMPARE la versione nel <link> della/e pagina/e che lo usano (Book.razor=booking.css; MerchantMenuPreview/Merchant/Recensione=menu-public.css; Risorse=booking.css).
+
+## [2026-06-12] Task eseguito ma NON tracciato nel vault
+ERRORE: gli articoli del blog Puntify (10 post in puntify.blog_posts, richiesti da Stefano il 2026-06-11) sono stati scritti e pubblicati, ma il task NON è stato registrato nel vault (niente working-context, daily, log). Alla sua domanda "hai finito?" non avevo traccia → ho dovuto ricostruire dallo stato del DB. Stefano (msg 3518): "come ti ho sempre detto tutto deve essere tracciato nel vault".
+CORREZIONE: ogni task — anche se completato in fretta — va loggato in tempo reale: working-context.md (in corso) + daily + wiki/log.md a fine. Vale anche per lavori "creativi"/contenuti, non solo codice. Niente lavoro silenzioso fuori dal vault.
