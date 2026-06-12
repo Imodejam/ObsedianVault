@@ -759,3 +759,5 @@ File chiave aggiornati:
 ## [2026-06-12] task | Book: logo cliccabile→home negozio; Menu page: header rimosso + nome hero linka home
 
 ## [2026-06-12] task | /negozi: card premi uniformi (foto h-44 object-cover, no più object-contain natural-height); "Il nostro team"→"Scopri il team" (Nd_TeamTitle x9)
+
+## [2026-06-12] task | Booking: servizi mai disponibili → "Non disponibile"; premi /negozi più compatti (4col); header pagina negozio bianco+ombra+scrim scuro
