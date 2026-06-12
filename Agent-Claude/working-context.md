@@ -572,3 +572,13 @@ Pattern tab: bk-tabs/bk-tab + route {Tab} (vedi MerchantServices.razor:26-65).
 - PROGETTO bot trading: vari mercati incl. oro, target buon profit factor + drawdown basso. Framing onesto dato: nessun bot garantisce metriche; costruire infrastruttura (framework strategie, backtest rigoroso, risk mgmt, walk-forward), backtest→paper→live.
 - DOMANDE DI SCOPING IN ATTESA (da inviare): (1) trader-dev cosa offre (dati/backtest/esecuzione, quale broker)? (2) backtest/paper o live? (3) mercati/broker (oro CFD/futures XAU, forex, crypto, indici; quale API)? (4) stack Python ok? (5) dove creo il progetto (/home/progetti/trader)? + offerta di scaffold scheletro Python.
 - NON ancora creato nessun progetto/file: aspetto risposte + tool MCP trader-dev (prossima sessione) per non fare rework sull'architettura.
+
+## 2026-06-12 — Footer Vetrina: riorganizzazione gruppi (IN ATTESA risposta Stefano)
+Richiesta msg 3546/3547: rivedere i raggruppamenti del footer (Shared/Footer.razor).
+- Prodotto = SOLO servizi: Fidelizzazione, Prenotazioni, Menu digitale, Nemi AI, Social.
+- Soluzioni (nuova) = Per clienti.
+- Risorse = Blog, FAQ, Mappa del sito (sitemap → /sitemap.xml esiste, Program.cs MapGet).
+- Legale = resta.
+- msg 3547: sezioni "accostate" quando c'è spazio (stile tablet) → colonne raggruppate vicine, non sparpagliate full-width (rivedere grid md/lg + gap).
+APERTO (chiesto a Stefano msg 3548): dove vanno Prezzi, Guadagna, "Per esercenti" (Footer_Link_Merchants="Per Esercenti", non fidelizzazione!). Opzioni a) tutte in Soluzioni b) Soluzioni solo Per clienti, Prezzi+Guadagna in Risorse, Per esercenti tolto.
+NB: footer tradotto in 10 lingue (Resources/SharedResource*.resx, default=IT) → serve aggiungere chiavi (es. Footer_ColSolutions/Soluzioni, Footer_Link_Blog, Footer_Link_Sitemap, label servizi) in TUTTI i file. NON iniziare finché Stefano non risponde al grouping.
