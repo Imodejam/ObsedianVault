@@ -763,3 +763,5 @@ File chiave aggiornati:
 ## [2026-06-12] task | Booking: servizi mai disponibili → "Non disponibile"; premi /negozi più compatti (4col); header pagina negozio bianco+ombra+scrim scuro
 
 ## [2026-06-12] task | Menu page: rimosso spazio vuoto header (--mp-header-h 0); carosello consigliati continuo/circolare senza barra (item ×2 + reset istantaneo)
+
+## [2026-06-12] task | Booking: calendario settimanale a piena larghezza (.rb-wizard--wide .mini-calendar--week max-width:none, month resta 460px); booking.css?v bump
