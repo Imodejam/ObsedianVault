@@ -582,3 +582,7 @@ Richiesta msg 3546/3547: rivedere i raggruppamenti del footer (Shared/Footer.raz
 - msg 3547: sezioni "accostate" quando c'è spazio (stile tablet) → colonne raggruppate vicine, non sparpagliate full-width (rivedere grid md/lg + gap).
 APERTO (chiesto a Stefano msg 3548): dove vanno Prezzi, Guadagna, "Per esercenti" (Footer_Link_Merchants="Per Esercenti", non fidelizzazione!). Opzioni a) tutte in Soluzioni b) Soluzioni solo Per clienti, Prezzi+Guadagna in Risorse, Per esercenti tolto.
 NB: footer tradotto in 10 lingue (Resources/SharedResource*.resx, default=IT) → serve aggiungere chiavi (es. Footer_ColSolutions/Soluzioni, Footer_Link_Blog, Footer_Link_Sitemap, label servizi) in TUTTI i file. NON iniziare finché Stefano non risponde al grouping.
+
+## 2026-06-12 — Auth unificata + PWA install (stato)
+- LOGIN/REGISTER UNIFICATI: FATTO+DEPLOY (vedi daily). Pagina unica Login.razor (/login+/register), toggle Accedi/Registrati, Register.razor eliminato. Da TESTARE da Stefano (Ctrl+F5).
+- TASTO INSTALLA PWA (msg 3554 p1): IN ATTESA risposta Stefano. Vincolo: la vetrina (cat.puntify.it) non può installare la PWA dell'app (app-cat.puntify.it) cross-origin. Manifest vetrina start_url=puntify.it/app/login NON esiste (route assente) → icona non entra in login. Chiesto: topologia domini in prod + opzione A (install dall'app) o B (PWA vetrina con redirect a login).

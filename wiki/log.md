@@ -721,3 +721,5 @@ File chiave aggiornati:
 ## [2026-06-12] task | Footer Vetrina: gruppi Prodotto/Soluzioni/Risorse/Legale + layout accostato + 4 chiavi i18n x9 lingue
 
 ## [2026-06-12] task | Vetrina: popup consenso cookie brandizzato + Google Consent Mode v2 (gating GA) + i18n x9
+
+## [2026-06-12] task | Puntify.App: login+registrati unificati in una pagina con switch (no salti), Register.razor rimosso
