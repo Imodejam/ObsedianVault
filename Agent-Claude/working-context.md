@@ -6,7 +6,7 @@ Stefano (msg 3516/3518) ha chiesto se ho finito gli articoli del blog (richiesti
 - ERRORE registrato: lavoro fatto ma non loggato → mistakes.md + correzione in people/stefano.md ("tracciare TUTTO sempre").
 - APERTO: traduzione articoli nelle altre lingue vetrina? → da confermare con Stefano.
 - COVER IMAGES (msg 3523-3532) **FATTO**: Stefano ha inviato 10 PNG (art1..art10). Mappate per CONTENUTO visivo (non per numero) sugli slug → caricate su MinIO bucket `shopimages-cat` key `blog/<slug>.png` (public-read, via boto3 endpoint files.puntify.it, creds Storage di appsettings.Development) → `blog_posts.cover_image` aggiornato per tutti e 10. Verificato: 10/10 HTTP 200 + render su /it/blog (:8003). Originali in /tmp/blogcovers/.
-- NUOVO TASK (msg 3533): pagina negozio vetrina (es. /it/negozi/autolavaggio-splendente-tuscolana-roma) → immagine delle card dei PREMI a tutta ampiezza della card. DA FARE.
+- NUOVO TASK (msg 3533): pagina negozio vetrina (es. /it/negozi/autolavaggio-splendente-tuscolana-roma) → immagine delle card dei PREMI a tutta ampiezza della card. **FATTO+DEPLOY 2026-06-12**: `NegozioDetail.razor` sez. Rewards — contenitore era `h-36 w-full overflow-hidden` + `img object-cover` (banda fissa croppata). Ora `div w-full overflow-hidden` + `img w-full h-auto object-contain` → immagine intera a tutta ampiezza card, niente crop. Tailwind via CDN JIT (App.razor) → nessun rebuild CSS. Build 0 err, puntify-vetrina riavviato, /it/negozi/...autolavaggio HTTP 200, 4/4 card con nuove classi nel render. (Blazor Server → no hard-refresh.)
 
 ---
 
