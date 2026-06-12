@@ -733,3 +733,5 @@ File chiave aggiornati:
 ## [2026-06-12] task | Pagina Nemi riscritta sui 3 ambiti (gestione PV/inbound/outbound) + FAQ; Ordinazioni: 3 modi di ordinare
 
 ## [2026-06-12] task | Nemi: rimossa frase "unici sul mercato... voice AI senza registrazione audio" (elemento nemi-privacy-note tolto, sparisce in tutte le lingue)
+
+## [2026-06-12] task | Nemi: rimosso banner trial + raddoppiati prezzi pacchetti (58/98/178); scroll vetrina reset robusto su nav
