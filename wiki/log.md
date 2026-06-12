@@ -714,3 +714,6 @@ File chiave aggiornati:
 ## [2026-06-12] task | Vetrina NegozioDetail: immagine card premi a tutta ampiezza (h-auto/object-contain, no crop) — deploy puntify-vetrina, /it/negozi HTTP 200
 
 ## [2026-06-12] task | Vetrina: menu burger mobile si chiude al cambio pagina (JSInvokable CloseMenusOnNavigation su blazor:navigated)
+
+## [2026-06-12] task | Vetrina mega-menu: freccia saldata al pannello (position:fixed come il pannello) + pannello sopra banner installa-app (header z-[60])
+## [2026-06-12] task | Vetrina blog: hero arricchito (badge + decori on-brand + padding ridotto) contro horror vacui
