@@ -723,3 +723,5 @@ File chiave aggiornati:
 ## [2026-06-12] task | Vetrina: popup consenso cookie brandizzato + Google Consent Mode v2 (gating GA) + i18n x9
 
 ## [2026-06-12] task | Puntify.App: login+registrati unificati in una pagina con switch (no salti), Register.razor rimosso
+
+## [2026-06-12] task | Footer: Guadagna rename + voce Ordinazioni; nuova pagina /ordinazioni con mock schermi cucina+sala (i18n x9)
