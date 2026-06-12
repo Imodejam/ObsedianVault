@@ -727,3 +727,5 @@ File chiave aggiornati:
 ## [2026-06-12] task | Footer: Guadagna rename + voce Ordinazioni; nuova pagina /ordinazioni con mock schermi cucina+sala (i18n x9)
 
 ## [2026-06-12] task | Ordinazioni: inserite 3 foto reali (hero QR + schermo cucina + schermo sala), ottimizzate webp
+
+## [2026-06-12] task | Video Nemi stop su nav + footer tagline allargata + mega menu Menu/Ordinazioni split + popup 2-col
