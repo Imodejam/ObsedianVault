@@ -717,3 +717,5 @@ File chiave aggiornati:
 
 ## [2026-06-12] task | Vetrina mega-menu: freccia saldata al pannello (position:fixed come il pannello) + pannello sopra banner installa-app (header z-[60])
 ## [2026-06-12] task | Vetrina blog: hero arricchito (badge + decori on-brand + padding ridotto) contro horror vacui
+
+## [2026-06-12] task | Footer Vetrina: gruppi Prodotto/Soluzioni/Risorse/Legale + layout accostato + 4 chiavi i18n x9 lingue

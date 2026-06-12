@@ -573,7 +573,7 @@ Pattern tab: bk-tabs/bk-tab + route {Tab} (vedi MerchantServices.razor:26-65).
 - DOMANDE DI SCOPING IN ATTESA (da inviare): (1) trader-dev cosa offre (dati/backtest/esecuzione, quale broker)? (2) backtest/paper o live? (3) mercati/broker (oro CFD/futures XAU, forex, crypto, indici; quale API)? (4) stack Python ok? (5) dove creo il progetto (/home/progetti/trader)? + offerta di scaffold scheletro Python.
 - NON ancora creato nessun progetto/file: aspetto risposte + tool MCP trader-dev (prossima sessione) per non fare rework sull'architettura.
 
-## 2026-06-12 — Footer Vetrina: riorganizzazione gruppi (IN ATTESA risposta Stefano)
+## 2026-06-12 — Footer Vetrina: riorganizzazione gruppi (FATTO+DEPLOY)
 Richiesta msg 3546/3547: rivedere i raggruppamenti del footer (Shared/Footer.razor).
 - Prodotto = SOLO servizi: Fidelizzazione, Prenotazioni, Menu digitale, Nemi AI, Social.
 - Soluzioni (nuova) = Per clienti.
