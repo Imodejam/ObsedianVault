@@ -757,3 +757,5 @@ File chiave aggiornati:
 ## [2026-06-12] task | /negozi: icone (pin indirizzo+mappa) e tasti Menu/Recensioni ora colore primario shop (Accent), non più rosso/blu
 
 ## [2026-06-12] task | Book: logo cliccabile→home negozio; Menu page: header rimosso + nome hero linka home
+
+## [2026-06-12] task | /negozi: card premi uniformi (foto h-44 object-cover, no più object-contain natural-height); "Il nostro team"→"Scopri il team" (Nd_TeamTitle x9)
