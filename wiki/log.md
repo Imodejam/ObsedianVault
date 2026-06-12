@@ -751,3 +751,5 @@ File chiave aggiornati:
 ## [2026-06-12] task | /negozi step2: pagina negozio ricca (aperto oggi, tasti, recensioni, team, recap+mappa+orari, simili) i18n x11
 
 ## [2026-06-12] task | /negozi step3: redirect 301 /m→/negozi, route /m rimosse, Merchant.razor eliminato, link+sitemap+preview app aggiornati. Consolidamento completo.
+
+## [2026-06-12] task | Nemi: rimossa tabella confronto; PWA opzione A (tasto→app)+manifest servito; GEO LocalBusiness JSON-LD; /negozi: justify+accent primary color+Prenota Ora
