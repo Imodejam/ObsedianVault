@@ -755,3 +755,5 @@ File chiave aggiornati:
 ## [2026-06-12] task | Nemi: rimossa tabella confronto; PWA opzione A (tasto→app)+manifest servito; GEO LocalBusiness JSON-LD; /negozi: justify+accent primary color+Prenota Ora
 
 ## [2026-06-12] task | /negozi: icone (pin indirizzo+mappa) e tasti Menu/Recensioni ora colore primario shop (Accent), non più rosso/blu
+
+## [2026-06-12] task | Book: logo cliccabile→home negozio; Menu page: header rimosso + nome hero linka home
