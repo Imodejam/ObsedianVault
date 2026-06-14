@@ -10,3 +10,9 @@ CORREZIONE: ad OGNI modifica di un CSS della Vetrina, BUMPARE la versione nel <l
 ## [2026-06-12] Task eseguito ma NON tracciato nel vault
 ERRORE: gli articoli del blog Puntify (10 post in puntify.blog_posts, richiesti da Stefano il 2026-06-11) sono stati scritti e pubblicati, ma il task NON è stato registrato nel vault (niente working-context, daily, log). Alla sua domanda "hai finito?" non avevo traccia → ho dovuto ricostruire dallo stato del DB. Stefano (msg 3518): "come ti ho sempre detto tutto deve essere tracciato nel vault".
 CORREZIONE: ogni task — anche se completato in fretta — va loggato in tempo reale: working-context.md (in corso) + daily + wiki/log.md a fine. Vale anche per lavori "creativi"/contenuti, non solo codice. Niente lavoro silenzioso fuori dal vault.
+
+## [2026-06-14] Bug script normalizzazione resx → quasi-perdita testi IT (0 impatto live)
+- BUG: regex-replace su SharedResource.resx con `body=m.group(2)` che puntava al gruppo ATTRS (named group conta come gruppo) non al body → ogni <value> IT sovrascritto. 2500 nodi corrotti su disco.
+- IMPATTO: ZERO live (mai ricompilato col file rotto).
+- RECOVERY: estratti testi originali dal binario .resources compilato pre-bug (mini-tool .NET ResourceReader→JSON) + ricostruzione resx + normalizzatore corretto. EN intatto; Home_/Faq_ stanno in it.resx.
+- LEZIONE: mai regex-replace strutturale di massa su XML senza `cp .bak` prima; usare parser XML che tocca solo i .text; attenzione agli indici quando si mischiano gruppi named/positional; il binario .resources è una rete di recupero.
