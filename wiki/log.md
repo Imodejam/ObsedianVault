@@ -824,3 +824,5 @@ File chiave aggiornati:
 ## [2026-06-17] task | Vetrina officina Portuense: descrizione shop assente -> generata e salvata in puntify.shops.description (rendering sotto mappa gia esistente, mostrava nulla per campo vuoto). Editabile da gestionale merchant.
 
 ## [2026-06-17] task | Vetrina: fix definitivo tasto Recensioni (rimandava a /it). Causa: enhanced-nav Blazor (handler xi su document in BUBBLE) risolveva href="#recensioni" sul base href -> / -> redirect locale /it. Fix: listener click in CAPTURE phase in App.razor + preventDefault + stopImmediatePropagation (precede xi) -> scrollToHash fluido.
+
+## [2026-06-17] task | Vetrina tasto Recensioni RISOLTO (verificato con Playwright headless su URL pubblico). Vera causa: <base href="/"> faceva risolvere href="#recensioni" contro / -> /#recensioni -> redirect locale /it. Fix: href con path completo (@LangPrefix/negozi/@Slug#recensioni) + data-enhance-nav=false + scroll-margin-top:90px sulla sezione + replaceState con url.pathname (non solo hash, altrimenti base lo rendeva /#sezione). Risultato: scroll fluido alla sezione, URL corretto.
