@@ -816,3 +816,5 @@ File chiave aggiornati:
 ## [2026-06-16] task | Blog: titolo "lampeggiava e poi spariva al popolarsi delle card" → l'hero usava animate-on-scroll opacity-0 (fade-in) che veniva resettato al render delle card. Reso STATICO badge+H1+sottotitolo (rimosse classi animate-on-scroll/opacity-0). Commit 76b5b80 master.
 
 ## [2026-06-16] task | Demo "Puntify Officina" creata su Officina Auto Service (cat 25): 6 servizi, 2 operatori, disponibilita Lun-Sab, 5 appuntamenti, 3+3 recensioni. Script /tmp/officina_demo.sql idempotente.
+
+## [2026-06-17] task | Vetrina cat.puntify.it: fix scroll bottone Recensioni su pagina negozio (smooth scroll con offset header, bypass enhanced-nav Blazor in App.razor)
