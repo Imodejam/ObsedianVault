@@ -843,3 +843,5 @@ File chiave aggiornati:
 ## [2026-06-17] task | Installato plugin Claude Code "frontend-design" (marketplace anthropics/claude-code) per migliorare il redesign. Regole outreach: avvisare Stefano prima di ogni invio; orario invio ottimale B2B (Mar-Gio 9:30-11:00 IT, scaglionato). Catalogo servizi+prezzi aggiunto a tutte 32 bozze. Bozze 1-2 approvate.
 
 ## [2026-06-17] task | Vetrina officine: case study REDESIGN totale con skill frontend-design — sezione dark editorial (serif Fraunces, numero hero gradiente+glow, card glass, atmosfera gradienti+grana+griglia, ledger). Live 10 lingue. Installati plugin Claude Code frontend-design + ui-ux-pro-max. Outreach: bozze 1-2 approvate, presentate per intero una alla volta.
+
+## [2026-06-17] task | Vetrina: logo header bianco SOLO su pagine shop /negozi/{slug} (IsShopPage in Header), rosso altrove (fix: prima era globale). Hero settori ridisegnato chiaro-premium (serif Fraunces, sfondo micro-texture+gradiente, cornice img) come campione esercizio "resto pagina non dark". NB: questi cambi sono su dev/cat, NON ancora committati (prod ha ancora logo bianco globale fino a nuovo commit+deploy).
