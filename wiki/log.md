@@ -820,3 +820,5 @@ File chiave aggiornati:
 ## [2026-06-17] task | Vetrina cat.puntify.it: fix scroll bottone Recensioni su pagina negozio (smooth scroll con offset header, bypass enhanced-nav Blazor in App.razor)
 
 ## [2026-06-17] task | Vetrina pagina negozio (cat.puntify.it): redesign sezione recensioni (media+stelle, voci Ambiente/Pulizia/Staff aggregate, distribuzione voti, badge verificata; aggregati su ReviewsSummaryDto+server), label Menu->Servizi se shop a servizi (IsServiceBased), logo header bianco in cima/rosso allo scroll, fix orari apertura affianco mappa (bug pre-esistente: filtro ServiceId==null generava query PostgREST rotta PGRST100 -> ora null filtrati in memoria + fallback orari per-operatore). Traduzioni 10 lingue.
+
+## [2026-06-17] task | Vetrina officina Portuense: descrizione shop assente -> generata e salvata in puntify.shops.description (rendering sotto mappa gia esistente, mostrava nulla per campo vuoto). Editabile da gestionale merchant.
