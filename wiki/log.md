@@ -835,3 +835,5 @@ File chiave aggiornati:
 ## [2026-06-17] task | Vetrina: case study risparmio Nemi su /settori/autofficine (IT live), spiega ROI ~8000EUR/anno + vantaggi. Prezzi Nemi corretti a 58/98/178. Traduzioni 9 lingue da fare dopo OK Stefano.
 
 ## [2026-06-17] task | Case study autofficine COMPLETO e live: sezione su /settori/autofficine (10 lingue, sfondo distintivo #FFF7F7, valori riquadro rosso a destra). Spiega ROI ~8000EUR/anno + vantaggi. Traduzioni e ritocchi grafici delegati a subagent (nuova modalita orchestrazione). Email test Resend da sales@puntify.it OK; CRM.xlsx (32 contatti) accessibile via gog.
+
+## [2026-06-17] decision | Avviata macchina marketing/sales semi-autonoma Puntify: agent org (Lead Hunter, Copywriter, Sender gated, Reply Monitor) orchestrati da Claude. Gate fisso: invio email solo dopo approvazione Stefano. Lanciati Copywriter (32 bozze) + Lead Hunter (nuovi lead). Vedi memory project_puntify_sales_machine.
