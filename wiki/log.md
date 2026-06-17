@@ -822,3 +822,5 @@ File chiave aggiornati:
 ## [2026-06-17] task | Vetrina pagina negozio (cat.puntify.it): redesign sezione recensioni (media+stelle, voci Ambiente/Pulizia/Staff aggregate, distribuzione voti, badge verificata; aggregati su ReviewsSummaryDto+server), label Menu->Servizi se shop a servizi (IsServiceBased), logo header bianco in cima/rosso allo scroll, fix orari apertura affianco mappa (bug pre-esistente: filtro ServiceId==null generava query PostgREST rotta PGRST100 -> ora null filtrati in memoria + fallback orari per-operatore). Traduzioni 10 lingue.
 
 ## [2026-06-17] task | Vetrina officina Portuense: descrizione shop assente -> generata e salvata in puntify.shops.description (rendering sotto mappa gia esistente, mostrava nulla per campo vuoto). Editabile da gestionale merchant.
+
+## [2026-06-17] task | Vetrina: fix definitivo tasto Recensioni (rimandava a /it). Causa: enhanced-nav Blazor (handler xi su document in BUBBLE) risolveva href="#recensioni" sul base href -> / -> redirect locale /it. Fix: listener click in CAPTURE phase in App.razor + preventDefault + stopImmediatePropagation (precede xi) -> scrollToHash fluido.
