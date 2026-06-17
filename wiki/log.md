@@ -833,3 +833,5 @@ File chiave aggiornati:
 
 ## [2026-06-17] task | gog: autorizzato account alfredopenbotti@gmail.com per claudebot (Gmail/Calendar/Drive/...). Riusato client OAuth esistente, flow --remote --step 1/2 con timeout 60m, keyring file backend con GOG_KEYRING_PASSWORD in ~/.bashrc. Verificato con chiamata Gmail reale.
 ## [2026-06-17] task | Vetrina: case study risparmio Nemi su /settori/autofficine (IT live), spiega ROI ~8000EUR/anno + vantaggi. Prezzi Nemi corretti a 58/98/178. Traduzioni 9 lingue da fare dopo OK Stefano.
+
+## [2026-06-17] task | Case study autofficine COMPLETO e live: sezione su /settori/autofficine (10 lingue, sfondo distintivo #FFF7F7, valori riquadro rosso a destra). Spiega ROI ~8000EUR/anno + vantaggi. Traduzioni e ritocchi grafici delegati a subagent (nuova modalita orchestrazione). Email test Resend da sales@puntify.it OK; CRM.xlsx (32 contatti) accessibile via gog.
