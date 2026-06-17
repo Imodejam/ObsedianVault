@@ -1,3 +1,3 @@
-# working-context (test openclaw)
+# working-context (OpenClaw)
 
-Accesso vault verificato 2026-06-17T21:11:38Z
+Accesso vault attivo. Gestito da OpenClaw secondo le regole condivise.
