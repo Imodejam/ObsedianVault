@@ -16,3 +16,7 @@ CORREZIONE: ogni task — anche se completato in fretta — va loggato in tempo 
 - IMPATTO: ZERO live (mai ricompilato col file rotto).
 - RECOVERY: estratti testi originali dal binario .resources compilato pre-bug (mini-tool .NET ResourceReader→JSON) + ricostruzione resx + normalizzatore corretto. EN intatto; Home_/Faq_ stanno in it.resx.
 - LEZIONE: mai regex-replace strutturale di massa su XML senza `cp .bak` prima; usare parser XML che tocca solo i .text; attenzione agli indici quando si mischiano gruppi named/positional; il binario .resources è una rete di recupero.
+
+## [2026-06-18] Autoresponder email — tono sbagliato
+Per le risposte automatiche (info@/sales@) avevo scritto in tono personale, firmando "Stefano Gitto" e promettendo "ti rispondo personalmente entro poche ore".
+Correzione Stefano: una risposta automatica deve essere **impersonale** (non firmata da una persona, niente promesse personali) ma scritta in **prima persona plurale** — "è un team che risponde": "Abbiamo ricevuto", "ti ricontatteremo", "il team Puntify". Inoltre sales@ non deve assumere che il contatto cerchi solo Nemi.
