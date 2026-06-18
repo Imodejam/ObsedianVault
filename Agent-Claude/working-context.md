@@ -15,9 +15,12 @@ Macchina marketing/sales avviata + redesign Vetrina in corso. Tutto su cat/dev, 
 - Pagina Prezzi: redesign agent (scoped pz-, una fascia scura su Nemi) — usa ancora Fraunces, da allineare al font scelto.
 - Plugin Claude Code installati: frontend-design, ui-ux-pro-max.
 
-### IN CORSO (2026-06-18 mattina)
-- **Case study scale-out**: Stefano ha dato OK formato ("la 1"). Genero case study per i 62 settori rimanenti (4 già fatti: autofficine, parrucchieri, ristoranti, centri-estetici). 36 chiavi × 9 lingue (base IT `SharedResource.resx` + en,es,pt,fr,ar,hi,bn,zh; it.resx NON usato per queste chiavi → fallback su base). Workspace: /tmp/casegen/ (BRIEF.md, template.json, prefixmap.json, batches.json, merge.py). 21 agent batch da 3 settori, ognuno scrive /tmp/casegen/<Prefix>.json; poi merge.py inietta in resx + aggiorna dict CaseStudyKeyPrefix in Settori.razor. Prefisso = suffisso Settore_X + "_Case".
-- **Email bozza 4**: Stefano ha approvato ("la bozza email 4 va bene"). DA GESTIRE invio (gate orario Mar-Gio 9:30-11:00, via Resend sales@puntify.it) — confermare con Stefano se inviare il batch ora.
+### FATTO (2026-06-18 mattina)
+- **Case study scale-out COMPLETO**: 62 settori rimanenti generati (66 totali). 36 chiavi × 9 lingue (base IT + en,es,pt,fr,ar,hi,bn,zh) = 2.232 chiavi/lingua. 21 agent batch → /tmp/casegen → merge.py valida+inietta resx + dict CaseStudyKeyPrefix. Build OK, smoke test multi-lingua HTTP 200. Commit+push master **1c0d77a** (deploy GitHub). Backup resx in /tmp/casegen/backup_resx/.
+
+### IN CORSO / DA GESTIRE
+- **Email bozza 4**: Stefano ha approvato ("la bozza email 4 va bene"). DA GESTIRE invio (gate orario Mar-Gio 9:30-11:00, via Resend sales@puntify.it) — confermare con Stefano se inviare il batch (1-4) ora.
+- **Autoresponder info@**: fornito testo IT a Stefano. In attesa se vuole anche EN.
 
 ### IN ATTESA DI STEFANO
 1. Scelta font (Hanken vs Schibsted Grotesk vs Sora).
