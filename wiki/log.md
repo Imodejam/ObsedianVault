@@ -851,3 +851,5 @@ File chiave aggiornati:
 ## [2026-06-17] task | LEAD notturno FINALE: ondata 2 (Ostia/litorale 17 + periferie estreme 20) -> +37. Totale notte +120 nuovi lead automotive. CRM da 45 a 165 contatti (65 con email, 55 solo telefono; 45 Alta priorità). Copertura: tutte macro-zone Roma + hinterland + litorale + periferie. Upload Drive verificato (165). Riepilogo in /home/claudebot/marketing/leads_added_summary.md. Stop caccia (oltre = duplicati).
 
 ## [2026-06-18] task | Vetrina: fix bug navigazione+scroll+burger. Causa: enhanced navigation Blazor (pagine static SSR + Header interactive island) -> scroll incoerente e burger flaky. Fix: data-enhance-nav="false" sul <body> in App.razor -> caricamenti pieni. Testato con Playwright: nav full-load + scroll reset a 0 + burger apre. Font scelto da Stefano: Hanken Grotesk (opzione 1), applicato anche su Prezzi. Prezzi redesign mostrato (in attesa feedback).
+
+## [2026-06-18] task | Vetrina commit+push master 7b9535a (deploy da GitHub): fix nav/scroll/burger (data-enhance-nav=false), redesign case study+Prezzi, logo shop-only, fix overflow mobile, font Hanken. Build pulita, no segreti, no attribuzione.
