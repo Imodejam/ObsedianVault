@@ -897,3 +897,5 @@ File chiave aggiornati:
 ## [2026-06-19] task | Vetrina settori: aggiunto padding-top (1.5rem) al titolo nelle card con foto (.bkg-feature-card--media .bkg-feature-title) — il titolo era attaccato alla foto. prenotazioni.css ?v bump → 20260619b. Build ok, restart, verificato live.
 
 ## [2026-06-19] task | Home (Home.razor) sezione "Una piattaforma, tutti i tuoi strumenti": aggiunte foto in cima alle 5 card prodotto (fidelizzazione/prenotazioni/menu/nemi/social → service-*.webp), foto al posto dell'icona, contenuto in wrapper padded. Build ok, restart, verificato live (5 immagini).
+
+## [2026-06-19] task | Puntify Vetrina: commit 31efea6 pushato su master (Imodejam/Puntify) — lavoro di oggi (autofficine 9 lingue, foto servizi settori+home, hero, padding, barra install cookie). Niente attribution Claude. Review diff pre-commit ok.
