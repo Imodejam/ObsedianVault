@@ -879,3 +879,5 @@ File chiave aggiornati:
 ## [2026-06-19] task | Outreach Puntify: primo batch MILANO pronto (26 officine email) dal Catalogo Italia. Copy+scoring nel CRM. Bozze in /home/claudebot/marketing/milano_drafts.json. IN ATTESA approvazione Stefano prima dell'invio.
 
 ## [2026-06-19] decision | Template outreach OFFICINE definitivo (Stefano): oggetto "Meno telefono, più officina. (Un'idea per la vostra attività a {zona})" + 3 blocchi servizi scannabili. Salvato in puntify-template-approccio-esercenti.md. 26 bozze Milano rigenerate.
+
+## [2026-06-19] task | Outreach Puntify: INVIATE 26/26 email batch MILANO via Resend (sales@puntify.it), 0 errori. CRM "Stato invio" aggiornato. Log: sent_log_2026-06-19_milano.json.
