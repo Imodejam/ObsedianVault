@@ -891,3 +891,5 @@ File chiave aggiornati:
 ## [2026-06-19] task | Pagina autofficine: sostituita foto hero (settore-autofficine-hero.webp) + rimosse icone dalle card servizi quando c'è la foto (icona renderizzata solo se svc.Img==null) → solo autofficine, altri settori invariati. Build ok, restart, verificato live cat:8003.
 
 ## [2026-06-19] decision | Oggetto fisso mail autofficine aggiornato (Stefano): "Meno telefono, più officina. Scopri Puntify." (senza zona) per tutte le prossime mail del settore.
+
+## [2026-06-19] task | Vetrina settori: foto card servizi estese a TUTTI i 66 settori via mappa centrale ServiceImgByLink (prenotazioni/fidelizzazione/nemi/social/menu/ordinazioni → service-*.webp). Icone mostrate solo se nessuna foto. Build ok, restart, verificato live (ristoranti/lidi/parrucchieri/autofficine).
