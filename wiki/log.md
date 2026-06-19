@@ -875,3 +875,5 @@ File chiave aggiornati:
 ## [2026-06-19] task | Vetrina Home: foto profilo Nemi nel banner promo "Prova Nemi" (Home.razor) — avatar tondo 76px + pallino verde online al posto dell'icona telefono. Verificato desktop+mobile (Playwright). Commit 8e1ecd0. Stefano: "poi vediamo nelle altre" (Prezzi/pagina Nemi in sospeso).
 
 ## [2026-06-19] task | Catalogo officine Italia nel CRM Puntify: 8.431 officine/gommisti (OSM Overpass) caricate in foglio "Catalogo Italia" di CRM.xlsx su Drive; email 1.210 (680 OSM + 530 scraping siti), tel 2.372. Foglio CRM originale (165 lead Roma) intatto.
+
+## [2026-06-19] task | Outreach Puntify: primo batch MILANO pronto (26 officine email) dal Catalogo Italia. Copy+scoring nel CRM. Bozze in /home/claudebot/marketing/milano_drafts.json. IN ATTESA approvazione Stefano prima dell'invio.

@@ -1,12 +1,15 @@
 # Working context
 
 ## Ora
-Catalogo autofficine Italia caricato nel CRM Puntify (Drive). Phase 1+2 completate.
+Puntify outreach — trovare clienti. Catalogo Italia caricato (8.431 officine). Primo batch Milano pronto.
 
 ## Stato
-- CRM.xlsx su Drive aggiornato: foglio "Catalogo Italia" = 8.431 officine IT, 1.210 con email, 2.372 con tel.
-- Foglio "CRM" (165 lead Roma) intatto.
-- Fonte: OSM Overpass + scraping email dai siti.
+- CRM.xlsx (Drive id 10kEIoAT9CsHQS_xre71k8ibODrXjX939) foglio "Catalogo Italia" = 8.431 officine, 1.210 con email.
+- Batch MILANO: 26 bozze in /home/claudebot/marketing/milano_drafts.json, copy+scoring nel CRM (colonne 12-19).
+- IN ATTESA approvazione Stefano su Telegram per inviare (Resend, sales@puntify.it, scaglionato).
+
+## Regola rinforzata (2026-06-19)
+Aggiornare il vault SU OGNI richiesta di Stefano.
 
 ## Prossimo passo
-Stefano deve scegliere zona/regione del primo batch da arricchire (copy+scoring) → approvazione → invio gated via Resend.
+Alla conferma di Stefano: inviare batch Milano scaglionato + aggiornare colonna Stato invio. Poi nuove zone.
