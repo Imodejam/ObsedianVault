@@ -877,3 +877,5 @@ File chiave aggiornati:
 ## [2026-06-19] task | Catalogo officine Italia nel CRM Puntify: 8.431 officine/gommisti (OSM Overpass) caricate in foglio "Catalogo Italia" di CRM.xlsx su Drive; email 1.210 (680 OSM + 530 scraping siti), tel 2.372. Foglio CRM originale (165 lead Roma) intatto.
 
 ## [2026-06-19] task | Outreach Puntify: primo batch MILANO pronto (26 officine email) dal Catalogo Italia. Copy+scoring nel CRM. Bozze in /home/claudebot/marketing/milano_drafts.json. IN ATTESA approvazione Stefano prima dell'invio.
+
+## [2026-06-19] decision | Template outreach OFFICINE definitivo (Stefano): oggetto "Meno telefono, più officina. (Un'idea per la vostra attività a {zona})" + 3 blocchi servizi scannabili. Salvato in puntify-template-approccio-esercenti.md. 26 bozze Milano rigenerate.

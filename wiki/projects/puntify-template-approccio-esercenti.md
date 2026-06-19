@@ -111,3 +111,35 @@ Alfred
 - [ ] Risposta (sì, no, forse)
 - [ ] Prossimo step (demo, follow-up, chiusura)
 - [ ] Data conversione (se attivo)
+
+---
+
+## TEMPLATE OUTREACH OFFICINE — DEFINITIVO (Stefano, 2026-06-19)
+> "usa il seguente template e ricordalo per le officine". Variano SOLO {tipo} e {zona}.
+
+**OGGETTO:** Meno telefono, più officina. (Un'idea per la vostra attività a {zona})
+
+```
+Buongiorno,
+
+sono Stefano Gitto di Puntify. Vi scrivo perché ho visto la vostra attività di {tipo} a {zona} e vorrei proporvi una soluzione per semplificare la gestione degli appuntamenti e ridurre le interruzioni in officina.
+
+Puntify è una piattaforma pensata per le attività italiane che digitalizza l'agenda e azzera le chiamate perse. I servizi più utili per {un gommista / un'officina / una carrozzeria / un centro revisioni} sono:
+
+Prenotazioni online H24: I clienti scelgono servizio, veicolo e fascia oraria in autonomia. Voi ricevete un'agenda già ordinata, senza il continuo viavai di chiamate e WhatsApp.
+
+Nemi, l'assistente telefonico AI: Un assistente virtuale che risponde al telefono al posto vostro 24 ore su 24, fissa gli appuntamenti direttamente in agenda e avvisa il cliente via SMS quando l'auto è pronta.
+
+Promemoria e Fidelizzazione: Il sistema ricorda in automatico le scadenze (revisioni, cambio gomme stagionale) per far tornare i clienti e include una raccolta punti digitale.
+
+L'obiettivo è alleggerire il carico in accettazione e non perdere più clienti al telefono. A questo link potete vedere il caso studio di un'autofficina che, adottando questo approccio, recupera oltre 8.000€ all'anno: https://www.puntify.it/it/settori/autofficine
+
+Se l'idea di liberare tempo vi interessa, sarei felice di mostrarvi la piattaforma in una rapida demo di 15 minuti, senza alcun impegno. Per il lancio offriamo i primi 3 mesi gratuiti tramite il Codice Amico, mentre per i vostri clienti l'app rimarrà sempre gratuita.
+
+Resto a disposizione e vi auguro buon lavoro.
+
+—
+Stefano Gitto · Puntify
+puntify.it · sales@puntify.it
+```
+Note: i 3 lead servizio in grassetto (HTML). Tipo→"di gommista/officina/carrozzeria/centro revisioni"; "per un gommista / un'officina / una carrozzeria / un centro revisioni".
