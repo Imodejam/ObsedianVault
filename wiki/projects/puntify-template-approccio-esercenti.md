@@ -117,7 +117,7 @@ Alfred
 ## TEMPLATE OUTREACH OFFICINE — DEFINITIVO (Stefano, 2026-06-19)
 > "usa il seguente template e ricordalo per le officine". Variano SOLO {tipo} e {zona}.
 
-**OGGETTO:** Meno telefono, più officina. (Un'idea per la vostra attività a {zona})
+**OGGETTO (FISSO per tutte le autofficine, agg. 2026-06-19):** Meno telefono, più officina. Scopri Puntify.
 
 ```
 Buongiorno,
