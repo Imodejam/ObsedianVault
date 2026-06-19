@@ -883,3 +883,5 @@ File chiave aggiornati:
 ## [2026-06-19] task | Outreach Puntify: INVIATE 26/26 email batch MILANO via Resend (sales@puntify.it), 0 errori. CRM "Stato invio" aggiornato. Log: sent_log_2026-06-19_milano.json.
 
 ## [2026-06-19] task | Pagina settore autofficine (Settori.razor + resx): applicate 4 migliorie (refuso è, Nemi telefono, CTA→/demo?settore precompilato, picco gomme stagionale) in tutte le 9 lingue. Build ok, puntify-vetrina riavviato, verificato live cat:8003. NB: cambio CTA template-wide (~70 settori).
+
+## [2026-06-19] task | Pagina autofficine: aggiunte 4 immagini WebP (appuntamenti/fidelity/nemi/social) alle card della sezione servizi, SOLO autofficine (campo Img opzionale in SecService). CSS .bkg-feature-card--media + bump ?v. Build ok, restart, verificato live cat:8003, nessuna regressione altri settori.
