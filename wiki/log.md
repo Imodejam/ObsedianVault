@@ -887,3 +887,5 @@ File chiave aggiornati:
 ## [2026-06-19] task | Pagina autofficine: aggiunte 4 immagini WebP (appuntamenti/fidelity/nemi/social) alle card della sezione servizi, SOLO autofficine (campo Img opzionale in SecService). CSS .bkg-feature-card--media + bump ?v. Build ok, restart, verificato live cat:8003, nessuna regressione altri settori.
 
 ## [2026-06-19] task | Vetrina: barra "Installa l'app Puntify" ora persistente alla chiusura via cookie (puntify_install_dismissed, 1 anno, SameSite=Lax). Modifiche in wwwroot/js/pwa-install.js. Build ok, restart, verificato Playwright (chiudi→reload resta chiusa; sessione pulita ricompare).
+
+## [2026-06-19] task | Pagina autofficine: sostituita foto hero (settore-autofficine-hero.webp) + rimosse icone dalle card servizi quando c'è la foto (icona renderizzata solo se svc.Img==null) → solo autofficine, altri settori invariati. Build ok, restart, verificato live cat:8003.
