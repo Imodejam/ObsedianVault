@@ -893,3 +893,5 @@ File chiave aggiornati:
 ## [2026-06-19] decision | Oggetto fisso mail autofficine aggiornato (Stefano): "Meno telefono, più officina. Scopri Puntify." (senza zona) per tutte le prossime mail del settore.
 
 ## [2026-06-19] task | Vetrina settori: foto card servizi estese a TUTTI i 66 settori via mappa centrale ServiceImgByLink (prenotazioni/fidelizzazione/nemi/social/menu/ordinazioni → service-*.webp). Icone mostrate solo se nessuna foto. Build ok, restart, verificato live (ristoranti/lidi/parrucchieri/autofficine).
+
+## [2026-06-19] task | Vetrina settori: aggiunto padding-top (1.5rem) al titolo nelle card con foto (.bkg-feature-card--media .bkg-feature-title) — il titolo era attaccato alla foto. prenotazioni.css ?v bump → 20260619b. Build ok, restart, verificato live.
