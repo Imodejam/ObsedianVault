@@ -20,3 +20,8 @@ CORREZIONE: ogni task — anche se completato in fretta — va loggato in tempo 
 ## [2026-06-18] Autoresponder email — tono sbagliato
 Per le risposte automatiche (info@/sales@) avevo scritto in tono personale, firmando "Stefano Gitto" e promettendo "ti rispondo personalmente entro poche ore".
 Correzione Stefano: una risposta automatica deve essere **impersonale** (non firmata da una persona, niente promesse personali) ma scritta in **prima persona plurale** — "è un team che risponde": "Abbiamo ricevuto", "ti ricontatteremo", "il team Puntify". Inoltre sales@ non deve assumere che il contatto cerchi solo Nemi.
+
+## [2026-06-19] Outreach Puntify — oggetto e modello email
+- ERRORE: nell'oggetto avevo messo il nome dell'officina ("...per Clerici Auto Milano"). Stefano: NON mettere il nome dell'officina nell'oggetto.
+- ERRORE: il corpo non seguiva il modello canonico. Stefano ha fornito il modello ESATTO da usare (Buongiorno → "sono Stefano Gitto di Puntify, vi scrivo perché [aggancio] e vorrei proporvi..." → domanda personalizzata → paragrafo Puntify catalogo/agenda → bullet Nemi 24/7 → caso studio +8.000€ → demo 15min + 3 mesi gratis Codice Amico + app gratis → "Resto a disposizione..." → firma "— Stefano Gitto · Puntify · puntify.it · sales@puntify.it").
+- CORREZIONE: oggetto fisso senza nome = "Ottimizzazione prenotazioni e assistenza 24/7 per la vostra attività". Variano solo aggancio (tipo+zona) e domanda (per categoria).

@@ -11,3 +11,7 @@
 
 ## Correzioni ricevute
 - **[2026-06-12] Tracciare TUTTO nel vault, sempre.** Avevo scritto 10 articoli per il blog Puntify senza registrare il task nel vault. Stefano: "come ti ho sempre detto tutto deve essere tracciato nel vault". Regola: ogni task (anche contenuti, non solo codice) va loggato in tempo reale in working-context + daily + log. Vedi `Agent-Claude/mistakes.md`.
+
+## [2026-06-19] Preferenze email outreach
+- Oggetto email: MAI il nome dell'officina/cliente.
+- Corpo: usare il modello canonico fornito il 2026-06-19 (vedi [[puntify-template-approccio-esercenti]] / mistakes.md). Personalizzare solo frase di aggancio + domanda.
