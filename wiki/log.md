@@ -895,3 +895,5 @@ File chiave aggiornati:
 ## [2026-06-19] task | Vetrina settori: foto card servizi estese a TUTTI i 66 settori via mappa centrale ServiceImgByLink (prenotazioni/fidelizzazione/nemi/social/menu/ordinazioni → service-*.webp). Icone mostrate solo se nessuna foto. Build ok, restart, verificato live (ristoranti/lidi/parrucchieri/autofficine).
 
 ## [2026-06-19] task | Vetrina settori: aggiunto padding-top (1.5rem) al titolo nelle card con foto (.bkg-feature-card--media .bkg-feature-title) — il titolo era attaccato alla foto. prenotazioni.css ?v bump → 20260619b. Build ok, restart, verificato live.
+
+## [2026-06-19] task | Home (Home.razor) sezione "Una piattaforma, tutti i tuoi strumenti": aggiunte foto in cima alle 5 card prodotto (fidelizzazione/prenotazioni/menu/nemi/social → service-*.webp), foto al posto dell'icona, contenuto in wrapper padded. Build ok, restart, verificato live (5 immagini).
