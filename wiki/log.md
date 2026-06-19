@@ -873,3 +873,5 @@ File chiave aggiornati:
 ## [2026-06-18] task | Vetrina: inserita foto profilo Nemi nella sezione "Nemi al telefono" dei settori (Settori.razor, vale per tutti i 66). Ridisegno layout 2 colonne (testo + foto in card arrotondata con badge flottanti "Chiamata in gestione" / "Prenotazione confermata Oggi 15:30") come da mockup di Stefano. Immagine ottimizzata in wwwroot/images/nemi/ (webp 31KB + jpg 58KB, da PNG 6.6MB). Aggiunte chiavi Settore_NemiTel_Chip* tradotte in 9 lingue. Verificato con Playwright desktop+mobile. Commit 1a208b9.
 
 ## [2026-06-19] task | Vetrina Home: foto profilo Nemi nel banner promo "Prova Nemi" (Home.razor) — avatar tondo 76px + pallino verde online al posto dell'icona telefono. Verificato desktop+mobile (Playwright). Commit 8e1ecd0. Stefano: "poi vediamo nelle altre" (Prezzi/pagina Nemi in sospeso).
+
+## [2026-06-19] task | Catalogo officine Italia nel CRM Puntify: 8.431 officine/gommisti (OSM Overpass) caricate in foglio "Catalogo Italia" di CRM.xlsx su Drive; email 1.210 (680 OSM + 530 scraping siti), tel 2.372. Foglio CRM originale (165 lead Roma) intatto.

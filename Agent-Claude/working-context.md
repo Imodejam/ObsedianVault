@@ -1,35 +1,12 @@
-# Working Context — Claude
+# Working context
 
-## Sessione 2026-06-17/18 — Puntify Vetrina + Sales machine
+## Ora
+Catalogo autofficine Italia caricato nel CRM Puntify (Drive). Phase 1+2 completate.
 
-### Stato (mattina 2026-06-18)
-Macchina marketing/sales avviata + redesign Vetrina in corso. Tutto su cat/dev, NON committato in prod (ultimo commit prod: ac9eebc del 17/6).
+## Stato
+- CRM.xlsx su Drive aggiornato: foglio "Catalogo Italia" = 8.431 officine IT, 1.210 con email, 2.372 con tel.
+- Foglio "CRM" (165 lead Roma) intatto.
+- Fonte: OSM Overpass + scraping email dai siti.
 
-### FATTO
-- LEAD: +120 nuovi lead automotive stanotte → CRM (CRM.xlsx Drive alfredopenbotti, id 10kEIoAT...) da 45 a **165 contatti** (65 con email, 45 Alta prio). Copertura Roma+hinterland+litorale+periferie. Riepilogo: /home/claudebot/marketing/leads_added_summary.md. Backup in /home/claudebot/marketing/backup/.
-- Bozze email: 32 in /home/claudebot/marketing/outreach_drafts.{md,json}. Firma "Stefano Gitto", catalogo servizi+prezzi, no "2 mesi"/"app gratis". Bozze 1-3 approvate; alla 4. GATE: avvisare Stefano prima di OGNI invio; orario Mar-Gio 9:30-11:00; invio via Resend (sales@puntify.it).
-- Case study autofficine: redesign dark editorial (Settori.razor, classi cs-*). Hero settori: chiaro premium (sec-*).
-- Logo header: bianco solo su /negozi/{slug} (IsShopPage).
-- Bug mobile overflow-x: risolto (html/body overflow-x hidden + footer flex-wrap + app.css ?v=20260618a).
-- Font: Fraunces -> Hanken Grotesk (Stefano non gradiva serif).
-- Pagina Prezzi: redesign agent (scoped pz-, una fascia scura su Nemi) — usa ancora Fraunces, da allineare al font scelto.
-- Plugin Claude Code installati: frontend-design, ui-ux-pro-max.
-
-### FATTO (2026-06-18 mattina)
-- **Case study scale-out COMPLETO**: 62 settori rimanenti generati (66 totali). 36 chiavi × 9 lingue (base IT + en,es,pt,fr,ar,hi,bn,zh) = 2.232 chiavi/lingua. 21 agent batch → /tmp/casegen → merge.py valida+inietta resx + dict CaseStudyKeyPrefix. Build OK, smoke test multi-lingua HTTP 200. Commit+push master **1c0d77a** (deploy GitHub). Backup resx in /tmp/casegen/backup_resx/.
-
-### IN CORSO / DA GESTIRE
-- **Email bozza 4**: Stefano ha approvato ("la bozza email 4 va bene"). DA GESTIRE invio (gate orario Mar-Gio 9:30-11:00, via Resend sales@puntify.it) — confermare con Stefano se inviare il batch (1-4) ora.
-- **Autoresponder info@**: fornito testo IT a Stefano. In attesa se vuole anche EN.
-
-### IN ATTESA DI STEFANO
-1. Scelta font (Hanken vs Schibsted Grotesk vs Sora).
-2. Review redesign Prezzi.
-3. Case study dettagliati su TUTTI i settori (come officine) — da impostare, deleghe ad agent.
-4. Review email (alla 4/32).
-5. Commit + deploy prod di tutte le modifiche dev.
-
-### NOTE
-- gog: GOG_KEYRING_PASSWORD in ~/.bashrc; account alfredopenbotti@gmail.com.
-- Test grafici: Playwright headless in /tmp/anchortest/ (chromium in ~/.cache/ms-playwright).
-- Vedi memoria: project_puntify_sales_machine, feedback_delegate_dev_to_agents.
+## Prossimo passo
+Stefano deve scegliere zona/regione del primo batch da arricchire (copy+scoring) → approvazione → invio gated via Resend.
