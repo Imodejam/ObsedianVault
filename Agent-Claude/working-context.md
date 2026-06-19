@@ -1,15 +1,13 @@
 # Working context
 
 ## Ora
-Puntify outreach — trovare clienti. Catalogo Italia caricato (8.431 officine). Primo batch Milano pronto.
+Puntify outreach — batch Milano pronto, FORMATO APPROVATO da Stefano (2026-06-19 "ora va meglio").
 
 ## Stato
-- CRM.xlsx (Drive id 10kEIoAT9CsHQS_xre71k8ibODrXjX939) foglio "Catalogo Italia" = 8.431 officine, 1.210 con email.
-- Batch MILANO: 26 bozze in /home/claudebot/marketing/milano_drafts.json, copy+scoring nel CRM (colonne 12-19).
-- IN ATTESA approvazione Stefano su Telegram per inviare (Resend, sales@puntify.it, scaglionato).
-
-## Regola rinforzata (2026-06-19)
-Aggiornare il vault SU OGNI richiesta di Stefano.
+- 26 bozze Milano su template definitivo officine in /home/claudebot/marketing/milano_drafts.json.
+- Template officine definitivo salvato: wiki/projects/puntify-template-approccio-esercenti.md + memoria progetto.
+- CRM.xlsx (Drive 10kEIoAT9CsHQS_xre71k8ibODrXjX939) foglio "Catalogo Italia" = 8.431 officine, 1.210 email.
+- IN ATTESA conferma esplicita "invia" da Stefano (regola: invio a reali solo dopo OK esplicito; "va meglio" = format ok, non ancora invio).
 
 ## Prossimo passo
-Alla conferma di Stefano: inviare batch Milano scaglionato + aggiornare colonna Stato invio. Poi nuove zone.
+Su "invia": inviare 26 via Resend (sales@puntify.it) scaglionato, aggiornare colonna Stato invio nel CRM. Poi nuove zone (stesso template).
