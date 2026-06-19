@@ -1,13 +1,15 @@
 # Working context
 
 ## Ora
-Puntify outreach — batch Milano pronto, FORMATO APPROVATO da Stefano (2026-06-19 "ora va meglio").
+Puntify: completati invio email Milano + 3 task Vetrina (autofficine testi+immagini, barra install persistente).
 
-## Stato
-- 26 bozze Milano su template definitivo officine in /home/claudebot/marketing/milano_drafts.json.
-- Template officine definitivo salvato: wiki/projects/puntify-template-approccio-esercenti.md + memoria progetto.
-- CRM.xlsx (Drive 10kEIoAT9CsHQS_xre71k8ibODrXjX939) foglio "Catalogo Italia" = 8.431 officine, 1.210 email.
-- IN ATTESA conferma esplicita "invia" da Stefano (regola: invio a reali solo dopo OK esplicito; "va meglio" = format ok, non ancora invio).
+## Fatto oggi (2026-06-19)
+- Catalogo officine Italia (8.431) nel CRM, foglio "Catalogo Italia".
+- Outreach: 26 email batch Milano INVIATE (Resend, sales@puntify.it). Template officine definitivo salvato.
+- Pagina settore autofficine (Settori.razor + resx): 4 migliorie testuali (9 lingue) + 4 immagini WebP card servizi (solo autofficine).
+- Barra "Installa l'app Puntify": chiusura persistente via cookie.
 
-## Prossimo passo
-Su "invia": inviare 26 via Resend (sales@puntify.it) scaglionato, aggiornare colonna Stato invio nel CRM. Poi nuove zone (stesso template).
+## Aperto / prossimi passi
+- DECISIONE Stefano: CTA demo template-wide (~70 settori) o solo autofficine? (link /{lang}/demo?settore={slug} + testo "Vedi Nemi in azione (demo 15 min)")
+- Outreach prossime zone stesso template: Monza 22, Siena 19, Brescia 13, Verona 12, Torino 10...
+- Monitorare risposte alle 26 email Milano.

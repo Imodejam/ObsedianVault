@@ -885,3 +885,5 @@ File chiave aggiornati:
 ## [2026-06-19] task | Pagina settore autofficine (Settori.razor + resx): applicate 4 migliorie (refuso è, Nemi telefono, CTA→/demo?settore precompilato, picco gomme stagionale) in tutte le 9 lingue. Build ok, puntify-vetrina riavviato, verificato live cat:8003. NB: cambio CTA template-wide (~70 settori).
 
 ## [2026-06-19] task | Pagina autofficine: aggiunte 4 immagini WebP (appuntamenti/fidelity/nemi/social) alle card della sezione servizi, SOLO autofficine (campo Img opzionale in SecService). CSS .bkg-feature-card--media + bump ?v. Build ok, restart, verificato live cat:8003, nessuna regressione altri settori.
+
+## [2026-06-19] task | Vetrina: barra "Installa l'app Puntify" ora persistente alla chiusura via cookie (puntify_install_dismissed, 1 anno, SameSite=Lax). Modifiche in wwwroot/js/pwa-install.js. Build ok, restart, verificato Playwright (chiudi→reload resta chiusa; sessione pulita ricompare).
