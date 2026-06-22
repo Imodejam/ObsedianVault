@@ -918,3 +918,4 @@ File chiave aggiornati:
 ## [2026-06-22] note | Piracity CAT: trigger legacy piratopoly su maps blocca UPDATE (prezzi). Fornito a Stefano SQL per trovarlo/correggerlo. Prezzi pronti: Roma/Cosenza 11,99 - Shanghai 14,99
 ## [2026-06-22] note | Chiarito a Stefano: MCP Supabase = progetti hosted supabase.com (Puntify/Matriosca); Piracity CAT self-hosted solo PostgREST CRUD (no DDL). Blocco prezzi = trigger piratopoly, serve DDL via DbGate
 ## [2026-06-22] task | Piracity: box claudebot=pro-open (sudo docker exec ops-postgres). Fixati 2 trigger/func piratopoly in piracity_cat, scritti prezzi mappe (11,99/11,99/14,99). Marketplace popolato
+## [2026-06-22] task | Piracity-web: cover fixate (app-cat) + migration 016 applicata (orders/order_events). Marketplace completo, manca solo Stripe (chiavi+webhook)
