@@ -914,3 +914,4 @@ File chiave aggiornati:
 ## [2026-06-22] task | Piracity-web: marketplace+Stripe+admin costruito (build verificata, attivazione pendente). DB supabase-cat GIÙ (infra) → mappe assenti sul sito
 ## [2026-06-22] note | Piracity: vetrina+PWA puntano al Supabase legacy supabase-cat (dismesso 17/05) → mappe assenti. API CAT corretta = api-cat.piracity.app (db-cat.puntify.it = DbGate). Chieste a Stefano nuove anon+service_role key
 ## [2026-06-22] note | Piracity vetrina: URL Supabase aggiornato a api-cat.piracity.app (regola: vetrina sempre→API). Vecchie chiavi non valide (JWSInvalidSignature), attesa nuove anon+service_role da Stefano
+## [2026-06-22] task | Piracity-web: DB riconnesso (chiavi api-cat inserite, città mostrano mappe). Marketplace vuoto: mappe senza prezzo → attesa importi da Stefano
