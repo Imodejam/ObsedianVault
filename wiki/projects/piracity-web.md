@@ -169,3 +169,27 @@ piracity-web/
 - [[piracity|Piracity (PWA)]]
 - [[piracity-pricing-v1-execution|Pricing V1 — Piano di Esecuzione]]
 - Plan attivo: `piracity-web/docs/superpowers/plans/2026-05-08-piracity-vetrina.md`
+
+## Marketplace + Stripe + Admin (2026-06-22, build subagent)
+Stato: COSTRUITO, non committato, non attivo (mancano chiavi Stripe + migration da applicare).
+
+### Cosa fa
+- `/marketplace` (server, revalidate 60): griglia mappe vendibili (status=published, is_official, price>0) via `fetchSellableMaps()` in `lib/supabase/maps.ts`. Tema luminoso (sand/ink/coral, Fraunces/Jakarta, card rounded-3xl). Empty-state elegante se 0. Banner `?status=success|cancel`. Link in Navbar+Footer (i18n `nav.marketplace`/`footer.marketplace`).
+- Acquisto: `components/marketplace/BuyButton.tsx` (client) → modale email guest → POST `/api/checkout` → redirect a Stripe. Anche dalla pagina dettaglio mappa (se price>0).
+- Checkout `app/api/checkout/route.ts`: valida mappa vendibile (service-role), crea Stripe Checkout Session (price_data dinamico EUR, unit_amount=price*100), inserisce ordine `pending`. Email: loggato→sessione; guest→modale; fallback Stripe la raccoglie e si recupera dal webhook. Senza chiavi Stripe → **503 graceful**.
+- Webhook `app/api/webhooks/stripe/route.ts` (nodejs, raw body, firma `STRIPE_WEBHOOK_SECRET`): completed→paid+payment_intent+paid_at+email; failed/expired; charge.refunded→refunded. Logga OGNI evento in `order_events` (idempotente su `stripe_event_id`).
+
+### DB (FILE, non applicato)
+`supabase/migrations/016_marketplace_orders.sql`: tabelle `piracity.orders` + `piracity.order_events`, indici, RLS abilitata (deny anon, policy SELECT solo role=admin; scritture via service-role che bypassa RLS). Applicare con psql/docker exec/Supabase MCP (schema piracity).
+
+### Admin
+`app/[locale]/admin/`: login (`/api/admin/login` signInWithPassword via @supabase/ssr cookie + check `piracity.users.role='admin'`), `admin/orders` (lista+filtro stato, tutti i campi pagamento, badge), `admin/orders/[id]` (dettaglio + log `order_events`). Pagine server-side `getAdminUser()` → redirect login se non admin. Solo consultazione v1.
+
+### Lib aggiunte
+`lib/supabase/admin.ts` (service-role server-only, schema piracity), `lib/supabase/orders.ts` (fetch map by id + insert + fetch orders/events), `lib/supabase/auth.ts` (ssr cookie client + getSessionUser/isAdminUser/getAdminUser), `lib/stripe/server.ts` (isStripeConfigured + getStripe).
+
+### ENV
+`.env.local`: `SUPABASE_SERVICE_ROLE_KEY` copiato da piracity/.env (server-only, NO NEXT_PUBLIC). Placeholder: `STRIPE_SECRET_KEY`, `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY`, `STRIPE_WEBHOOK_SECRET`.
+
+### Per attivare
+1. Chiavi Stripe da Stefano. 2. Applicare migration 016. 3. Webhook su dashboard Stripe → `https://cat.piracity.app/api/webhooks/stripe` (eventi checkout.session.completed/expired/async_payment_failed, charge.refunded).
