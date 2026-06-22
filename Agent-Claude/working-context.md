@@ -7,13 +7,17 @@ Piracity-web (vetrina): RIPROGETTAZIONE homepage in corso. Stefano vuole pivot d
 1. FOTO: non posso generarle; le passa lui man mano. Costruisco con placeholder eleganti + manifest prompt (docs/image-prompts.md). Slot in /public/assets/photos/ (hero.jpg, step-1..4.jpg, family, audience, experience, tech, events, adults, treasure, finale).
 2. TEMA: home + Navbar + Footer luminosi. Pagine legali/blog restano dark → secondo giro.
 
-### Stato build
-- Subagent in background (agentId a4913af6...) costruisce: 14 sezioni nuove (components/home/landing/), design system luminoso (tailwind: ink/coral/teal/sand + font Fraunces+Plus Jakarta), Figure.tsx placeholder, navbar/footer chiari, i18n 5 lingue, verifica tsc/lint/curl :6010.
-- Tema chiaro ISOLATO (non tocca body globals.css; wrapper bg-sand text-ink sulla home) per non rompere le pagine dark.
+### Stato build — COMPLETATO (in attesa review Stefano)
+- 14 sezioni nuove in components/home/landing/, design system luminoso (tailwind: ink/coral/teal/sand + font Fraunces+Plus Jakarta), Figure.tsx placeholder foto, Navbar/Footer chiari, i18n 5 lingue. tsc+lint puliti, live su dev.
+- Tema chiaro ISOLATO (non tocca body globals.css; wrapper bg-sand text-ink sulla home) → pagine dark intatte.
+- GOTCHA screenshot: le animazioni framer whileInView (Reveal/Stagger in primitives.tsx) NON scattano in screenshot headless full-page → pagina appare vuota. Per gli utenti reali funziona. Per screenshot: bypassare temp `if (reduce)`→`if(reduce||true)` poi ripristinare. Screenshot in /tmp/piracity-shots/.
+- APP URL collegato: CTA "Inizia l'avventura" (Hero+FinalCta) e "Salpa gratis" (Navbar) → https://app-cat.piracity.app/ (target _blank). CtaPrimary/Secondary in primitives.tsx ora gestiscono href esterni (http→<a>).
 
 ## Aperto / prossimi passi
-- Attendere subagent → review output + screenshot :6010 → report a Stefano da rivedere prima di pubblicare.
-- Consegnare a Stefano lista slot foto + cartella per caricamento progressivo.
+- Stefano rivede live: http://piracity-dev-web.duckdns.org/ → applico fix.
+- Foto: Stefano le carica in /public/assets/photos/ (hero, step-1..4, family, experience, tech, events, adults, treasure, finale).jpg. Prompt in docs/image-prompts.md.
+- Da confermare: footer Missioni→#per-chi / Contatti→/partner; CTA "Organizza una missione" + "Vivi la tua prima missione" interne o all'app.
+- NON ancora committato/pubblicato.
 
 ## Contesto precedente (Puntify, in pausa)
 - Outreach Milano 26 email inviate; decisione CTA demo template-wide pendente.

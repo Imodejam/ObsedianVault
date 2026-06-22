@@ -900,3 +900,4 @@ File chiave aggiornati:
 
 ## [2026-06-19] task | Puntify Vetrina: commit 31efea6 pushato su master (Imodejam/Puntify) — lavoro di oggi (autofficine 9 lingue, foto servizi settori+home, hero, padding, barra install cookie). Niente attribution Claude. Review diff pre-commit ok.
 ## [2026-06-22] task | Piracity-web: avviata riprogettazione homepage come landing luminosa familiare (14 sezioni, i18n 5 lingue, build delegato a subagent)
+## [2026-06-22] task | Piracity-web: homepage luminosa completata (14 sezioni, 5 lingue, CTA → app-cat.piracity.app), live su dev, in attesa review Stefano
