@@ -20,9 +20,13 @@ Piracity-web (vetrina): RIPROGETTAZIONE homepage in corso. Stefano vuole pivot d
 - SENZA foto (placeholder residuo): Experience (timeline "Ogni missione è una storia", 3:2) e Treasure ("Alla fine c'è un tesoro", 16:9). In attesa decisione Stefano (usare alternative o 2 foto dedicate).
 - Alternative extra inviate (famiglia/trasformazione/Amici/papà e ragazzi/famiglia colosseo/2 uuid) NON usate, restano nell'inbox telegram.
 
+### Riposizionamento INCLUSIVO — COMPLETATO (2026-06-22)
+- Copy di tutte le sezioni riscritto inclusivo (single/coppie/amici/famiglie/turisti/gruppi) in 5 lingue, parità 131 chiavi, tsc+lint ok, grep frasi vietate = 0. Live su cat.piracity.app.
+- Struttura: WhatIsIt 4 card (+transform), Audience 6 target (solo/couple/friends/family/travel/events), Events 5 card. Family→"trasformazione", Adults→"Non serve essere bambini…". Step "Leggi la pergamena"/"Completa l'avventura".
+
 ## Aperto / prossimi passi
 - Stefano rivede live: https://cat.piracity.app/ → applico fix.
-- Decidere foto per timeline + tesoro.
+- ATTESE 2 foto nuove inclusive da Stefano: HERO gruppo misto (sostituisce hero.png famiglia) + "trasformazione" ciurma epica (sezione family). + timeline e tesoro ancora senza foto.
 - Da confermare: footer Missioni→#per-chi / Contatti→/partner; CTA "Organizza una missione" + "Vivi la tua prima missione" interne o all'app.
 - Possibile ottimizzazione: convertire i PNG (~2MB) in webp per perf.
 - NON ancora committato/pubblicato.

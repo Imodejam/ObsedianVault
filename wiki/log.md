@@ -904,3 +904,4 @@ File chiave aggiornati:
 ## [2026-06-22] note | Piracity-web: URL pubblico dev cambiato → https://cat.piracity.app/ (vecchio duckdns dismesso); app gioco su app-cat.piracity.app
 ## [2026-06-22] task | Piracity-web: integrate 12 foto reali nella homepage (mappate per aspect ratio), aggiunte a Cos'è+Per chi è, step rinominati digitali ×5 lingue; live cat.piracity.app
 ## [2026-06-22] task | Piracity-web: avviato riposizionamento inclusivo copy (tutte sezioni, 5 lingue) da famiglie→pubblico ampio
+## [2026-06-22] task | Piracity-web: riposizionamento inclusivo completato (tutte sezioni, 5 lingue, struttura WhatIsIt 4/Audience 6/Events 5); attese 2 foto nuove (hero gruppo misto + trasformazione)
