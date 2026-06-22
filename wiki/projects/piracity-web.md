@@ -75,6 +75,23 @@ NEXT_PUBLIC_GA4_ID=
 ### Cover images
 Oggi servite da `https://piracity-dev-app.duckdns.org/assets/webp/maps/...` (server PWA). `next.config.mjs > images.remotePatterns` whitelist sia `piracity-dev-app.duckdns.org` sia `supabase-cat.duckdns.org` (per le cover servite direttamente dallo storage Supabase). Quando si passerà a S3/CDN, aggiungere il dominio definitivo.
 
+## Redesign homepage — landing luminosa familiare (2026-06-22, in corso)
+
+Stefano richiede un **pivot del posizionamento della homepage**: da estetica dark/pirata a **landing luminosa premium familiare** (stile Apple per pulizia + Disney per calore, non infantile, non fantasy cupo). Target: famiglie, bambini, gruppi di amici, compleanni/eventi, turisti. Messaggio in 3 secondi: cos'è / per chi è / come si gioca / perché provarlo in famiglia.
+
+### Decisioni concordate
+1. **Foto**: il design vive di foto realistiche premium; Claude non le genera → le fornisce Stefano man mano. Build con placeholder eleganti (`components/home/Figure.tsx`, aspect ratio rigorosi 16:9 / 1:1 / 3:2) + manifest `docs/image-prompts.md` con tutti i prompt. Slot futuri in `/public/assets/photos/` (hero, step-1..4, family, audience, experience, tech, events, adults, treasure, finale).
+2. **Tema**: home + Navbar + Footer luminosi; pagine legali/blog restano dark → secondo giro. Tema chiaro **isolato** (non si tocca `body` di globals.css; wrapper `bg-sand text-ink` sulla home) per non rompere le pagine dark.
+
+### Implementazione
+- Nuovi componenti in `components/home/landing/` (i vecchi restano in repo ma `page.tsx` monta solo i nuovi).
+- Tailwind: aggiunta palette luminosa `ink`/`coral`/`teal`/`sand` (senza rimuovere gold/night). Font nuovi via next/font: `Fraunces` (display emozionale) + `Plus Jakarta Sans`, esposti come CSS var; Cinzel resta per le pagine dark.
+- 14 sezioni: Hero, Cos'è, Come funziona (4 step), Famiglia, Per chi è (5 target), Esperienza (timeline 5 step), Tecnologia, Semplicità/fiducia, Compleanni/Eventi, Adulti, Tesoro, FAQ, CTA finale, Footer riscritto luminoso.
+- i18n: namespace `home` in tutte e 5 le lingue (it/en/es/de/fr).
+- Build delegato a subagent (memoria: delega sviluppo). Verifica tsc/lint/curl :6010.
+
+> Nota copy/dati reali confermati: Piracity È una PWA (FAQ "no app, dal browser"); città Roma/Cosenza/Shanghai; durata da 1-2h a giornata intera.
+
 ## Stato attuale (2026-05-09)
 
 **Sanity rimosso, vetrina collegata al Supabase della PWA.** `npm run build` verde. Le rotte mappa/città sono `ƒ` (server-rendered on demand) con ISR 60s. Smoke test live richiede che la migration 015 sia applicata sul DB prod e che lo script `backfill-marketplace-slugs.ts` sia stato eseguito (i dati con `slug=NULL` non escono nei filtri vetrina).

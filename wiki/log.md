@@ -899,3 +899,4 @@ File chiave aggiornati:
 ## [2026-06-19] task | Home (Home.razor) sezione "Una piattaforma, tutti i tuoi strumenti": aggiunte foto in cima alle 5 card prodotto (fidelizzazione/prenotazioni/menu/nemi/social → service-*.webp), foto al posto dell'icona, contenuto in wrapper padded. Build ok, restart, verificato live (5 immagini).
 
 ## [2026-06-19] task | Puntify Vetrina: commit 31efea6 pushato su master (Imodejam/Puntify) — lavoro di oggi (autofficine 9 lingue, foto servizi settori+home, hero, padding, barra install cookie). Niente attribution Claude. Review diff pre-commit ok.
+## [2026-06-22] task | Piracity-web: avviata riprogettazione homepage come landing luminosa familiare (14 sezioni, i18n 5 lingue, build delegato a subagent)

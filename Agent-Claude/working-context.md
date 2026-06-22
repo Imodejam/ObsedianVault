@@ -1,15 +1,20 @@
 # Working context
 
-## Ora
-Puntify: completati invio email Milano + 3 task Vetrina (autofficine testi+immagini, barra install persistente).
+## Ora (2026-06-22)
+Piracity-web (vetrina): RIPROGETTAZIONE homepage in corso. Stefano vuole pivot da tema dark/pirata a LANDING LUMINOSA familiare (stile Apple pulizia + Disney calore), per famiglie/bambini/amici/compleanni/turisti.
 
-## Fatto oggi (2026-06-19)
-- Catalogo officine Italia (8.431) nel CRM, foglio "Catalogo Italia".
-- Outreach: 26 email batch Milano INVIATE (Resend, sales@puntify.it). Template officine definitivo salvato.
-- Pagina settore autofficine (Settori.razor + resx): 4 migliorie testuali (9 lingue) + 4 immagini WebP card servizi (solo autofficine).
-- Barra "Installa l'app Puntify": chiusura persistente via cookie.
+### Decisioni concordate con Stefano
+1. FOTO: non posso generarle; le passa lui man mano. Costruisco con placeholder eleganti + manifest prompt (docs/image-prompts.md). Slot in /public/assets/photos/ (hero.jpg, step-1..4.jpg, family, audience, experience, tech, events, adults, treasure, finale).
+2. TEMA: home + Navbar + Footer luminosi. Pagine legali/blog restano dark → secondo giro.
+
+### Stato build
+- Subagent in background (agentId a4913af6...) costruisce: 14 sezioni nuove (components/home/landing/), design system luminoso (tailwind: ink/coral/teal/sand + font Fraunces+Plus Jakarta), Figure.tsx placeholder, navbar/footer chiari, i18n 5 lingue, verifica tsc/lint/curl :6010.
+- Tema chiaro ISOLATO (non tocca body globals.css; wrapper bg-sand text-ink sulla home) per non rompere le pagine dark.
 
 ## Aperto / prossimi passi
-- DECISIONE Stefano: CTA demo template-wide (~70 settori) o solo autofficine? (link /{lang}/demo?settore={slug} + testo "Vedi Nemi in azione (demo 15 min)")
-- Outreach prossime zone stesso template: Monza 22, Siena 19, Brescia 13, Verona 12, Torino 10...
-- Monitorare risposte alle 26 email Milano.
+- Attendere subagent → review output + screenshot :6010 → report a Stefano da rivedere prima di pubblicare.
+- Consegnare a Stefano lista slot foto + cartella per caricamento progressivo.
+
+## Contesto precedente (Puntify, in pausa)
+- Outreach Milano 26 email inviate; decisione CTA demo template-wide pendente.
+- Outreach prossime zone: Monza 22, Siena 19, Brescia 13, Verona 12, Torino 10.
