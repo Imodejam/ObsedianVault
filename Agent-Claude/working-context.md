@@ -34,7 +34,7 @@ Analisi (Explore):
 Piano proposto (self-contained vetrina): /marketplace + Stripe Checkout (route handler+service-role) + tabella orders (tracciamento completo) + webhook + /admin/ordini protetto. 4 decisioni inviate: chiavi Stripe test/live; guest-checkout vs login; sblocco entitlement ora/fase2; admin nella vetrina.
 
 ## Aperto / prossimi passi
-- ATTESA Stefano: ok piano marketplace + chiavi Stripe + 4 decisioni.
+- MARKETPLACE: build in corso (subagent). Decisioni Stefano: checkout guest+login, admin supabase user+pwd+role, entitlement FASE 2. Chiavi Stripe da Stefano "dopo". Migration 016 come FILE (non applicata). ATTESA: chiavi Stripe + applicare migration + config webhook su dashboard Stripe (URL cat.piracity.app/api/webhooks/stripe).
 - Stefano rivede live: https://cat.piracity.app/ → applico fix.
 - ATTESE foto da Stefano: HERO gruppo misto + "trasformazione" ciurma epica + 6 foto carosello "Per ogni tipo di ciurma" (audience-solo/couple/friends/family/travel/events) + FINALE (no famiglia) + timeline + tesoro.
 - Da confermare: footer Missioni→#per-chi / Contatti→/partner; CTA "Organizza una missione" + "Vivi la tua prima missione" interne o all'app.
