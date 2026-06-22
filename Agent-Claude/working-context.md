@@ -13,10 +13,18 @@ Piracity-web (vetrina): RIPROGETTAZIONE homepage in corso. Stefano vuole pivot d
 - GOTCHA screenshot: le animazioni framer whileInView (Reveal/Stagger in primitives.tsx) NON scattano in screenshot headless full-page → pagina appare vuota. Per gli utenti reali funziona. Per screenshot: bypassare temp `if (reduce)`→`if(reduce||true)` poi ripristinare. Screenshot in /tmp/piracity-shots/.
 - APP URL collegato: CTA "Inizia l'avventura" (Hero+FinalCta) e "Salpa gratis" (Navbar) → https://app-cat.piracity.app/ (target _blank). CtaPrimary/Secondary in primitives.tsx ora gestiscono href esterni (http→<a>).
 
+### Foto INTEGRATE (2026-06-22)
+- Stefano ha inviato 12 foto numerate (1-12 = numerazione dei suoi 12 prompt) + alternative con nomi. Mappate per aspect ratio (16:9/1:1/3:2 confermano la convenzione) e salvate in public/assets/photos/ come: hero, whatis(=Cos'è 3:2), step-1..4, family, tech, audience, events, adults, finale (.png).
+- Cablati i src in tutte le sezioni Figure. AGGIUNTA foto a Cos'è (WhatIsIt) e Per chi è (Audience) che prima erano senza. next/image le ottimizza (servite via /_next/image, 200 ok).
+- Step "Come si gioca" RINOMINATI digitali in 5 lingue: Segui la bussola digitale / Leggi la pergamena digitale / Completa la missione (+caption allineate a smartphone).
+- SENZA foto (placeholder residuo): Experience (timeline "Ogni missione è una storia", 3:2) e Treasure ("Alla fine c'è un tesoro", 16:9). In attesa decisione Stefano (usare alternative o 2 foto dedicate).
+- Alternative extra inviate (famiglia/trasformazione/Amici/papà e ragazzi/famiglia colosseo/2 uuid) NON usate, restano nell'inbox telegram.
+
 ## Aperto / prossimi passi
 - Stefano rivede live: https://cat.piracity.app/ → applico fix.
-- Foto: Stefano le carica in /public/assets/photos/ (hero, step-1..4, family, experience, tech, events, adults, treasure, finale).jpg. Prompt in docs/image-prompts.md.
+- Decidere foto per timeline + tesoro.
 - Da confermare: footer Missioni→#per-chi / Contatti→/partner; CTA "Organizza una missione" + "Vivi la tua prima missione" interne o all'app.
+- Possibile ottimizzazione: convertire i PNG (~2MB) in webp per perf.
 - NON ancora committato/pubblicato.
 
 ## Contesto precedente (Puntify, in pausa)

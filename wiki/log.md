@@ -902,3 +902,4 @@ File chiave aggiornati:
 ## [2026-06-22] task | Piracity-web: avviata riprogettazione homepage come landing luminosa familiare (14 sezioni, i18n 5 lingue, build delegato a subagent)
 ## [2026-06-22] task | Piracity-web: homepage luminosa completata (14 sezioni, 5 lingue, CTA → app-cat.piracity.app), live su dev, in attesa review Stefano
 ## [2026-06-22] note | Piracity-web: URL pubblico dev cambiato → https://cat.piracity.app/ (vecchio duckdns dismesso); app gioco su app-cat.piracity.app
+## [2026-06-22] task | Piracity-web: integrate 12 foto reali nella homepage (mappate per aspect ratio), aggiunte a Cos'è+Per chi è, step rinominati digitali ×5 lingue; live cat.piracity.app
