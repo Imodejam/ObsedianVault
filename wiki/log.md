@@ -923,3 +923,4 @@ File chiave aggiornati:
 ## [2026-06-22] task | Piracity-web: filtro marketplace stile Airbnb (città + date opzionali per stagionali), client-side, 5 lingue
 ## [2026-06-22] task | Piracity-web: marketplace filtro - calendario range + fix allineamento pannelli + Marketplace primo in header (coral)
 ## [2026-06-22] task | Piracity-web: marketplace - selezione città apre auto il calendario date (flusso Airbnb)
+## [2026-06-22] task | Piracity-web: sezione recensioni su pagina mappa + rimosso Anteprima. Backend reviews già esistente; proposte decisioni email/voti/foto/moderazione
