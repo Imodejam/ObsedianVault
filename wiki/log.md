@@ -927,3 +927,4 @@ File chiave aggiornati:
 ## [2026-06-22] task | Piracity-web: avviata conversione tema luminoso pagine restanti (citta/blog/legali/info) per coerenza UX/UI
 ## [2026-06-22] task | Piracity-web: tutte le pagine vetrina convertite a tema luminoso (coerenza UX/UI). Corretta regressione chiavi i18n nav/footer
 ## [2026-06-22] lint | Piracity-web i18n: ripristinate chiavi nav/footer perse (audience/events/faq/marketplace/missions/contact) in 5 lingue
+## [2026-06-22] task | Piracity-web: scritte Privacy + Termini reali (IT) - T&C con responsabilità gioco interamente sui partecipanti (stile Pokemon Go). Traduzioni 5 lingue in corso
