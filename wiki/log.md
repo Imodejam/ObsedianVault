@@ -916,3 +916,4 @@ File chiave aggiornati:
 ## [2026-06-22] note | Piracity vetrina: URL Supabase aggiornato a api-cat.piracity.app (regola: vetrina sempre→API). Vecchie chiavi non valide (JWSInvalidSignature), attesa nuove anon+service_role da Stefano
 ## [2026-06-22] task | Piracity-web: DB riconnesso (chiavi api-cat inserite, città mostrano mappe). Marketplace vuoto: mappe senza prezzo → attesa importi da Stefano
 ## [2026-06-22] note | Piracity CAT: trigger legacy piratopoly su maps blocca UPDATE (prezzi). Fornito a Stefano SQL per trovarlo/correggerlo. Prezzi pronti: Roma/Cosenza 11,99 - Shanghai 14,99
+## [2026-06-22] note | Chiarito a Stefano: MCP Supabase = progetti hosted supabase.com (Puntify/Matriosca); Piracity CAT self-hosted solo PostgREST CRUD (no DDL). Blocco prezzi = trigger piratopoly, serve DDL via DbGate

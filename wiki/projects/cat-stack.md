@@ -109,3 +109,8 @@ Stack `/root/supabase/docker/` aveva 12 container (gotrue v2.186.0, postgrest v1
 
 ## Gotcha piratopoly leftover #2 (2026-06-22)
 UPDATE su `piracity.maps` rifiutato: `relation "piratopoly.cities" does not exist`. Un trigger/funzione sul DB CAT riferisce ancora il vecchio schema `piratopoly` (stessa famiglia di `nearby_vouchers`→piratopoly.vouchers). Blocca QUALSIASI write su maps (anche prezzi, anche da DbGate). Fix: trovare la funzione (`SELECT ... FROM pg_proc WHERE pg_get_functiondef(oid) ILIKE '%piratopoly%'`) e CREATE OR REPLACE con `piracity`. Richiede accesso SQL al cluster (DbGate o psql su pro-open) — non disponibile da claudebot box (5432 interno, no SSH pro-open).
+
+## Accesso DB dal box claudebot — due canali distinti (2026-06-22)
+- Connettore Supabase (MCP) → progetti HOSTED su supabase.com: `Puntify` (tobsjvyeivxisawospdn, ACTIVE) e `Matriosca` (INACTIVE). Qui SQL/DDL pieni via execute_sql/apply_migration. NON è il cluster CAT.
+- Piracity CAT (self-hosted, api-cat.piracity.app / ops-postgres su pro-open): solo API PostgREST + service-role → CRUD righe, NIENTE DDL/console SQL. 5432 interno, no SSH a pro-open. Per DDL serve DbGate (Stefano) o psql sul cluster.
+→ Il "Puntify" che claudebot gestisce via MCP è hosted supabase.com, diverso istanza dal Piracity CAT. Non sono la stessa istanza dal lato tooling.
