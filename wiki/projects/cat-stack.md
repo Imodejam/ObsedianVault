@@ -114,3 +114,10 @@ UPDATE su `piracity.maps` rifiutato: `relation "piratopoly.cities" does not exis
 - Connettore Supabase (MCP) → progetti HOSTED su supabase.com: `Puntify` (tobsjvyeivxisawospdn, ACTIVE) e `Matriosca` (INACTIVE). Qui SQL/DDL pieni via execute_sql/apply_migration. NON è il cluster CAT.
 - Piracity CAT (self-hosted, api-cat.piracity.app / ops-postgres su pro-open): solo API PostgREST + service-role → CRUD righe, NIENTE DDL/console SQL. 5432 interno, no SSH a pro-open. Per DDL serve DbGate (Stefano) o psql sul cluster.
 → Il "Puntify" che claudebot gestisce via MCP è hosted supabase.com, diverso istanza dal Piracity CAT. Non sono la stessa istanza dal lato tooling.
+
+## CORREZIONE accesso DB (2026-06-22): il box claudebot È pro-open
+La nota precedente ("no DDL su CAT") era SBAGLIATA. Il box di lavoro claudebot (hostname `ubuntu`) È pro-open 212.227.21.104: ops-postgres e tutti i container CAT girano QUI in docker. claudebot non è nel gruppo docker, ma ha sudo → accesso pieno DDL/SQL:
+  `sudo docker exec ops-postgres psql -U postgres -d piracity_cat -c "..."`
+DB nel cluster: `puntify_cat`, `piracity_cat`. Stesso metodo per Puntify (memoria reference_puntify_db "DDL via docker exec" = questo).
+Risolti i 2 leftover piratopoly in piracity_cat: `update_city_maps_count()` (trigger su maps, bloccava ogni write/prezzi) e `update_user_score()` (search_path+UPDATE su piratopoly.users, avrebbe rotto i punteggi) → entrambe CREATE OR REPLACE con `piracity`. 0 funzioni con piratopoly residue.
+Prezzi mappe scritti: Roma 11,99 / Cosenza 11,99 / Shanghai 14,99. Marketplace ora popolato.
