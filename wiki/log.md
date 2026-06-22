@@ -909,3 +909,4 @@ File chiave aggiornati:
 ## [2026-06-22] task | Piracity-web: FAQ +4 voci inclusive + CTA finale 'Raduna la tua ciurma. O parti da solo' (5 lingue)
 ## [2026-06-22] task | Piracity-web: richiesta marketplace+Stripe. Analisi architetturale fatta (Stripe placeholder, no orders, no admin); piano + 4 decisioni inviate a Stefano, in attesa chiavi/ok
 ## [2026-06-22] task | Piracity-web: avviato build marketplace+Stripe+admin (subagent). Decisioni: guest+login, admin supabase user/pwd+role, entitlement fase2, migration 016 come file
+## [2026-06-22] task | Piracity-web: caricate 6 foto carosello audience + foto trasformazione (gruppopirati)
