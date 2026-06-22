@@ -922,3 +922,4 @@ File chiave aggiornati:
 ## [2026-06-22] task | Piracity-web: pagina dettaglio mappa ristrutturata foto-first + tema luminoso (richiesta Stefano)
 ## [2026-06-22] task | Piracity-web: filtro marketplace stile Airbnb (città + date opzionali per stagionali), client-side, 5 lingue
 ## [2026-06-22] task | Piracity-web: marketplace filtro - calendario range + fix allineamento pannelli + Marketplace primo in header (coral)
+## [2026-06-22] task | Piracity-web: marketplace - selezione città apre auto il calendario date (flusso Airbnb)
