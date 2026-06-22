@@ -906,3 +906,4 @@ File chiave aggiornati:
 ## [2026-06-22] task | Piracity-web: avviato riposizionamento inclusivo copy (tutte sezioni, 5 lingue) da famiglie→pubblico ampio
 ## [2026-06-22] task | Piracity-web: riposizionamento inclusivo completato (tutte sezioni, 5 lingue, struttura WhatIsIt 4/Audience 6/Events 5); attese 2 foto nuove (hero gruppo misto + trasformazione)
 ## [2026-06-22] task | Piracity-web: sezione 'Per ogni tipo di ciurma' → slideshow 6 foto (AudienceCarousel) con card sincronizzate; attese 6 foto da Stefano
+## [2026-06-22] task | Piracity-web: FAQ +4 voci inclusive + CTA finale 'Raduna la tua ciurma. O parti da solo' (5 lingue)

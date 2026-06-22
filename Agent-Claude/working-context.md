@@ -26,7 +26,7 @@ Piracity-web (vetrina): RIPROGETTAZIONE homepage in corso. Stefano vuole pivot d
 
 ## Aperto / prossimi passi
 - Stefano rivede live: https://cat.piracity.app/ → applico fix.
-- ATTESE foto da Stefano: HERO gruppo misto + "trasformazione" ciurma epica + 6 foto carosello "Per ogni tipo di ciurma" (audience-solo/couple/friends/family/travel/events) + timeline + tesoro.
+- ATTESE foto da Stefano: HERO gruppo misto + "trasformazione" ciurma epica + 6 foto carosello "Per ogni tipo di ciurma" (audience-solo/couple/friends/family/travel/events) + FINALE (no famiglia) + timeline + tesoro.
 - Da confermare: footer Missioni→#per-chi / Contatti→/partner; CTA "Organizza una missione" + "Vivi la tua prima missione" interne o all'app.
 - Possibile ottimizzazione: convertire i PNG (~2MB) in webp per perf.
 - NON ancora committato/pubblicato.
