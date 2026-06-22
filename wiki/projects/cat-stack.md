@@ -106,3 +106,6 @@ Stack `/root/supabase/docker/` aveva 12 container (gotrue v2.186.0, postgrest v1
 - [[wiki/projects/puntify|Puntify]]
 - [[wiki/projects/piracity|Piracity]]
 - [[wiki/people/stefano|Stefano Gitto]]
+
+## Gotcha piratopoly leftover #2 (2026-06-22)
+UPDATE su `piracity.maps` rifiutato: `relation "piratopoly.cities" does not exist`. Un trigger/funzione sul DB CAT riferisce ancora il vecchio schema `piratopoly` (stessa famiglia di `nearby_vouchers`→piratopoly.vouchers). Blocca QUALSIASI write su maps (anche prezzi, anche da DbGate). Fix: trovare la funzione (`SELECT ... FROM pg_proc WHERE pg_get_functiondef(oid) ILIKE '%piratopoly%'`) e CREATE OR REPLACE con `piracity`. Richiede accesso SQL al cluster (DbGate o psql su pro-open) — non disponibile da claudebot box (5432 interno, no SSH pro-open).
