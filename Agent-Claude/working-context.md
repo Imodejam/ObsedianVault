@@ -24,7 +24,17 @@ Piracity-web (vetrina): RIPROGETTAZIONE homepage in corso. Stefano vuole pivot d
 - Copy di tutte le sezioni riscritto inclusivo (single/coppie/amici/famiglie/turisti/gruppi) in 5 lingue, parità 131 chiavi, tsc+lint ok, grep frasi vietate = 0. Live su cat.piracity.app.
 - Struttura: WhatIsIt 4 card (+transform), Audience 6 target (solo/couple/friends/family/travel/events), Events 5 card. Family→"trasformazione", Adults→"Non serve essere bambini…". Step "Leggi la pergamena"/"Completa l'avventura".
 
+### MARKETPLACE + STRIPE (richiesta 2026-06-22, IN ATTESA DECISIONI)
+Stefano: marketplace nella vetrina con acquisto mappe via Stripe + tracciamento pagamenti per controllo admin.
+Analisi (Explore):
+- Mappe schema `piracity` (supabase-cat.duckdns.org) con `price NUMERIC(8,2)` EUR; vetrina legge anon (read-only). Migration in /home/progetti/piracity/supabase/migrations/.
+- Stripe ABBOZZATO nel backend PWA (piracity/backend/src/services/payment.service.ts: createCheckoutSession+handleWebhook+PLANS) MA nessuna route in app.ts. STRIPE_SECRET_KEY/WEBHOOK_SECRET = PLACEHOLDER → servono chiavi vere.
+- SUPABASE_SERVICE_ROLE_KEY presente (scritture ok). NESSUNA tabella orders/payments. entitlement.store.ts inutilizzato, nessun enforcement ownership.
+- Utenti supabase auth + piracity.users (role). Vetrina anonima. NESSUN admin Piracity.
+Piano proposto (self-contained vetrina): /marketplace + Stripe Checkout (route handler+service-role) + tabella orders (tracciamento completo) + webhook + /admin/ordini protetto. 4 decisioni inviate: chiavi Stripe test/live; guest-checkout vs login; sblocco entitlement ora/fase2; admin nella vetrina.
+
 ## Aperto / prossimi passi
+- ATTESA Stefano: ok piano marketplace + chiavi Stripe + 4 decisioni.
 - Stefano rivede live: https://cat.piracity.app/ → applico fix.
 - ATTESE foto da Stefano: HERO gruppo misto + "trasformazione" ciurma epica + 6 foto carosello "Per ogni tipo di ciurma" (audience-solo/couple/friends/family/travel/events) + FINALE (no famiglia) + timeline + tesoro.
 - Da confermare: footer Missioni→#per-chi / Contatti→/partner; CTA "Organizza una missione" + "Vivi la tua prima missione" interne o all'app.
