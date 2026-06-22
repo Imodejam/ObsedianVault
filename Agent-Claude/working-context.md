@@ -35,8 +35,10 @@ Piano proposto (self-contained vetrina): /marketplace + Stripe Checkout (route h
 
 ## Aperto / prossimi passi
 - MARKETPLACE: BUILD COMPLETATA (subagent). /marketplace (fetchSellableMaps, light theme, BuyButton con modale email guest + login) + /api/checkout (503 graceful senza chiavi) + /api/webhooks/stripe (orders+order_events idempotente) + /admin (login user+pwd+role, orders list+detail+event log) + migration FILE supabase/migrations/016_marketplace_orders.sql (NON applicata). tsc/lint OK, curl /marketplace 5 lingue 200, i18n parita 357 chiavi. .env.local: SERVICE_ROLE copiato da piracity/.env + placeholder Stripe. NON committato. DB irraggiungibile dal tooling al momento (fetch failed anche su home) → sellable count non verificato, empty-state 200. ATTESA per ATTIVARE: chiavi Stripe + applicare migration 016 (psql/docker exec/Supabase MCP, schema piracity) + config webhook dashboard Stripe → https://cat.piracity.app/api/webhooks/stripe.
+- ⚠️ DB supabase-cat.duckdns.org GIÙ (verificato: TLS rc=35, log "fetchSellableMaps failed: fetch failed") → niente mappe su TUTTO il sito (home/città/marketplace empty-state). Infra non codice. Vetrina cat.piracity.app su 200. Chiesto a Stefano se indagare (forse container docker). Sellable maps count non verificabile finché DB giù (ma un curl transitorio aveva mostrato ~8 "Acquista" → mappe vendibili esistono quando il DB è su).
+- FOTO carosello "Per ogni tipo di ciurma" CARICATE: audience-{solo,couple,friends,family,travel,events}.png (verificate visivamente). gruppopirati→family.png (sezione trasformazione).
 - Stefano rivede live: https://cat.piracity.app/ → applico fix.
-- ATTESE foto da Stefano: HERO gruppo misto + "trasformazione" ciurma epica + 6 foto carosello "Per ogni tipo di ciurma" (audience-solo/couple/friends/family/travel/events) + FINALE (no famiglia) + timeline + tesoro.
+- ATTESE foto da Stefano: HERO gruppo misto + FINALE (no famiglia) + timeline + tesoro.
 - Da confermare: footer Missioni→#per-chi / Contatti→/partner; CTA "Organizza una missione" + "Vivi la tua prima missione" interne o all'app.
 - Possibile ottimizzazione: convertire i PNG (~2MB) in webp per perf.
 - NON ancora committato/pubblicato.
