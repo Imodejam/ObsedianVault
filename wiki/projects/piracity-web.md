@@ -7,7 +7,8 @@ Sito vetrina marketing per Piracity. Repository separato dalla PWA di gioco: `/h
 Production-ready Next.js 14 marketing site: dark-mode pirate aesthetic, 5 lingue, Sanity CMS hybrid, tutte le sezioni home + template città/mappa, target Lighthouse 90+/95+/95+/100. Stefano deploya via Vercel UI; gli agenti consegnano scaffold + build verificata.
 
 ## Deployment dev
-- **URL pubblico:** http://piracity-dev-web.duckdns.org/
+- **URL pubblico (dal 2026-06-22):** https://cat.piracity.app/ — sostituisce il vecchio duckdns (ora giù). Stessa app systemd su :6010, solo dominio/nginx nuovo. (App di gioco CAT separata: https://app-cat.piracity.app/)
+- **URL pubblico (storico, dismesso):** http://piracity-dev-web.duckdns.org/
 - **Repo:** `/home/progetti/piracity-web/` (Next.js standalone, no workspaces).
 - **Servizio systemd:** `piracity-web.service` (User=`claudebot`, WorkingDirectory=`/home/progetti/piracity-web`).
 - **Comando:** `npx next dev -p 6010 -H 0.0.0.0`.

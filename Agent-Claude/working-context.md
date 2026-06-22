@@ -14,7 +14,7 @@ Piracity-web (vetrina): RIPROGETTAZIONE homepage in corso. Stefano vuole pivot d
 - APP URL collegato: CTA "Inizia l'avventura" (Hero+FinalCta) e "Salpa gratis" (Navbar) → https://app-cat.piracity.app/ (target _blank). CtaPrimary/Secondary in primitives.tsx ora gestiscono href esterni (http→<a>).
 
 ## Aperto / prossimi passi
-- Stefano rivede live: http://piracity-dev-web.duckdns.org/ → applico fix.
+- Stefano rivede live: https://cat.piracity.app/ → applico fix.
 - Foto: Stefano le carica in /public/assets/photos/ (hero, step-1..4, family, experience, tech, events, adults, treasure, finale).jpg. Prompt in docs/image-prompts.md.
 - Da confermare: footer Missioni→#per-chi / Contatti→/partner; CTA "Organizza una missione" + "Vivi la tua prima missione" interne o all'app.
 - NON ancora committato/pubblicato.
