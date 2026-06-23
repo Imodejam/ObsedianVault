@@ -947,3 +947,4 @@ File chiave aggiornati:
 ## [2026-06-23] note | Piracity: requisito mappe = descrizione pubblica(vetrina)+interna(acquirenti) in 6 lingue + indovinelli 6 lingue. GAP schema (map_descriptions no public/internal+no nl). Piano proposto a Stefano
 ## [2026-06-23] task | Vetrina: fix ::selection (contrasto) + barra nera (body scuro→chiaro)
 ## [2026-06-23] decision | Salvato system prompt storie mappe + requisito desc pubblica/interna 6 lingue (vedi piracity-map-story-prompt.md); attesa OK modello DB
+## [2026-06-23] task | Piracity: migrato schema map_descriptions (kind public/internal + nl); vetrina legge public; bozza pilota Roma inviata per approvazione
