@@ -121,3 +121,6 @@ La nota precedente ("no DDL su CAT") era SBAGLIATA. Il box di lavoro claudebot (
 DB nel cluster: `puntify_cat`, `piracity_cat`. Stesso metodo per Puntify (memoria reference_puntify_db "DDL via docker exec" = questo).
 Risolti i 2 leftover piratopoly in piracity_cat: `update_city_maps_count()` (trigger su maps, bloccava ogni write/prezzi) e `update_user_score()` (search_path+UPDATE su piratopoly.users, avrebbe rotto i punteggi) → entrambe CREATE OR REPLACE con `piracity`. 0 funzioni con piratopoly residue.
 Prezzi mappe scritti: Roma 11,99 / Cosenza 11,99 / Shanghai 14,99. Marketplace ora popolato.
+
+## Gotcha CORS Supabase JS (2026-06-23)
+Il CORS di api-cat.* è gestito da Caddy (/opt/ops/caddy/Caddyfile, blocco @cors_preflight). La lista Access-Control-Allow-Headers deve includere "X-Supabase-Api-Version" (lo invia supabase-js ≥ recenti) altrimenti i client BROWSER ricevono "Failed to fetch" sul login (preflight bloccato). Reload: l'admin API Caddy (:2019) non è raggiungibile → usare `docker restart ops-caddy`.

@@ -937,3 +937,4 @@ File chiave aggiornati:
 ## [2026-06-23] task | Piracity: login app fix (api-cat), logging attività su file, nuovo logo (vetrina+app), 20 lingue complete (RTL ok), Salpa→Biglietti
 ## [2026-06-23] task | Piracity app: 'Failed to fetch' login = stale PWA service worker (cache vecchia supabase-cat). Deployato SW auto-distruttivo su /sw.js
 ## [2026-06-23] decision | Piracity: salvato Template Tappa obbligatorio (wiki/projects/piracity-tappa-template.md) — da usare su ogni richiesta di creare/visualizzare una tappa
+## [2026-06-23] task | Piracity app login RISOLTO: CORS Caddy non ammetteva header X-Supabase-Api-Version (supabase-js). Aggiunto ad Access-Control-Allow-Headers + restart ops-caddy. Login verificato e2e
