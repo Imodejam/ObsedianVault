@@ -35,3 +35,4 @@ _(nessun concetto ancora)_
 
 - [[projects/puntify-funzionalita|Puntify — Resoconto funzionalità]] — mappa completa funzioni (esercente/cliente/vetrina/admin) + 10 claim esterni
 - [[piracity-tappa-template]] — formato obbligatorio per creare/visualizzare una tappa Piracity (tono pirata, struttura a sezioni fisse)
+- [[piracity-map-story-prompt]] — system prompt per le storie delle mappe Piracity (Vetrina + Apertura mappa, stile Disney, nomi realistici, luoghi reali). Da applicare a mappe esistenti e future

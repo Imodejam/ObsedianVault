@@ -943,3 +943,4 @@ File chiave aggiornati:
 ## [2026-06-23] task | Piracity-web: re-theme oro(Disney) + SEO localePrefix always+hreflang 21+canonical + pagina mappa (meta in card, In evidenza coerente, Come funziona timeline, città vicine con foto)
 ## [2026-06-23] task | Piracity APP: aggiunta 6ª lingua olandese (nl) - config+switcher cablati, traduzione 451 chiavi in corso
 ## [2026-06-23] task | Piracity APP: olandese completato (parità 451), app a 6 lingue
+## [2026-06-23] decision | Piracity: salvato System Prompt 'Storie delle Mappe' (wiki/projects/piracity-map-story-prompt.md) — da applicare a tutte le mappe esistenti e future
