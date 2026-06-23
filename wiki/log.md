@@ -974,3 +974,4 @@ File chiave aggiornati:
 ## [2026-06-23] task | Pagina Towns: rinomina + barra ricerca + filtro nazioni (TownsClient)
 ## [2026-06-23] task | /marketplace→/towns (redirect); heading 'Dove sarà la tua prossima avventura?'; barra ricerca grande; townsTitle localizzato
 ## [2026-06-23] task | Foto MinIO+WebP: helper pronto+testato; BLOCCO accesso MinIO (chiave ristretta), chiesto a Stefano bucket/admin
+## [2026-06-23] task | Upload foto long-press (WebP locale) + endpoint + EditablePhoto; photo-fetcher WebP; fix foto città vicine
