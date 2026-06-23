@@ -962,3 +962,4 @@ File chiave aggiornati:
 ## [2026-06-23] task | FASE1: 102 città IT create (geocoding). FASE2 descrizioni IT avviata (2 batch). FASE3 mappe da fare
 ## [2026-06-23] task | Generate descrizioni turistiche IT vetrina Piracity batch6 (15 citta: Trapani, Potenza, Castellammare di Stabia, Afragola, Vittoria, Crotone, Pomezia, Vigevano, Carrara, Caltanissetta, Viareggio, Fano, Savona, Olbia, Legnano) -> /tmp/citydesc-batch6.json (4 sezioni, ~250-310 parole, mappa del tesoro)
 ## [2026-06-23] task | FASE 2 completa: 105 descrizioni città IT generate e inserite
+## [2026-06-23] task | FASE3 pilota Venezia mappa + engine build-maps + fix photo-fetcher (bandiere) + accelerato; batch1 mappe in corso
