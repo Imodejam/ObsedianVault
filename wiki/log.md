@@ -975,3 +975,4 @@ File chiave aggiornati:
 ## [2026-06-23] task | /marketplace→/towns (redirect); heading 'Dove sarà la tua prossima avventura?'; barra ricerca grande; townsTitle localizzato
 ## [2026-06-23] task | Foto MinIO+WebP: helper pronto+testato; BLOCCO accesso MinIO (chiave ristretta), chiesto a Stefano bucket/admin
 ## [2026-06-23] task | Upload foto long-press (WebP locale) + endpoint + EditablePhoto; photo-fetcher WebP; fix foto città vicine
+## [2026-06-23] task | Towns: ordine per più-giocate + infinite scroll 20; foto Alessandria/Afragola impostate (città+mappa)
