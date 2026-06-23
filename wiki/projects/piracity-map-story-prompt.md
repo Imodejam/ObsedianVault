@@ -81,3 +81,12 @@ Ogni mappa deve avere DUE testi, entrambi tradotti nelle **6 lingue dell'app** (
 2. Estendere i CHECK lang a includere `nl` su map_descriptions e stage_content_i18n.
 3. Generazione contenuti via [[piracity-map-story-prompt]]: produrre Vetrina (public) + Apertura (internal) + indovinelli, in 6 lingue, e popolare il DB.
 4. Vetrina: leggere la descrizione `public` (oggi mostra il testo lungo).
+
+## Espansione IA vetrina (Stefano 2026-06-23, msg 4274/4275/4277)
+Architettura contenuti vetrina:
+- **Marketplace** → mostra CITTÀ (card foto); click → scheda città.
+- **Scheda città** (/citta/[slug]): descrizione SEO (city_descriptions, FATTA) + sezione "Attrazioni/Tappe" = cards tappe più note → click → pagina tappa.
+- **Pagina TAPPA** (nuova): header = breadcrumb "Indice › Città › [Città] › [Tappa]" + titolo grande + sottotitolo città + paragrafo intro (sx) | foto grande arrotondata + credito + nastro oro (dx). Corpo = articolo lungo (intro, Storia, Esplorare, Tradizioni, Meraviglia, Visitare, Simbolo, conclusione) stile esempio Fontana di Trevi. + CTA "Gioca la caccia a [città]" + sotto "altre attrazioni della città".
+- **Pagina mappa** (/mappe/...): "da acquisto" → riepilogo tappe + particolarità + anteprima ALCUNE tappe (non tutte) + mappa maplibre con punti SENZA nomi (stile app, tiles.openfreemap.org/styles/liberty).
+- **DB**: contenuti lunghi tappa per lingua → tabella tipo `stage_descriptions(stage_id, lang, intro, body, photo_url, credit)` o stage_content_i18n esteso. Obiettivo: inserendo una mappa+tappe nel DB, le pagine vetrina si popolano da sole.
+- Contenuto articoli: ~21 tappe (Roma5/Cosenza6/Shanghai10) × 6 lingue. IN ATTESA: Stefano sceglie se generare tutto ora o città-per-città (pilota Roma). Generare con stile coerente al prompt storie (ma qui è descrizione enciclopedica/turistica della tappa, non narrativa pirata).
