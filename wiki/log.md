@@ -931,3 +931,4 @@ File chiave aggiornati:
 ## [2026-06-22] task | Piracity-web: Privacy + Termini completi in 5 lingue (responsabilità gioco sui partecipanti). Pagine legali fatte
 ## [2026-06-22] lint | Piracity-web: recuperato namespace i18n 'home' (5 lingue) sparito per errore subagent, da build HMR .next. Backup i18n creato. + disabilitato pinch-zoom
 ## [2026-06-22] task | Piracity-web: menu 'Marketplace'→'Città' senza icona (link /marketplace per acquisto biglietti), 5 lingue
+## [2026-06-23] task | Piracity-web: vetrina a 21 lingue (most spoken) + auto-detect browser + RTL ar/ur + switcher dropdown. Traduzioni UI 16 lingue in corso (4 subagent)
