@@ -964,3 +964,5 @@ File chiave aggiornati:
 ## [2026-06-23] task | FASE 2 completa: 105 descrizioni città IT generate e inserite
 ## [2026-06-23] task | FASE3 pilota Venezia mappa + engine build-maps + fix photo-fetcher (bandiere) + accelerato; batch1 mappe in corso
 ## [2026-06-23] task | FASE3: fix 50 coordinate città (Wikipedia); engine wiki-coords; batch1 11 mappe turistiche; batch2 in corso
+
+## [2026-06-23] task | Piracity maps batch2: contenuti 10 città (Lecce, Matera, Siracusa, Rimini, Bergamo, Padova, Lucca, Trieste, Perugia, Ravenna) -> /tmp/maps-batch2.json (title/attractions/vetrina/apertura, IT, validato)
