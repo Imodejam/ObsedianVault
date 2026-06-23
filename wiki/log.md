@@ -983,3 +983,4 @@ File chiave aggiornati:
 ## [2026-06-23] task | Generati articoli Piracity batch09: 22 tappe (Salerno, Modena, Parma, Ferrara) -> /tmp/stagedescout-batch09.json
 
 ## [2026-06-23] task | Generati articoli Piracity batch22: 22 tappe (Marsala, Massa, Messina, Monza) -> /tmp/stagedescout-batch22.json
+## [2026-06-23] task | Articoli 661/661 tappe generati (5 ondate subagent) + decine foto città/mappa via Telegram
