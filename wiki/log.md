@@ -953,3 +953,4 @@ File chiave aggiornati:
 ## [2026-06-23] note | Nuovo requisito Piracity: descrizione lunga SEO pagina città (tabella city_descriptions, 6 lingue). Sample Roma inviato. In attesa approvazioni Cosenza/Shanghai + city desc
 ## [2026-06-23] task | Cosenza+Shanghai descrizioni 6 lingue popolate; pagina città con descrizione SEO (tabella city_descriptions, UI); indovinelli in localizzazione
 ## [2026-06-23] task | Indovinelli Cosenza(en/es/fr)+Shanghai(nl) inseriti; retry 6 lingue mancanti in corso
+## [2026-06-23] task | Indovinelli Roma+Cosenza 6/6 (Shanghai 5/6); titoli mappa localizzati 6 lingue
