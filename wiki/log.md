@@ -960,3 +960,4 @@ File chiave aggiornati:
 ## [2026-06-23] task | Script foto auto (Wikimedia daemon systemd) + foto tappe visibili + breadcrumb Home + header città con foto
 ## [2026-06-23] task | Terminologia caccia→mappa del tesoro (21 lingue+DB); Home hero foto full-screen
 ## [2026-06-23] task | FASE1: 102 città IT create (geocoding). FASE2 descrizioni IT avviata (2 batch). FASE3 mappe da fare
+## [2026-06-23] task | Generate descrizioni turistiche IT vetrina Piracity batch6 (15 citta: Trapani, Potenza, Castellammare di Stabia, Afragola, Vittoria, Crotone, Pomezia, Vigevano, Carrara, Caltanissetta, Viareggio, Fano, Savona, Olbia, Legnano) -> /tmp/citydesc-batch6.json (4 sezioni, ~250-310 parole, mappa del tesoro)
