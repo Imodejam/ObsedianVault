@@ -954,3 +954,4 @@ File chiave aggiornati:
 ## [2026-06-23] task | Cosenza+Shanghai descrizioni 6 lingue popolate; pagina città con descrizione SEO (tabella city_descriptions, UI); indovinelli in localizzazione
 ## [2026-06-23] task | Indovinelli Cosenza(en/es/fr)+Shanghai(nl) inseriti; retry 6 lingue mancanti in corso
 ## [2026-06-23] task | Indovinelli Roma+Cosenza 6/6 (Shanghai 5/6); titoli mappa localizzati 6 lingue
+## [2026-06-23] task | IA vetrina: creato modello DB (stages.slug + stage_descriptions); feature pagina mappa in corso; struttura pagine da costruire
