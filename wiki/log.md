@@ -948,3 +948,4 @@ File chiave aggiornati:
 ## [2026-06-23] task | Vetrina: fix ::selection (contrasto) + barra nera (body scuro→chiaro)
 ## [2026-06-23] decision | Salvato system prompt storie mappe + requisito desc pubblica/interna 6 lingue (vedi piracity-map-story-prompt.md); attesa OK modello DB
 ## [2026-06-23] task | Piracity: migrato schema map_descriptions (kind public/internal + nl); vetrina legge public; bozza pilota Roma inviata per approvazione
+## [2026-06-23] task | Roma: descrizioni public+internal in 6 lingue POPOLATE; avviata localizzazione 88 indovinelli x5 lingue
