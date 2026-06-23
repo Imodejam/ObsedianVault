@@ -57,3 +57,6 @@ Chiusura 2–3 frasi: significato simbolico e perché nessuna ciurma dovrebbe sa
 - [ ] Info pratiche concrete e utili (non generiche)
 - [ ] Lunghezza coerente (corpo 400–700; checklist Stefano cita 800–3000 — verificare quale vale)
 - [ ] Markdown valido, nessun blocco di codice attorno all'output finale
+
+## Principio design (Stefano, 2026-06-23)
+Le cacce al tesoro / tappe progettate devono essere ADATTE ANCHE A FAMIGLIE CON BAMBINI: difficoltà accessibile, contenuti adatti a tutte le età, storia family-friendly (oltre che a gruppi/adulti). Tenerne conto in ogni mappa/tappa generata.
