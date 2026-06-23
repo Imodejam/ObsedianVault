@@ -968,3 +968,4 @@ File chiave aggiornati:
 ## [2026-06-23] task | Piracity maps batch2: contenuti 10 città (Lecce, Matera, Siracusa, Rimini, Bergamo, Padova, Lucca, Trieste, Perugia, Ravenna) -> /tmp/maps-batch2.json (title/attractions/vetrina/apertura, IT, validato)
 ## [2026-06-23] task | FASE3 milestone: 24 mappe ufficiali (tutte le top turistiche); foto 104/105; descrizioni 105/105
 ## [2026-06-23] task | FASE3: 69 mappe ufficiali (batch1-5). Restano ~34 città (batch6/7)
+## [2026-06-23] task | FASE3: 95 mappe (eliminate 2 difettose); batch8 finale 11 città (incl Catania/Trento)
