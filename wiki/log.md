@@ -972,3 +972,4 @@ File chiave aggiornati:
 ## [2026-06-23] task | FASE3 COMPLETA: 99 mappe ufficiali, 98/105 città. 7 cittadine TODO manuale
 ## [2026-06-23] task | Proofreading descrizioni pubbliche: ripristinati accenti in 16 descrizioni città + fix refuso Pistoia; teaser mappe ok
 ## [2026-06-23] task | Pagina Towns: rinomina + barra ricerca + filtro nazioni (TownsClient)
+## [2026-06-23] task | /marketplace→/towns (redirect); heading 'Dove sarà la tua prossima avventura?'; barra ricerca grande; townsTitle localizzato
