@@ -64,3 +64,20 @@ Vetrina, apertura e (se forniti) tappe devono restare coerenti: stessi nomi/rela
 - [ ] L'apertura si chiude indirizzando alla prima tappa fornita
 - [ ] Tono Disney: avventuroso, caldo, adatto alle famiglie
 - [ ] Solo Markdown, nessun blocco di codice attorno all'output
+
+## Requisito dati (Stefano, 2026-06-23)
+Ogni mappa deve avere DUE testi, entrambi tradotti nelle **6 lingue dell'app** (it/en/es/de/fr/nl):
+- **Pubblica** (vetrina) = la "Vetrina" (teaser breve).
+- **Interna** (per chi ha acquistato) = l'"Apertura mappa" (incipit lungo).
++ tutti gli **indovinelli** della mappa, anch'essi nelle 6 lingue.
+
+### Stato schema DB (piracity_cat) vs requisito — GAP
+- `map_descriptions(map_id, lang, text, source_lang)`: UN solo testo per lingua, **nessuna distinzione pubblica/interna**; CHECK lang = {it,en,es,de,fr} → **manca nl**. (Oggi la vetrina mostra questo testo lungo.)
+- `stage_content_i18n(stage_id, lang, subtitle, narrative, next_hint, briefing_teaser, location_label)`: CHECK lang → **manca nl**.
+- `quiz_pool(stage_id, question, options jsonb, explanation, lang, difficulty, kind, ...)`: già multi-lingua via `lang` (nessun CHECK lang → nl ok). Gli indovinelli SI possono già tradurre per lingua.
+
+### Piano proposto (DA CONFERMARE con Stefano prima di migrare)
+1. `map_descriptions`: aggiungere colonna `kind` ('public'|'internal'); PK (map_id, lang, kind). Vetrina legge `public`, app (acquirenti) legge `internal`.
+2. Estendere i CHECK lang a includere `nl` su map_descriptions e stage_content_i18n.
+3. Generazione contenuti via [[piracity-map-story-prompt]]: produrre Vetrina (public) + Apertura (internal) + indovinelli, in 6 lingue, e popolare il DB.
+4. Vetrina: leggere la descrizione `public` (oggi mostra il testo lungo).

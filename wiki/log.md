@@ -944,3 +944,4 @@ File chiave aggiornati:
 ## [2026-06-23] task | Piracity APP: aggiunta 6ª lingua olandese (nl) - config+switcher cablati, traduzione 451 chiavi in corso
 ## [2026-06-23] task | Piracity APP: olandese completato (parità 451), app a 6 lingue
 ## [2026-06-23] decision | Piracity: salvato System Prompt 'Storie delle Mappe' (wiki/projects/piracity-map-story-prompt.md) — da applicare a tutte le mappe esistenti e future
+## [2026-06-23] note | Piracity: requisito mappe = descrizione pubblica(vetrina)+interna(acquirenti) in 6 lingue + indovinelli 6 lingue. GAP schema (map_descriptions no public/internal+no nl). Piano proposto a Stefano
