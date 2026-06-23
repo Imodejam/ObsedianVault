@@ -957,3 +957,4 @@ File chiave aggiornati:
 ## [2026-06-23] task | IA vetrina: creato modello DB (stages.slug + stage_descriptions); feature pagina mappa in corso; struttura pagine da costruire
 ## [2026-06-23] task | Pagina mappa da-acquisto fatta; struttura IA vetrina (marketplace città, scheda città, pagina tappa, footer geo) in costruzione
 ## [2026-06-23] task | Struttura IA vetrina completata: marketplace città, scheda città+tappe, pagina tappa, footer geo-IP. Contenuti tappe da popolare
+## [2026-06-23] task | Script foto auto (Wikimedia daemon systemd) + foto tappe visibili + breadcrumb Home + header città con foto
