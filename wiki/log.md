@@ -959,3 +959,4 @@ File chiave aggiornati:
 ## [2026-06-23] task | Struttura IA vetrina completata: marketplace città, scheda città+tappe, pagina tappa, footer geo-IP. Contenuti tappe da popolare
 ## [2026-06-23] task | Script foto auto (Wikimedia daemon systemd) + foto tappe visibili + breadcrumb Home + header città con foto
 ## [2026-06-23] task | Terminologia caccia→mappa del tesoro (21 lingue+DB); Home hero foto full-screen
+## [2026-06-23] task | FASE1: 102 città IT create (geocoding). FASE2 descrizioni IT avviata (2 batch). FASE3 mappe da fare
