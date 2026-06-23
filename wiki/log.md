@@ -970,3 +970,4 @@ File chiave aggiornati:
 ## [2026-06-23] task | FASE3: 69 mappe ufficiali (batch1-5). Restano ~34 città (batch6/7)
 ## [2026-06-23] task | FASE3: 95 mappe (eliminate 2 difettose); batch8 finale 11 città (incl Catania/Trento)
 ## [2026-06-23] task | FASE3 COMPLETA: 99 mappe ufficiali, 98/105 città. 7 cittadine TODO manuale
+## [2026-06-23] task | Proofreading descrizioni pubbliche: ripristinati accenti in 16 descrizioni città + fix refuso Pistoia; teaser mappe ok
