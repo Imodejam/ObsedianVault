@@ -976,3 +976,4 @@ File chiave aggiornati:
 ## [2026-06-23] task | Foto MinIO+WebP: helper pronto+testato; BLOCCO accesso MinIO (chiave ristretta), chiesto a Stefano bucket/admin
 ## [2026-06-23] task | Upload foto long-press (WebP locale) + endpoint + EditablePhoto; photo-fetcher WebP; fix foto città vicine
 ## [2026-06-23] task | Towns: ordine per più-giocate + infinite scroll 20; foto Alessandria/Afragola impostate (città+mappa)
+## [2026-06-23] task | FASE3 100%: 105/105 città IT con mappa (Casoria/Vittoria recuperate). milano/asti foto
