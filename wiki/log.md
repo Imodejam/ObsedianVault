@@ -936,3 +936,4 @@ File chiave aggiornati:
 ## [2026-06-23] task | Piracity-web: tradotti content/i18n in pt/ru/sw/tr (376 chiavi ciascuno, parità OK, curl 200)
 ## [2026-06-23] task | Piracity: login app fix (api-cat), logging attività su file, nuovo logo (vetrina+app), 20 lingue complete (RTL ok), Salpa→Biglietti
 ## [2026-06-23] task | Piracity app: 'Failed to fetch' login = stale PWA service worker (cache vecchia supabase-cat). Deployato SW auto-distruttivo su /sw.js
+## [2026-06-23] decision | Piracity: salvato Template Tappa obbligatorio (wiki/projects/piracity-tappa-template.md) — da usare su ogni richiesta di creare/visualizzare una tappa
