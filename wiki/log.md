@@ -973,3 +973,4 @@ File chiave aggiornati:
 ## [2026-06-23] task | Proofreading descrizioni pubbliche: ripristinati accenti in 16 descrizioni città + fix refuso Pistoia; teaser mappe ok
 ## [2026-06-23] task | Pagina Towns: rinomina + barra ricerca + filtro nazioni (TownsClient)
 ## [2026-06-23] task | /marketplace→/towns (redirect); heading 'Dove sarà la tua prossima avventura?'; barra ricerca grande; townsTitle localizzato
+## [2026-06-23] task | Foto MinIO+WebP: helper pronto+testato; BLOCCO accesso MinIO (chiave ristretta), chiesto a Stefano bucket/admin
