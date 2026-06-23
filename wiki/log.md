@@ -966,3 +966,4 @@ File chiave aggiornati:
 ## [2026-06-23] task | FASE3: fix 50 coordinate città (Wikipedia); engine wiki-coords; batch1 11 mappe turistiche; batch2 in corso
 
 ## [2026-06-23] task | Piracity maps batch2: contenuti 10 città (Lecce, Matera, Siracusa, Rimini, Bergamo, Padova, Lucca, Trieste, Perugia, Ravenna) -> /tmp/maps-batch2.json (title/attractions/vetrina/apertura, IT, validato)
+## [2026-06-23] task | FASE3 milestone: 24 mappe ufficiali (tutte le top turistiche); foto 104/105; descrizioni 105/105
