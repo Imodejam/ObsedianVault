@@ -951,3 +951,4 @@ File chiave aggiornati:
 ## [2026-06-23] task | Roma: descrizioni public+internal in 6 lingue POPOLATE; avviata localizzazione 88 indovinelli x5 lingue
 ## [2026-06-23] task | Roma: 88 indovinelli localizzati in 6 lingue (quiz_pool, anagrammi ricreati, status ereditato). Pilota Roma completo (descrizioni+indovinelli)
 ## [2026-06-23] note | Nuovo requisito Piracity: descrizione lunga SEO pagina città (tabella city_descriptions, 6 lingue). Sample Roma inviato. In attesa approvazioni Cosenza/Shanghai + city desc
+## [2026-06-23] task | Cosenza+Shanghai descrizioni 6 lingue popolate; pagina città con descrizione SEO (tabella city_descriptions, UI); indovinelli in localizzazione
