@@ -981,3 +981,5 @@ File chiave aggiornati:
 ## [2026-06-23] task | Generati 22 articoli tappe Piracity (batch02: Napoli, Milano, Pisa, Verona) -> /tmp/stagedescout-batch02.json
 
 ## [2026-06-23] task | Generati articoli Piracity batch09: 22 tappe (Salerno, Modena, Parma, Ferrara) -> /tmp/stagedescout-batch09.json
+
+## [2026-06-23] task | Generati articoli Piracity batch22: 22 tappe (Marsala, Massa, Messina, Monza) -> /tmp/stagedescout-batch22.json
