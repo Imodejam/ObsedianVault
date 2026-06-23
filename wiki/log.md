@@ -940,3 +940,4 @@ File chiave aggiornati:
 ## [2026-06-23] task | Piracity app login RISOLTO: CORS Caddy non ammetteva header X-Supabase-Api-Version (supabase-js). Aggiunto ad Access-Control-Allow-Headers + restart ops-caddy. Login verificato e2e
 ## [2026-06-23] decision | Piracity: le cacce al tesoro devono essere adatte anche a famiglie con bambini (principio design, salvato in tappa-template)
 ## [2026-06-23] task | Piracity-web: avviato ampliamento pagina mappa (meta panel, In evidenza, Come funziona, altri tour, città vicine). Validità 3 anni
+## [2026-06-23] task | Piracity-web: re-theme oro(Disney) + SEO localePrefix always+hreflang 21+canonical + pagina mappa (meta in card, In evidenza coerente, Come funziona timeline, città vicine con foto)
