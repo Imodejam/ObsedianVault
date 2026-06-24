@@ -193,3 +193,9 @@ Stato: COSTRUITO, non committato, non attivo (mancano chiavi Stripe + migration 
 
 ### Per attivare
 1. Chiavi Stripe da Stefano. 2. Applicare migration 016. 3. Webhook su dashboard Stripe → `https://cat.piracity.app/api/webhooks/stripe` (eventi checkout.session.completed/expired/async_payment_failed, charge.refunded).
+
+## [2026-06-24] Foto vetrina → WebP + caching
+- Tutte le foto (`public/assets/photos`, `auto/cities`, `auto/stages`) convertite in WebP: 731 file, −1.3 GB. Script `scripts/convert_to_webp.py` (PIL via `minio_webp.to_webp`, q=82).
+- DB `piracity.cities`/`stages`: `photo_url` normalizzato a `.webp` (67 + 600 righe).
+- Refs landing components → `.webp`. `teatro-rossini.jpg` corrotta → NULL (riprende il photo-fetcher).
+- Caching `next.config.mjs`: `Cache-Control immutable` su `/assets/*` (override `stale-while-revalidate` su `/assets/auto/*`) + `images.minimumCacheTTL=31536000`.
