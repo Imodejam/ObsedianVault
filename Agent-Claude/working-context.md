@@ -23,9 +23,13 @@ Richiesta Stefano (Telegram): "le foto in tutta la vetrina tutte webp e cacheate
 Piracity-web (vetrina): riprogettazione homepage — pivot da tema dark/pirata a LANDING LUMINOSA familiare (stile Apple pulizia + Disney calore), per famiglie/bambini/amici/compleanni/turisti.
 
 ---
-## Task in attesa: creare città+mappa TROPEA (2026-06-24)
-Stefano vuole città Tropea + mappa relativa con 7 tappe (Tier1: Santuario S.Maria dell'Isola, Belvedere Piazza del Cannone, Affaccio del Corso, Spiaggia della Rotonda; Tier2: Cattedrale Maria SS. di Romania, Museo Civico Diocesano, Largo Galluppi). Foto città in arrivo.
-Chiesto scope (msg 4440): (1) IT-first poi traduzioni vs subito 6 lingue; (2) bozza+prezzo+mood. ATTENDO risposta.
+## TROPEA — FATTA e PUBBLICATA (2026-06-24)
+Città Tropea + mappa "La Lanterna d'Argento sullo Scoglio" (7 tappe, 6 lingue, 252 quiz) pubblicata. URL /it/mappe/tropea/la-lanterna-d-argento-sullo-scoglio. Generata con 8 subagent, assemblata via scratchpad/tropea/*.py + tropea.sql. IDs in scratchpad/tropea/ids.json.
+
+### IN SOSPESO (attendo Stefano)
+- Foto città/mappa Tropea: appena la invia → webp + set su cities.photo_url e maps.cover_url (slug tropea).
+- Rinomina SEO foto "piracity-<slug>" (msg 4443): chiesto schema esatto (trattino vs punto), msg 4447/4448. NON ancora confermato. Quando conferma: rinominare TUTTI i file public/assets + DB photo_url/cover_url + ref codice.
+- Batch foto città già caricate oggi (webp + città/mappe): puntify-style script in scratchpad (set_city_photos*.py).
 
 ### Schema DB piracity (per build Tropea) — replicare struttura Cosenza
 - cities: name, country, country_code='IT', lat, lng, slug, active, maps_count, photo_url
