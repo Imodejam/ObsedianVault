@@ -26,10 +26,13 @@ Piracity-web (vetrina): riprogettazione homepage — pivot da tema dark/pirata a
 ## TROPEA — FATTA e PUBBLICATA (2026-06-24)
 Città Tropea + mappa "La Lanterna d'Argento sullo Scoglio" (7 tappe, 6 lingue, 252 quiz) pubblicata. URL /it/mappe/tropea/la-lanterna-d-argento-sullo-scoglio. Generata con 8 subagent, assemblata via scratchpad/tropea/*.py + tropea.sql. IDs in scratchpad/tropea/ids.json.
 
-### IN SOSPESO (attendo Stefano)
-- Foto città/mappa Tropea: appena la invia → webp + set su cities.photo_url e maps.cover_url (slug tropea).
-- Rinomina SEO foto "piracity-<slug>" (msg 4443): chiesto schema esatto (trattino vs punto), msg 4447/4448. NON ancora confermato. Quando conferma: rinominare TUTTI i file public/assets + DB photo_url/cover_url + ref codice.
-- Batch foto città già caricate oggi (webp + città/mappe): puntify-style script in scratchpad (set_city_photos*.py).
+### FATTO (2026-06-24)
+- Foto città/mappa Tropea: impostata (piracity-tropea.webp su città + cover mappa).
+- Rinomina SEO foto "piracity-<slug>": FATTA su tutto (file auto/{cities,stages,maps}+photos, DB photo_url/cover_url, 9 componenti landing, pipeline photo-fetcher+upload). Convenzione attiva: nuove foto = piracity-<slug>.webp.
+- Batch foto città caricate (webp + città/mappe): arezzo, lamezia-terme, bologna, bolzano, barletta, busto-arsizio, perugia, ragusa, viterbo, vicenza, pescara, parma, messina, l-aquila, gela, como, ferrara, cinisello-balsamo, caltanissetta, cremona, castellammare-di-stabia, catania, bergamo, tropea, latina. Script: scratchpad/set_city_photos*.py (RICORDA: nominare file piracity-<slug>.webp).
+
+### NOTA per prossimi batch foto
+Quando Stefano manda altre foto città: convertire webp, salvare come public/assets/auto/cities/piracity-<slug>.webp, photo_url=/assets/auto/cities/piracity-<slug>.webp?v=<ts>, e UPDATE maps.cover_url delle mappe della città.
 
 ### Schema DB piracity (per build Tropea) — replicare struttura Cosenza
 - cities: name, country, country_code='IT', lat, lng, slug, active, maps_count, photo_url
