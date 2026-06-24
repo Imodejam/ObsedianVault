@@ -995,3 +995,4 @@ File chiave aggiornati:
 ## [2026-06-24] task | Piracity-web rinomina SEO foto: tutti i file webp -> prefisso piracity- (cities 142, stages 669, maps 38, landing 18). DB photo_url/cover_url aggiornati (cities 106, stages 656, maps 106). Componenti landing + pipeline (photo-fetcher.py, upload-photo route) aggiornati per scrivere piracity-<slug> d'ora in poi
 ## [2026-06-24] task | Piracity foto: caricate vigevano, verona, viareggio, reggio-emilia (webp piracity-, città+mappe)
 ## [2026-06-24] task | Piracity foto: caricate 10 città (ravenna, pistoia, prato, pesaro, pavia, novara, livorno, matera, legnano, udine) webp piracity- su città+mappe. NB matera sorgente bassa risoluzione (45KB)
+## [2026-06-24] task | Piracity: rimossa città+mappa Sesto San Giovanni con tutti i dati (1 mappa, 5 tappe, descrizioni/contenuti, 6 file immagine)
