@@ -217,3 +217,9 @@ Stato: COSTRUITO, non committato, non attivo (mancano chiavi Stripe + migration 
 - Storia: Elena Greco insegue il diario del nonno pescatore e la leggenda del corsaro Vittorio "Mano d'Onda" Sparano / Lanterna d'Argento "dove il mare bacia la chiesa" (finale al Santuario).
 - Contenuti generati con 8 subagent (bibbia narrativa + 7 tappe), assemblati via script (scratchpad/tropea): 6 lingue it/en/es/de/fr/nl per city_descriptions, map_descriptions (title/public/internal), stage_descriptions, stage_content_i18n, quiz_pool (252 quiz, kinds multiple-choice/culture/riddle/logic/anagram, validation approved).
 - Coordinate POI approssimate (centro storico, ritoccabili da UI). Foto città/mappa: da impostare quando Stefano la invia.
+
+### [2026-06-24] Foto rinominate piracity-<slug> (SEO Google)
+- Tutti i file in public/assets/auto/{cities,stages,maps} e assets/photos rinominati con prefisso `piracity-` (per associazione brand su Google immagini).
+- DB: `cities.photo_url`, `stages.photo_url`, `maps.cover_url` aggiornati via regexp_replace (prefisso basename, preserva ?v=).
+- Codice: 9 componenti landing aggiornati; pipeline `scripts/photo-fetcher.py` (download → piracity-<slug>) e `app/api/upload-photo/route.ts` (piracity-<id>) scrivono già col prefisso.
+- Convenzione per nuove foto città/tappe da impostare a mano: file = piracity-<slug>.webp.
