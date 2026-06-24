@@ -211,3 +211,9 @@ Stato: COSTRUITO, non committato, non attivo (mancano chiavi Stripe + migration 
 - Caricate 14 foto città custom da Stefano (webp, su città + mappe relative, cache-bust ?v=). Script riutilizzabile in scratchpad.
 - Tappe tutte webp: convertiti teatro-rossini (sorgente troncato) e trastevere (era pexels remoto) in webp locale.
 - Photo-fetcher indurito: `minio_webp` ora usa `ImageFile.LOAD_TRUNCATED_IMAGES`; rimosso il fallback `.jpg` in `download()` (se to_webp fallisce solleva e ritenta) → non si creano più file non-webp.
+
+### [2026-06-24] Mappa Tropea pubblicata
+- Città Tropea (slug tropea) + mappa "La Lanterna d'Argento sullo Scoglio" (slug la-lanterna-d-argento-sullo-scoglio), 1 giornata, 7 tappe, pubblicata, prezzo 11.99, mood Arte&Storia.
+- Storia: Elena Greco insegue il diario del nonno pescatore e la leggenda del corsaro Vittorio "Mano d'Onda" Sparano / Lanterna d'Argento "dove il mare bacia la chiesa" (finale al Santuario).
+- Contenuti generati con 8 subagent (bibbia narrativa + 7 tappe), assemblati via script (scratchpad/tropea): 6 lingue it/en/es/de/fr/nl per city_descriptions, map_descriptions (title/public/internal), stage_descriptions, stage_content_i18n, quiz_pool (252 quiz, kinds multiple-choice/culture/riddle/logic/anagram, validation approved).
+- Coordinate POI approssimate (centro storico, ritoccabili da UI). Foto città/mappa: da impostare quando Stefano la invia.
