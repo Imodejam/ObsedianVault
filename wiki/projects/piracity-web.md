@@ -206,3 +206,8 @@ Stato: COSTRUITO, non committato, non attivo (mancano chiavi Stripe + migration 
 - breadcrumb "città" nell'hero `app/[locale]/citta/[slug]/page.tsx` -> Link `/towns`.
 - `priority` sulle prime card immagine (LCP) in TownsClient, CuratedMapsClient, MarketplaceClient.
 - 22 tappe vecchio path `/assets/webp/stages/` (404 preesistente) azzerate -> refetch automatico.
+
+### [2026-06-24] Foto città batch + invariante webp tappe
+- Caricate 14 foto città custom da Stefano (webp, su città + mappe relative, cache-bust ?v=). Script riutilizzabile in scratchpad.
+- Tappe tutte webp: convertiti teatro-rossini (sorgente troncato) e trastevere (era pexels remoto) in webp locale.
+- Photo-fetcher indurito: `minio_webp` ora usa `ImageFile.LOAD_TRUNCATED_IMAGES`; rimosso il fallback `.jpg` in `download()` (se to_webp fallisce solleva e ritenta) → non si creano più file non-webp.
