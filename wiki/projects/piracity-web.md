@@ -199,3 +199,10 @@ Stato: COSTRUITO, non committato, non attivo (mancano chiavi Stripe + migration 
 - DB `piracity.cities`/`stages`: `photo_url` normalizzato a `.webp` (67 + 600 righe).
 - Refs landing components → `.webp`. `teatro-rossini.jpg` corrotta → NULL (riprende il photo-fetcher).
 - Caching `next.config.mjs`: `Cache-Control immutable` su `/assets/*` (override `stale-while-revalidate` su `/assets/auto/*`) + `images.minimumCacheTTL=31536000`.
+
+### [2026-06-24] Fix post-conversione foto
+- **sharp** installato (dep): senza, l'optimizer next/image (webp/avif) si impallava in dev -> foto non caricavano. Ora istantaneo.
+- maps `cover_url` = foto città per le 67 mappe senza cover (38 con cover proprie intatte).
+- breadcrumb "città" nell'hero `app/[locale]/citta/[slug]/page.tsx` -> Link `/towns`.
+- `priority` sulle prime card immagine (LCP) in TownsClient, CuratedMapsClient, MarketplaceClient.
+- 22 tappe vecchio path `/assets/webp/stages/` (404 preesistente) azzerate -> refetch automatico.

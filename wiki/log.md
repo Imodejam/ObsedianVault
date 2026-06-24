@@ -986,3 +986,4 @@ File chiave aggiornati:
 ## [2026-06-23] task | Articoli 661/661 tappe generati (5 ondate subagent) + decine foto città/mappa via Telegram
 
 ## [2026-06-24] task | Piracity-web: tutte le foto vetrina -> WebP + caching. 731 file convertiti (-1.3GB), DB photo_url normalizzato (67 città + 600 tappe -> .webp), refs landing -> .webp, header Cache-Control immutable su /assets + minimumCacheTTL next/image
+## [2026-06-24] task | Piracity-web fix foto: installato `sharp` (optimizer next/image non si impallava più), foto mappe = foto città su 67 mappe senza cover, breadcrumb "città" hero -> /towns, priority LCP su griglie towns/maps; 22 tappe vecchio path /assets/webp rotto azzerate (refetch via photofetch)
