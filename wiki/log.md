@@ -997,3 +997,4 @@ File chiave aggiornati:
 ## [2026-06-24] task | Piracity foto: caricate 10 città (ravenna, pistoia, prato, pesaro, pavia, novara, livorno, matera, legnano, udine) webp piracity- su città+mappe. NB matera sorgente bassa risoluzione (45KB)
 ## [2026-06-24] task | Piracity: rimossa città+mappa Sesto San Giovanni con tutti i dati (1 mappa, 5 tappe, descrizioni/contenuti, 6 file immagine)
 ## [2026-06-24] task | Piracity: rimossa città+mappa Giugliano in Campania con tutti i dati (1 mappa, 6 tappe, file immagine)
+## [2026-06-24] task | Piracity foto: caricate brescia, brindisi, foggia, reggio-calabria, cesena, matera (HQ, sostituisce sgranata) webp piracity- su città+mappe
