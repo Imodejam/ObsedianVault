@@ -998,3 +998,4 @@ File chiave aggiornati:
 ## [2026-06-24] task | Piracity: rimossa città+mappa Sesto San Giovanni con tutti i dati (1 mappa, 5 tappe, descrizioni/contenuti, 6 file immagine)
 ## [2026-06-24] task | Piracity: rimossa città+mappa Giugliano in Campania con tutti i dati (1 mappa, 6 tappe, file immagine)
 ## [2026-06-24] task | Piracity foto: caricate brescia, brindisi, foggia, reggio-calabria, cesena, matera (HQ, sostituisce sgranata) webp piracity- su città+mappe
+## [2026-06-24] task | Piracity foto: caricate grosseto, casoria, modena, monza (webp piracity-, città+mappe)
