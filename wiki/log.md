@@ -999,3 +999,5 @@ File chiave aggiornati:
 ## [2026-06-24] task | Piracity: rimossa città+mappa Giugliano in Campania con tutti i dati (1 mappa, 6 tappe, file immagine)
 ## [2026-06-24] task | Piracity foto: caricate brescia, brindisi, foggia, reggio-calabria, cesena, matera (HQ, sostituisce sgranata) webp piracity- su città+mappe
 ## [2026-06-24] task | Piracity foto: caricate grosseto, casoria, modena, monza (webp piracity-, città+mappe)
+
+## [2026-06-26] task | Popola città (B): tradotte city_descriptions + map_descriptions (title/public/internal) IT→en/es/de/fr/nl per le 101 città mancanti. Ora 105/105 città e mappe complete in 6 lingue. Review ortografia IT inclusa (fix minori: babà, ed eufonica, accordi genere, cjarsons plurale, ecc.). Tappe/indovinelli NON toccati.

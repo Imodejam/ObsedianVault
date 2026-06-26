@@ -1,5 +1,12 @@
 # Working context
 
+## Sessione 2026-06-26 — Popola città: traduzione 6 lingue (B) — FATTO
+Richiesta Stefano (Telegram): "popola le città" = **B** = tradurre city_descriptions + map_descriptions (title/public/internal) IT→en/es/de/fr/nl per le 101 città non complete. NON toccare tappe/indovinelli.
+RISULTATO: 105/105 città e mappe complete in 6 lingue. Review ortografia IT inclusa. Dettagli + fix in daily/2026-06-26.md. Artefatti in scratchpad/citta/.
+Prossimo: verifica Stefano sulla vetrina; contenuto completo tappe resta da fare città per città (tipo Tropea).
+
+---
+
 ## Sessione 2026-06-24 — Piracity-web foto WebP + caching
 Richiesta Stefano (Telegram): "le foto in tutta la vetrina tutte webp e cacheate" → vetrina = **piracity-web** (Next.js :6010).
 
