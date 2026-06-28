@@ -19,3 +19,6 @@ Testi hardcoded fuori dal resx (appaiono uguali in tutte le lingue):
 - [ ] Risposta Stefano su scope legali/app.
 - [ ] Fix etichette marketing hardcoded (cat. 2).
 - [ ] Impostare report giornaliero 9:00 (cosa manca).
+
+### Report giornaliero — FATTO (aggiornamento)
+- CronCreate job `917cdd01`: ogni giorno 07:03 UTC (=09:03 Italia, macchina TZ=UTC) → report "cosa manca" a Stefano (chat_id 505161324) via telegram reply. Session-only + auto-expire 7gg (re-impostare). Gate: TODO legali/app + fix etichette marketing hardcoded restano aperti.
