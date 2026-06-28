@@ -22,3 +22,21 @@ Testi hardcoded fuori dal resx (appaiono uguali in tutte le lingue):
 
 ### Report giornaliero — FATTO (aggiornamento)
 - CronCreate job `917cdd01`: ogni giorno 07:03 UTC (=09:03 Italia, macchina TZ=UTC) → report "cosa manca" a Stefano (chat_id 505161324) via telegram reply. Session-only + auto-expire 7gg (re-impostare). Gate: TODO legali/app + fix etichette marketing hardcoded restano aperti.
+
+### 2026-06-28 sera — Avanzamento + scope app pages scoperto
+FATTO e ONLINE:
+- 1500×7 traduzioni resx + 12 EN (GCal) → 9 lingue complete (4989).
+- Legali Privacy/Termini/CookiePolicy convertite IT→IT/EN (pattern @if(en), en=Lang!=it). Condizioni già ok. Verificato /en e /it. (Gotcha: build incrementale saltò Termini → touch+rebuild.)
+- Cron report giornaliero 917cdd01 (09:03 Italia).
+
+DECISIONI STEFANO (msg 4527): 1) legali solo IT/EN (no altre 7). 2) pagine app SE fanno parte della vetrina → sì in 9 lingue.
+
+SCOPE APP PAGES (più grande del previsto, 0 L[] ovunque) — in attesa conferma Stefano (msg 4530) per il flusso booking completo:
+- Pages/Recensione.razor (206) — MenuLayout, recensione cliente via token
+- Pages/Risorse.razor (322) — MenuLayout
+- Pages/BlogPost.razor (106) — solo fallback "Articolo non trovato" (resto da DB)
+- Pages/BookingManage.razor (489) — BookLayout
+- Components/Booking/*.razor (10+: ModeStep, DateTimeStep, CartCheckout, ConfirmationStep, ServiceStep, OperatorStep, SlotList, QuickTableBooking, QuickTakeawayBooking, ResourceBooking, PublicBookingFlow, ResourceMapView, CustomerFormStep, MiniCalendar)
+PIANO: estrarre stringhe → chiavi SharedResource → L["..."] → tradurre 9 lingue (subagent per lingua, come per le 1500) → build/verify. Ondate: prima pagine singole, poi flusso booking.
+
+PICCOLE ETICHETTE MARKETING hardcoded (ancora da fare): Footer + MappaDelSito "Condizioni di Prenotazione"; accent word titoli (<span>Blog/Policy/Condizioni</span> in Blog/CookiePolicy/Termini hero); BlogPost "Articolo non trovato".
