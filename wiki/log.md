@@ -1034,3 +1034,12 @@ File chiave aggiornati:
 ## [2026-06-29] task | Demo form: link Privacy Policy aggiunto sotto il form (/demo, l'intera nota linka /{lang}/privacy). + DIAGNOSI 2 problemi PROD (www, deploy separato non gestibile da CAT): (1) errore invio demo = Resend API key INVALIDA (verificato 401 da api.resend.com) → rigenerare key + verificare dominio puntify.it su Resend; (2) login Google prod "Unable to exchange external code" = Client Secret Google scaduto/errato nel Supabase prod o redirect URI non autorizzato in Google Cloud Console.
 ## [2026-06-29] task | Roadmap: tradotta in 8 lingue (71 chiavi ×8), merge resx, build+restart, verificata multilingue (en/es/zh 0 key-leak). Pagina /roadmap completa in 9 lingue su CAT. NB: changes dopo commit 0e358b6 (case study, SEO/GEO, footer "Settori", roadmap, link privacy demo) ancora da committare.
 ## [2026-06-29] task | Commit+push batch 2 (commit 983f5f5, master): case study 12 settori 9 lingue, SEO Service+FAQPage JSON-LD, llms.txt, footer "Settori", foto hero oculisti/ortopedici, pagina Roadmap 9 lingue, link Privacy form demo. Niente attribution Claude.
+## [2026-06-29] task | Feature CICALINO "ordine pronto" (menu tavolo+asporto) — costruita su CAT:
+- DB: menu_public_orders + colonna customer_email (schema reload).
+- Modello MenuPublicOrder.CustomerEmail. SubmitOrder cattura email (obbligatoria lato client). Nuovo endpoint pubblico GET /api/public/menu/{slug}/order/{id}/status (stato+codice per polling). Email "ordine pronto" via IEmailSenderService in PATCH /api/menu/orders/{id}/status quando status=ready (se email presente).
+- JS wwwroot/js/order-buzzer.js: arm() (sblocca audio su gesto) + ring() (beep Web Audio + vibrate). Incluso in App.razor.
+- MerchantMenuPreview: campo email obbligatorio nel carrello; SubmitOrder valida email + arma audio + cattura orderId + avvia polling (Timer 4s); conferma diventa STATO LIVE (codice ordine + stato + cicalino "PRONTO" verde quando ready). UiStrings it+en (altre lingue fallback→en per ora). @implements IDisposable (dispose timer).
+- Build server+vetrina ok, restart, verificato endpoint/JS/colonna. 
+- DA TESTARE: audio reale su telefono (autoplay/vibrate) lato Stefano. DIPENDENZA: l'email "pronto" usa Resend → su CAT la key è 401, non invierà finché non si aggiorna la key. Cicalino (suono) NON dipende da Resend.
+- TAKEAWAY-window (bookings/TakeawayBoardController): già push su ready; pagina-cicalino non fatta (path separato). 
+- RESTA: traduzioni UI cicalino nelle altre 8 lingue del menu; aggiornare FAQ + doc vetrina (richiesta Stefano).
