@@ -60,3 +60,7 @@ TODO APERTI (coda):
 4. [MINORE] etichette hardcoded marketing (footer "Condizioni di Prenotazione", accent word titoli, "Articolo non trovato").
 5. [BUG MINORE] encoding "Ã¨" in PublicBookingController:721 (msg errore slot).
 6. [VALUTARE] search_account_by_email espone nome+telefono per email arbitraria.
+
+### Aggiornamenti 2026-06-29 (msg 4548/4549)
+- FUSO: Stefano sceglie B (soluzione pulita, fuso per-negozio) — distribuiranno in Spagna. Implementare colonna timezone su shops + selettore UI + uso in tutti i calcoli slot (tavolo/asporto/appuntamenti, vetrina+server).
+- SETTORI MEDICI: ok niente fidelizzazione; MA NON dire "gestione dei pazienti". Usare prenotazioni/agenda appuntamenti/promemoria.
