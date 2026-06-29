@@ -125,3 +125,9 @@ NB: build+TEST reale (audio/realtime su telefono) prima di consegnare (Stefano h
 
 ### Decisione ordini (Stefano msg 4590): EMAIL AL TAVOLO = OBBLIGATORIA (non opzionale)
 Serve per dialogare col cliente e avere storico ordini. → Il checkout ordine al tavolo (menu_public_orders) deve CATTURARE l'email (campo obbligatorio) + aggiungere colonna email su menu_public_orders. Così email "ordine pronto" garantita anche al tavolo + storico/comunicazioni.
+
+### REGOLA PERMANENTE (Stefano 2026-06-29): aggiornare la ROADMAP
+Ogni volta che si parla/crea una nuova funzione → aggiornare Pages/Roadmap.razor (lista _milestones + chiavi Roadmap_<Key>_Tag/_T/_D in 9 lingue). Pagina = changelog pubblico stile Stripe Shipped, /roadmap, sotto Risorse.
+### PROD (www) — problemi aperti segnalati 2026-06-29 (NON gestibili da CAT, serve accesso prod):
+- Demo form invio fallisce: Resend API key invalida (401) → nuova key + dominio verificato.
+- Login Google prod "Unable to exchange external code": Supabase prod Google OAuth (client secret/redirect).
