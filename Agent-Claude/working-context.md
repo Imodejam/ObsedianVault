@@ -40,3 +40,23 @@ SCOPE APP PAGES (più grande del previsto, 0 L[] ovunque) — in attesa conferma
 PIANO: estrarre stringhe → chiavi SharedResource → L["..."] → tradurre 9 lingue (subagent per lingua, come per le 1500) → build/verify. Ondate: prima pagine singole, poi flusso booking.
 
 PICCOLE ETICHETTE MARKETING hardcoded (ancora da fare): Footer + MappaDelSito "Condizioni di Prenotazione"; accent word titoli (<span>Blog/Policy/Condizioni</span> in Blog/CookiePolicy/Termini hero); BlogPost "Articolo non trovato".
+
+## 2026-06-29 sera — Coda richieste Stefano (Puntify)
+FATTO oggi:
+- Privacy Policy sez. 4.3 "Visibilità dati identificativi ai Commercianti" (IT+EN) online.
+- Fix fuso slot prenotazione TAVOLO (QuickTableBooking → MerchantNow Europe/Rome). Online.
+- Analisi modello dati clienti (wiki: puntify-clienti-data-model).
+
+IN ATTESA DECISIONE STEFANO:
+- Fuso: A) applicare ora-Italia anche a ASPORTO (TakeawayBookingController:95 DateTime.Now) + APPUNTAMENTI (slot server start_at UTC, PublicBookingController/BookingServiceImpl) per coerenza; B) colonna timezone per-negozio (multi-paese). Consigliato A ora + B dopo.
+- Settori medici: confermare taglio "no fidelizzazione, sì prenotazioni/agenda/promemoria".
+- Conferma ordine: fuso → settori → geolocalizzazione.
+
+TODO APERTI (coda):
+1. [GROSSO] Nuovi settori vetrina (data-driven _sectors in Settori.razor + chiavi resx per prefisso in 9 lingue + hero img + Footer.SectorLinks + MappaDelSito.Sectors + SitemapService.SectorSlugs):
+   pizzerie, medici-famiglia/medicina-generale, studi-medici, oculista, ginecologo, neurologo, radiologo/diagnostica-immagini, dermatologo, ortopedico, cardiologo, endocrinologo, otorinolaringoiatra, pneumologo. (studi-dentistici GIÀ esiste). Medici senza loyalty. Poi ricontrollare + aggiornare sitemap dinamico.
+2. [MEDIO] /negozi: richiesta posizione + filtro località + ordinamento per vicinanza (geoloc browser).
+3. [i18n GROSSO non confermato] flusso app vetrina (recensione/risorse/booking ~15 file) in 9 lingue — in attesa "vai".
+4. [MINORE] etichette hardcoded marketing (footer "Condizioni di Prenotazione", accent word titoli, "Articolo non trovato").
+5. [BUG MINORE] encoding "Ã¨" in PublicBookingController:721 (msg errore slot).
+6. [VALUTARE] search_account_by_email espone nome+telefono per email arbitraria.
