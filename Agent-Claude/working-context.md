@@ -85,3 +85,8 @@ APERTI:
 - Foto hero OCULISTI + ORTOPEDICI (Stefano deve inviarle).
 - Geolocalizzazione: test browser lato Stefano (prompt permesso).
 - (minori già tracciati: takeaway/appointment date-level tz edge notte, etichette hardcoded marketing, encoding Ã¨ PublicBookingController:721, search_account_by_email, app-pages i18n, sitemap statico senza settori se lo vuole).
+
+### 2026-06-30 ~00:25 — Batch case study + footer + SEO + foto: FATTO (CAT)
+✅ Case study 12 settori ×9 lingue (432 chiavi IT + 8 trad, merge resx 5676). ✅ Footer 5 sezioni (colonna Settori). ✅ JSON-LD Service su settori. ✅ tutte 11 specialità mediche con foto dedicata (oculisti+ortopedici aggiunte).
+GEO: Stefano = "b" (generative engine optimization). PROPOSTO piano (FAQPage JSON-LD + /llms.txt + contenuti AI-citabili) → in attesa conferma quali.
+APERTI: deploy PRODUZIONE www (in attesa ok) | GEO (in attesa scelta) | geoloc test browser | takeaway/appointment date-level tz edge | etichette hardcoded marketing | encoding Ã¨ PublicBookingController:721.
