@@ -1043,3 +1043,4 @@ File chiave aggiornati:
 - DA TESTARE: audio reale su telefono (autoplay/vibrate) lato Stefano. DIPENDENZA: l'email "pronto" usa Resend → su CAT la key è 401, non invierà finché non si aggiorna la key. Cicalino (suono) NON dipende da Resend.
 - TAKEAWAY-window (bookings/TakeawayBoardController): già push su ready; pagina-cicalino non fatta (path separato). 
 - RESTA: traduzioni UI cicalino nelle altre 8 lingue del menu; aggiornare FAQ + doc vetrina (richiesta Stefano).
+## [2026-06-29] task | Cicalino: doc completata + commit. FAQ "ordine pronto" (Faq_OrderReady_Q/A) aggiunta in 9 lingue (categoria Menu), doc docs/puntify-product-overview.md sezione "Avviso ordine pronto". Commit a0e7d62 (master, no attribution Claude) push ok. RESTA: traduzioni UI cicalino nel menu (UiStrings) nelle altre 8 lingue (ora it/en, fallback en); test audio reale telefono (Stefano); email dipende da Resend key (401, da aggiornare).
