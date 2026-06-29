@@ -90,3 +90,11 @@ APERTI:
 ✅ Case study 12 settori ×9 lingue (432 chiavi IT + 8 trad, merge resx 5676). ✅ Footer 5 sezioni (colonna Settori). ✅ JSON-LD Service su settori. ✅ tutte 11 specialità mediche con foto dedicata (oculisti+ortopedici aggiunte).
 GEO: Stefano = "b" (generative engine optimization). PROPOSTO piano (FAQPage JSON-LD + /llms.txt + contenuti AI-citabili) → in attesa conferma quali.
 APERTI: deploy PRODUZIONE www (in attesa ok) | GEO (in attesa scelta) | geoloc test browser | takeaway/appointment date-level tz edge | etichette hardcoded marketing | encoding Ã¨ PublicBookingController:721.
+
+### 2026-06-30 ~00:35 — GEO FATTO → tutta la lista di stasera CHIUSA (su CAT)
+✅ GEO: FAQPage JSON-LD (3 Q&A da pain, 9 lingue) + /llms.txt arricchito (settori medici, recensioni) + contenuti AI-citabili.
+TUTTO il lavoro di stasera è su CAT (cat.puntify.it). 
+RESTANO SOLO:
+- DEPLOY PRODUZIONE www.puntify.it (deploy-prod.sh) — in attesa OK Stefano.
+- Geolocalizzazione: test browser (prompt permesso) lato Stefano.
+- Minori già tracciati: takeaway/appointment date-level tz edge notte; etichette hardcoded marketing; encoding "Ã¨" PublicBookingController:721; search_account_by_email; app-pages i18n; sitemap statico senza settori (se lo vuole).
