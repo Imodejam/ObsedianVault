@@ -73,3 +73,7 @@ Residuo minore: date-level "today" in QuickTakeawayBooking + appointment flow (_
 1. [GROSSO, PROSSIMO] Nuovi settori vetrina (pizzerie + studi medici: medici-famiglia/medicina-generale, oculista, ginecologo, neurologo, radiologo, dermatologo, ortopedico, cardiologo, endocrinologo, otorino, pneumologo). studi-dentistici ESISTE. Medici: NO fidelizzazione, NO "gestione pazienti"; sì prenotazioni/agenda/promemoria. Contenuti IT→9 lingue + hero img + Footer/MappaDelSito/SitemapService. Poi ricontrollare + sitemap dinamico.
 2. [MEDIO] /negozi geolocalizzazione + filtro località + ordina per vicinanza.
 3. [minori] takeaway/appointment date-level tz; etichette hardcoded marketing; encoding "Ã¨" PublicBookingController:721; valutare search_account_by_email; app-pages i18n (in attesa "vai").
+
+### 2026-06-29 notte tardi — SETTORI: FATTO (12 nuovi, 9 lingue) + fix PGRST204 save
+12 settori online (pizzeria + 11 medici no-loyalty), 254 chiavi/settore ×9 lingue, wiring completo, sitemap dinamico ok, ricontrollo 12/12 200. Hero img riusate (da sostituire con dedicate). Fix urgente: NOTIFY pgrst reload schema (colonna timezone).
+PROSSIMO: geolocalizzazione /negozi (richiesta posizione + filtro località + ordina per vicinanza). shops hanno latitude/longitude.
