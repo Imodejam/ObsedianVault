@@ -98,3 +98,15 @@ RESTANO SOLO:
 - DEPLOY PRODUZIONE www.puntify.it (deploy-prod.sh) — in attesa OK Stefano.
 - Geolocalizzazione: test browser (prompt permesso) lato Stefano.
 - Minori già tracciati: takeaway/appointment date-level tz edge notte; etichette hardcoded marketing; encoding "Ã¨" PublicBookingController:721; search_account_by_email; app-pages i18n; sitemap statico senza settori (se lo vuole).
+
+### 2026-06-30 ~01:00 — Discussione ORDINI (Stefano) — analisi + proposta in attesa
+STATO ATTUALE flusso "ordine pronto":
+- Email al cliente quando pronto: NO (nessuna).
+- Takeaway (bookings booking_kind=takeaway, TakeawayBoardController): a status='ready' → PUSH FCM NotifyOrderReadyAsync ("Il tuo ordine è pronto") solo se booking.CustomerId valorizzato + token push. Flow: received→in_preparation→ready→picked_up.
+- Menu/tavolo (menu_public_orders, MenuController flow received→preparing→ready→delivered): NESSUNA notifica al cliente su ready. Post-ordine (CartCheckout) solo conferma "Torna al locale", niente pagina stato.
+- Canale notifiche = Firebase FCM (web/mobile push), no email. NotificationQueueService→FirebaseNotificationService.
+- NON esiste pagina cliente di tracking ordine live.
+PROPOSTA (in attesa OK Stefano):
+1) [PRINCIPALE] Pagina "stato ordine" cliente (tavolo+asporto) con CODICE ordine, aggiornamento realtime (Supabase realtime su menu_public_orders/booking o polling), e quando status→ready: SUONA (audio) + vibra + visual "PRONTO" — come i pager dei ristoranti. Non richiede push/app, basta tenere la pagina aperta.
+2) [OPZIONALE] Email "ordine pronto" come fallback per asporto/delivery.
+Stefano deve scegliere 1 e/o 2. Da fare domani.
