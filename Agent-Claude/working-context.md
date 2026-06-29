@@ -110,3 +110,15 @@ PROPOSTA (in attesa OK Stefano):
 1) [PRINCIPALE] Pagina "stato ordine" cliente (tavolo+asporto) con CODICE ordine, aggiornamento realtime (Supabase realtime su menu_public_orders/booking o polling), e quando status→ready: SUONA (audio) + vibra + visual "PRONTO" — come i pager dei ristoranti. Non richiede push/app, basta tenere la pagina aperta.
 2) [OPZIONALE] Email "ordine pronto" come fallback per asporto/delivery.
 Stefano deve scegliere 1 e/o 2. Da fare domani.
+
+### 2026-06-30 ~01:05 — ORDINI: Stefano conferma "fai entrambi" (cicalino + email) + "valuta tutti i casi" + aggiorna FAQ/doc/vault a fine
+PIANO LOCKED (da costruire+testare su browser/telefono domattina):
+1) PAGINA STATO ORDINE (cicalino) tavolo+asporto: codice ordine + stato realtime (Supabase realtime su menu_public_orders / takeaway booking, o polling). Su status→ready: audio loop breve + vibrate + visual "PRONTO".
+   CASI: (a) autoplay bloccato → armare audio con gesture al momento ordine; (b) pagina chiusa/minimizzata → re-fetch stato su focus/visibilitychange, suona se già ready; (c) telefono spento/pagina chiusa → fallback mail+push, e re-check al riavvio; (d) realtime drop → reconnect+refetch; (e) ordine annullato → mostra stato.
+2) EMAIL "ordine pronto" via ResendEmailService.SendAsync:
+   - Takeaway: bookings ha customer_email/phone → mail OK (anche TakeawayBoardController già fa push su ready).
+   - Menu/tavolo: menu_public_orders NON ha email (solo customer_note, created_by). Anonimo → solo cicalino. Loggato → email da account(created_by). OPZIONALE: campo email facoltativo al checkout tavolo (in attesa risposta Stefano sì/no).
+   Canale notifiche esistente = FCM push (FirebaseNotificationService); email separata via Resend.
+3) Dopo build: aggiornare FAQ (FAQ.razor / chiavi), documentazione vetrina, vault.
+DOMANDA APERTA a Stefano: campo email opzionale al checkout tavolo sì/no.
+NB: build+TEST reale (audio/realtime su telefono) prima di consegnare (Stefano ha ribadito "test a valle").
