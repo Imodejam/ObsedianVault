@@ -77,3 +77,11 @@ Residuo minore: date-level "today" in QuickTakeawayBooking + appointment flow (_
 ### 2026-06-29 notte tardi — SETTORI: FATTO (12 nuovi, 9 lingue) + fix PGRST204 save
 12 settori online (pizzeria + 11 medici no-loyalty), 254 chiavi/settore ×9 lingue, wiring completo, sitemap dinamico ok, ricontrollo 12/12 200. Hero img riusate (da sostituire con dedicate). Fix urgente: NOTIFY pgrst reload schema (colonna timezone).
 PROSSIMO: geolocalizzazione /negozi (richiesta posizione + filtro località + ordina per vicinanza). shops hanno latitude/longitude.
+
+### 2026-06-29 fine sessione — TUTTA LA CODA FATTA (su CAT)
+✅ Fuso per-negozio (DB+server+vetrina+selettore UI completo IANA) | ✅ fix PGRST204 save (NOTIFY pgrst) | ✅ Privacy 4.3 | ✅ 12 settori (pizzeria+11 medici) 9 lingue + foto hero (9/11, mancano oculisti+ortopedici) | ✅ geolocalizzazione /negozi (geo.js + sort vicinanza + distanza km, Vetr_SortNear 9 lingue).
+APERTI:
+- DEPLOY PRODUZIONE www.puntify.it (deploy-prod.sh) — in attesa OK Stefano. TUTTO è solo su CAT.
+- Foto hero OCULISTI + ORTOPEDICI (Stefano deve inviarle).
+- Geolocalizzazione: test browser lato Stefano (prompt permesso).
+- (minori già tracciati: takeaway/appointment date-level tz edge notte, etichette hardcoded marketing, encoding Ã¨ PublicBookingController:721, search_account_by_email, app-pages i18n, sitemap statico senza settori se lo vuole).
