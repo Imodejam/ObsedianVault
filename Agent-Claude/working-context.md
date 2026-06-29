@@ -122,3 +122,6 @@ PIANO LOCKED (da costruire+testare su browser/telefono domattina):
 3) Dopo build: aggiornare FAQ (FAQ.razor / chiavi), documentazione vetrina, vault.
 DOMANDA APERTA a Stefano: campo email opzionale al checkout tavolo sì/no.
 NB: build+TEST reale (audio/realtime su telefono) prima di consegnare (Stefano ha ribadito "test a valle").
+
+### Decisione ordini (Stefano msg 4590): EMAIL AL TAVOLO = OBBLIGATORIA (non opzionale)
+Serve per dialogare col cliente e avere storico ordini. → Il checkout ordine al tavolo (menu_public_orders) deve CATTURARE l'email (campo obbligatorio) + aggiungere colonna email su menu_public_orders. Così email "ordine pronto" garantita anche al tavolo + storico/comunicazioni.
