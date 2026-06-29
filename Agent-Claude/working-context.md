@@ -64,3 +64,12 @@ TODO APERTI (coda):
 ### Aggiornamenti 2026-06-29 (msg 4548/4549)
 - FUSO: Stefano sceglie B (soluzione pulita, fuso per-negozio) — distribuiranno in Spagna. Implementare colonna timezone su shops + selettore UI + uso in tutti i calcoli slot (tavolo/asporto/appuntamenti, vetrina+server).
 - SETTORI MEDICI: ok niente fidelizzazione; MA NON dire "gestione dei pazienti". Usare prenotazioni/agenda appuntamenti/promemoria.
+
+### 2026-06-29 notte — FUSO ORARIO: FATTO (soluzione B pulita)
+Colonna shops.timezone + TimeZoneHelper + SlotEngine(nowLocal) + server (BookingServiceImpl/PublicBookingController/TakeawayBookingController) + vetrina QuickTableBooking + selettore UI ShopEdit. Tutti i servizi ricompilati e riavviati, API ritorna timezone. Spagna: basterà impostare Europe/Madrid da UI.
+Residuo minore: date-level "today" in QuickTakeawayBooking + appointment flow (_today) ancora DateTime.Today server (edge notte 00-02).
+
+### CODA RESIDUA (ordine Stefano: settori → geoloc)
+1. [GROSSO, PROSSIMO] Nuovi settori vetrina (pizzerie + studi medici: medici-famiglia/medicina-generale, oculista, ginecologo, neurologo, radiologo, dermatologo, ortopedico, cardiologo, endocrinologo, otorino, pneumologo). studi-dentistici ESISTE. Medici: NO fidelizzazione, NO "gestione pazienti"; sì prenotazioni/agenda/promemoria. Contenuti IT→9 lingue + hero img + Footer/MappaDelSito/SitemapService. Poi ricontrollare + sitemap dinamico.
+2. [MEDIO] /negozi geolocalizzazione + filtro località + ordina per vicinanza.
+3. [minori] takeaway/appointment date-level tz; etichette hardcoded marketing; encoding "Ã¨" PublicBookingController:721; valutare search_account_by_email; app-pages i18n (in attesa "vai").
