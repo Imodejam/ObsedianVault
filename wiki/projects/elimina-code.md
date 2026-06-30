@@ -40,7 +40,7 @@ Scope v1 = QR in loco + remoto opzionale + totem software + operatori + display.
 
 ## Decisioni tecniche da validare (GATE 0, prima di costruire)
 
-**D1 — Realtime/concorrenza.** ⏳ IN ATTESA (Stefano deve scegliere A/B). Proposta: **polling** (coerente con l'esistente, ~2-3s) per pagina cliente e display; correttezza del "chiama il prossimo" con **operazione ATOMICA server-side** (RPC Postgres SECURITY DEFINER con `SELECT … FOR UPDATE SKIP LOCKED` / lock di riga sul counter). Così atomicità/no-doppia-chiamata/no-numero-saltato (spec §4,§15,§17) NON dipendono dal realtime. Alternativa B = Supabase Realtime (push istantaneo, infra nuova). L'operazione atomica vale comunque in entrambi i casi.
+**D1 — Realtime/concorrenza.** ✅ DECISA (Stefano 2026-06-30): **A = polling ~2-3s** per pagina cliente e display + correttezza del "chiama il prossimo" con **operazione ATOMICA server-side** (RPC Postgres SECURITY DEFINER, `SELECT … FOR UPDATE SKIP LOCKED` sul counter). Mitigazioni carico (Stefano ha sollevato il tema "tanti client = tante richieste"): (1) **cache in memoria** dello stato coda → N client = 1 lettura DB ogni 1-2s per coda; (2) **ETag/304** quando nulla è cambiato; (3) **polling adattivo** (lontani 10-15s, vicini 2-3s). Upgrade futuro a SSE/Supabase Realtime senza cambiare l'endpoint.
 
 **D2 — Login operatore.** ✅ DECISA (Stefano 2026-06-30): login **per operatore, PASSWORDLESS**. L'esercente, definendo l'operatore, imposta un'**email**; l'operatore fa login ricevendo un **codice di accesso via email** (OTP/magic-link), poi resta loggato tramite **cookie persistente** (stesso paradigma della login esercente Supabase magic-link). → `shop_operators` acquisisce un campo email + flusso auth passwordless dedicato operatore.
 
@@ -75,12 +75,39 @@ Scope v1 = QR in loco + remoto opzionale + totem software + operatori + display.
 
 ---
 
-## GATE 0 — stato decisioni
-- D2 (login operatore passwordless via email+codice+cookie), D3 (v1 solo email, WhatsApp fase2), D4 (multi-coda nativa): ✅ DECISE da Stefano 2026-06-30.
-- **D1 (realtime): ⏳ in attesa** — Stefano deve scegliere A (polling ~2-3s, consigliato) vs B (Supabase Realtime istantaneo). Spiegato con esempio farmacia (msg 4655).
+## GATE 0 — ✅ COMPLETO (Stefano 2026-06-30)
+D1 polling A + mitigazioni · D2 login operatore passwordless email+codice+cookie · D3 v1 solo email (WhatsApp fase2) · D4 multi-coda nativa · D5 numerazione giornaliera.
+
+---
+
+## Fase 1 — disegno tecnico (PROPOSTA, da validare prima di scrivere codice)
+
+### Tabelle (schema `puntify`, RLS sul modello `menu_public_orders`)
+- **`queues`** — una riga per coda (multi-coda nativo, D4). Campi: `id, shop_id (FK shops), name ("Sportello A"), is_multi_service, show_estimate, entry_mode (in_loco|remoto|entrambi, default in_loco), avg_service_minutes, avg_service_auto (bool), recall_window_seconds, remote_quota_pct, notify_email (bool), is_open (bool), auto_open_hours (jsonb), qr_token (univoco per QR coda), created_at, updated_at`.
+- **`queue_tickets`** — il biglietto. `id, ticket_token (pubblico no-auth, pattern confirmation_token), queue_id (FK), shop_id, number (int, progressivo giornaliero coda), status (waiting|called|recallable|served|no_show|expired), source (qr_loco|remoto|totem), device_session (token device-bound, anti-dup), customer_id (nullable FK account — gancio loyalty latente), contact_email (nullable, per avviso), notify_consent (bool), checked_in (bool, per remoto), called_at, called_by_operator_id (FK shop_operators — tracciabilità), served_at, created_at, updated_at`. Index `(queue_id, status, number)`.
+- **`queue_counters`** — contatore atomico per coda+giorno. `id, queue_id, service_date (date), last_number, last_called_number`. **Unique (queue_id, service_date)** → reset giornaliero (D5).
+- **Login operatore** (D2): estendere `shop_operators` con `email` (nullable). Nuove: `operator_login_codes (operator_id, code, expires_at, used_at)` + sessione via cookie persistente (token in `operator_sessions` o JWT firmato). Flusso: esercente imposta email operatore → operatore apre pagina login → inserisce email → riceve codice via Resend → inserisce codice → cookie persistente lungo. Operatore disattivato → sessione invalidata subito.
+
+### Operazione atomica "chiama il prossimo" (RPC Postgres SECURITY DEFINER)
+`queue_call_next(queue_id, operator_id)`: lock riga `queue_counters` (FOR UPDATE) → prende il ticket `waiting` con `number` minimo (per remoto: solo `checked_in`) con `FOR UPDATE SKIP LOCKED` → setta `status=called, called_at, called_by` → aggiorna `last_called_number` → ritorna il ticket. Garantisce: due operatori/totem insieme → biglietti diversi, nessun numero saltato/doppio.
+
+### Endpoint
+- Pubblici (`api/public/queue/*`, no auth, ETag/304 + cache): `POST .../{queueToken}/ticket` (prendi biglietto, device_session, anti-dup); `GET .../ticket/{ticketToken}/status` (polling cliente); `GET .../{queueToken}/display` (display negozio).
+- Esercente/operatore (auth): `POST .../call-next | recall | skip | serve` (atomici); CRUD code; assegnazione operatori.
+- Login operatore: `POST .../operator/login/request {email}` → invia codice; `POST .../operator/login/verify {email, code}` → cookie sessione.
+
+### Feature flag + UI
+- `enabled_features` **bit6 = queue(64)** in `ShopExtensions` + `HasQueue()` + tile in `MerchantHome`/`PuntifyFeaturesTab` + toggle via `ShopFeaturesController`.
+- `Pages/Merchant/Queue/`: lista/CRUD code, config coda, vista "opera coda" (chiama), assegnazione operatori.
+- Display coda full-screen (`/merchant/{shop}/display/queue`) in `Screens.razor` (copia pattern `CustomerDisplay` + polling).
+- Vista operatore ridotta (login + sole code assegnate + tasti chiamata).
+- Pagina cliente pubblica del biglietto (polling adattivo).
+
+### Cache/carico (mitigazioni D1)
+Stato coda in cache memoria server (invalidata su ogni chiamata) → i poll dei client leggono dalla cache; ETag/304; polling adattivo per posizione.
 
 ## Prossimo passo
-Appena Stefano sceglie A/B per D1 → definire schema tabelle (`queues`/`queue_settings`/`queue_tickets`/`queue_counters` multi-coda) + feature bit6 + flusso login operatore passwordless → **Fase 1**. Nessun codice prima dell'ok finale D1.
+Presentare a Stefano la sintesi del disegno Fase 1 → su validazione, iniziare: (1) migration tabelle + feature bit6 (DB su CAT → segnalare per prod), (2) login operatore passwordless, (3) config code + biglietto QR in loco + display + chiamata atomica. Gate di conferma a fine Fase 1.
 
 ## Cross-link
 - [[reference_puntify_db|Puntify DB & API access]] · [[project_puntify_admin|Area Admin]] · operatori/booking come riferimento entità.
