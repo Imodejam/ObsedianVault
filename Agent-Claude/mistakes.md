@@ -25,3 +25,8 @@ Correzione Stefano: una risposta automatica deve essere **impersonale** (non fir
 - ERRORE: nell'oggetto avevo messo il nome dell'officina ("...per Clerici Auto Milano"). Stefano: NON mettere il nome dell'officina nell'oggetto.
 - ERRORE: il corpo non seguiva il modello canonico. Stefano ha fornito il modello ESATTO da usare (Buongiorno → "sono Stefano Gitto di Puntify, vi scrivo perché [aggancio] e vorrei proporvi..." → domanda personalizzata → paragrafo Puntify catalogo/agenda → bullet Nemi 24/7 → caso studio +8.000€ → demo 15min + 3 mesi gratis Codice Amico + app gratis → "Resto a disposizione..." → firma "— Stefano Gitto · Puntify · puntify.it · sales@puntify.it").
 - CORREZIONE: oggetto fisso senza nome = "Ottimizzazione prenotazioni e assistenza 24/7 per la vostra attività". Variano solo aggancio (tipo+zona) e domanda (per categoria).
+
+## [2026-06-30] REGOLA — modifiche a sistemi esterni vanno comunicate per la PROD
+Stefano (msg 4629): ogni volta che modifico sistemi esterni (DB schema/ALTER, firewall, config infra, Supabase, PostgREST, cron esterni, ecc.) DEVO avvisarlo esplicitamente, perché vanno replicate anche in PRODUZIONE (prod = box separato 82.165.223.68, non gestibile da CAT).
+**Perché:** errore "Invio fallito" su ordine prod nato proprio da ALTER fatte su CAT e non su prod (colonne timezone, customer_email).
+**Come applicare:** dopo ogni modifica esterna su CAT → messaggio Telegram con l'SQL/comando esatto da eseguire in prod + salvare in docs/DB Migrations/.
