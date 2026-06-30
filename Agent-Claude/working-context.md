@@ -131,3 +131,9 @@ Ogni volta che si parla/crea una nuova funzione → aggiornare Pages/Roadmap.raz
 ### PROD (www) — problemi aperti segnalati 2026-06-29 (NON gestibili da CAT, serve accesso prod):
 - Demo form invio fallisce: Resend API key invalida (401) → nuova key + dominio verificato.
 - Login Google prod "Unable to exchange external code": Supabase prod Google OAuth (client secret/redirect).
+
+## [2026-06-30] PROMEMORIA DEPLOY PROD (config esterne da replicare)
+Al deploy prod servono (oltre al codice):
+1. SQL: ALTER menu_public_orders ADD customer_email; ALTER shops ADD timezone; NOTIFY pgrst (già dato a Stefano, lui ha applicato su prod CAT? verificare prod vero).
+2. appsettings prod: sezione "Jira" (BaseUrl movenapp.atlassian.net, Email imodejam@gmail.com, ApiToken, ProjectKey PNT, IssueType Support).
+3. Resend key valida in prod (per demo/cicalino/test-email/assistenza ack).
