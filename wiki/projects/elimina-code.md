@@ -40,18 +40,15 @@ Scope v1 = QR in loco + remoto opzionale + totem software + operatori + display.
 
 ## Decisioni tecniche da validare (GATE 0, prima di costruire)
 
-**D1 — Realtime/concorrenza.** Proposta: mantenere **polling** (coerente con l'esistente) per pagina cliente e display; garantire la correttezza del "chiama il prossimo" con **operazione ATOMICA server-side** (RPC Postgres SECURITY DEFINER con `SELECT … FOR UPDATE SKIP LOCKED` o lock di riga sul counter). Così atomicità/no-doppia-chiamata/no-numero-saltato (spec §4,§15,§17) NON dipendono dal realtime. Supabase Realtime resta upgrade futuro per display più reattivi. → confermare.
+**D1 — Realtime/concorrenza.** ⏳ IN ATTESA (Stefano deve scegliere A/B). Proposta: **polling** (coerente con l'esistente, ~2-3s) per pagina cliente e display; correttezza del "chiama il prossimo" con **operazione ATOMICA server-side** (RPC Postgres SECURITY DEFINER con `SELECT … FOR UPDATE SKIP LOCKED` / lock di riga sul counter). Così atomicità/no-doppia-chiamata/no-numero-saltato (spec §4,§15,§17) NON dipendono dal realtime. Alternativa B = Supabase Realtime (push istantaneo, infra nuova). L'operazione atomica vale comunque in entrambi i casi.
 
-**D2 — Login operatore.** Non esiste oggi. Opzioni:
-- (a) **PIN per operatore** + sessione operatore leggera su dispositivo condiviso (tracciabilità + perimetro ridotto) — coerente con spec §13. *(consigliata)*
-- (b) riuso sessione esercente (più semplice, meno tracciabilità).
-→ scegliere a/b.
+**D2 — Login operatore.** ✅ DECISA (Stefano 2026-06-30): login **per operatore, PASSWORDLESS**. L'esercente, definendo l'operatore, imposta un'**email**; l'operatore fa login ricevendo un **codice di accesso via email** (OTP/magic-link), poi resta loggato tramite **cookie persistente** (stesso paradigma della login esercente Supabase magic-link). → `shop_operators` acquisisce un campo email + flusso auth passwordless dedicato operatore.
 
-**D3 — SMS/WhatsApp.** Non esistono. Decisione di prodotto + costi:
-- Proposta: **v1 con PUSH (gratis, già pronto) + Email**; SMS/WhatsApp come fase successiva una volta scelto il provider (es. Twilio per entrambi, o provider SMS IT + WhatsApp Business). Tracciamento messaggi per coda/esercente (modello a consumo, spec §6).
-→ confermare v1 push+email; scegliere provider/budget per SMS/WhatsApp.
+**D3 — Canali avvisi.** ✅ DECISA: **v1 SOLO EMAIL** (Resend, già pronto). **WhatsApp in FASE 2**. (SMS non richiesto per ora.)
 
-**D4 — Numerazione.** Reset **giornaliero** per coda (`queue_counters` con data) per evitare confusione tra numeri di ieri/oggi (spec §9).
+**D4 — Multi-coda.** ✅ DECISA: **più code in parallelo native fin dalla v1** (stile ufficio postale/farmacia: "Sportello A", "Cassa", ecc.). Niente v1 mono-coda.
+
+**D5 — Numerazione.** Reset **giornaliero** per coda (`queue_counters` con data) per evitare confusione tra numeri di ieri/oggi (spec §9).
 
 ---
 
@@ -78,15 +75,12 @@ Scope v1 = QR in loco + remoto opzionale + totem software + operatori + display.
 
 ---
 
-## Domande aperte per Stefano (gate)
-1. OK al piano a fasi + gate?
-2. D2 login operatore: **PIN dedicato** (consigliato) o riuso sessione esercente?
-3. D3 avvisi: OK **v1 push+email**, SMS/WhatsApp dopo scelta provider? Quale provider/budget?
-4. D1 realtime: OK **polling + RPC atomico**, o vuoi Supabase Realtime subito?
-5. Una sola coda per PV in v1 o subito multi-servizio?
+## GATE 0 — stato decisioni
+- D2 (login operatore passwordless via email+codice+cookie), D3 (v1 solo email, WhatsApp fase2), D4 (multi-coda nativa): ✅ DECISE da Stefano 2026-06-30.
+- **D1 (realtime): ⏳ in attesa** — Stefano deve scegliere A (polling ~2-3s, consigliato) vs B (Supabase Realtime istantaneo). Spiegato con esempio farmacia (msg 4655).
 
 ## Prossimo passo
-Attendo validazione GATE 0 (D1–D4 + domande). Solo dopo: schema tabelle + feature flag → Fase 1.
+Appena Stefano sceglie A/B per D1 → definire schema tabelle (`queues`/`queue_settings`/`queue_tickets`/`queue_counters` multi-coda) + feature bit6 + flusso login operatore passwordless → **Fase 1**. Nessun codice prima dell'ok finale D1.
 
 ## Cross-link
 - [[reference_puntify_db|Puntify DB & API access]] · [[project_puntify_admin|Area Admin]] · operatori/booking come riferimento entità.
