@@ -1087,3 +1087,5 @@ File chiave aggiornati:
 ## [2026-07-01] task | i18n App Fase 3 blocco 2: area ESERCENTE estratta (64 file, 2141 chiavi IT) commit b231bad. Traduzioni 9 lingue INTERROTTE da limite sessione (reset ~18:50 UTC).
 
 ## [2026-07-01] task | i18n App Fase 3 blocco 2 COMPLETO: area ESERCENTE 2141 chiavi x 9 lingue. Commit 4157321
+
+## [2026-07-01] task | i18n App Fase 3 COMPLETATA: cliente+esercente+condivisi in 10 lingue (2539 chiavi/lingua). /admin resta IT. Commit 29fcc0f
