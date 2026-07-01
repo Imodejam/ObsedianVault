@@ -1079,3 +1079,5 @@ File chiave aggiornati:
 ## [2026-07-01] task | "Vedi come cliente" (Stefano sceglie A=view-as sola lettura). V1 FRAMEWORK: ImpersonationState (scoped, Start/Stop, event Changed) + tasto "👁 Vedi come cliente" in AdminClientDetail (Start+navigate /wallet) + ImpersonationBanner globale in App.razor ("stai vedendo come X · Esci" → Stop+torna admin). Commit + push. RESTA (step successivo, delicato/sicurezza): data view-as per-schermata — le pagine client leggono via Supabase RLS (mostrerebbero i dati vuoti dell'admin), va instradato via admin API service-role (GetCurrentAccount/GetClientTransactions/cards) + mapping + read-only enforcement. Da fare con cura, schermata per schermata (Wallet prima).
 
 ## [2026-07-01] task | Fix manifest.json Puntify App: path relativi (icone/manifest 404 in collaudo su subdominio a root). Commit d9bf2de
+
+## [2026-07-01] task | Fix WASM i18n: BlazorWebAssemblyLoadAllGlobalizationData=true (cultura dinamica utente). Commit 2c339fd
