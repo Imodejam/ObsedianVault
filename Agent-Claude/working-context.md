@@ -7,6 +7,20 @@
 - /admin NON tradotto (resta IT, uso interno staff) — scelta Stefano.
 
 
+
+## COLLAUDO IN MODALITA' PROD-LIKE (2026-07-01, attivo) — COME TORNARE AL DEV
+- Stefano testa la build di PRODUZIONE in collaudo: app-cat serve la publish Release statica.
+- Publish: dotnet publish Puntify.App -c Release -o publish/app-prod -p:WasmEnableSIMD=true -p:WasmEnableExceptionHandling=true -p:RunAOTCompilation=false
+  (override per evitare workload wasm-tools non installato). Output servito: publish/app-prod/wwwroot/app (base href / gia' a root).
+- Server statico: /home/progetti/puntify/serve-app-prod.js (node, :8002, SPA fallback, MIME wasm). Avviato detached (setsid nohup). Log: serve-app-prod.log. pid via `ss -tlnp | grep :8002`.
+- Caddy NON toccato (app-cat -> 127.0.0.1:8002). Backend = api-cat (dati collaudo).
+- icudt.dat pieno (1.5MB) servito -> globalizationMode=all -> tutte 10 lingue OK, niente errore cultura.
+
+### TORNARE AL DEV (dotnet watch, hot reload):
+1. Killare il node server: `pkill -f serve-app-prod.js`
+2. `sudo systemctl start puntify-app.service` (ri-occupa :8002 con dotnet watch, sharded).
+NB: non lasciare entrambi su :8002.
+
 ## GOTCHA i18n WASM (2026-07-01) — LEGGERE
 - BlazorWebAssemblyLoadAllGlobalizationData=true NON va in Debug: il DevServer (dotnet watch)
   serve icudt.dat 404 -> SRI fail -> WASM non parte (loader infinito su OGNI pagina, login incluso).
