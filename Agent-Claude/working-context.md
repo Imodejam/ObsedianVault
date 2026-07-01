@@ -18,6 +18,8 @@
 4. Merge per lingua + append a Resources/AppResource.{lang}.resx (usare gen script analogo a gen_resx.py; ATTENZIONE: le lang resx contengono gia' le 258 chiavi cliente -> APPEND, non sovrascrivere).
 5. Build + commit. Poi COMPONENTI/Shared come blocco 3.
 
+## DECISIONE: area /admin NON tradotta (resta IT, uso interno staff) — Stefano 2026-07-01
+
 ## Altri fix oggi (fatti, commit)
 - manifest.json path relativi (icone PWA 404) d9bf2de
 - BlazorWebAssemblyLoadAllGlobalizationData 2c339fd
