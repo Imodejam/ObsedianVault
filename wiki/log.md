@@ -1093,3 +1093,5 @@ File chiave aggiornati:
 ## [2026-07-01] task | QA i18n app: analisi text-expansion. Nessun errore traduzione. ~6 label fixed-width (nav mobile/tile/badge) vanno a 2 righe in DE/RU/PL. Proposto a Stefano fix CSS safety-net (opzione B) — in attesa scelta.
 
 ## [2026-07-01] task | QA i18n opzione B: safety-net CSS .nav-item span mobile (clamp 2 righe+ellissi+overflow-wrap). Tile .app-label gia OK. Commit 0263310
+
+## [2026-07-01] task | INCIDENT+FIX: BlazorWebAssemblyLoadAllGlobalizationData rompeva boot WASM in collaudo (icudt.dat 404 su DevServer -> loader infinito su login). Revert (186e31d) + flag solo in Release (17f60ce). Collaudo=sharded (EFIGS live), prod=all 10 lingue.
