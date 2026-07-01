@@ -1109,3 +1109,4 @@ File chiave aggiornati:
 ## [2026-07-01] task | Hero Vetrina rifinito: nuova immagine + testo sopra con business in rosso (MarkupString, 9 lingue). Commit 17456fd
 ## [2026-07-01] task | Elimina Code Fase 3a: app operatore (routing ruolo 4 -> home ridotta /operator + /operator/coda opera code, QueueOperatorApiService). 23 stringhe x10 lingue. Commit b176226
 ## [2026-07-01] task | Elimina Code Fase 3b (scheda operatore esercente) commit 65fe666. FIX CULTURA DEFINITIVO: app-cat servita come prod (LoadAll, tutte lingue) via serve-app-prod.js. Feature operatore completa e testabile.
+## [2026-07-01] task | Home Vetrina multi-servizio riscritta (CTA->registrazione, card Elimina Code, sezione settori, no blocco loyalty) 9 lingue. Commit 9d7ec5f. Splash app login_subtitle attualizzato (da republish).
