@@ -1091,3 +1091,5 @@ File chiave aggiornati:
 ## [2026-07-01] task | i18n App Fase 3 COMPLETATA: cliente+esercente+condivisi in 10 lingue (2539 chiavi/lingua). /admin resta IT. Commit 29fcc0f
 
 ## [2026-07-01] task | QA i18n app: analisi text-expansion. Nessun errore traduzione. ~6 label fixed-width (nav mobile/tile/badge) vanno a 2 righe in DE/RU/PL. Proposto a Stefano fix CSS safety-net (opzione B) — in attesa scelta.
+
+## [2026-07-01] task | QA i18n opzione B: safety-net CSS .nav-item span mobile (clamp 2 righe+ellissi+overflow-wrap). Tile .app-label gia OK. Commit 0263310
