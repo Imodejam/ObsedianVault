@@ -1097,3 +1097,5 @@ File chiave aggiornati:
 ## [2026-07-01] task | INCIDENT+FIX: BlazorWebAssemblyLoadAllGlobalizationData rompeva boot WASM in collaudo (icudt.dat 404 su DevServer -> loader infinito su login). Revert (186e31d) + flag solo in Release (17f60ce). Collaudo=sharded (EFIGS live), prod=all 10 lingue.
 
 ## [2026-07-01] task | Collaudo prod-like: build Release app (LoadAll ICU, 10 lingue) servita statica su :8002 via node serve-app-prod.js; Caddy app-cat invariato. DevServer dotnet watch fermo.
+
+## [2026-07-01] task | Pianificata Fase 2 Elimina Code (Operatori): gap analysis + piano 4 fasi. In attesa 3 conferme Stefano.

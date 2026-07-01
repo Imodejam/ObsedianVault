@@ -111,3 +111,23 @@ Presentare a Stefano la sintesi del disegno Fase 1 → su validazione, iniziare:
 
 ## Cross-link
 - [[reference_puntify_db|Puntify DB & API access]] · [[project_puntify_admin|Area Admin]] · operatori/booking come riferimento entità.
+
+## Fase 2 — Operatori (pianificata 2026-07-01)
+Richiesta Stefano: integrare Elimina Code per gli OPERATORI. Operatore si logga → home con icona Elimina Code → sceglie una coda o tutte → pagina "opera" (chiama prossimo nella coda X o in ordine di arrivo tra le code).
+
+### Gap analysis (da ricerca codice)
+- Login/home/operate OPERATORE: NON esistono (solo tabelle DB predisposte: operator_login_codes, operator_sessions, shop_operators.email). Nessun codice C#.
+- Operatori = booking-operator (shop_operators, type='operator'), riusabili (spec §11). Manca campo Email sul model BookingOperator.
+- Manca tabella assegnazione operatore↔coda (queue_operators). Spec §12.
+- queue_call_next è single-queue (WHERE queue_id, ORDER BY number). Manca RPC FIFO cross-coda (ORDER BY created_at). Spec §15 + richiesta Stefano.
+- Feature flag HasQueue (bit 64) OK. MerchantHome tile pattern (L251, EliminaCode.webp) da rispecchiare per home operatore.
+- Tutto owner-authed (X-API-Key + RequireOwnerAsync). Serve auth operatore separata (token da operator_sessions).
+
+### Piano fasi
+1. DB: queue_operators (assegnazione) + RPC queue_call_next_across (created_at, FOR UPDATE SKIP LOCKED).
+2. Login operatore: server (OTP email + session token) + app (pagina login /operatore, auth state, sessione lunga).
+3. Scheda operatore /operators: Email + assegnazione code + invia accesso.
+4. Home operatore ridotta (solo code assegnate) + select coda/tutte + operate (reuse QueueOperate, single + across). i18n 10 lingue, responsive mobile+tablet (spec §14).
+
+### Conferme in attesa da Stefano
+① URL ingresso operatore (/operatore dedicato). ② Login email+codice, sessione lunga. ③ "Tutte" = FIFO per created_at.
