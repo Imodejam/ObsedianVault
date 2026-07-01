@@ -137,3 +137,7 @@ Al deploy prod servono (oltre al codice):
 1. SQL: ALTER menu_public_orders ADD customer_email; ALTER shops ADD timezone; NOTIFY pgrst (già dato a Stefano, lui ha applicato su prod CAT? verificare prod vero).
 2. appsettings prod: sezione "Jira" (BaseUrl movenapp.atlassian.net, Email imodejam@gmail.com, ApiToken, ProjectKey PNT, IssueType Support).
 3. Resend key valida in prod (per demo/cicalino/test-email/assistenza ack).
+
+## [2026-07-01] PROD da replicare (aggiornamento)
+- account.language: ALTER TABLE puntify.account ADD COLUMN IF NOT EXISTS language TEXT; NOTIFY pgrst (migration 20260701_account_language.sql)
+- Elimina Code: migration 20260630_elimina_code_fase1.sql (tabelle+RPC, incl. tz + SETOF + color + kiosk_token) + abilitare feature bit6 sui negozi
