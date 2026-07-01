@@ -1116,3 +1116,5 @@ File chiave aggiornati:
 ## [2026-07-01] task | Rework in corso: associazione operatore<->Elimina Code spostata sul tab Servizi (OperatorServices); login resta su Anagrafica. Richiesta Stefano.
 ## [2026-07-01] task | Elimina Code operatore spostato su tab Servizi (OperatorServices toggle+code), login resta su Anagrafica. Commit da01113 + republish app (recuperato dopo interruzione).
 ## [2026-07-01] task | Vetrina home settori: scrim+ombra per leggibilita + rotazione auto 4.5s (78 settori, JS). Commit 79e1d3c.
+## [2026-07-01] task | Vetrina: business hero come sezione a se (spaziatura) commit 219f35b. Rotazione settori home per-card indipendente (3-7s, no doppioni) commit eb16b2b.
+## [2026-07-01] note | /settori appariva vuota = transitorio (Blazor Server ricompila durante edit multipli); a build fermo mostra 78 card. Lezione: batchare gli edit Vetrina per ridurre il churn di dotnet watch.
