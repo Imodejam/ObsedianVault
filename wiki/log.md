@@ -1081,3 +1081,5 @@ File chiave aggiornati:
 ## [2026-07-01] task | Fix manifest.json Puntify App: path relativi (icone/manifest 404 in collaudo su subdominio a root). Commit d9bf2de
 
 ## [2026-07-01] task | Fix WASM i18n: BlazorWebAssemblyLoadAllGlobalizationData=true (cultura dinamica utente). Commit 2c339fd
+
+## [2026-07-01] task | i18n App Fase 3 blocco 1: area CLIENTE tradotta (258 chiavi x 9 lingue). Commit 1081495
