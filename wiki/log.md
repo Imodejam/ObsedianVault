@@ -1102,3 +1102,6 @@ File chiave aggiornati:
 ## [2026-07-01] task | Hero MerchantHome (immagine+claim, 10 lingue). Commit 30e6cad
 ## [2026-07-01] task | Elimina Code Fase 2 operatori: DB fondamenta (operator_queues, queue_call_next_across, shop_operators.user_id) applicato a CAT. Commit 1893ab9
 ## [2026-07-01] task | Collaudo tornato in dev mode (DevServer :8002). Chiave Google Maps ricevuta -> integrazione indirizzo ShopEdit in corso.
+## [2026-07-01] task | Hero spostato su Vetrina Home (9 lingue) + rimosso da app. Commit ceebc62 (vetrina), a586295 (app).
+## [2026-07-01] task | Indirizzo ShopEdit: Google Places API (New) PlaceAutocompleteElement -> Address+lat/lng. Commit a586295. Chiave in appsettings collaudo (da mettere in prod appsettings).
+## [2026-07-01] note | PROD indietro su migration: manca Elimina Code Fase 1 (queues). Ordine prod: 20260630 poi 20260702. Prod potenzialmente indietro su altre migration recenti.
