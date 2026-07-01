@@ -1,3 +1,9 @@
+## COLLAUDO app-cat: modalita' PROD-LIKE ATTIVA (fix cultura definitivo 2026-07-01 sera)
+- app-cat serve la publish Debug+LoadAll (tutte 10 lingue, icudt completo) via serve-app-prod.js su :8002. DevServer FERMO.
+- Motivo: il DevServer sharded dava 'culture not supported' per pl/uk/ro/nl/ru. Ora risolto.
+- CONSEGUENZA: niente hot-reload sull'app. Dopo modifiche a Puntify.App: ripubblicare (dotnet publish -c Debug -o publish/app-prod -p:BlazorWebAssemblyLoadAllGlobalizationData=true) e riavviare node (kill listener :8002 + setsid node serve-app-prod.js). La Vetrina (:8003) resta in dotnet watch, non impattata.
+- Include intera feature operatore (F1 DB, F2 server, F3a/3b app) + indirizzo Places.
+
 # Working context — 2026-07-01 (sera)
 
 ## TASK ATTIVI (multi-workstream)
