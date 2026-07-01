@@ -1112,3 +1112,5 @@ File chiave aggiornati:
 ## [2026-07-01] task | Home Vetrina multi-servizio riscritta (CTA->registrazione, card Elimina Code, sezione settori, no blocco loyalty) 9 lingue. Commit 9d7ec5f. Splash app login_subtitle attualizzato (da republish).
 ## [2026-07-01] task | Cambio password operatore + splash login_subtitle multi-servizio (10 lingue) commit 7d1d095. App-cat ripubblicata (prod-like, tutte lingue). Feature operatore completa e live.
 ## [2026-07-01] task | Tab nel path URL: MerchantOperators + ClientDetail allineate (le altre gia ok). Regola salvata. Commit + republish app. Preferenza in memoria.
+## [2026-07-01] task | Vetrina: pagina Settori /settori (griglia 78 foto stile Stripe/Apple + ricerca, catalogo condiviso SectorCatalog) + foto settori in home + foto card Elimina Code (service-eliminacode.webp). Commit c989879. 9 lingue.
+## [2026-07-01] task | Rework in corso: associazione operatore<->Elimina Code spostata sul tab Servizi (OperatorServices); login resta su Anagrafica. Richiesta Stefano.
