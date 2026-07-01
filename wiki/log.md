@@ -1106,3 +1106,4 @@ File chiave aggiornati:
 ## [2026-07-01] task | Indirizzo ShopEdit: Google Places API (New) PlaceAutocompleteElement -> Address+lat/lng. Commit a586295. Chiave in appsettings collaudo (da mettere in prod appsettings).
 ## [2026-07-01] note | PROD indietro su migration: manca Elimina Code Fase 1 (queues). Ordine prod: 20260630 poi 20260702. Prod potenzialmente indietro su altre migration recenti.
 ## [2026-07-01] task | Elimina Code Fase 2 SERVER: OperatorAuthorizationService + OperatorController (api/operator) + QueueController endpoint esercente (crea login/reset pw/assegna code). Commit d42b78e. Live in collaudo (api/operator/context 401 no-auth).
+## [2026-07-01] task | Hero Vetrina rifinito: nuova immagine + testo sopra con business in rosso (MarkupString, 9 lingue). Commit 17456fd
