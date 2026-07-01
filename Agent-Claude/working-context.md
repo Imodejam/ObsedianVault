@@ -1,3 +1,19 @@
+# Working context — 2026-07-01 (sera)
+
+## TASK ATTIVI (multi-workstream)
+1. OPERATORE Elimina Code (feature grossa, a fasi):
+   - Fase 1 DB: FATTA (commit 1893ab9, migration 20260702 applicato a CAT). operator_queues + queue_call_next_across + shop_operators.user_id/email.
+   - Design: operatore = utente standard email+password, account.role=4. Esercente crea (email+pw iniziale) da /operators, assegna code. Login standard -> home ridotta -> icona Elimina Code -> scegli coda/tutte -> opera.
+   - PROSSIME: Fase 2 server (endpoint crea-operatore via GoTrue admin/users service_role; guard auth operatore su JWT sub->shop_operators.user_id; endpoint code operatore + call_next_across; cambio password). Fase 3 app (routing role 4 -> home operatore; home ridotta; select coda/tutte; operate reuse QueueOperate; scheda operatore in /operators con email+pw+assegnazione code; cambio pw in account). i18n 10 lingue, responsive.
+2. INDIRIZZO Google Maps in ShopEdit: chiave in appsettings GoogleMaps:ApiKey. Agente sta facendo Places Autocomplete -> riempie Address + Latitude/Longitude (gia' nel model). DA FARE dopo: tradurre chiavi nuove, commit. NB chiave da restringere per dominio (detto a Stefano).
+3. HERO MerchantHome: FATTO (commit 30e6cad).
+
+## COLLAUDO
+- Modalita' DEV (DevServer dotnet watch :8002, sharded). Le 5 lingue non-EFIGS ripiegano su IT in dev.
+- Per test prod-like (tutte 10 lingue): publish Debug+LoadAll servito da serve-app-prod.js (vedi sotto). Attualmente NON attivo (siamo in dev).
+
+## Riepilogo giornata (i18n + fix) — vedi sotto
+
 # Working context — 2026-07-01
 
 ## i18n App Puntify (Fase 3) — COMPLETATA

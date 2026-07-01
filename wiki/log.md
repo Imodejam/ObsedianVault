@@ -1099,3 +1099,6 @@ File chiave aggiornati:
 ## [2026-07-01] task | Collaudo prod-like: build Release app (LoadAll ICU, 10 lingue) servita statica su :8002 via node serve-app-prod.js; Caddy app-cat invariato. DevServer dotnet watch fermo.
 
 ## [2026-07-01] task | Pianificata Fase 2 Elimina Code (Operatori): gap analysis + piano 4 fasi. In attesa 3 conferme Stefano.
+## [2026-07-01] task | Hero MerchantHome (immagine+claim, 10 lingue). Commit 30e6cad
+## [2026-07-01] task | Elimina Code Fase 2 operatori: DB fondamenta (operator_queues, queue_call_next_across, shop_operators.user_id) applicato a CAT. Commit 1893ab9
+## [2026-07-01] task | Collaudo tornato in dev mode (DevServer :8002). Chiave Google Maps ricevuta -> integrazione indirizzo ShopEdit in corso.
