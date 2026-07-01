@@ -10,8 +10,8 @@
 
 ## COLLAUDO IN MODALITA' PROD-LIKE (2026-07-01, attivo) — COME TORNARE AL DEV
 - Stefano testa la build di PRODUZIONE in collaudo: app-cat serve la publish Release statica.
-- Publish: dotnet publish Puntify.App -c Release -o publish/app-prod -p:WasmEnableSIMD=true -p:WasmEnableExceptionHandling=true -p:RunAOTCompilation=false
-  (override per evitare workload wasm-tools non installato). Output servito: publish/app-prod/wwwroot/app (base href / gia' a root).
+- Publish (FUNZIONANTE): dotnet publish Puntify.App -c DEBUG -o publish/app-prod -p:BlazorWebAssemblyLoadAllGlobalizationData=true
+  (NB: Release senza workload wasm-tools -> runtime WASM rotto: LinkError __assert_fail. Debug usa il runtime precompilato = stabile + LoadAll per tutte le lingue.) Output: publish/app-prod/wwwroot/app (base href / a root).
 - Server statico: /home/progetti/puntify/serve-app-prod.js (node, :8002, SPA fallback, MIME wasm). Avviato detached (setsid nohup). Log: serve-app-prod.log. pid via `ss -tlnp | grep :8002`.
 - Caddy NON toccato (app-cat -> 127.0.0.1:8002). Backend = api-cat (dati collaudo).
 - icudt.dat pieno (1.5MB) servito -> globalizationMode=all -> tutte 10 lingue OK, niente errore cultura.
