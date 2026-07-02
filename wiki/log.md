@@ -1134,3 +1134,6 @@ File chiave aggiornati:
 ## [2026-07-02] note | Vetrina + Server dotnet watch: hot-reload spesso NON applica i cambiamenti (CSS/JS/interfacce) -> RIAVVIARE il servizio dopo modifiche per vederle live/evitare stati sporchi.
 ## [2026-07-02] lint | Cron 8:00 errori: fix unhandledrejection "Cannot send data" interop Header Vetrina (.catch), commit 324d2c1. "dots is not defined" gia risolto. Pushato master.
 ## [2026-07-02] lint | Report 9:00 i18n Vetrina: allineate 9 lingue, chiuse ultime 2 chiavi (Common_Prev/Next frecce carosello) commit 8c59d0d. Nessun gap. HomeCar_ vecchio carosello inutilizzate (cleanup opzionale). Nomi settore carosello = slug (IT) uguali in tutte le lingue.
+## [2026-07-02] task | AssistantAi: banner "Configura provider AI" chiudibile + show-once (localStorage). Commit c5d0799.
+## [2026-07-02] task | QueueList: toggle attivo verde (.cfg-toggle--success), riga click->modifica (stopPropagation su azioni), Elimina spostato nel form modifica con conferma. Commit 85f9a82. Pushato. App ripubblicata.
+## [2026-07-02] note | Republish app: FARLO IN FOREGROUND con timeout ampio (es. 400000ms). In background il comando viene killato a meta -> app giu (502). Pattern: rm publish/app-prod; dotnet publish -c Debug -o publish/app-prod -p:BlazorWebAssemblyLoadAllGlobalizationData=true; poi setsid node serve-app-prod.js.
