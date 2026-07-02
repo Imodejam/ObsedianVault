@@ -1124,3 +1124,6 @@ File chiave aggiornati:
 ## [2026-07-02] task | Carosello settori: da marquee a COVERFLOW premium (spec dettagliata Stefano: card centrale+laterali prospettiche, frecce/pallini/swipe/autoplay, 3 mini-feature/settore, 9 settori con foto). In corso.
 ## [2026-07-02] task | Carosello coverflow settori committato 3d161dd (IT), in attesa feedback visivo Stefano prima di tradurre 57 chiavi.
 ## [2026-07-02] task | Nuovo: Nemi (Telegram + sito) da servire con MiniMax (api key fornita da Stefano, da mettere in config server non-repo). Chiesto ID modello esatto (minimax 3 = ?). Ricerca implementazione Nemi in corso.
+## [2026-07-02] task | Carosello home: rework full-photo tutti 78 settori + counter (commit f38084c). SettoriIndex fail-safe CSS (mai bianca) + restart vetrina per applicare hot-reload CSS.
+## [2026-07-02] task | Nemi -> MiniMax-M3: verificato che chiave+endpoint text/chatcompletion_v2 funzionano. Override globale Nemi (purpose nemi) a MiniMax in ShopAiClient + ramo MiniMax con function-calling (Nemi USA tool: solo ramo Anthropic li aveva). Chiave in appsettings.json server gitignored (non committare). In corso.
+## [2026-07-02] note | Sicurezza: appsettings.Development.json del server ha chiavi vere in chiaro (Anthropic sk-ant, OpenAI sk-proj) COMMITTATE. Segnalare a Stefano di ruotarle/spostarle.
