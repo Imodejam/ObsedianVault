@@ -71,3 +71,5 @@ NB: non lasciare entrambi su :8002.
 - Fasi: 0 (mappatura codice) + 0-bis (audit+rinomina campi fiscali IT->neutri) + 4 processi (onboarding VIES / fatturazione subscription / fattura reverse charge / eu_sales_ledger INTRASTAT) + servizi .NET (IViesValidator, IVatRegimeResolver) + config per-paese + UI country-aware + PROCESS.md + test.
 - Vincolo: seller VAT = CONFIG (mai hardcode); gira in sandbox anche senza P.IVA seller. Target 1: Spagna. DEV, no retrocompat, rinomina fisica ok.
 - ORA: 5 subagent di analisi in corso. Output atteso: FASE 0 mappatura + file da modificare/creare, FASE 0-bis inventario+mappa rinomina. ATTENDERE CONFERMA Stefano prima di implementare. Poi ordine: rinomina->migration->servizi->onboarding+webhook->config->UI->PROCESS.md->test.
+
+## AGG (2026-07-02) Intra-UE: MILESTONE Fase0-bis+Processo1 committato/pushato+collaudo. Resta SOLO fase Subscription Stripe (fatturazione ricorrente) su prompt Stefano. Prod checklist nel log.
