@@ -1165,3 +1165,4 @@ File chiave aggiornati:
 ##  2) aggiungere sezione Fiscal in appsettings prod (gitignored, non nel repo): SellerCountry=IT, SellerVatNumber="" (o P.IVA reale quando attiva -> audit-grade), UseViesMock=false (VIES reale in prod), VatRates {IT:22, ES:21}
 ##  3) Stripe dashboard: abilitare onboarding per-paese in Connect Settings (prereq non-codice)
 ## PENDING: fase Subscription Stripe (fatturazione ricorrente vera) su prompt Stefano.
+## [2026-07-02] task | AddShop: aggiunto autocomplete Google Places sull'indirizzo (pattern puntifyGmaps come ShopEdit) + cattura lat/lng. RoleSelection verificata: gia tradotta (usa @L, solo route names hardcoded). Info fiscali PV = ShopEdit tab "Dati fiscali" (/merchant/shop/{id}/edit/fiscale). Commit+push, ripubblicata.
