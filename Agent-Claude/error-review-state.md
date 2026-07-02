@@ -10,3 +10,7 @@ Firme errori GIÀ esaminati/risolti (non ri-segnalare):
 - queue_call_next riga-NULL su coda vuota → FIX RETURNS SETOF
 - notification_queue/email_queue "Token ModuleHandle" → artefatto dotnet-watch, non bug
 - [CLIENT/vetrina] "No interop methods are registered for renderer" (roadmap/coda) → transiente Blazor enhanced-nav, NON auto-fixato (framework)
+
+## 2026-07-02 (cron 8:00)
+- [CLIENT/vetrina] "Cannot send data if the connection is not in the 'Connected' State" (~236 oggi, 360 ieri) → interop Header Blazor Server (UpdateScrollState/CloseMenusOnNavigation) su circuito disconnesso (amplificato dai restart Vetrina). FIX .catch() (commit 324d2c1).
+- [CLIENT/vetrina] "dots is not defined" (1×, carosello home) → residuo JS di una versione intermedia del carosello (pallini→counter); riferimento gia' rimosso dai rework successivi. Risolto, nessun `dots` nel codice attuale.
