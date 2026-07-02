@@ -1120,3 +1120,5 @@ File chiave aggiornati:
 ## [2026-07-01] note | /settori appariva vuota = transitorio (Blazor Server ricompila durante edit multipli); a build fermo mostra 78 card. Lezione: batchare gli edit Vetrina per ridurre il churn di dotnet watch.
 ## [2026-07-01] task | Vetrina: crossfade settori a 2 livelli (no flash nero, easing Apple+zoom). Commit 21a38dd.
 ## [2026-07-01] task | App: Elimina Code come riga in "Servizi associati" (stile servizi, code in sub-panel). Commit 541d326 + republish.
+## [2026-07-02] fix | BUG CRITICO QueueController: dotnet watch hot-reload sporco lasciava il controller con "Multiple constructors" a runtime (dopo aggiunta ctor in Fase 2) -> tutti gli endpoint code 500/404 -> SetQueues non salvava. Fix: restart puntify-server (rebuild pulito). Lezione: dopo modifiche ai COSTRUTTORI dei controller, riavviare il servizio (hot-reload non basta).
+## [2026-07-02] task | Carosello settori: da marquee a COVERFLOW premium (spec dettagliata Stefano: card centrale+laterali prospettiche, frecce/pallini/swipe/autoplay, 3 mini-feature/settore, 9 settori con foto). In corso.
