@@ -59,3 +59,8 @@ NB: non lasciare entrambi su :8002.
 - Deploy prod: replicare resx + csproj + manifest (git). Ricordare hard-refresh WASM.
 - "Vedi come cliente": collegare dati reali per-schermata (via API admin service-role). Framework gia' pronto.
 - Eventuale QA visivo delle lingue sulle schermate principali.
+
+## PENDING (2026-07-02) — Toggle abilita/disabilita schermi Elimina Code
+- Stefano vuole toggle su Totem/Display per abilitarli/disabilitarli.
+- Chiesto conferma (msg 4880) su enforcement: blocco reale del link (DB flag kiosk_totem_enabled/kiosk_display_enabled su shop + server rifiuta + Vetrina "schermo disabilitato") vs solo stato visivo.
+- Default se non risponde: opzione funzionale completa. Serve MIGRATION DB da replicare in PROD.
