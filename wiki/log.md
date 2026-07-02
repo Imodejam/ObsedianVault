@@ -1122,3 +1122,5 @@ File chiave aggiornati:
 ## [2026-07-01] task | App: Elimina Code come riga in "Servizi associati" (stile servizi, code in sub-panel). Commit 541d326 + republish.
 ## [2026-07-02] fix | BUG CRITICO QueueController: dotnet watch hot-reload sporco lasciava il controller con "Multiple constructors" a runtime (dopo aggiunta ctor in Fase 2) -> tutti gli endpoint code 500/404 -> SetQueues non salvava. Fix: restart puntify-server (rebuild pulito). Lezione: dopo modifiche ai COSTRUTTORI dei controller, riavviare il servizio (hot-reload non basta).
 ## [2026-07-02] task | Carosello settori: da marquee a COVERFLOW premium (spec dettagliata Stefano: card centrale+laterali prospettiche, frecce/pallini/swipe/autoplay, 3 mini-feature/settore, 9 settori con foto). In corso.
+## [2026-07-02] task | Carosello coverflow settori committato 3d161dd (IT), in attesa feedback visivo Stefano prima di tradurre 57 chiavi.
+## [2026-07-02] task | Nuovo: Nemi (Telegram + sito) da servire con MiniMax (api key fornita da Stefano, da mettere in config server non-repo). Chiesto ID modello esatto (minimax 3 = ?). Ricerca implementazione Nemi in corso.
