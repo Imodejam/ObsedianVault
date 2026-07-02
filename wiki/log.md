@@ -1132,3 +1132,4 @@ File chiave aggiornati:
 ## [2026-07-02] task | Carosello finale: nomi brevi (slug), autoplay 2800ms, pausa solo su card attiva, settori comuni-prima (17 prioritari), card mobile piu grande. Commit 21e9b5f. (fix precedente fallito per 529, ridatto).
 ## [2026-07-02] task | Nemi chat: free tier MiniMax = 5 richieste/giorno per shop (conteggio nemi_chat_history user del giorno, blocco 6a); LLM proprio configurato = illimitato (skip override MiniMax + no limite). HasOwnNemiCredentialAsync. Enforcement in NemiChatService.SendAsync (Telegram+sito). Commit 58ba94c.
 ## [2026-07-02] note | Vetrina + Server dotnet watch: hot-reload spesso NON applica i cambiamenti (CSS/JS/interfacce) -> RIAVVIARE il servizio dopo modifiche per vederle live/evitare stati sporchi.
+## [2026-07-02] lint | Cron 8:00 errori: fix unhandledrejection "Cannot send data" interop Header Vetrina (.catch), commit 324d2c1. "dots is not defined" gia risolto. Pushato master.
