@@ -64,3 +64,5 @@ NB: non lasciare entrambi su :8002.
 - Stefano vuole toggle su Totem/Display per abilitarli/disabilitarli.
 - Chiesto conferma (msg 4880) su enforcement: blocco reale del link (DB flag kiosk_totem_enabled/kiosk_display_enabled su shop + server rifiuta + Vetrina "schermo disabilitato") vs solo stato visivo.
 - Default se non risponde: opzione funzionale completa. Serve MIGRATION DB da replicare in PROD.
+
+## RISOLTO (2026-07-02) — Toggle schermi Elimina Code: enforcement REALE fatto e testato. ⚠️ MIGRATION DA REPLICARE IN PROD: docs/DB Migrations/20260702_kiosk_screen_toggles.sql (2 colonne su shops).
