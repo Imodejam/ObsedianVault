@@ -83,3 +83,10 @@ NB: non lasciare entrambi su :8002.
 
 ## DECISIONE (2026-07-03) — Fatturazione abbonamento: USARE STRIPE TAX (msg 5063)
 - Il Processo 2 (Subscription Stripe / fatturazione ricorrente intra-UE) userà Stripe Tax: calcola/riscuote/versa IVA (OSS B2C aliquota Paese cliente + reverse charge B2B) senza mantenere a mano 27 aliquote + dichiarazioni OSS. Alternativa scartata: Merchant of Record (Paddle/Lemon Squeezy). Il modulo fiscale attuale (shop_fiscal/VatRegimeResolver/VIES) resta per onboarding/identità/regime.
+
+## IN CORSO (2026-07-03) — Vetrina: nuovo servizio "Elimina Code" (msg 5065/5066)
+- STEP 1 (subagent in corso): pagina Pages/EliminaCode.razor (/elimina-code) sullo schema Fidelizzazione/Prenotazioni, prefisso CSS elc-, chiavi i18n Meta_EliminaCode_* + Elc_* + Nav_EliminaCode + Mega_Feat_EliminaCode_Desc + Footer_Link_EliminaCode in 10 lingue SharedResource; registrazione Header mega-menu + Footer + SitemapService.
+- HERO IMG: usare service-eliminacode.webp (gia esiste, ottima: totem+monitor+attesa). Close-up opzionali offerti a Stefano.
+- STEP 2 (DOPO subagent, per non conflittare su resx): integrare Elimina Code in Home.razor (griglia servizi), FAQ.razor, e altre pagine che elencano i servizi.
+- STEP 3: aggiungere il servizio nelle pagine Settore rilevanti (farmacie, ambulatori/medici, uffici/CAF/patronati, poste, agenzie immob/assic/viaggi, salumerie/gastronomie/pescherie/macellerie, banco servito).
+- POI: republish Vetrina (dotnet watch, ma verificare), commit, screenshot verifica, report Stefano.
