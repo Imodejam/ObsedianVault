@@ -96,3 +96,10 @@ NB: non lasciare entrambi su :8002.
 - 3 FOTO Stefano (5071-5073) convertite webp -> images/photos/eliminacode-biglietto/monitor/cliente.webp; cablate in EliminaCode.razor come showcase (3 col, alt=Elc_Feat1/2/4Title, CSS elc-showcase/elc-shot). NIENTE nuove chiavi resx (riuso Feat title) per non conflittare col subagent 2.
 - NON ho buildato/riavviato: subagent 2 (Settori/FAQ) sta editando resx/Settori/SectorCatalog/FAQ. Dopo il suo completamento: 1 build+restart Vetrina, verifica screenshot (pagina+icona+un paio di settori+faq), commit unico, report.
 - QUEUE TASK (5074): pannello pagina Prezzi da restylare Apple/Stripe. Foto/illustrazioni: Stefano le genera se gli passo i prompt.
+
+## PENDING (2026-07-03) — Prompt app Xcode webview Puntify (5096)
+- Stefano vuole un prompt dettagliato per far creare a Claude un'app Xcode (iPhone/iPad/Mac) webview per Puntify.
+- Chieste 4 domande (msg 5097): (1) URL prod-only vs switch collaudo; (2) push native APNs vs web/FCM esistenti; (3) distribuzione App Store vs TestFlight; (4) Mac Catalyst vs macOS nativo.
+- DEFAULT dichiarati: SwiftUI+WKWebView, fotocamera abilitata (scan QR)+Info.plist, login persistente (cookie/localStorage via WKWebsiteDataStore), link esterni in Safari, pull-to-refresh/loading/offline/safe-area/rotazioni, icona+splash dal logo, bundle it.puntify.app nome "Puntify".
+- Alla risposta (o "default"): produrre il prompt completo pronto da incollare in Claude Code.
+- NB anche Google Wallet (Android) resta da avviare come impianto server.
