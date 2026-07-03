@@ -90,3 +90,9 @@ NB: non lasciare entrambi su :8002.
 - STEP 2 (DOPO subagent, per non conflittare su resx): integrare Elimina Code in Home.razor (griglia servizi), FAQ.razor, e altre pagine che elencano i servizi.
 - STEP 3: aggiungere il servizio nelle pagine Settore rilevanti (farmacie, ambulatori/medici, uffici/CAF/patronati, poste, agenzie immob/assic/viaggi, salumerie/gastronomie/pescherie/macellerie, banco servito).
 - POI: republish Vetrina (dotnet watch, ma verificare), commit, screenshot verifica, report Stefano.
+
+## AGG (2026-07-03) Elimina Code Vetrina — icona + foto (pending build)
+- FIX icona mega-menu (5070): mancava .mega-card-icon--queue in app.css -> tile bianca. Aggiunta (gradiente teal). Header case "queue" gia ok.
+- 3 FOTO Stefano (5071-5073) convertite webp -> images/photos/eliminacode-biglietto/monitor/cliente.webp; cablate in EliminaCode.razor come showcase (3 col, alt=Elc_Feat1/2/4Title, CSS elc-showcase/elc-shot). NIENTE nuove chiavi resx (riuso Feat title) per non conflittare col subagent 2.
+- NON ho buildato/riavviato: subagent 2 (Settori/FAQ) sta editando resx/Settori/SectorCatalog/FAQ. Dopo il suo completamento: 1 build+restart Vetrina, verifica screenshot (pagina+icona+un paio di settori+faq), commit unico, report.
+- QUEUE TASK (5074): pannello pagina Prezzi da restylare Apple/Stripe. Foto/illustrazioni: Stefano le genera se gli passo i prompt.
