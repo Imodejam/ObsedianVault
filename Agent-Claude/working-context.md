@@ -78,3 +78,5 @@ NB: non lasciare entrambi su :8002.
 - BUG: MerchantRegistration salva un MerchantProfile (BusinessName/ContactFirstName/LastName/Email/Phone) via Supabase.CreateMerchantProfile, ma /merchantAccount legge Account.DisplayName + Account.MobileNumber (Supabase.GetCurrentAccount) -> mai popolati dalla registrazione -> campi vuoti.
 - FIX (da applicare DOPO che il subagent phone-validation ha finito di editare MerchantRegistration.razro, per non conflittare): in HandleSubmit, dopo CreateMerchantProfile, chiamare Supabase.UpdateDisplayName($"{_contactFirstName} {_contactLastName}".Trim()) e Supabase.UpdateMobileNumber(_contactPhone.Trim()) cosi' l'account riflette i dati inseriti. (Ragione sociale resta business-level, in ShopEdit anagrafica.)
 - Poi republish app + commit + reply 5042 conferma.
+
+## RISOLTO (2026-07-03) — Fix registrazione->account (5041): applicato in HandleSubmit (UpdateDisplayName+UpdateMobileNumber best-effort). + validazione prefisso telefono su tutte le pagine di raccolta.
