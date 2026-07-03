@@ -80,3 +80,6 @@ NB: non lasciare entrambi su :8002.
 - Poi republish app + commit + reply 5042 conferma.
 
 ## RISOLTO (2026-07-03) — Fix registrazione->account (5041): applicato in HandleSubmit (UpdateDisplayName+UpdateMobileNumber best-effort). + validazione prefisso telefono su tutte le pagine di raccolta.
+
+## DECISIONE (2026-07-03) — Fatturazione abbonamento: USARE STRIPE TAX (msg 5063)
+- Il Processo 2 (Subscription Stripe / fatturazione ricorrente intra-UE) userà Stripe Tax: calcola/riscuote/versa IVA (OSS B2C aliquota Paese cliente + reverse charge B2B) senza mantenere a mano 27 aliquote + dichiarazioni OSS. Alternativa scartata: Merchant of Record (Paddle/Lemon Squeezy). Il modulo fiscale attuale (shop_fiscal/VatRegimeResolver/VIES) resta per onboarding/identità/regime.
