@@ -14,3 +14,10 @@ Firme errori GIÀ esaminati/risolti (non ri-segnalare):
 ## 2026-07-02 (cron 8:00)
 - [CLIENT/vetrina] "Cannot send data if the connection is not in the 'Connected' State" (~236 oggi, 360 ieri) → interop Header Blazor Server (UpdateScrollState/CloseMenusOnNavigation) su circuito disconnesso (amplificato dai restart Vetrina). FIX .catch() (commit 324d2c1).
 - [CLIENT/vetrina] "dots is not defined" (1×, carosello home) → residuo JS di una versione intermedia del carosello (pallini→counter); riferimento gia' rimosso dai rework successivi. Risolto, nessun `dots` nel codice attuale.
+
+## 2026-07-03 (cron 8:00)
+- [DescribeAi] Claude 400 "Your credit balance is too low to access the Anthropic API" (3×, 21:26-21:37 del 02-07) → vecchio ClaudeDishAiService su API Anthropic senza credito (riservata a Concilium). GIÀ RISOLTO: switch generazione testo a MiniMax (commit 75e675e); ultima occorrenza 21:37, nessuna dopo. ClaudeDishAiService non più registrato in DI.
+- Method not found: Shop.get_KioskTotemEnabled() (2×, 09:37 del 02-07) → mismatch Puntify.Shared.dll stale durante hot-reload/deploy. Property esiste (Shop.cs:68), nessuna ricorrenza dopo 09:37 → transiente dotnet-watch, non bug.
+- ModuleHandle "Token ... not valid" ancora presente (213× su notification_queue/email_queue/social_drafts/generate-photo/storico notifiche) → stesso artefatto dotnet-watch già classificato (non bug, solo su CAT/dev con watch; prod gira DLL pubblicate).
+- Vetrina "Cannot send data ... Connected State" e "dots is not defined" → già coperti 02-07 (fix 324d2c1 / risolto).
+- 2026-07-03: nessun error-*.log generato oggi = pulito. NESSUN bug nuovo azionabile.
