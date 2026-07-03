@@ -73,3 +73,8 @@ NB: non lasciare entrambi su :8002.
 - ORA: 5 subagent di analisi in corso. Output atteso: FASE 0 mappatura + file da modificare/creare, FASE 0-bis inventario+mappa rinomina. ATTENDERE CONFERMA Stefano prima di implementare. Poi ordine: rinomina->migration->servizi->onboarding+webhook->config->UI->PROCESS.md->test.
 
 ## AGG (2026-07-02) Intra-UE: MILESTONE Fase0-bis+Processo1 committato/pushato+collaudo. Resta SOLO fase Subscription Stripe (fatturazione ricorrente) su prompt Stefano. Prod checklist nel log.
+
+## PENDING (2026-07-03) — Fix registrazione negozio -> account vuoto (msg 5041)
+- BUG: MerchantRegistration salva un MerchantProfile (BusinessName/ContactFirstName/LastName/Email/Phone) via Supabase.CreateMerchantProfile, ma /merchantAccount legge Account.DisplayName + Account.MobileNumber (Supabase.GetCurrentAccount) -> mai popolati dalla registrazione -> campi vuoti.
+- FIX (da applicare DOPO che il subagent phone-validation ha finito di editare MerchantRegistration.razro, per non conflittare): in HandleSubmit, dopo CreateMerchantProfile, chiamare Supabase.UpdateDisplayName($"{_contactFirstName} {_contactLastName}".Trim()) e Supabase.UpdateMobileNumber(_contactPhone.Trim()) cosi' l'account riflette i dati inseriti. (Ragione sociale resta business-level, in ShopEdit anagrafica.)
+- Poi republish app + commit + reply 5042 conferma.
