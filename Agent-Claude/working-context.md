@@ -103,3 +103,10 @@ NB: non lasciare entrambi su :8002.
 - DEFAULT dichiarati: SwiftUI+WKWebView, fotocamera abilitata (scan QR)+Info.plist, login persistente (cookie/localStorage via WKWebsiteDataStore), link esterni in Safari, pull-to-refresh/loading/offline/safe-area/rotazioni, icona+splash dal logo, bundle it.puntify.app nome "Puntify".
 - Alla risposta (o "default"): produrre il prompt completo pronto da incollare in Claude Code.
 - NB anche Google Wallet (Android) resta da avviare come impianto server.
+
+## AGG (2026-07-03) — Prompt app Xcode CONSEGNATO (5098)
+- Scelte Stefano: (1) prod app.puntify.it + switch nascosto collaudo (long-press 2s angolo/shake -> action sheet -> UserDefaults + basic auth user/puntify83! solo host app-cat); (2) FCM -> CHIARITO: web push NON funziona in WKWebView (motivo per cui non hanno mai funzionato), prompt usa Firebase NATIVO/APNs + token->webview; offerto debug separato FCM web; (3) App Store (account preso); (4) Mac Catalyst. Prompt salvato: scratchpad/prompt-app-puntify-xcode.md (inviato come file).
+- OPEN: eventuale debug FCM web push sul sito (browser) se Stefano lo vuole.
+
+## PENDING (2026-07-03) — Server MCP sul vault (5099)
+- Stefano vuole un server MCP connesso al vault Obsidian (/home/progetti/obsidian-vault) esposto verso l'esterno, così un altro agent Claude puo accedervi. DEVE avere una API key (autenticazione). Da progettare/implementare dopo l'app.
