@@ -1,7 +1,13 @@
-## FIX LOGOUT rientro PV (2026-07-03) — commit locale 6687034, deploy prod IN ATTESA OK Stefano
+## 2026-07-04 — 2 FIX COMMITTATI (locale), DEPLOY PROD IN ATTESA OK STEFANO
+### 1. Fix logout rientro PV (commit 6687034)
 - Bug: dopo logout il merchant rientrava in merchant-shops. Causa: SPA-nav a /login teneva vivo il client Supabase in-memory; se _client.Auth.SignOut() falliva CurrentUser restava valorizzato -> Login reindirizzava per ruolo.
-- Fix: forceLoad:true nella nav post-SignOut di Merchant/Client/Operator (Admin gia' cosi'). File: MerchantAccount/ClientAccount/OperatorHome.razor.
-- NB workload wasm-tools era SPARITO (publish CAT falliva su icudt.dat mancante) -> reinstallato 2026-07-04. Ripubblicare CAT dopo l'install.
+- Fix: forceLoad:true nella nav post-SignOut di Merchant/Client/Operator (Admin gia' cosi').
+### 2. i18n avvio lingua browser/sistema, fallback EN (commit 558ecc2)
+- App/Program.cs (navigator.languages) + Vetrina/Program.cs (DefaultRequestCulture->en, redirect root su lingua tradotta else en). Verificato su collaudo.
+### TOOLCHAIN CAT app (IMPORTANTE per prossimi deploy CAT)
+- wasm-tools reinstallato (pack 8.0.28) ha regressione: publish LoadAll fallisce / staging ICU non deterministico -> con shard l'app va in CARICAMENTO PERENNE.
+- USARE SEMPRE /home/progetti/puntify/deploy-cat-app.sh per il CAT: publish default + patch boot.json a full-ICU. NON fare `dotnet publish -p:BlazorWebAssemblyLoadAllGlobalizationData=true` diretto.
+- Prod pipeline builda LoadAll correttamente (runner separato), non tocca questo.
 
 ## COLLAUDO app-cat: modalita' PROD-LIKE ATTIVA (fix cultura definitivo 2026-07-01 sera)
 - app-cat serve la publish Debug+LoadAll (tutte 10 lingue, icudt completo) via serve-app-prod.js su :8002. DevServer FERMO.
