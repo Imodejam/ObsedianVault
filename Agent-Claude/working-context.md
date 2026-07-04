@@ -121,3 +121,12 @@ NB: non lasciare entrambi su :8002.
 
 ## PENDING (2026-07-03) — Server MCP sul vault (5099)
 - Stefano vuole un server MCP connesso al vault Obsidian (/home/progetti/obsidian-vault) esposto verso l'esterno, così un altro agent Claude puo accedervi. DEVE avere una API key (autenticazione). Da progettare/implementare dopo l'app.
+
+## BATCH TRADUZIONE PENDENTE (2026-07-04, dopo validazione IT Stefano) — Vetrina 9 lingue + it.resx dove shadow
+Chiavi IT nuove/cambiate da tradurre in en/es/fr/pt/ar/bn/hi/zh/uk:
+- Simulatore: tutte le Sim_* (~50) + Meta_Simulatore_Title/Desc + Footer_Link_Simulator
+- Nemi Voce: Nemi_Pay_* nuove/cambiate (Claim, Cost_*, Recharge R1-4 min/permin, B4/B5, Ex1-3_Cost, Vat_Note, Prz_Footnote, Cmp_NemiFeature) + Nemi_Voce_Faq_Included/MultiPV/Digital (Q/A)
+- Prezzi: Prz_Feat10 (Nemi Voce) + Prz_Feat11 (Elimina code); trial: Prz_MonthlyNote/AnnualNote/LaunchDesc/TableFooter
+- NB: molte Prz_* sono ANCHE in it.resx (shadow) -> aggiornare it.resx quando si traduce/cambia per l'italiano.
+- Dopo traduzioni: sweep home/blog/settori per residui vecchio modello; allineare simulatore (esempi/tariffe: doc usa 0,29-0,36/min tiered, esempi 27/51/120); propagare ROI 78 settori (pay-per-use + fidelity + link simulatore).
+- Grafiche attese da Stefano: hero Nemi (video/immagine), testimonial (foto reali).
