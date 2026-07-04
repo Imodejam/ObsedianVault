@@ -38,3 +38,4 @@ _(nessun concetto ancora)_
 - [[piracity-tappa-template]] — formato obbligatorio per creare/visualizzare una tappa Piracity (tono pirata, struttura a sezioni fisse)
 - [[piracity-map-story-prompt]] — system prompt per le storie delle mappe Piracity (Vetrina + Apertura mappa, stile Disney, nomi realistici, luoghi reali). Da applicare a mappe esistenti e future
 - [[puntify-clienti-data-model]] — modello dati clienti Puntify: cosa è condiviso tra esercenti (account globale) vs isolato per-shop; RLS + RPC
+- [Nemi Voce economics (INTERNO)](decisions/nemi-voce-economics-INTERNO.md) — modello prezzi + margini/COGS, NON pubblicare
