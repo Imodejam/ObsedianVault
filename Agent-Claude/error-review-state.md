@@ -21,3 +21,11 @@ Firme errori GIÀ esaminati/risolti (non ri-segnalare):
 - ModuleHandle "Token ... not valid" ancora presente (213× su notification_queue/email_queue/social_drafts/generate-photo/storico notifiche) → stesso artefatto dotnet-watch già classificato (non bug, solo su CAT/dev con watch; prod gira DLL pubblicate).
 - Vetrina "Cannot send data ... Connected State" e "dots is not defined" → già coperti 02-07 (fix 324d2c1 / risolto).
 - 2026-07-03: nessun error-*.log generato oggi = pulito. NESSUN bug nuovo azionabile.
+
+## 2026-07-04 (cron 8:00)
+- Nessun error-20260704.log oggi. Rivisto error-20260703.log (errori 14:13-14:44 del 03-07, dopo la review delle 06:36).
+- 116 [ERR] TUTTI [CLIENT/vetrina]: "Cannot send data ... Connected State" (~168 su /it/elimina-code, /it/guadagna) + "No interop methods are registered for renderer N" (~64) → classi GIÀ note (circuito Blazor Server disconnesso, framework; mitigate .catch() 324d2c1; amplificate dai restart Vetrina). NON nuove, non azionabili.
+- ZERO eccezioni server-side reali ([ERR]/[FTL] non-CLIENT = 0).
+- [WRN] "API request without API Key from 127.0.0.1" ×6 → chiamate interne/health senza API key, benigno. Nuova firma ma non-bug.
+- [WRN] "Failed to determine the https port for redirect." ×1 → UseHttpsRedirection senza porta HTTPS configurata; benigno in CAT/prod (nginx/Caddy gestiscono TLS). Non-bug, non toccato (config HTTPS = potenziale impatto prod).
+- NESSUN bug nuovo azionabile → nessuna fix/commit.
