@@ -1,3 +1,8 @@
+## FIX LOGOUT rientro PV (2026-07-03) — commit locale 6687034, deploy prod IN ATTESA OK Stefano
+- Bug: dopo logout il merchant rientrava in merchant-shops. Causa: SPA-nav a /login teneva vivo il client Supabase in-memory; se _client.Auth.SignOut() falliva CurrentUser restava valorizzato -> Login reindirizzava per ruolo.
+- Fix: forceLoad:true nella nav post-SignOut di Merchant/Client/Operator (Admin gia' cosi'). File: MerchantAccount/ClientAccount/OperatorHome.razor.
+- NB workload wasm-tools era SPARITO (publish CAT falliva su icudt.dat mancante) -> reinstallato 2026-07-04. Ripubblicare CAT dopo l'install.
+
 ## COLLAUDO app-cat: modalita' PROD-LIKE ATTIVA (fix cultura definitivo 2026-07-01 sera)
 - app-cat serve la publish Debug+LoadAll (tutte 10 lingue, icudt completo) via serve-app-prod.js su :8002. DevServer FERMO.
 - Motivo: il DevServer sharded dava 'culture not supported' per pl/uk/ro/nl/ru. Ora risolto.
