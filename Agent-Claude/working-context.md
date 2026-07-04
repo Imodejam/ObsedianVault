@@ -130,3 +130,6 @@ Chiavi IT nuove/cambiate da tradurre in en/es/fr/pt/ar/bn/hi/zh/uk:
 - NB: molte Prz_* sono ANCHE in it.resx (shadow) -> aggiornare it.resx quando si traduce/cambia per l'italiano.
 - Dopo traduzioni: sweep home/blog/settori per residui vecchio modello; allineare simulatore (esempi/tariffe: doc usa 0,29-0,36/min tiered, esempi 27/51/120); propagare ROI 78 settori (pay-per-use + fidelity + link simulatore).
 - Grafiche attese da Stefano: hero Nemi (video/immagine), testimonial (foto reali).
+
+## BATCH TRAD +CLARITY (2026-07-04): aggiungere al batch le 13 chiavi review chiarezza:
+Esr_HeroDesc, Esr_Extra1_Desc, Esr_Extra6_Title, Esr_Extra6_Desc, Bkg_Feat3_Desc, Bkg_GCal_Item4_Desc, Elc_HeroDesc, Prz_HeroDesc, Prz_Feat6, Prz_Feat7, Home_HeroDesc, Home_ProductsDesc, Home_NemiDesc, Nemi_Voce_Faq_Number_Q/A, Nemi_Pay_Cost_UsageHint (cambiata) — tutte gia' in neutral+it, da tradurre nelle altre 8 lingue. + Prz trial keys + Nemi_Pay_* Voce + Sim_*.
