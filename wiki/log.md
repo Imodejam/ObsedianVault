@@ -1280,3 +1280,4 @@ File chiave aggiornati:
 ## [2026-07-05] task | Vetrina Nemi: uniformata prima stima costo "circa 27 €/mese" (tolto "di consumo") alle altre due, tutte lingue — commit 06903e1
 ## [2026-07-05] task | Vetrina simulatore: chip Prudente/Atteso/Ottimista larghezza uguale (span width:100% in label flex) — commit ed31ac2
 ## [2026-07-05] task | Nemi Bot Telegram: badge ambiente nei messaggi (🔴 prod / 🟠 collaudo) via IHostEnvironment in NemiTelegramBot — commit 7870827
+## [2026-07-05] task | App iOS: fix scroll minimo su tutte le pagine (wrapper full-page min-height = calc(100dvh - safe-top - safe-bottom), causa: somma con padding safe-area del body) — commit a6dd22a, deploy CAT app
