@@ -26,6 +26,13 @@ Correzione Stefano: una risposta automatica deve essere **impersonale** (non fir
 - ERRORE: il corpo non seguiva il modello canonico. Stefano ha fornito il modello ESATTO da usare (Buongiorno → "sono Stefano Gitto di Puntify, vi scrivo perché [aggancio] e vorrei proporvi..." → domanda personalizzata → paragrafo Puntify catalogo/agenda → bullet Nemi 24/7 → caso studio +8.000€ → demo 15min + 3 mesi gratis Codice Amico + app gratis → "Resto a disposizione..." → firma "— Stefano Gitto · Puntify · puntify.it · sales@puntify.it").
 - CORREZIONE: oggetto fisso senza nome = "Ottimizzazione prenotazioni e assistenza 24/7 per la vostra attività". Variano solo aggancio (tipo+zona) e domanda (per categoria).
 
+## [2026-07-05] Collaudo Puntify si rompe quando si edita il codice dal vivo (dotnet-watch hot-reload)
+ERRORE/CAUSA RICORRENTE (Stefano: "non è la prima volta che capita"): i servizi di collaudo (puntify-server/vetrina/app) girano sotto `dotnet-watch`. Mentre un subagent (o io) edita il codice del server dal vivo, l'hot-reload prova ad applicare a caldo le modifiche; le "rude edit" (es. cambio forma di un tipo anonimo di un endpoint) corrompono l'assembly in memoria → `TypeLoadException: Could not load type '<>f__AnonymousType...'` → backend HTTP 500 → app WASM in **loading perenne**. Non è la VPS, non è la memoria: è l'hot-reload sul codice in modifica.
+SINTOMO tipico riferito da Stefano: "app-cat in loading perenne / non riesco a usarla".
+RECOVERY IMMEDIATO: `sudo systemctl restart puntify-server.service` (forza build pulita, l'errore sparisce) + hard-refresh Ctrl+F5 lato client (WASM).
+CURA DEFINITIVA proposta: (a) avviare i servizi con hot-reload OFF (`dotnet watch --no-hot-reload` o `DOTNET_WATCH_RESTART_ON_RUDE_EDIT=1`) così una modifica fa restart pulito invece di corrompere a caldo; oppure (b) far lavorare i subagent su git worktree isolato e deployare solo a fine lavoro.
+LEZIONE: quando delego modifiche pesanti al codice server, mettere in conto che destabilizzano collaudo finché il lavoro non è finito; avvisare Stefano e fare restart pulito a fine batch.
+
 ## [2026-06-30] REGOLA — modifiche a sistemi esterni vanno comunicate per la PROD
 Stefano (msg 4629): ogni volta che modifico sistemi esterni (DB schema/ALTER, firewall, config infra, Supabase, PostgREST, cron esterni, ecc.) DEVO avvisarlo esplicitamente, perché vanno replicate anche in PRODUZIONE (prod = box separato 82.165.223.68, non gestibile da CAT).
 **Perché:** errore "Invio fallito" su ordine prod nato proprio da ALTER fatte su CAT e non su prod (colonne timezone, customer_email).
