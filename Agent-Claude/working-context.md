@@ -49,3 +49,8 @@ Report Telegram inviati (id 5241 errori, 5242 jira).
 ## 2026-07-05 PUSH per deploy
 - Pushati 36 commit su origin/master (fino a 261885e). Stefano fa il deploy prod.
 - Note prod: badge Nemi Bot diventa 🔴 automatico (IsProduction); login Google nativa iOS inerte finché non c'è app nativa + scheme nell'allow-list GoTrue PROD (da fare con OK quando serve); app WASM prod = pipeline LoadAll, utenti potrebbero dover ricaricare (service worker).
+
+## 2026-07-05 (sera) — stato richieste coda + shop
+FATTO oggi (commit su master, pushati): FAQ Nemi(4091c27), biglietto+lastissued coda(213d4bb), totem numero inline 'Gastronomia 8'(30e31d3), BUG QR sempre-1 device-vuoto fix RPC+app(6fce46c, migration in docs/DB Migrations DA APPLICARE PROD), esercente gestisce coda(b77a6b7, deploy CAT), selettore lingua totem(9f846db).
+IN CORSO: 5298 popup embed pagina cliente /shop → Fase 1 subagent a353eeb71f66800e3 (embed mode + framing + prefill dati + postMessage sulle pagine pubbliche Vetrina, build no-deploy). Poi Fase 2 lato app (ShopDetail popup).
+DA VALUTARE con Stefano: campo lingua-default esercente (oggi si usa la lingua del link totem); applicare migration coda in PROD.
