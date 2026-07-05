@@ -35,3 +35,8 @@ Report Telegram inviati (id 5241 errori, 5242 jira).
 - IT corretto: assistente telefonica, Nemi sempre pronta, Nemi è la tua assistente, +extra (Un'assistente completa, falla, lei esegue, risponde da sola, raccoglie lei). Commit 2b049e3 (batch1) + extra da committare con lingue.
 - Altre lingue: 2 subagent genere in corso (17 keys + 7 keys) → applicare da nemi_vals_fixed.json / nemi_vals2_fixed.json.
 - TODO "due anime": pagina Nemi framare esplicito Bot (gestione chat/Telegram, incluso) vs Voce (telefonate, a consumo). FAQ Nemi_Voce_Faq_Digital già ok. Reframe Nemi_Areas_Title/Desc + HeroDesc, poi tradurre 10 lingue.
+
+## 2026-07-05 Nemi COMPLETO
+- Femminile: a87cfd0. Due anime: 3590c77. Verificato it/en/es/fr/ar/uk.
+- Da valutare (segnalati a Stefano): (1) stringhe Nemi PT/ES con testo spagnolo errato (ritradurre), (2) JSON-LD pagina Nemi hardcoded IT (localizzare).
+- Commit oggi non pushati prod: 354971a,24fd22e,bca4cc1,fff10f7,2feaa78,2b049e3,a87cfd0,3590c77.

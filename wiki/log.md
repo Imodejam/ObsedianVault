@@ -1274,3 +1274,4 @@ File chiave aggiornati:
 ## [2026-07-05] task | Vetrina: categorie punti vendita (65) localizzate 10 lingue (commit bca4cc1); legali già bilingui IT/EN confermato; claim "mercato italiano" solo IT (24fd22e); home "italiane" rimosso (354971a)
 ## [2026-07-05] task | Vetrina: pagine coda pubbliche (Board/Biglietto/Totem) localizzate 10 lingue (commit fff10f7); legali già IT/EN ok
 ## [2026-07-05] task | Vetrina: Nemi resa femminile in tutte le lingue (it/es/fr/pt/ar/hi/uk, 121 fix) commit a87cfd0; reframe "due anime" (Bot incluso/Voce a consumo) su pagina Nemi in corso
+## [2026-07-05] task | Vetrina Nemi: femminile 10 lingue (a87cfd0) + framing "due anime" Bot/Voce 10 lingue (3590c77). Verificato live.
