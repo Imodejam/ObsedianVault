@@ -1270,3 +1270,4 @@ File chiave aggiornati:
 ## [2026-07-05] task | Check errori 8:00: 0 bug nuovi (client-circuit), JIRA PNT aperti=0
 ## [2026-07-05] task | Traduzioni settori Vetrina ondata2: fr+en _Case_ (2808 keys) allineati a modello Nemi Voce; zh in corso
 ## [2026-07-05] task | Vetrina 10 lingue COMPLETE: settori fr/en/zh riallineati a Nemi Voce (commit 2feaa78, non pushato)
+## [2026-07-05] task | Vetrina home: rimosso vincolo "PMI italiane/esercenti italiani" (Hero/Meta/Audience, tutte lingue) — commit 354971a
