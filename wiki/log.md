@@ -1284,3 +1284,4 @@ File chiave aggiornati:
 ## [2026-07-05] task | Brief lato-web (Blazor) per login Google/Apple integrata iOS (ASWebAuthenticationSession, no Chrome) — salvato in wiki/projects/puntify-app-login-google-integrata.md
 ## [2026-07-05] task | Impostato TEST PLAN settimanale (cron b3792de9, lun 07:07 UTC): agent QA aggiorna testbook + regressione Playwright Vetrina+App+servizi + report Telegram. Testbook: wiki/projects/puntify-testbook.md
 ## [2026-07-05] task | App: login Google integrata iOS (delega nativo/ASWebAuthenticationSession, no Chrome) lato Blazor FATTO+deploy CAT (commit 261885e). Allow-list Supabase CAT (it.puntify.app://auth-callback) BLOCCATA dal classifier (/opt/ops/.env prod-condiviso) → comando passato a Stefano.
+## [2026-07-05] deploy | Push di 36 commit su origin/master (Imodejam/Puntify) per deploy prod di Stefano

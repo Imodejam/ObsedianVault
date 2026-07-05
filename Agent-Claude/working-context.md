@@ -45,3 +45,7 @@ Report Telegram inviati (id 5241 errori, 5242 jira).
 - Giornaliera 8:00 IT: controllo errori (cron 9ec6a90b, 6:03 UTC)
 - Giornaliera 9:00 IT: report traduzioni Vetrina (cron 917cdd01, 7:03 UTC)
 - SETTIMANALE lun ~9:07 IT: TEST PLAN (cron b3792de9, 7:07 UTC) — agent QA aggiorna testbook (wiki/projects/puntify-testbook.md) + regressione Playwright su tutte le pagine Vetrina/App + servizi + report Telegram. Auto-riarmo incluso (cron sessione scade a 7gg).
+
+## 2026-07-05 PUSH per deploy
+- Pushati 36 commit su origin/master (fino a 261885e). Stefano fa il deploy prod.
+- Note prod: badge Nemi Bot diventa 🔴 automatico (IsProduction); login Google nativa iOS inerte finché non c'è app nativa + scheme nell'allow-list GoTrue PROD (da fare con OK quando serve); app WASM prod = pipeline LoadAll, utenti potrebbero dover ricaricare (service worker).
