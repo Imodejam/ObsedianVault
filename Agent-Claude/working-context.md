@@ -40,3 +40,8 @@ Report Telegram inviati (id 5241 errori, 5242 jira).
 - Femminile: a87cfd0. Due anime: 3590c77. Verificato it/en/es/fr/ar/uk.
 - Da valutare (segnalati a Stefano): (1) stringhe Nemi PT/ES con testo spagnolo errato (ritradurre), (2) JSON-LD pagina Nemi hardcoded IT (localizzare).
 - Commit oggi non pushati prod: 354971a,24fd22e,bca4cc1,fff10f7,2feaa78,2b049e3,a87cfd0,3590c77.
+
+## Routine ricorrenti attive (cron di sessione)
+- Giornaliera 8:00 IT: controllo errori (cron 9ec6a90b, 6:03 UTC)
+- Giornaliera 9:00 IT: report traduzioni Vetrina (cron 917cdd01, 7:03 UTC)
+- SETTIMANALE lun ~9:07 IT: TEST PLAN (cron b3792de9, 7:07 UTC) — agent QA aggiorna testbook (wiki/projects/puntify-testbook.md) + regressione Playwright su tutte le pagine Vetrina/App + servizi + report Telegram. Auto-riarmo incluso (cron sessione scade a 7gg).

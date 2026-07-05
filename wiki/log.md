@@ -1282,3 +1282,4 @@ File chiave aggiornati:
 ## [2026-07-05] task | Nemi Bot Telegram: badge ambiente nei messaggi (🔴 prod / 🟠 collaudo) via IHostEnvironment in NemiTelegramBot — commit 7870827
 ## [2026-07-05] task | App iOS: fix scroll minimo su tutte le pagine (wrapper full-page min-height = calc(100dvh - safe-top - safe-bottom), causa: somma con padding safe-area del body) — commit a6dd22a, deploy CAT app
 ## [2026-07-05] task | Brief lato-web (Blazor) per login Google/Apple integrata iOS (ASWebAuthenticationSession, no Chrome) — salvato in wiki/projects/puntify-app-login-google-integrata.md
+## [2026-07-05] task | Impostato TEST PLAN settimanale (cron b3792de9, lun 07:07 UTC): agent QA aggiorna testbook + regressione Playwright Vetrina+App+servizi + report Telegram. Testbook: wiki/projects/puntify-testbook.md
