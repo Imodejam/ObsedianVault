@@ -1290,3 +1290,4 @@ File chiave aggiornati:
 ## [2026-07-05] fix | BUG coda risolto: QR dava sempre stesso numero (device_session vuoto → anti-dup RPC combaciava tra device diversi). Fix RPC (''→NULL) applicato CAT + app non invia vuoto. Migration in docs/DB Migrations (DA APPLICARE PROD). Commit 6fce46c
 ## [2026-07-05] task | App: esercente può gestire/far avanzare la coda (QueueOperate console completa, endpoint QueueController già merchant-auth) — commit b77a6b7, deploy CAT
 ## [2026-07-05] task | Coda totem: numero emesso inline col nome ('Gastronomia 8') — commit 30e31d3
+## [2026-07-05] task | Coda totem: selettore lingua (FAB bandiera), default = lingua link esercente (query 'def'), cliente sceglie, reset a default dopo countdown — commit 9f846db
