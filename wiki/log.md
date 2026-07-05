@@ -1272,3 +1272,4 @@ File chiave aggiornati:
 ## [2026-07-05] task | Vetrina 10 lingue COMPLETE: settori fr/en/zh riallineati a Nemi Voce (commit 2feaa78, non pushato)
 ## [2026-07-05] task | Vetrina home: rimosso vincolo "PMI italiane/esercenti italiani" (Hero/Meta/Audience, tutte lingue) — commit 354971a
 ## [2026-07-05] task | Vetrina: categorie punti vendita (65) localizzate 10 lingue (commit bca4cc1); legali già bilingui IT/EN confermato; claim "mercato italiano" solo IT (24fd22e); home "italiane" rimosso (354971a)
+## [2026-07-05] task | Vetrina: pagine coda pubbliche (Board/Biglietto/Totem) localizzate 10 lingue (commit fff10f7); legali già IT/EN ok

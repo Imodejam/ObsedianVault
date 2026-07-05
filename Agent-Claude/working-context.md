@@ -25,3 +25,7 @@ Stato:
 ### Check errori 8:00 (FATTO)
 0 bug nuovi (tutti [CLIENT/vetrina] circuito, amplificati dai restart). JIRA PNT aperti=0.
 Report Telegram inviati (id 5241 errori, 5242 jira).
+
+## 2026-07-05 batch richieste — COMPLETO
+- home 'italiane' rimosso, claim mercato IT solo-IT, categorie 65 localizzate, pagine coda localizzate, legali già IT/EN.
+- Commits: 354971a, 24fd22e, bca4cc1, fff10f7 (+ 2feaa78 settori). NON pushati prod (attende OK).
