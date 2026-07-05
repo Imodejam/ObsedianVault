@@ -59,3 +59,12 @@ DA VALUTARE con Stefano: campo lingua-default esercente (oggi si usa la lingua d
 Commit/deploy fatti oggi (pushati master): footer board #B80000(af15163), popup embed Fase1 vetrina(4e37c42)+fix XFO(2a6184a), popup Fase2 app(3d307af, deploy CAT), biglietto squillo+attesa(d915694, server+vetrina IssuedAt).
 IN CORSO: 5307 coda remoto FASE A (server+DB) subagent a0e7ab7fa48ab4bc4 — schema remote_limit+confirmed+confirm_token+confirm_expires_at, RPC remoto-pending, endpoint conferma via token email, dedup 1-per-email, limite per coda/giorno, email link, regola turno-perso. Applica migration SOLO CAT, no commit. DA RIVEDERE io (sicurezza: dedup/limite/confirm-token/one-per-email) prima di commit/deploy. Poi FASE B: UI pubblica "Mettiti in coda" (vetrina+app) + notifica in-app.
 PENDING PROD: migration coda device-vuoto(2026-07-05_queue_take_ticket_empty_device_fix) + eventuale remote (dopo review). Validazione cacct embed (fase server). 
+
+## 2026-07-05 (notte) — ripresa: diagnosi server + Fase B coda remoto
+DIAGNOSI SOFFERENZA SERVER (Stefano chiede perché): 2 cose distinte.
+1) Reboot 21:16→21:18 = aggiornamento kernel 6.8.0-124→6.8.0-134 (unattended/host), NON crash. No OOM, no panic.
+2) Sofferenza vera: puntify-server dalle 14:50 alle 21:16 ha sparato 2140 errori EAGAIN "Resource temporarily unavailable (api-cat:443)" = saturazione socket/risorse su VPS 8GB carica (build .NET ripetute, VBCSCompiler, molti subagent traduzioni, N dotnet-watch, next, openclaw, concilium, piracity). NON leak codice (SupabaseClient usa IHttpClientFactory ok). NotificationQueueService polling continuo = primo a franare. Ora sano (load 0.2, 3.7GB liberi).
+Proposto a Stefano hardening opzionale: backlog/limiti socket + retry/backoff su polling notifiche + swap/limiti memoria servizi.
+FASE A coda remoto = CHIUSA: HEAD 155a13d, già pushato origin/master. Migration solo su collaudo, PROD in attesa OK esplicito.
+IN CORSO: FASE B coda remoto (UI) delegata a subagent — pulsante "Mettiti in coda" (vetrina+app), pagina gestione link email conferma, campo "quanti numeri da remoto" in impostazioni coda, notifica in-app.
+DA CONFERMARE con Stefano: applicare in PROD le 2 migration coda (device-vuoto + remote).

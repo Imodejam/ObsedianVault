@@ -1296,3 +1296,6 @@ File chiave aggiornati:
 ## [2026-07-05] task | Popup embed Fase 2 (app): pulsanti Menu/Prenota su /shop aprono iframe embed sito pubblico (EmbedPopup, origin-check, prefill dati/account) — commit 3d307af + deploy CAT app
 ## [2026-07-05] task | Coda display board: Puntify footer #B80000 (af15163); biglietto: squillo al turno + tempo attesa (d915694)
 ## [2026-07-05] task | Coda remoto FASE A (server+DB) COMPLETA e verificata: /ticket/remote pending (no numero) → email conferma → /ticket/{token}/confirm rivela numero; dedup 1-per-email, remote_limit, turno-perso; migration CAT (DA APPLICARE PROD). Commit 155a13d. Resta FASE B (UI pubblica/app + ?ct= + config merchant + notifica).
+
+## [2026-07-05] task | Diagnosi sofferenza server: reboot = update kernel 6.8.0-124→134 (no crash); sofferenza reale = 2140 EAGAIN api-cat:443 su VPS 8GB satura (14:50–21:16), no leak codice
+## [2026-07-05] task | Coda remoto Fase A chiusa (155a13d pushato); avviata Fase B UI via subagent (pulsante mettiti-in-coda vetrina+app, pagina link email, campo numeri-remoti impostazioni, notifica in-app)
