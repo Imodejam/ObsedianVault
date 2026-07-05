@@ -1278,3 +1278,4 @@ File chiave aggiornati:
 ## [2026-07-05] task | Vetrina: PT ritradotto (789 stringhe erano ES/EN, bug pre-esistente PT=ES) + JSON-LD Nemi localizzato con inLanguage (SEO/GEO) — commit f574ebe
 ## [2026-07-05] task | Vetrina: JSON-LD localizzato su tutte le pagine (Nemi/FAQ/Settori/Prezzi da resx + inLanguage; NegozioDetail/BlogPost inLanguage) — commit c28ad43, 2d98d0f
 ## [2026-07-05] task | Vetrina Nemi: uniformata prima stima costo "circa 27 €/mese" (tolto "di consumo") alle altre due, tutte lingue — commit 06903e1
+## [2026-07-05] task | Vetrina simulatore: chip Prudente/Atteso/Ottimista larghezza uguale (span width:100% in label flex) — commit ed31ac2
