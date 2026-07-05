@@ -1287,3 +1287,4 @@ File chiave aggiornati:
 ## [2026-07-05] deploy | Push di 36 commit su origin/master (Imodejam/Puntify) per deploy prod di Stefano
 ## [2026-07-05] task | Preparato prompt per Claude prod: aggiungere it.puntify.app://auth-callback alla allow-list GoTrue Puntify PROD (salvato in wiki/projects/puntify-prod-gotrue-scheme-oauth.md)
 ## [2026-07-05] task | Vetrina FAQ: aggiunta categoria dedicata "Nemi" (14 FAQ da chiavi già tradotte, prima erano sotto Esercenti) — commit 4091c27, pushato
+## [2026-07-05] fix | BUG coda risolto: QR dava sempre stesso numero (device_session vuoto → anti-dup RPC combaciava tra device diversi). Fix RPC (''→NULL) applicato CAT + app non invia vuoto. Migration in docs/DB Migrations (DA APPLICARE PROD). Commit 6fce46c
