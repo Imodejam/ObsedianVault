@@ -29,3 +29,8 @@ Firme errori GIÀ esaminati/risolti (non ri-segnalare):
 - [WRN] "API request without API Key from 127.0.0.1" ×6 → chiamate interne/health senza API key, benigno. Nuova firma ma non-bug.
 - [WRN] "Failed to determine the https port for redirect." ×1 → UseHttpsRedirection senza porta HTTPS configurata; benigno in CAT/prod (nginx/Caddy gestiscono TLS). Non-bug, non toccato (config HTTPS = potenziale impatto prod).
 - NESSUN bug nuovo azionabile → nessuna fix/commit.
+
+## 2026-07-05 (cron 8:00)
+- error-20260705.log (oggi): 1 [ERR] [CLIENT/vetrina] "unhandledrejection: Load failed" su /en da iPhone → transiente caricamento risorsa mobile, non-bug.
+- error-20260704.log (ieri): 312 [ERR] TUTTI [CLIENT/vetrina]: "Cannot send data ... Connected State" ×277 + "No interop methods registered" ×35 → circuito Blazor Server, classi GIA' note, AMPLIFICATE dai numerosissimi restart Vetrina durante il lavoro (traduzioni/edit sessione). ZERO eccezioni server-side reali.
+- NESSUN bug nuovo azionabile → nessuna fix/commit.
