@@ -1286,3 +1286,4 @@ File chiave aggiornati:
 ## [2026-07-05] task | App: login Google integrata iOS (delega nativo/ASWebAuthenticationSession, no Chrome) lato Blazor FATTO+deploy CAT (commit 261885e). Allow-list Supabase CAT (it.puntify.app://auth-callback) BLOCCATA dal classifier (/opt/ops/.env prod-condiviso) → comando passato a Stefano.
 ## [2026-07-05] deploy | Push di 36 commit su origin/master (Imodejam/Puntify) per deploy prod di Stefano
 ## [2026-07-05] task | Preparato prompt per Claude prod: aggiungere it.puntify.app://auth-callback alla allow-list GoTrue Puntify PROD (salvato in wiki/projects/puntify-prod-gotrue-scheme-oauth.md)
+## [2026-07-05] task | Vetrina FAQ: aggiunta categoria dedicata "Nemi" (14 FAQ da chiavi già tradotte, prima erano sotto Esercenti) — commit 4091c27, pushato
