@@ -1276,3 +1276,4 @@ File chiave aggiornati:
 ## [2026-07-05] task | Vetrina: Nemi resa femminile in tutte le lingue (it/es/fr/pt/ar/hi/uk, 121 fix) commit a87cfd0; reframe "due anime" (Bot incluso/Voce a consumo) su pagina Nemi in corso
 ## [2026-07-05] task | Vetrina Nemi: femminile 10 lingue (a87cfd0) + framing "due anime" Bot/Voce 10 lingue (3590c77). Verificato live.
 ## [2026-07-05] task | Vetrina: PT ritradotto (789 stringhe erano ES/EN, bug pre-esistente PT=ES) + JSON-LD Nemi localizzato con inLanguage (SEO/GEO) — commit f574ebe
+## [2026-07-05] task | Vetrina: JSON-LD localizzato su tutte le pagine (Nemi/FAQ/Settori/Prezzi da resx + inLanguage; NegozioDetail/BlogPost inLanguage) — commit c28ad43, 2d98d0f
