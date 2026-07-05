@@ -3,7 +3,7 @@
 ## Sessione: traduzioni Vetrina 10 lingue + check giornaliero
 Data: 2026-07-05
 
-### In corso: ri-traduzione settori (ondata 2) fr/en/zh
+### COMPLETATO: ri-traduzione settori (ondata 2) fr/en/zh — 10 lingue complete
 Contesto: le 78 case study settori erano state ricalcolate col modello Nemi Voce.
 I _Case_ keys in es/pt/ar/bn/hi/uk erano già rifatti; fr/en/zh avevano valori STALE
 (versione vecchia, non allineata al ricalcolo).
@@ -11,7 +11,7 @@ I _Case_ keys in es/pt/ar/bn/hi/uk erano già rifatti; fr/en/zh avevano valori S
 Stato:
 - fr: MERGE FATTO (2808 case keys sostituiti in SharedResource.fr.resx)
 - en: MERGE FATTO (via build_en.py, 654 uniq → 2808 keys) 
-- zh: subagent in corso (a3570674eb897056a) → poi merge_resx.py zh
+- zh: MERGE FATTO. Build OK, service riavviato, verifica live OK. Commit 2feaa78.
 - Script merge: scratchpad/trad/merge_resx.py (caseKey→it→id→uniq_lang), idempotente
 
 ### Prossimi passi

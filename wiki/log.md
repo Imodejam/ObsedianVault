@@ -1269,3 +1269,4 @@ File chiave aggiornati:
 ## [2026-07-04] task | Traduzione Ondata1 COMMITTATA (2d55dd2): 239 chiavi core × 9 lingue (133 nuove + 106 cambiate), build verde, verificato. Ondata2 AVVIATA: 2808 _Case_ settori de-duplicate a 654 valori unici -> 9 subagent (case_uniq_{lang}.json). Merge: per ogni _Case_ key -> neu[key] -> val2id -> id -> traduzione. Poi build+commit. Scoping salvato in scratchpad/trad.
 ## [2026-07-05] task | Check errori 8:00: 0 bug nuovi (client-circuit), JIRA PNT aperti=0
 ## [2026-07-05] task | Traduzioni settori Vetrina ondata2: fr+en _Case_ (2808 keys) allineati a modello Nemi Voce; zh in corso
+## [2026-07-05] task | Vetrina 10 lingue COMPLETE: settori fr/en/zh riallineati a Nemi Voce (commit 2feaa78, non pushato)
