@@ -54,3 +54,8 @@ Report Telegram inviati (id 5241 errori, 5242 jira).
 FATTO oggi (commit su master, pushati): FAQ Nemi(4091c27), biglietto+lastissued coda(213d4bb), totem numero inline 'Gastronomia 8'(30e31d3), BUG QR sempre-1 device-vuoto fix RPC+app(6fce46c, migration in docs/DB Migrations DA APPLICARE PROD), esercente gestisce coda(b77a6b7, deploy CAT), selettore lingua totem(9f846db).
 IN CORSO: 5298 popup embed pagina cliente /shop → Fase 1 subagent a353eeb71f66800e3 (embed mode + framing + prefill dati + postMessage sulle pagine pubbliche Vetrina, build no-deploy). Poi Fase 2 lato app (ShopDetail popup).
 DA VALUTARE con Stefano: campo lingua-default esercente (oggi si usa la lingua del link totem); applicare migration coda in PROD.
+
+## 2026-07-05 (tardo) — coda remoto 5307 in corso
+Commit/deploy fatti oggi (pushati master): footer board #B80000(af15163), popup embed Fase1 vetrina(4e37c42)+fix XFO(2a6184a), popup Fase2 app(3d307af, deploy CAT), biglietto squillo+attesa(d915694, server+vetrina IssuedAt).
+IN CORSO: 5307 coda remoto FASE A (server+DB) subagent a0e7ab7fa48ab4bc4 — schema remote_limit+confirmed+confirm_token+confirm_expires_at, RPC remoto-pending, endpoint conferma via token email, dedup 1-per-email, limite per coda/giorno, email link, regola turno-perso. Applica migration SOLO CAT, no commit. DA RIVEDERE io (sicurezza: dedup/limite/confirm-token/one-per-email) prima di commit/deploy. Poi FASE B: UI pubblica "Mettiti in coda" (vetrina+app) + notifica in-app.
+PENDING PROD: migration coda device-vuoto(2026-07-05_queue_take_ticket_empty_device_fix) + eventuale remote (dopo review). Validazione cacct embed (fase server). 
