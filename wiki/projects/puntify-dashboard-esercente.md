@@ -45,5 +45,14 @@ Mockup Puntify "Panoramica": sidebar (Home/Panoramica/Prenotazioni/Ordini/Elimin
 4. **Fatturato**: mostrare netto esercente (`net_merchant_cents`) come default, con toggle lordo.
 5. **Timezone**: correggere i bucket orari/giornalieri su `Shop.Timezone` (oggi UTC).
 
+## Decisioni Stefano (2026-07-06)
+1. Grafici: **libreria esterna gratuita** → ApexCharts (belli/dinamici).
+2. Multi-punto vendita aggregato: **DOPO** (Stefano: "facciamolo dopo ma ricordatelo di farlo"). ⟶ **TODO DA RICORDARE**.
+3. MVP riusando Insights: **sì**.
+
+## ⚠️ TODO ricordare a Stefano
+- **Vista aggregata "Tutti i punti vendita"** (multi-shop): non nell'MVP, da fare dopo. Nella MVP c'è solo il negozio corrente + placeholder disabilitato.
+- Aggregazioni server-side (RPC/GROUP BY) dopo l'MVP client-side.
+
 ## Stato
-- Progettazione fatta (2026-07-06). In attesa decisioni Stefano su punti 1-3, poi build MVP + anteprima su collaudo.
+- MVP in build (subagent a3ebef9424307e252, 2026-07-06): pagina `Panoramica.razor` route `/merchant/{ShopId}/panoramica`, ApexCharts self-hosted, KPI+delta, grafico ricavi, breakdown per feature (gated), attività recenti, Nemi card. Riusa Insights + cfg-*. NON committato/deployato. Poi anteprima su collaudo a Stefano.
