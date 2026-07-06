@@ -75,3 +75,7 @@ Mockup Puntify "Panoramica": sidebar (Home/Panoramica/Prenotazioni/Ordini/Elimin
 - Fonti: Fatturato=net_merchant_cents transactions reason1; Ordini=menu_public_orders; Prenotazioni/Coperti/no-show=bookings GetAgendaAsync; Coda=GetTicketsAsync tempi; Recensioni=reviews.rating_shop; Fedeltà=transactions+account_reward.
 - VALIDAZIONE Stefano APPLICATA (2026-07-06): ① Ordini = online+asporto sommati MA distinti (KPI "Online X · Asporto Y", card 2 righe; takeaway rimosso da Prenotazioni); ② livelli fedeltà sempre ultimi 30gg (label "(ultimi 30 giorni)"), punti/premi restano sul periodo; ③ icona invariata. Build ok, app riavviata su collaudo. 4 chiavi pan_* nuove ×10 lingue.
 - Come aprire: app esercente → Ctrl+F5 → Home → icona Panoramica, o /merchant/{id}/panoramica con negozio che ha dati reali.
+
+## Ritocchi 2026-07-06 (13:28+)
+- Filtro PV: rimosso il box "textbox" (`.pan-filter-box` border/background → none/transparent) su richiesta Stefano; restano chip + ricerca funzionante.
+- Ribadito a Stefano il calcolo ricavi (transactions reason=1, net_merchant_cents; NON valore ordini/prenotazioni non transati). Aperto: se vuole ricavi = valore ordini/prenotazioni, è calcolo diverso da implementare.
