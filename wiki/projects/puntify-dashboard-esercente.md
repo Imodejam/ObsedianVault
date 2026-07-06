@@ -57,7 +57,7 @@ Mockup Puntify "Panoramica": sidebar (Home/Panoramica/Prenotazioni/Ordini/Elimin
   - RICHIESTE AI: dati VERI in `nemi_chat_history` (shop_id, role, content, created_at) via GET /api/shop/{shopId}/ai/nemi/history. Conta role='user' per periodo/shop. LIMITE: nessuna colonna `channel` → chat web e Telegram indistinguibili (serve aggiungere channel + taggare al write in NemiChatService/TelegramNemiRouter).
   - CHIAMATE NEMI VOCE: ❌ NESSUN DATO. Nemi Voce = solo marketing vetrina (Nemi.razor/FAQ), nessuna integrazione telefonia né call_logs. enabled_features bit2=nemi copre solo l'assistente conversazionale. Non costruibile su dati veri finché non si fa il tracciamento chiamate.
   - Token/costi AI: non tracciati.
-  - CHIESTO a Stefano: (1) aggiungere colonna channel per split chat/Telegram, o mostrare "Richieste AI" insieme? (2) Chiamate: placeholder "presto" / costruire tracking / omettere?
+  - DECISO Stefano (13:13): Chiamate Nemi Voce = box placeholder "In arrivo / da completare nelle prossime settimane" (no dati finti). Richieste AI = dati veri, chat+Telegram insieme (split rimandato, serve campo channel). IN COSTRUZIONE (subagent a3ebef9424307e252): box chiamate placeholder + box Richieste AI (conteggio role='user' nemi_chat_history per periodo/scope via ShopAiController history, KPI+delta+mini-trend, gating HasNemi).
 
 ## Decisioni Stefano (2026-07-06)
 1. Grafici: **libreria esterna gratuita** → ApexCharts (belli/dinamici).
