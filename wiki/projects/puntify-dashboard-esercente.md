@@ -79,3 +79,5 @@ Mockup Puntify "Panoramica": sidebar (Home/Panoramica/Prenotazioni/Ordini/Elimin
 ## Ritocchi 2026-07-06 (13:28+)
 - Filtro PV: rimosso il box "textbox" (`.pan-filter-box` border/background → none/transparent) su richiesta Stefano; restano chip + ricerca funzionante.
 - Ribadito a Stefano il calcolo ricavi (transactions reason=1, net_merchant_cents; NON valore ordini/prenotazioni non transati). Aperto: se vuole ricavi = valore ordini/prenotazioni, è calcolo diverso da implementare.
+- Riquadro rosso filtro: era `input:focus` globale (app.css:492 box-shadow rgba(255,0,0,.1)); annullato per `.pan-filter-input:focus`.
+- IN CORSO (subagent a3ebef9424307e252): "i" info-tooltip su ogni KPI/card con spiegazione in parole semplici (cosa rappresenta + come si calcola, basata sul codice reale), hover+focus, anti-overflow, chiavi pan_tip_* ×10 lingue.
