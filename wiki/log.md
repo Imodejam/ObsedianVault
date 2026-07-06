@@ -1302,3 +1302,5 @@ File chiave aggiornati:
 
 ## [2026-07-06] task | Commit 0b06a60 pushato master: coda remoto (UI+6 fix sicurezza incl REVOKE RPC) + pagina Lavora con noi (per-job SEO/JobPosting+sitemap dinamico) + fix boot app WASM cultura + squillo biglietto. 46 file. Prod da deployare + migration queue_remote_review_fixes da applicare in prod
 ## [2026-07-06] task | 8 email candidati BDR schedulate via Resend per 09:00 (una per candidato, BCC Stefano, personalizzate)
+
+## [2026-07-06] task | Progettazione Dashboard Esercente "Panoramica" stile Stripe (richiesta Stefano+mockup): mappati dati reali (transactions/bookings/queue/reviews/loyalty), riuso Insights.razor + cfg-*; pagina wiki puntify-dashboard-esercente; attende decisioni grafici/multi-shop/MVP
