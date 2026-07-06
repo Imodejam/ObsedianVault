@@ -52,7 +52,7 @@ Mockup Puntify "Panoramica": sidebar (Home/Panoramica/Prenotazioni/Ordini/Elimin
 - ⚠️ LIMITE/scelta aperta: i ricavi sommano SOLO le `transactions` registrate (Stripe/manuali). Ordini menu online o bookings con total_price che NON generano una transaction NON entrano nei ricavi (compaiono in Ordini/Prenotazioni ma non nel grafico). Se Stefano vuole ricavi = valore ordini/prenotazioni, è una decisione da prendere.
 
 ## Richieste 2026-07-06 (13:00) — filtro multi-PV + sezione Chiamate/Richieste AI
-- **Filtro PV multi-selezione con ricerca** (digiti nome→chip→confronta PV specifici; default "Tutti"): IN COSTRUZIONE (subagent a3ebef9424307e252). Riusa ActiveBundles come sottoinsieme.
+- **Filtro PV multi-selezione con ricerca** FATTO (subagent a3ebef9424307e252): token input (chip+ricerca typeahead su GetShopperShops), _selectedShopIds pilota ScopeShops→ActiveBundles (0=tutti,1=singolo,≥2=confronto); confronto ≥2 = card "Per punto vendita" con barre ApexCharts + righe; _multiScope; loader+cache SemaphoreSlim(3). 2 chiavi i18n ×10. Build ok, app riavviata su collaudo.
 - **Sezione "Chiamate e richieste AI"** — dati (da esplorazione a7b0cf2e):
   - RICHIESTE AI: dati VERI in `nemi_chat_history` (shop_id, role, content, created_at) via GET /api/shop/{shopId}/ai/nemi/history. Conta role='user' per periodo/shop. LIMITE: nessuna colonna `channel` → chat web e Telegram indistinguibili (serve aggiungere channel + taggare al write in NemiChatService/TelegramNemiRouter).
   - CHIAMATE NEMI VOCE: ❌ NESSUN DATO. Nemi Voce = solo marketing vetrina (Nemi.razor/FAQ), nessuna integrazione telefonia né call_logs. enabled_features bit2=nemi copre solo l'assistente conversazionale. Non costruibile su dati veri finché non si fa il tracciamento chiamate.
