@@ -50,8 +50,8 @@ Mockup Puntify "Panoramica": sidebar (Home/Panoramica/Prenotazioni/Ordini/Elimin
 2. Multi-punto vendita aggregato: **DOPO** (Stefano: "facciamolo dopo ma ricordatelo di farlo"). ⟶ **TODO DA RICORDARE**.
 3. MVP riusando Insights: **sì**.
 
-## ⚠️ TODO ricordare a Stefano
-- **Vista aggregata "Tutti i punti vendita"** (multi-shop): non nell'MVP, da fare dopo. Nella MVP c'è solo il negozio corrente + placeholder disabilitato.
+## ⚠️ TODO
+- ~~Vista aggregata "Tutti i punti vendita"~~ → **IN CORSO** (Stefano l'ha chiesta 2026-07-06 12:26, subagent a3ebef9424307e252): selettore funzionale (Tutti + per negozio), aggregazione cross-shop client-side, timezone per-negozio nei bucket, feed con nome negozio.
 - Aggregazioni server-side (RPC/GROUP BY) dopo l'MVP client-side.
 
 ## Stato
