@@ -45,6 +45,12 @@ Mockup Puntify "Panoramica": sidebar (Home/Panoramica/Prenotazioni/Ordini/Elimin
 4. **Fatturato**: mostrare netto esercente (`net_merchant_cents`) come default, con toggle lordo.
 5. **Timezone**: correggere i bucket orari/giornalieri su `Shop.Timezone` (oggi UTC).
 
+## Calcolo "Andamento Ricavi" (spiegato a Stefano 2026-07-06, msg 5403)
+- Fonte: `transactions` con reason=1 (incassi); importo = `net_merchant_cents ?? amount` (÷100 €).
+- Bucket nel FUSO del negozio: Oggi=12 barre da 2h (ora_locale/2), Settimana=7 gg, Mese=30 gg; InsertDate UTC→locale prima del bucket.
+- Aggregato multi-PV: ogni negozio bucketizza nel proprio fuso, somma per indice (allineati per ora-del-giorno e giorni-fa); etichette asse = fuso negozio d'ingresso.
+- ⚠️ LIMITE/scelta aperta: i ricavi sommano SOLO le `transactions` registrate (Stripe/manuali). Ordini menu online o bookings con total_price che NON generano una transaction NON entrano nei ricavi (compaiono in Ordini/Prenotazioni ma non nel grafico). Se Stefano vuole ricavi = valore ordini/prenotazioni, è una decisione da prendere.
+
 ## Decisioni Stefano (2026-07-06)
 1. Grafici: **libreria esterna gratuita** → ApexCharts (belli/dinamici).
 2. Multi-punto vendita aggregato: **DOPO** (Stefano: "facciamolo dopo ma ricordatelo di farlo"). ⟶ **TODO DA RICORDARE**.
