@@ -1304,3 +1304,5 @@ File chiave aggiornati:
 ## [2026-07-06] task | 8 email candidati BDR schedulate via Resend per 09:00 (una per candidato, BCC Stefano, personalizzate)
 
 ## [2026-07-06] task | Progettazione Dashboard Esercente "Panoramica" stile Stripe (richiesta Stefano+mockup): mappati dati reali (transactions/bookings/queue/reviews/loyalty), riuso Insights.razor + cfg-*; pagina wiki puntify-dashboard-esercente; attende decisioni grafici/multi-shop/MVP
+
+## [2026-07-06] task | Dashboard Esercente Panoramica MVP costruita (Panoramica.razor, ApexCharts self-hosted, KPI+delta+grafici+breakdown per feature, dati reali, timezone-aware). Su collaudo, NON committato. Attende feedback Stefano + validazione (ordini/livelli fedeltà/icona). TODO ricordare: vista multi-punto-vendita aggregata + aggregazioni server-side

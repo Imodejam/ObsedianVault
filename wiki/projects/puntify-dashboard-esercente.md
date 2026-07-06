@@ -55,4 +55,8 @@ Mockup Puntify "Panoramica": sidebar (Home/Panoramica/Prenotazioni/Ordini/Elimin
 - Aggregazioni server-side (RPC/GROUP BY) dopo l'MVP client-side.
 
 ## Stato
-- MVP in build (subagent a3ebef9424307e252, 2026-07-06): pagina `Panoramica.razor` route `/merchant/{ShopId}/panoramica`, ApexCharts self-hosted, KPI+delta, grafico ricavi, breakdown per feature (gated), attività recenti, Nemi card. Riusa Insights + cfg-*. NON committato/deployato. Poi anteprima su collaudo a Stefano.
+- MVP FATTA (subagent a3ebef9424307e252, 2026-07-06). File: `Puntify.App/Pages/Merchant/Panoramica.razor` (route `/merchant/{ShopId:guid}/panoramica`), `wwwroot/js/apexcharts.min.js` (self-host v5.16.0, 621KB) + `wwwroot/js/charts.js` (interop puntifyCharts.renderArea/renderBar/renderDonut), index.html (2 script), SupabaseService.GetShopReviews, MerchantHome icona "Panoramica", +45 chiavi pan_* × 10 lingue. Riusa Insights (FilterByPeriod, livelli, alert) + cfg-*. Timezone via TimeZoneHelper. Build 0 errori. NON committato/deployato.
+- Base href app = `/` → gli asset js si servono da `/js/...` (apexcharts 200). Panoramica dietro login esercente → niente screenshot headless, la apre Stefano (Ctrl+F5).
+- Fonti: Fatturato=net_merchant_cents transactions reason1; Ordini=menu_public_orders; Prenotazioni/Coperti/no-show=bookings GetAgendaAsync; Coda=GetTicketsAsync tempi; Recensioni=reviews.rating_shop; Fedeltà=transactions+account_reward.
+- DA VALIDARE Stefano: ① Ordini=solo online (takeaway in Prenotazioni) — unire? ② livelli fedeltà sul periodo scelto vs sempre ultimo mese; ③ icona dedicata Panoramica (ora riusa Insights.webp).
+- Come aprire: app esercente → Ctrl+F5 → Home → icona Panoramica, o /merchant/{id}/panoramica con negozio che ha dati reali.
