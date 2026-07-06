@@ -1299,3 +1299,6 @@ File chiave aggiornati:
 
 ## [2026-07-05] task | Diagnosi sofferenza server: reboot = update kernel 6.8.0-124→134 (no crash); sofferenza reale = 2140 EAGAIN api-cat:443 su VPS 8GB satura (14:50–21:16), no leak codice
 ## [2026-07-05] task | Coda remoto Fase A chiusa (155a13d pushato); avviata Fase B UI via subagent (pulsante mettiti-in-coda vetrina+app, pagina link email, campo numeri-remoti impostazioni, notifica in-app)
+
+## [2026-07-06] task | Commit 0b06a60 pushato master: coda remoto (UI+6 fix sicurezza incl REVOKE RPC) + pagina Lavora con noi (per-job SEO/JobPosting+sitemap dinamico) + fix boot app WASM cultura + squillo biglietto. 46 file. Prod da deployare + migration queue_remote_review_fixes da applicare in prod
+## [2026-07-06] task | 8 email candidati BDR schedulate via Resend per 09:00 (una per candidato, BCC Stefano, personalizzate)

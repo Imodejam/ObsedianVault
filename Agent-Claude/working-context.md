@@ -108,3 +108,8 @@ ANCORA DA CHIUDERE (queue): applicare REVOKE grant + consolidazione near su near
 PROD: Stefano ha eseguito LUI le 2 migration su DB PROD (device-vuoto + queue_remote_pending). Confermato: prod = DB separato che gestisce lui, io da qui NON la raggiungo. Assessment dato: additive/safe (confirmed DEFAULT true protegge in-loco; queue_call_next REPLACE retrocompatibile). ATTENZIONE: DB prod ora AVANTI al codice (Fase A 155a13d non deployata, Fase B non committata) → feature remota inerte finché non deploya il codice; fix QR device-vuoto completo solo dopo deploy app 6fce46c. Chiesto a Stefano se prod-app è già deployata ai commit di oggi.
 APERTO: dov'è la PROD vera di Puntify? Da questa box vedo solo collaudo/CAT (cat/app-cat/api-cat.puntify.it, DB puntify_cat). Nessun container/DB prod qui → correzione: la migration in prod da qui NON la posso applicare. Chiesto a Stefano.
 DA CONFERMARE con Stefano: applicare le 2 migration coda (device-vuoto + remote) — dove/come sta la prod.
+
+## 2026-07-06 (00:40) — COMMIT & PUSH fatto
+Commit 0b06a60 pushato origin/master (46 file). Coda remoto UI+6 fix sicurezza (REVOKE su tutte e 6 RPC coda incl queue_call_next_across, near su near_notified_at), pagina Lavora con noi (per-annuncio SEO/JobPosting+sitemap dinamico), fix boot app WASM cultura (#if DEBUG), squillo foreground. Build 3 progetti ok. NO attribuzione Claude.
+PROD DA FARE (Stefano): deploy codice master + applicare in prod `docs/DB Migrations/2026-07-05_queue_remote_review_fixes.sql`. queue_remote_pending già messa.
+APERTO: Google auth prod grep; scelta SMS/Push squillo bloccato; validazione+deploy careers; email 8 candidati partono 09:00.
