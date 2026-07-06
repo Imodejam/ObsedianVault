@@ -51,8 +51,9 @@ Mockup Puntify "Panoramica": sidebar (Home/Panoramica/Prenotazioni/Ordini/Elimin
 3. MVP riusando Insights: **sì**.
 
 ## ⚠️ TODO
-- ~~Vista aggregata "Tutti i punti vendita"~~ → **IN CORSO** (Stefano l'ha chiesta 2026-07-06 12:26, subagent a3ebef9424307e252): selettore funzionale (Tutti + per negozio), aggregazione cross-shop client-side, timezone per-negozio nei bucket, feed con nome negozio.
-- Aggregazioni server-side (RPC/GROUP BY) dopo l'MVP client-side.
+- ~~Vista aggregata "Tutti i punti vendita"~~ → **FATTA** (2026-07-06): selettore cfg-select (compare se >1 negozio), scope client-side `all` con ShopBundle per-negozio + SemaphoreSlim(3) + cache; KPI sommati (clienti fidelizzati distinct cross-shop), grafico con timezone per-negozio, card gating OR, feed con nome negozio, card "Per punto vendita" per fatturato. Negozio singolo → NavigateToRoute forceLoad.
+- **Full-screen FATTO** (2026-07-06): `.panoramica-fullscreen` scoped, override max-width cfg-header/main → width 100% + padding clamp; breakdown 3 col ≥1400px; mobile stack.
+- **RESTA**: aggregazioni server-side (RPC/GROUP BY) per volumi grandi (ora tutto client-side, N negozi × query nel browser).
 
 ## Stato
 - MVP FATTA (subagent a3ebef9424307e252, 2026-07-06). File: `Puntify.App/Pages/Merchant/Panoramica.razor` (route `/merchant/{ShopId:guid}/panoramica`), `wwwroot/js/apexcharts.min.js` (self-host v5.16.0, 621KB) + `wwwroot/js/charts.js` (interop puntifyCharts.renderArea/renderBar/renderDonut), index.html (2 script), SupabaseService.GetShopReviews, MerchantHome icona "Panoramica", +45 chiavi pan_* × 10 lingue. Riusa Insights (FilterByPeriod, livelli, alert) + cfg-*. Timezone via TimeZoneHelper. Build 0 errori. NON committato/deployato.

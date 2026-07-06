@@ -1306,3 +1306,5 @@ File chiave aggiornati:
 ## [2026-07-06] task | Progettazione Dashboard Esercente "Panoramica" stile Stripe (richiesta Stefano+mockup): mappati dati reali (transactions/bookings/queue/reviews/loyalty), riuso Insights.razor + cfg-*; pagina wiki puntify-dashboard-esercente; attende decisioni grafici/multi-shop/MVP
 
 ## [2026-07-06] task | Dashboard Esercente Panoramica MVP costruita (Panoramica.razor, ApexCharts self-hosted, KPI+delta+grafici+breakdown per feature, dati reali, timezone-aware). Su collaudo, NON committato. Attende feedback Stefano + validazione (ordini/livelli fedeltà/icona). TODO ricordare: vista multi-punto-vendita aggregata + aggregazioni server-side
+
+## [2026-07-06] task | Dashboard Panoramica: vista aggregata "Tutti i punti vendita" (cross-shop, timezone per-negozio, feed etichettato, card per-PV) + full-screen edge-to-edge + ordini uniti-ma-distinti + livelli fedeltà 30gg. Home esercente: tasto Fine a destra + esci da modalità spostamento cliccando area non-icona. Su collaudo, NON committato
