@@ -158,3 +158,9 @@ Tutto live collaudo (server :8001, app :8002). Prod migrations invariate (5).
 ## 2026-07-07 (19:15) — fix badge+ora notifiche admin Telegram
 Stefano: le notifiche admin (Negoziante accesso/Nuovo negozio ecc.) avevano testo [COLLAUDO]/[PRODUZIONE] invece del pallino, e la data 2h indietro (UTC).
 FIX (io): TelegramService.cs env badge PRODUZIONE/COLLAUDO→🔴/🟠 + formato text da "[tag]\n" a "dot msg". AdminMonitorHelper.cs: DateTime.Now (server UTC) → NowRome (TimeZoneInfo Europe/Rome), replace_all su tutte le occorrenze dd/MM/yyyy HH:mm. Build ok, server :8001 riavviato. Live collaudo dal prossimo messaggio. NB: i msg [PRODUZIONE] arrivano dal server PROD → serve DEPLOY per applicare le 2 fix anche in prod.
+
+## 2026-07-07 (19:49) — NUOVO progetto: app Android WebView Puntify + stampante
+Stefano vuole un'app Android che ospita app-cat.puntify.it in WebView (inizialmente cat/collaudo), Android 12+, e se disponibile mette a disposizione la STAMPANTE del dispositivo (comande cucina + biglietti totem coda). Un altro Claude la sta già creando; io devo: fare le domande + creare un prompt con le mie note lato Puntify.
+CHIESTE domande (msg 5515): tipo stampante (POS integrata Sunmi/iMin vs esterna ESC/POS BT/USB/rete), uso (totem kiosk vs comande esercente vs entrambi), chi genera il layout stampa (web manda testo pronto vs Android formatta da dati), distribuzione (Play/APK), switch ambiente, funzioni native (QR/kiosk/cassetto/schermo acceso/push).
+IN CORSO Explore a489a1b78e443b207: note lato Puntify (totem/coda route+dati biglietto, comande/ordini dati, JS interop convenzione+bridge nativo, PWA/service worker, URL/ambienti, permessi web) per il prompt.
+ATTENDO risposte Stefano → poi consegno prompt completo.
