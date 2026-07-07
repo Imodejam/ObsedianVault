@@ -10,6 +10,7 @@
   - [[wiki/projects/puntify-costi-srls|Puntify · Costi SRLS e Break-even]] — costi annui SRLS (~6,7–8,3k€/anno, dominati da INPS) e break-even ~56–70 esercenti/mese
   - [[wiki/projects/puntify-dashboard-esercente|Puntify · Dashboard Esercente (Panoramica)]] — dashboard analitica full-screen stile Stripe su dati veri (incassi/ordini/prenotazioni/coda/recensioni/fedeltà); estende Insights.razor; decisioni aperte
   - [[wiki/projects/puntify-nemi-voce-vapi|Puntify · Nemi Voce via Vapi]] — integrazione webhook Vapi (end-of-call-report) per tracciare chiamate + scalare minuti dal negozio (shop_nemi_credits); proposta architettura inviata, attende ok Stefano
+  - [[wiki/projects/puntify-clienti-architettura|Puntify · Architettura Clienti (identità+profilo segregato)]] — APPROVATA: identità condivisa (telefono, dedup) + profilo cliente SEGREGATO per esercente/PV (no contaminazione cross-esercente, GDPR); scope shop-vs-account configurabile
   - [[wiki/projects/elimina-code|Puntify · Modulo Elimina Code]] — gestione code/ticketing (QR loco+remoto+totem+operatori+display). PIANIFICAZIONE: analisi integrazione + piano a fasi/gate, in attesa GATE 0 (Stefano 2026-06-30)
 - [[wiki/projects/piracity|Piracity]] — AI-powered urban treasure hunt PWA. _Rinominato da Piratopoly il 2026-05-14. Ambiente CAT live 2026-05-17. Lavoro attivo (binocolo AR, pricing V1, restyle vetrina)._
   - [[wiki/projects/piracity-pricing-strategy|Piracity · Strategia prezzi V1]] — posizionamento, 4 SKU mappa + 2 piani Pass, Piastre, decisioni e gap codice/vetrina
