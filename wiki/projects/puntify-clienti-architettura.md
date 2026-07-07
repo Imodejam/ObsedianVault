@@ -44,6 +44,20 @@ Nuovo flag shop `customer_recognition_scope`:
 4. Aggancio nel flusso prenotazione (associa/crea profilo segregato) e nel riconoscimento voce Vapi.
 5. Voce: nome+telefono obbligatori, email opzionale, GDPR verbale.
 
+## FASE 1 — IMPLEMENTATA (2026-07-07, applicata su CAT/collaudo, NON prod, NON committato)
+**Owner esercente (scope 'account'):** `account_shops` NON ha ruolo owner/cliente e accumula anche i clienti (il booking crea link role=1 via service_role) → nessun owner "pulito". Aggiunto **`shops.owner_account_id`** (FK account, ON DELETE SET NULL) materializzato dal legame `account_shops` più vecchio con account di ruolo esercente (2/3). Backfill migration: 58/58 shop CAT popolati (tutti role 3, 1 link/shop → owner netto). Fallback runtime nel service + degrado sicuro a scope 'shop' se non risolvibile.
+- **Migration** `docs/DB Migrations/2026-07-07_customer_profiles.sql`: tabella `customer_profiles` (id, owner_type shop|account, owner_id, phone_norm, account_id FK null, display_name, email, notes, created_at, updated_at; UNIQUE(owner_type,owner_id,phone_norm); indici owner+phone e account). `shops.customer_recognition_scope text NOT NULL DEFAULT 'shop'` (check shop|account) + `shops.owner_account_id`. RLS ON su customer_profiles SENZA policy anon (PII) → solo service_role (BYPASSRLS) in FASE 1. Verificato: service_role R/W ok, anon read=0 e write DENIED, unique dedup DENIED.
+- **Modelli C#:** `Punto.Shared/Models/CustomerProfile.cs`; su `Shop.cs` aggiunti `CustomerRecognitionScope` + `OwnerAccountId`.
+- **Service:** `Puntify.Server/Services/Customers/CustomerProfileService.cs` (+ interface, DI in Program.cs). `ResolveOwnerAsync`, `FindByPhoneAsync` (riconoscimento, riusa NormalizePhone del booking), `UpsertAsync` idempotente (arricchisce solo campi vuoti, no clobber).
+- **Aggancio prenotazione:** dentro `BookingServiceImpl.UpsertCustomerAccountAsync` (chokepoint di CreateBooking + EnsureCustomerForBooking), dopo il link account_shops, best-effort. `account` = identità globale; `customer_profiles` = layer editabile segregato.
+- **UI:** ShopEdit.razor tab Anagrafica (sotto "Prenotazioni pubbliche"): select "Riconoscimento clienti" bindato a `_shop.CustomerRecognitionScope`, salvato con lo shop. i18n: 4 chiavi `shopedit_customer_scope*` in tutte le 10 resx.
+- **Build:** Server + App = 0 errori. Server riavviato su :8001 (boot pulito).
+
+## FASE 2 / follow-up (NON fatti)
+- Refactor `Clients.razor`/`ShopCustomersController` su `customer_profiles` (+ policy RLS owner-scoped per anon quando servirà).
+- Migrazione dati storici → customer_profiles. Tool voce Vapi (FindByPhone + Upsert).
+- **DA APPLICARE IN PROD:** migration `2026-07-07_customer_profiles.sql` (identica; backfill owner_account_id gira in prod).
+
 ## B — GDPR prenotazioni a voce (spiegato a Stefano msg 5492)
 Base giuridica = CONTRATTO/richiesta del cliente (Art. 6.1.b): per una prenotazione che il cliente chiede al telefono, nome+telefono sono leciti SENZA consenso esplicito (il consenso serve solo per extra tipo marketing).
 Serve solo il DOVERE DI INFORMATIVA: Nemi pronuncia una mini-informativa ("dati usati solo per la prenotazione, informativa su puntify.it/privacy"). Prova = registrazione/trascrizione chiamata. NIENTE SMS, niente spunta.
