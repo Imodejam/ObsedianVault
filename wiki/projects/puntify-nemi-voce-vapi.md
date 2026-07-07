@@ -105,3 +105,14 @@ PIANO: (1) design clienti+scope+email/GDPR da validare; (2) build 4 tool voce; (
 ## Modello clienti (Explore a88e7cc135ed60c00) + DESIGN proposto
 ESISTE: account (mobile_number UNIQUE=no dupes telefono, role 1=client/2=shopper/3=both), account_shops (account↔shop join, no owner/customer role), BookingServiceImpl.UpsertCustomerAccountAsync/EnsureCustomerForBookingAsync (cerca email→phone→crea guest role=1→link account_shops, idempotente), ricerca phone server-side (BookingServiceImpl:568 mobile_number=eq role in 1,3), ShopCustomersController search per-shop, NormalizePhone. MANCA: campo customer_recognition_scope su shop, logica condizionale shop-vs-account, UI toggle ShopEdit.
 DESIGN proposto a Stefano (msg 5486): global=account, per-shop=account_shops, nuovo flag shop customer_recognition_scope ("shop" default | "account"=cross-PV dello stesso esercente); riconoscimento voce per telefono nello scope; privacy=cliente di altri esercenti non riconosciuto qui; dedup via telefono unico; l'"utenza dedicata shop"=guest account+account_shops già gestito. Chiesto ok design + ok email/GDPR voce (nome+tel obbligatori, email opz, consenso verbale+SMS). Poi build: schema+scope+UI + 4 tool voce + riconoscimento.
+
+## 2026-07-07 (15:19) — Stefano OK design ma SEGREGAZIONE clienti (privacy)
+Stefano (A): giusto rilievo — profilo globale condiviso = un PV che modifica anagrafica impatterebbe altri esercenti (contaminazione + GDPR: ogni esercente = titolare distinto). Vuole SEGREGARE.
+DESIGN RIVISTO proposto (msg 5488): due livelli.
+- IDENTITÀ (Puntify, condivisa, NON editabile da esercenti): solo TELEFONO come chiave dedup/riconoscimento (legata ad account per app/fedeltà).
+- PROFILO CLIENTE (proprietà esercente, SEGREGATO): NUOVA tabella scheda-cliente-per-esercente/PV (nome/email/note/storico), editabile solo da quell'esercente. Modifica di un PV NON impatta altri.
+- SCOPE decide proprietario scheda: "solo questo negozio"=owner shop; "tutti i miei negozi"=owner account esercente (condivisa tra i suoi PV, mai con altri esercenti).
+- Dedup via telefono; cliente di altri esercenti = "nuovo" qui (si crea la propria scheda).
+Serve NUOVA tabella profilo cliente segregato. Chiesto conferma modello segregato.
+(B) riformulato: prenotazioni VOCE = nome+telefono obbligatori, email facoltativa, GDPR verbale(transcript)+SMS/link. Chiesto ok.
+ATTENDO conferma A(segregato) + B prima di build.
