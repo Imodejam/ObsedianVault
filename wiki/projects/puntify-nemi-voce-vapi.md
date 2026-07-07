@@ -83,3 +83,14 @@ DEPLOY PROD nota: Vapi:WebhookSecret va messo anche in env/appsettings prod. Tel
 Stefano: l'assistant Vapi deve poter invocare webhook per gestire una prenotazione presso lo shop. Meccanismo: tool/function sull'assistant (nella risposta assistant-request) → LLM li invoca → Vapi manda evento tool-calls al nostro webhook → eseguiamo booking sullo shop → rispondiamo. Oggi il webhook fa no-op su tool-calls (da implementare handler).
 Explore aa7297d30e76fc1fc in corso: creazione prenotazione server (endpoint/RPC, campi, guest nome+telefono), disponibilità slot, servizi (shop_services), modifica/cancella, flusso pubblico vetrina da riusare.
 SCOPE proposto a Stefano: MVP tool 1) elenca_servizi 2) verifica_disponibilità 3) crea_prenotazione (guest nome+telefono); poi 4) sposta/cancella. Chiesto conferma scope + ok guest. Attendo.
+
+## Mappatura prenotazioni (Explore aa7297d30e76fc1fc) — ENDPOINT PUBBLICI RIUSABILI
+Tutto già esposto in PublicBookingController (rate-limited public_api), usa merchantSlug (da shopId risolvere slug o chiamare BookingServiceImpl diretto):
+- GET /api/public/merchants/{slug} (info shop, timezone, minAdvance/maxFuture)
+- GET /api/public/merchants/{slug}/services (shop_services attivi: nome/durata/prezzo)
+- GET /api/public/merchants/{slug}/availability?serviceId&from&to (SlotEngine: booking_availability+exceptions+manual_blocks+bookings+booking_settings)
+- POST /api/public/bookings (guest: merchantSlug/serviceId/startAt/customerName/customerPhone/customerEmail/gdprConsent; ritorna confirmation_token)
+- DELETE /api/public/bookings/{token} (cancella, entro cancel_before_hours)
+- PATCH /api/public/bookings/{token} {newStartAt} (sposta)
+GOTCHA VOCE: POST richiede email+gdprConsent obbligatori → scomodo a voce. Proposto a Stefano: voce = nome+telefono obbligatori, email opzionale, GDPR via consenso verbale in transcript + SMS/link conferma. Attendo ok approccio + scope tool (1-2-3 poi 4).
+BUILD (dopo ok): tool sull'assistant (assistant-request response, campo tools/functions Vapi) + handler evento tool-calls in VapiWebhookController (oggi no-op) che esegue via BookingServiceImpl/endpoint e risponde a Vapi. Risolve shop da metadata.shopId.
