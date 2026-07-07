@@ -1310,3 +1310,5 @@ File chiave aggiornati:
 ## [2026-07-06] task | Dashboard Panoramica: vista aggregata "Tutti i punti vendita" (cross-shop, timezone per-negozio, feed etichettato, card per-PV) + full-screen edge-to-edge + ordini uniti-ma-distinti + livelli fedeltà 30gg. Home esercente: tasto Fine a destra + esci da modalità spostamento cliccando area non-icona. Su collaudo, NON committato
 
 ## [2026-07-06] task | Dashboard Panoramica: filtro multi-selezione PV (ricerca+chip, confronto ≥2 negozi) + sezione Chiamate(placeholder "in arrivo")+Richieste AI(dati veri nemi_chat_history, delta+trend). Su collaudo, NON committato. Nemi Voce chiamate = nessun dato oggi (solo marketing)
+
+## [2026-07-07] decision | Nemi Voce via Vapi: proposta architettura (webhook Server URL end-of-call-report + segreto condiviso X-Vapi-Secret + shop_id via metadata/mapping + nemi_calls + scalo minuti idempotente su shop_nemi_credits) invece di funzione+api-key-per-PV. Attende ok Stefano. Pagina wiki puntify-nemi-voce-vapi
