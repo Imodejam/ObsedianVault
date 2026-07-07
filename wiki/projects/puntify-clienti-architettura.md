@@ -43,3 +43,9 @@ Nuovo flag shop `customer_recognition_scope`:
 3. UI toggle "Riconoscimento clienti" in ShopEdit (solo-questo-negozio / tutti-i-miei-negozi).
 4. Aggancio nel flusso prenotazione (associa/crea profilo segregato) e nel riconoscimento voce Vapi.
 5. Voce: nome+telefono obbligatori, email opzionale, GDPR verbale.
+
+## B — GDPR prenotazioni a voce (spiegato a Stefano msg 5492)
+Base giuridica = CONTRATTO/richiesta del cliente (Art. 6.1.b): per una prenotazione che il cliente chiede al telefono, nome+telefono sono leciti SENZA consenso esplicito (il consenso serve solo per extra tipo marketing).
+Serve solo il DOVERE DI INFORMATIVA: Nemi pronuncia una mini-informativa ("dati usati solo per la prenotazione, informativa su puntify.it/privacy"). Prova = registrazione/trascrizione chiamata. NIENTE SMS, niente spunta.
+Tecnicamente: booking a voce salvato con source=voce + gdpr "informativa a voce" + transcript; email conferma solo se il cliente la fornisce.
+Testo esatto della frase informativa: da definire con Stefano (può sceglierlo lui). Applicato in FASE 2 (voce). (Nota: non validazione legale, approccio standard, Stefano può far validare al consulente.)
