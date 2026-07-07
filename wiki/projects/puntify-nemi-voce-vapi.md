@@ -64,3 +64,6 @@ CHIAVI/CONFIG MANCANTI (risposta a Stefano): (1) Vapi:WebhookSecret reale (ora p
 TODO IN CODA (dopo subagent webhook admin a141bd78365fcf8af, bundle unico per serializzare edit server):
 1. NemiChatService.BuildVoiceContextAsync → usare orari STRUTTURATI (booking_availability shop-level per giorno) + chiusure future (booking_exceptions) + blocchi futuri (booking_manual_blocks), non solo opening_hours testo.
 2. Campo "Numero Nemi Voce" DEDICATO nella sezione punto vendita (ShopEdit.razor), distinto da Shop.Phone, salvato in shop_vapi_config (+ endpoint load/save). Configurabile lì.
+
+## 2026-07-07 (13:52) — chiavi Vapi richieste a Stefano
+Serve da Stefano: (1) VAPI PRIVATE API KEY (dashboard Vapi→API Keys→Private) per chiamate server→Vapi (provisioning numeri/assistant, attach/detach a saldo 0, dettagli chiamata) → SOLO config server, mai app WASM; (3) per ogni negozio phoneNumberId+assistantId+numero (recuperabili via API key). (2) Segreto webhook condiviso GENERATO da me (valore inviato a Stefano in DM Telegram msg 5457, NON salvato nel vault per sicurezza) → va su Vapi come Server URL Secret (X-Vapi-Secret) + in Vapi:WebhookSecret server. Server URL: https://cat.puntify.it/api/vapi/webhook. Attendo API key per accendere Nemi Voce su negozio test.
