@@ -171,3 +171,12 @@ ATTENDO risposte 6 domande Stefano → prompt.
 Risposte: 1) stampante USB (/dev/bus/usb/005/005 "AB USB(PRN)"); 2) UNA app WebView per tutti (clienti/esercenti/servizi); 3) web app formatta, Android stampa; 4) target Olivetti TAO, APK sideload; 5) switch ambiente sì; 6) funzioni native sì (QR/kiosk/schermo/cassetto/push).
 PROMPT consegnato a Stefano (msg 5517-5518, file prompt-android-puntify.md): app Kotlin WebView cat.puntify.it/app +switch prod, Android12+, permessi camera/geo/upload, UA "PuntifyAndroid", ponte window.PuntifyNative + JavascriptInterface PuntifyAndroid (printRaw base64 ESC/POS/printText/openCashDrawer/keepScreenOn/setKiosk), stampa USB via UsbManager BULK OUT+ESC/POS auto-permesso (alt SDK Olivetti), kiosk/keep-screen-on, FCM nativo step2. Note Puntify incluse (totem /coda/totem/{slug}?k=, comande /merchant/{shopId}/display/kitchen MenuPublicOrder, bridge OAuth esistente native-auth.js, PWA/SW, URL/env, permessi).
 DA FARE LATO PUNTIFY (io, quando app Android pronta): web rileva PuntifyNative.capabilities.print, genera ESC/POS biglietto/comanda, chiama bridge. Aggancio successivo.
+
+## 2026-07-07 (20:48) — design kiosk/flotta dispositivi (ragionamento con Stefano)
+Stefano vuole: terminale = totem cucina o biglietti coda; comando dal WEB abilita kiosk; auto-avvio su pagina assegnata; 10-tap→PIN per uscire; problema monitor SENZA touch.
+MIA PROPOSTA (msg 5520): modello "dispositivo arruolato" gestito centralmente.
+1) Arruolamento dal web: sceglie RUOLO (totem coda/schermo cucina/display cliente/bacheca ordini…) → bridge nativo entra kiosk su quella pagina. + salvare assegnazione LATO SERVER (tabella "devices": id, shop, ruolo, pagina, pin) → sopravvive reinstalli + pannello gestione.
+2) Auto-avvio BOOT_COMPLETED; per kiosk blindato = Android DEVICE OWNER provisioning (per test basta lock-task best-effort).
+3) USCITA kiosk: touch=10-tap+PIN; NON-touch (schermi cucina HDMI/box)=SBLOCCO REMOTO dal pannello (esercente da suo telefono/PC → comando via realtime/push/polling → device esce kiosk); ripiego combo tasti hw/tastiera USB.
+4) Generalizzazione: tabella devices + controllo remoto (cambia ruolo/pagina, sblocca, ricarica, riavvia, online status) = gestione FLOTTA appliance centralizzata.
+Chiesto ok direzione → poi specifiche (tabella devices + comandi bridge + pannello) da integrare nel prompt Android + lato Puntify. Attendo.
