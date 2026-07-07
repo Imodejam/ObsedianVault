@@ -215,3 +215,6 @@ BATCH FATTO (1 solo restart pulito, build 3 progetti 0 err, app-cat 200):
 (4) BOTTONE "Aggiungi monitor/dispositivo" in FOOTER BAR fissa cfg-actionbar/cfg-actionbar-inner (pattern Booking/ShopOperators.razor pagina operatori), label/azione per tab attivo, rimosso inline.
 NON committato, NON deployato. Serve Ctrl+F5 lato Stefano (WASM).
 PROD MIGRATIONS ora = 8: +2026-07-07_queue_totem_print. (ordine: queue_remote_review_fixes, nemi_credits, nemi_context_reset, vapi_calls, webhook_events, devices_monitors, queue_totem_print + reload PostgREST).
+
+## 2026-07-07 (22:02) — tile home "Monitor"→"Dispositivi" (io)
+Stefano: sulla home esercente il tile che porta a /devices era icona+label "Monitor". Chiesto se fornisce icona "Devices" (set icone 3D lucido bespoke, no image-gen qui) → Stefano "per ora lascia quella e chiamala dispositivi". FATTO: MerchantHome.razor label hardcoded "Monitor" → L["merchanthome_icon_dispositivi"]; icona resta Monitor.webp. Nuova chiave merchanthome_icon_dispositivi in tutte 10 resx App (IT Dispositivi/en Devices/es Dispositivos/de Geräte/fr Appareils/nl Apparaten/pl Urządzenia/ro Dispozitive/ru Устройства/uk Пристрої). Build App 0 err, app riavviata, app-cat 200. Non committato. Icona Devices dedicata = TODO quando Stefano la manda.
