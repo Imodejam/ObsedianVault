@@ -24,6 +24,20 @@ Nemi Voce (telefonia) finora è solo marketing (no backend). Vapi = piattaforma 
 - Arrotondamento minuti (per chiamata al minuto superiore? consigliato) e tariffa (coerente coi pacchetti Nemi: R1 0,36 → R4 0,29 €/min).
 - Cosa loggare per chiamata (durata, inbound/outbound, esito, ora, costo, transcript).
 
+## Decisioni CONFERMATE Stefano (2026-07-07 msg 5436)
+- 1 numero per negozio (shop_id nei metadata + mapping numero→negozio).
+- Minuti arrotondati al minuto SUPERIORE (ceil).
+- Salvare TUTTO della chiamata (durata, esito, ora, costo, registrazione) + TRASCRIZIONE in nemi_calls.
+- BLOCCO guidato dal credito PUNTIFY (non Vapi): via evento `assistant-request` (Vapi chiede prima di rispondere quale assistant usare) → il nostro server trova il negozio dal numero, legge saldo shop_nemi_credits:
+  · saldo>0 → ritorna config Nemi Voce + `maxDurationSeconds = minuti_residui×60` (la chiamata non sfora il credito, Vapi chiude da sola).
+  · saldo≤0 → non serve: messaggio breve "credito esaurito, ricarica" + hangup (o reject).
+  · Rete di sicurezza: a fine chiamata se saldo=0, staccare assistant dal numero via API Vapi; riattaccarlo alla ricarica.
+
+## Cosa costruisco (lato Puntify)
+Endpoint webhook: `assistant-request` (gating saldo + maxDuration) + `end-of-call-report` (traccia+scala minuti idempotente per vapi_call_id). Tabelle `nemi_calls` + `shop_vapi_config` (numero/assistant→shop). Verifica saldo, scalo consumed_minutes (ceil), auth X-Vapi-Secret.
+## Cosa serve lato Vapi (Stefano/insieme)
+Account Vapi, numeri per negozio, Server URL + segreto condiviso sugli assistant, shop_id nei metadata.
+
 ## Stato
-- Proposta inviata a Stefano (msg 5435). Attendo ok architettura + dettagli Vapi, poi build (endpoint webhook + nemi_calls + scalo minuti + shop_vapi_config + config Vapi).
+- Meccanismo blocco spiegato + design confermato (msg 5437). Attendo "parti" di Stefano per costruire la parte Puntify; per il collegamento reale servirà accesso/segreto Vapi.
 - Fonti Vapi: docs.vapi.ai/server-url/events, /server-url/server-authentication.
