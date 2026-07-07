@@ -94,3 +94,10 @@ Tutto già esposto in PublicBookingController (rate-limited public_api), usa mer
 - PATCH /api/public/bookings/{token} {newStartAt} (sposta)
 GOTCHA VOCE: POST richiede email+gdprConsent obbligatori → scomodo a voce. Proposto a Stefano: voce = nome+telefono obbligatori, email opzionale, GDPR via consenso verbale in transcript + SMS/link conferma. Attendo ok approccio + scope tool (1-2-3 poi 4).
 BUILD (dopo ok): tool sull'assistant (assistant-request response, campo tools/functions Vapi) + handler evento tool-calls in VapiWebhookController (oggi no-op) che esegue via BookingServiceImpl/endpoint e risponde a Vapi. Risolve shop da metadata.shopId.
+
+## 2026-07-07 (14:53) — scope tool CONFERMATO (1-2-3-4) + visione riconoscimento clienti
+Stefano conferma tutti e 4 i tool. + Visione clienti: (a) riconoscere chiamante per telefono dalla assistant-request; (b) registro CLIENTI GLOBALE Puntify (cross-shop, per telefono) + cliente per-shop/account; (c) scope configurabile dal PV: "livello Account" (riconosciuto su tutti i PV dello stesso esercente, es. 5 PV) vs "solo questo PV"; (d) alla prenotazione associare al cliente o creare utenza dedicata allo shop.
+Config scope: pagina /merchant/shop/{id}/edit.
+Explore modello clienti a88e7cc135ed60c00 in corso (account globale, account_shops, ricerca per telefono, bookings.customer_id, owner vs cliente, config shop). Poi PROPONGO design clienti+scope PRIMA di toccare schema (privacy cross-shop).
+Email/GDPR voce ancora da confermare (proposto: nome+telefono obbligatori, email opzionale, GDPR verbale+SMS/link).
+PIANO: (1) design clienti+scope+email/GDPR da validare; (2) build 4 tool voce; (3) innesto riconoscimento. Evito rework: costruisco dopo l'ok sul design.
