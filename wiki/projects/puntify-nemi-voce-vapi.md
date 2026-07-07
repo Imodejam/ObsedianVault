@@ -116,3 +116,26 @@ DESIGN RIVISTO proposto (msg 5488): due livelli.
 Serve NUOVA tabella profilo cliente segregato. Chiesto conferma modello segregato.
 (B) riformulato: prenotazioni VOCE = nome+telefono obbligatori, email facoltativa, GDPR verbale(transcript)+SMS/link. Chiesto ok.
 ATTENDO conferma A(segregato) + B prima di build.
+
+## 2026-07-07 — FASE 2 Nemi Voce IMPLEMENTATA (tool prenotazioni + riconoscimento) — collaudo, NON committato
+Subagent. Build `dotnet build Puntify.Server` = 0 errori (1 warning preesistente in ShopCredentialsService, non mio).
+
+FORMATI VAPI usati (fonti docs.vapi.ai/tools/custom-tools + docs.vapi.ai/server-url/events, verificati via web):
+- Tool su assistant: `tools[]` con `{ type:"function", function:{ name, description, parameters(JSON-schema) }, server:{ url, secret } }`. Server per-tool → i tool-calls arrivano al nostro webhook (oltre al server a livello assistant).
+- Evento in ingresso `message.type="tool-calls"`: array `message.toolCallList[]` `{ id, name, arguments(oggetto) }` (gestita anche la forma OpenAI `message.toolCalls[]` `{ id, function:{ name, arguments(stringa JSON) } }`).
+- RISPOSTA: `{ "results": [ { "toolCallId": "...", "result": "<frase parlabile>" } ] }`. Sempre HTTP 200 (Vapi ignora status ≠200); result/error sono stringhe.
+
+TOOL definiti (NemiVoiceToolService, IT, JSON-schema): elenca_servizi (no input); verifica_disponibilita (servizio, data AAAA-MM-GG, preferenza_oraria opz); crea_prenotazione (nome_cliente, servizio, data, ora HH:MM, email opz — telefono dalla chiamata); trova_mie_prenotazioni (no input, usa telefono chiamata); sposta_prenotazione (numero_prenotazione opz, nuova_data, nuova_ora); cancella_prenotazione (numero_prenotazione opz). Descrizioni istruiscono l'LLM a risolvere date relative in assoluto e a NON chiedere il telefono.
+
+ESECUZIONE (via BookingServiceImpl/CustomerProfileService):
+- elenca_servizi/verifica_disponibilita → IBookingService.GetServicesAsync + GetSlotsAsync (SlotEngine). Match servizio per nome (contains bidirezionale, ambiguità→chiede).
+- crea_prenotazione → NUOVO IBookingService.CreateVoiceBookingAsync(shopId, serviceId, localStart, nome, telefono, email?): valida booking_enabled/min_advance/max_future/slot libero (stessa convenzione wall-clock locale degli slot), inserisce bookings (Channel="phone", SourceChannel="voice", GdprConsent=true + Nota "informativa resa a voce", ConfirmationToken) + booking_service_items, poi UpsertCustomerAccountAsync (identità globale + profilo SEGREGATO via CustomerProfileService.UpsertAsync), email best-effort (conferma cliente se email presente + notifica merchant).
+- trova/sposta/cancella → query bookings future confirmed/pending filtrate per telefono normalizzato (CustomerProfileService.NormalizePhone), selezione per indice 1-based (stateless: lista deterministica ordinata per start_at). sposta → NUOVO IBookingService.RescheduleBookingAsync (valida anticipo/finestra/slot, preserva durata). cancella → CancelBookingAsync esistente.
+
+RICONOSCIMENTO chiamante (assistant-request): numero da `message.customer.number` ‖ `message.call.customer.number` → CustomerProfileService.FindByPhoneAsync(shopId, phone); se noto, iniettata riga "=== CHIAMANTE RICONOSCIUTO ===" nel system prompt (saluta per nome, riusa dati). Best-effort, non blocca.
+
+MINI-INFORMATIVA GDPR: aggiunta a BuildVoiceContextAsync (blocco istruzioni tool + informativa breve default: "i tuoi dati saranno usati solo per gestire la prenotazione; informativa completa sul sito Puntify"; NON chiede consenso esplicito né email obbligatoria).
+
+FILE toccati: Punto.Shared/DTOs/BookingDtos.cs (record VoiceBookingResult); Booking/IBookingService.cs + BookingServiceImpl.cs (CreateVoiceBookingAsync, RescheduleBookingAsync); Services/Nemi/NemiVoiceToolService.cs (NUOVO, interfaccia+impl); Services/Nemi/NemiChatService.cs (prompt tool+GDPR); Controllers/VapiWebhookController.cs (case tool-calls + HandleToolCalls + ExtractCallerNumber + ExtractToolCalls + tools/riconoscimento in assistant-request + DI INemiVoiceToolService/ICustomerProfileService); Program.cs (DI INemiVoiceToolService). NON rotti assistant-request/end-of-call/opzione1/idempotenza.
+
+LIMITI/APERTI: (1) date relative ("giovedì prossimo") risolte dall'LLM (data locale nel prompt) — non lato server; (2) disambiguazione servizi/prenotazioni via nome/indice a voce (se ambiguo il tool richiede di specificare); (3) testo informativa GDPR è default hardcoded (non ancora editabile da UI/config); (4) tool-calls non ancora testati dal vivo (serve numero Vapi collegato); (5) prenotazioni risorse/tavoli/asporto non coperte (solo appuntamenti a operatore).
