@@ -83,10 +83,13 @@ adb -t 1 exec-out screencap -p > screen.png      # screenshot
 
 Definiti in `Prefs.kt` (enum `Environment`). Cambio dal **menu admin**.
 
-| Ambiente | URL | Note |
-|---|---|---|
-| **Collaudo** (default) | `https://app-cat.puntify.it` | L'APP vera (Blazor WebAssembly): login, POS, cucina, totem |
-| Produzione | `https://app.puntify.it/app` | Blazor WebAssembly, base href `/app/` |
+| Ambiente | URL app | API device | Note |
+|---|---|---|---|
+| **Produzione** (DEFAULT primo avvio) | `https://app.puntify.it` | `https://api.puntify.it` | Blazor WASM, base href `/` |
+| Collaudo | `https://app-cat.puntify.it` | `https://cat.puntify.it` | L'APP vera (login, POS, cucina, totem) |
+
+> Al **primo avvio** (nessuna preferenza salvata) l'app parte in **Produzione** (`app.puntify.it`).
+> Si cambia ambiente dal menu admin.
 
 **Chiarimento importante sugli host** (scoperto durante il lavoro):
 - `app-cat.puntify.it` = **l'app di collaudo** (Blazor WASM). Risponde 200, nessuna auth. ✅ è questo che l'app carica.
@@ -219,6 +222,50 @@ cookie di terze parti, `useWideViewPort`, solo HTTPS (cleartext disabilitato, er
 
 ---
 
+## 10-bis. Cache immagini (WebView)
+
+Lo storage Puntify (**MinIO** su `files.puntify.it`) **non invia header `Cache-Control`**, e su
+collaudo il **service worker PWA è disattivato**: perciò le immagini venivano rivalidate/riscaricate
+ad ogni uso. Risolto lato app con una **cache disco** (`ImageCache.kt`, `shouldInterceptRequest`):
+
+- Intercetta le richieste **immagine** (header `Accept: image/*`, oppure estensione, oppure host
+  storage) e le serve da un cache su disco (`cacheDir/imgcache`), scaricando/salvando al primo accesso.
+- **Esclude** gli host app-shell/API/marketing (`app-cat`, `app`, `api-cat`, `api`, `cat`.puntify.it)
+  così restano sempre freschi dopo i deploy.
+- TTL 30 giorni, tetto 150 MB (elimina i più vecchi). Fallback trasparente su errore.
+- Copre sia le immagini reali (`files.puntify.it`: loghi, piatti, ricevute, avatar) sia eventuali
+  CDN esterni. NB: sui negozi di **collaudo** le foto sono placeholder di `images.unsplash.com`
+  (dati di test, assenti in produzione).
+- **Testato:** 52 immagini in cache navigando la lista negozi; immagini servite dal disco al ricarico.
+
+> Alternativa lato infra (consigliata in aggiunta): configurare MinIO per inviare
+> `Cache-Control: public, max-age=31536000, immutable` sugli oggetti immagine — beneficia tutti i client.
+
+## 10-ter. Flotta gestita (pairing + monitor remoto)
+
+Un device può diventare un **monitor gestito da remoto** dal pannello Puntify. **Il pairing è
+OPZIONALE**: se il device non è collegato, l'app resta normale (WebView Puntify). Se collegato,
+all'avvio apre il **monitor assegnato** (totem coda / cucina / sala / bacheca / URL custom).
+
+- **Identità**: `device_uuid` stabile in SharedPreferences. `capabilities` = `{touch, printer, screen}`
+  (`printer` da `UsbPrinterManager`, `touch` da `FEATURE_TOUCHSCREEN`).
+- **Endpoint device-facing** (pubblici, base = API device dell'ambiente):
+  `POST /api/devices/pair/start`, `GET /api/devices/pair/status`, `GET /api/devices/poll`.
+- **Pairing** (menu admin → *Collega a un negozio*): mostra un **codice a 6 caratteri** grande +
+  countdown; l'esercente lo inserisce nel pannello (Dispositivi → Aggiungi dispositivo).
+- **Modalità monitor**: poll ogni ~12s → apre `monitor.url` (kiosk on/off), `last_seen_at` lato
+  server = online/offline. Se `monitor` è `null` → schermata "In attesa di assegnazione".
+- **Comandi** (once): `reload`, `unlock` (esci kiosk — vitale per device **senza touch**),
+  `reboot` (riavvia l'app), `refresh_assignment`.
+- **Uscita kiosk**: device **touch** = 10 tap angolo alto-DESTRA + `PIN device`; device **non-touch**
+  = solo `unlock` remoto. (Il menu admin resta 7 tap angolo alto-SINISTRA + PIN admin.)
+- **Autostart**: `BootReceiver` su `BOOT_COMPLETED` riavvia l'app se collegata (signage). Kiosk
+  "blindato" richiede device owner; altrimenti lock-task best-effort + sblocco remoto.
+- Sui monitor `totem` la stampa del bigliettino continua a funzionare via `PuntifyNative.printRaw`.
+
+**Chromecast** (traccia separata, display-only): receiver web CAF in `cast-receiver/` che riusa gli
+stessi endpoint. Vedi `cast-receiver/README.md`.
+
 ## 11. Modalità kiosk / totem
 
 - `setKiosk(true)` (da bridge) o interruttore nelle impostazioni:
@@ -251,8 +298,12 @@ AppCat/
 │  │   ├─ MainActivity.kt          WebView, permessi, client, kiosk, gesture admin, shim
 │  │   ├─ PuntifyBridge.kt         @JavascriptInterface "PuntifyAndroid" (contratto)
 │  │   ├─ UsbPrinterManager.kt     USB Host API + ESC/POS
-│  │   ├─ SettingsActivity.kt      pannello admin
-│  │   └─ Prefs.kt                 ambiente, kiosk, schermo, PIN, credenziali
+│  │   ├─ ImageCache.kt            cache disco immagini (shouldInterceptRequest)
+│  │   ├─ Fleet.kt                 client API flotta + capabilities
+│  │   ├─ PairingActivity.kt       schermata pairing (codice + countdown)
+│  │   ├─ BootReceiver.kt          autostart signage (BOOT_COMPLETED)
+│  │   ├─ SettingsActivity.kt      pannello admin (UI Material3, stile Apple/Stripe)
+│  │   └─ Prefs.kt                 ambiente, kiosk, schermo, PIN, credenziali, device_uuid
 │  └─ res/
 │     ├─ layout/activity_main.xml  WebView + progress + overlay splash
 │     ├─ values/                   strings, colors (#B71A19), themes

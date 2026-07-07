@@ -4,11 +4,12 @@
 > per clienti, esercenti, totem, tutti i servizi. Espone al web la **stampante USB** (ESC/POS) e
 > funzioni native (kiosk/totem, schermo acceso). Costruita da Stefano (lato Mac) — doc consegnata 2026-07-07.
 
-## Stato
-- **App: PRONTA e testata.** Compila, si installa su POS (debug wireless), carica `app-cat.puntify.it`
-  con sessione persistente. **Stampa USB ESC/POS confermata funzionante** (fisica su carta).
-- **Pezzo mancante = lato web Puntify (Blazor), tocca a noi:** generare i byte ESC/POS di
-  **comande cucina** e **biglietti totem coda** e chiamare `PuntifyNative.printRaw(base64)`. → TODO #1.
+## Stato (doc aggiornata 2026-07-07, v2)
+- **App: PRONTA e testata.** Compila, si installa su POS (debug wireless). **Stampa USB ESC/POS confermata** (fisica).
+- **FLOTTA IMPLEMENTATA** (v2): pairing (PairingActivity.kt), client API flotta (Fleet.kt), autostart signage (BootReceiver.kt su BOOT_COMPLETED), poll ~12s, capabilities {touch(FEATURE_TOUCHSCREEN)/printer(UsbPrinterManager)/screen}. Il device "POS" di Stefano fa polling live (verificato lato server). Chromecast: receiver CAF in `cast-receiver/`.
+- **Cache immagini** (ImageCache.kt, shouldInterceptRequest): MinIO files.puntify.it non manda Cache-Control → cache disco 30gg/150MB; esclude app/api/cat host (freschi post-deploy).
+- **Default primo avvio = PRODUZIONE** (app.puntify.it); collaudo = app-cat.puntify.it (dal menu admin). **API device per-ambiente**: prod api.puntify.it, collaudo cat.puntify.it.
+- **Pezzo lato web Puntify (nostro):** ESC/POS **comande cucina** (MenuPublicOrder) via printRaw → TODO. **Biglietti totem coda** = FATTO lato web (toggle per-coda + totem-printer.js + PuntifyNative.printRaw).
 
 ## Identità app
 - Package/applicationId: `it.puntify.appcat` — label **Puntify** — brand rosso `#B71A19`.
@@ -77,7 +78,8 @@ Modello: 1 device = 1 monitor assegnato. Pairing OPZIONALE (default = app normal
 - **Monitor types** (URL risolta da FleetService): totem→Vetrina /coda/totem/{slug}?k={kioskToken}&screen=totem; board→/coda/display/{slug}?k=&screen=display; queue_display→/coda/{qrToken}/display; kitchen→App /merchant/{shopId}/display/kitchen; customer→/display/customer; url_custom→url libera.
 - Controller: DevicesController.cs (device-facing), ShopDevicesController.cs + ShopMonitorsController.cs (merchant); modelli Punto.Shared/Models/Fleet/Device.cs+Monitor.cs; ApiKeyAuthMiddleware bypassa /api/devices.
 
-DA FARE LATO ANDROID (prompt consegnato a Stefano 2026-07-07, `raw/docs/puntify-android-flotta-PROMPT.md`): schermata pairing nell'area admin (7-tap+PIN) + polling (heartbeat/apri monitor/kiosk/comandi once) + autostart BOOT_COMPLETED per device collegato + sblocco remoto per non-touch. **Chromecast** = traccia separata: receiver Google Cast (CAF) che riusa gli stessi endpoint /api/devices/* (pair→poll→mostra monitor); caveat: no auto-relaunch al riavvio Chromecast → per H24 meglio box Android HDMI. Tipi device: tablet/POS touch, box HDMI non-touch, Chromecast display-only via Cast.
+LATO ANDROID (prompt in `raw/docs/puntify-android-flotta-PROMPT.md`): **IMPLEMENTATO** nella doc v2 — PairingActivity (codice 6char+countdown), poll ~12s, autostart BootReceiver, comandi reload/unlock/reboot/refresh_assignment. Uscita kiosk: touch=10 tap angolo alto-DESTRA + PIN device; non-touch=solo unlock remoto; admin menu=7 tap alto-SINISTRA + PIN admin. Chromecast receiver CAF in cast-receiver/.
+- **KIOSK NON ROBUSTO (issue Stefano 2026-07-07):** swipe dal basso fa riapparire la barra ed esce SENZA PIN. Serve **device owner** provisioning + startLockTask (screen pinning vero) per bloccare davvero; TODO #6 della doc. Segnalato a Stefano come punto Android (non risolvibile dal web).
 
 ## Sorgente
 - Documento originale completo di Stefano: `raw/docs/puntify-android-app-DOCUMENTAZIONE.md` (7 lug 2026) — include anche ambiente di sviluppo (JDK17/Android SDK), comandi build/install/adb wireless, credenziali (PIN admin `246810`, Basic Auth collaudo), struttura progetto AppCat.
