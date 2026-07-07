@@ -37,3 +37,9 @@ LEZIONE: quando delego modifiche pesanti al codice server, mettere in conto che 
 Stefano (msg 4629): ogni volta che modifico sistemi esterni (DB schema/ALTER, firewall, config infra, Supabase, PostgREST, cron esterni, ecc.) DEVO avvisarlo esplicitamente, perché vanno replicate anche in PRODUZIONE (prod = box separato 82.165.223.68, non gestibile da CAT).
 **Perché:** errore "Invio fallito" su ordine prod nato proprio da ALTER fatte su CAT e non su prod (colonne timezone, customer_email).
 **Come applicare:** dopo ogni modifica esterna su CAT → messaggio Telegram con l'SQL/comando esatto da eseguire in prod + salvare in docs/DB Migrations/.
+
+## [2026-07-07] Errore creazione negozio: shops_ivr_code_key duplicate (sequenza disallineata)
+SINTOMO: "Impossibile creare il negozio: duplicate key value violates unique constraint shops_ivr_code_key" (23505).
+CAUSA: shops.ivr_code (codice IVR 5 cifre) ha DEFAULT lpad(nextval('public.shops_ivr_code_seq'),5,'0') UNIQUE. Il modello C# Shop NON manda ivr_code (Insert via Postgrest) → default DB. La SEQUENZA public.shops_ivr_code_seq era rimasta INDIETRO rispetto ai codici esistenti (58 negozi seed con codici fino a 58, seq più bassa) → nextval generava codici già usati → collisione. (Tipico dopo import/seed con codici espliciti senza avanzare la sequenza; le sequenze sono non-transazionali → i tentativi falliti l'hanno comunque avanzata.)
+FIX: `SELECT setval('public.shops_ivr_code_seq', (SELECT max(ivr_code::int) FROM puntify.shops WHERE ivr_code ~ '^[0-9]+$'), true);` → sequenza oltre il max, prossimo codice libero. GOTCHA: la sequenza è in schema `public`, la tabella shops in `puntify`.
+PROD: se ricapita in prod, stesso fix (riallineare la sequenza).
