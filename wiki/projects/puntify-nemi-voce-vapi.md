@@ -78,3 +78,8 @@ Subagent ac9546db9b19ceaf4: VapiWebhookController inietta INemiTelegramBot; a fi
 TEST DAL VIVO: POST finto end-of-call-report (shop a88d9724, 45s) → 200, nemi_calls inserita (1 min), consumed 60→1, telegram inviato senza errori. Cleanup fatto (nemi_calls test rimossa, consumed→0, shop di nuovo 60 min pieni). Chiesto a Stefano conferma ricezione.
 Server URL Secret spiegato (msg 5478): NON bearer, è X-Vapi-Secret header; il webhook accetta sia X-Vapi-Secret sia Authorization Bearer.
 DEPLOY PROD nota: Vapi:WebhookSecret va messo anche in env/appsettings prod. Telegram bot token stesso per gli ambienti (badge cambia da IsProduction).
+
+## 2026-07-07 (14:46) — Nemi Voce gestisce prenotazioni (Vapi tool-calls)
+Stefano: l'assistant Vapi deve poter invocare webhook per gestire una prenotazione presso lo shop. Meccanismo: tool/function sull'assistant (nella risposta assistant-request) → LLM li invoca → Vapi manda evento tool-calls al nostro webhook → eseguiamo booking sullo shop → rispondiamo. Oggi il webhook fa no-op su tool-calls (da implementare handler).
+Explore aa7297d30e76fc1fc in corso: creazione prenotazione server (endpoint/RPC, campi, guest nome+telefono), disponibilità slot, servizi (shop_services), modifica/cancella, flusso pubblico vetrina da riusare.
+SCOPE proposto a Stefano: MVP tool 1) elenca_servizi 2) verifica_disponibilità 3) crea_prenotazione (guest nome+telefono); poi 4) sposta/cancella. Chiesto conferma scope + ok guest. Attendo.
