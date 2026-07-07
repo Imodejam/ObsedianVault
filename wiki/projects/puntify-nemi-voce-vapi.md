@@ -41,3 +41,8 @@ Account Vapi, numeri per negozio, Server URL + segreto condiviso sugli assistant
 ## Stato
 - Meccanismo blocco spiegato + design confermato (msg 5437). Attendo "parti" di Stefano per costruire la parte Puntify; per il collegamento reale servirà accesso/segreto Vapi.
 - Fonti Vapi: docs.vapi.ai/server-url/events, /server-url/server-authentication.
+
+## 2026-07-07 (10:47) — APPROVATO, build parte Puntify in corso
+Stefano "sì mi torna" + requisito: nella assistant-request fornire all'assistant Vapi la KB + info negozio (orari apertura/chiusura, indirizzo, telefono, servizi) nel system prompt.
+IN COSTRUZIONE (subagent a22a659b9e01cc507): migration 2026-07-07_vapi_calls (shop_vapi_config numero/assistant→shop, nemi_calls con transcript+raw jsonb, RPC atomica nemi_consume_minutes) + modelli C# + VapiWebhookController POST /api/vapi/webhook (auth X-Vapi-Secret da config, dispatch assistant-request[gating saldo+maxDuration+config dinamica con BuildVoiceContext KB+orari+info]/end-of-call-report[idempotente per vapi_call_id, scala ceil minuti]). Placeholder segreto Vapi in appsettings. Endpoint PUBBLICO → esposizione Caddy in deploy (prod, con Stefano). Follow-up: Chiamate dashboard + Consumo tab da nemi_calls/consumed reali.
+DA STEFANO (collegamento reale): account Vapi, numeri per negozio, Server URL+segreto sugli assistant, shop_id nei metadata.
