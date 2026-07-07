@@ -58,3 +58,9 @@ Correzione: gli orari NON sono solo shops.opening_hours testo libero. Fonti stru
 - `booking_exceptions` (BookingException): chiusure/ferie/aperture straordinarie.
 - `booking_manual_blocks` (BookingManualBlock): shop_id, start_at, end_at, reason → blocchi.
 TODO (dopo subagent webhook admin, per non sovrappormi sul server): aggiornare NemiChatService.BuildVoiceContextAsync per includere orari settimanali per giorno + chiusure future + blocchi futuri (livello shop, service_id null), al posto/oltre opening_hours testo libero. Così Nemi Voce risponde a "siete aperti?/a che ora chiudete?/aperti sabato?/chiusi per ferie?".
+
+## 2026-07-07 (11:04) — chiavi mancanti + numero Nemi in sezione PV
+CHIAVI/CONFIG MANCANTI (risposta a Stefano): (1) Vapi:WebhookSecret reale (ora placeholder); (2) shop_vapi_config per negozio: numero Nemi + vapi_phone_number_id + vapi_assistant_id; (3) esporre /api/vapi/webhook via Caddy (deploy). Lato Vapi: (4) account+numeri; (5) su assistant/numero Server URL+Secret+metadata shopId; (6) chiavi LLM/voce le gestisce Vapi. Unici segreti veri da procurare = Stefano (segreto webhook + account Vapi).
+TODO IN CODA (dopo subagent webhook admin a141bd78365fcf8af, bundle unico per serializzare edit server):
+1. NemiChatService.BuildVoiceContextAsync → usare orari STRUTTURATI (booking_availability shop-level per giorno) + chiusure future (booking_exceptions) + blocchi futuri (booking_manual_blocks), non solo opening_hours testo.
+2. Campo "Numero Nemi Voce" DEDICATO nella sezione punto vendita (ShopEdit.razor), distinto da Shop.Phone, salvato in shop_vapi_config (+ endpoint load/save). Configurabile lì.
