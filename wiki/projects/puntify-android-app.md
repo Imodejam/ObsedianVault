@@ -66,6 +66,19 @@ window.PuntifyNative.setKiosk(bool)
 3. Eventuale bridge OAuth nativo se Google blocca login in WebView.
 4. Release firmata (keystore) alla distribuzione. Device owner sul POS per kiosk pieno.
 
+## Flotta gestita (pairing device + kiosk remoto) — contratto server LIVE collaudo
+Modello: 1 device = 1 monitor assegnato. Pairing OPZIONALE (default = app normale; collegato = apre monitor in kiosk).
+- **Device-facing (pubblici, base server = collaudo https://cat.puntify.it, NESSUNA auth):**
+  - `POST /api/devices/pair/start` `{device_uuid, capabilities}` → `{code(6ch), expires_at}` (TTL 10min, alfabeto no 0/O/1/I)
+  - `GET /api/devices/pair/status?device_uuid=` → `{status: pending|active|unknown, claimed}`
+  - `GET /api/devices/poll?device_uuid=` → `{monitor:{id,type,url,kiosk}|null, command:{type,ts}|null}` (comando consegnato ONCE, azzerato; aggiorna last_seen)
+- **Merchant-facing** (X-API-Key + JWT owner, RequireShopOwner) `/api/shop/{shopId}`: `GET/PUT/DELETE devices`, `POST devices/{id}/command {type}`, `POST devices/claim {code,name}`; `GET/POST/PUT/DELETE monitors` (auto-seed preset Totem/Bacheca/Cucina/Sala).
+- **Comandi validi:** unlock (esci kiosk, per non-touch), reload, reboot, refresh_assignment.
+- **Monitor types** (URL risolta da FleetService): totem→Vetrina /coda/totem/{slug}?k={kioskToken}&screen=totem; board→/coda/display/{slug}?k=&screen=display; queue_display→/coda/{qrToken}/display; kitchen→App /merchant/{shopId}/display/kitchen; customer→/display/customer; url_custom→url libera.
+- Controller: DevicesController.cs (device-facing), ShopDevicesController.cs + ShopMonitorsController.cs (merchant); modelli Punto.Shared/Models/Fleet/Device.cs+Monitor.cs; ApiKeyAuthMiddleware bypassa /api/devices.
+
+DA FARE LATO ANDROID (prompt consegnato a Stefano 2026-07-07, `raw/docs/puntify-android-flotta-PROMPT.md`): schermata pairing nell'area admin (7-tap+PIN) + polling (heartbeat/apri monitor/kiosk/comandi once) + autostart BOOT_COMPLETED per device collegato + sblocco remoto per non-touch. **Chromecast** = traccia separata: receiver Google Cast (CAF) che riusa gli stessi endpoint /api/devices/* (pair→poll→mostra monitor); caveat: no auto-relaunch al riavvio Chromecast → per H24 meglio box Android HDMI. Tipi device: tablet/POS touch, box HDMI non-touch, Chromecast display-only via Cast.
+
 ## Sorgente
 - Documento originale completo di Stefano: `raw/docs/puntify-android-app-DOCUMENTAZIONE.md` (7 lug 2026) — include anche ambiente di sviluppo (JDK17/Android SDK), comandi build/install/adb wireless, credenziali (PIN admin `246810`, Basic Auth collaudo), struttura progetto AppCat.
 

@@ -1,6 +1,7 @@
 # Vault Log
 
 ## [2026-07-07] ingest | App Android Puntify consegnata da Stefano (doc): WebView contenitore per app-cat, ponte window.PuntifyNative (printRaw ESC/POS base64), stampa USB confermata su MINT POS. TODO nostro lato web: generare ESC/POS comande+biglietti totem. Creata wiki/projects/puntify-android-app + doc originale in raw/docs/puntify-android-app-DOCUMENTAZIONE.md
+## [2026-07-07] task | Consegnato a Stefano prompt sviluppo Android FLOTTA (pairing device + kiosk remoto + Chromecast) con contratto endpoint /api/devices/* reale live collaudo. Salvato raw/docs/puntify-android-flotta-PROMPT.md; sezione flotta aggiunta a wiki/projects/puntify-android-app
 
 ## [2026-04-21] init | Vault Obsidian inizializzato — struttura three-layer creata
 ## [2026-04-21] ingest | Popolamento wiki iniziale: progetti (Puntify, OpenClaw Setup, ClawRoom), team, Stefano
