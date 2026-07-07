@@ -66,4 +66,7 @@ window.PuntifyNative.setKiosk(bool)
 3. Eventuale bridge OAuth nativo se Google blocca login in WebView.
 4. Release firmata (keystore) alla distribuzione. Device owner sul POS per kiosk pieno.
 
+## Sorgente
+- Documento originale completo di Stefano: `raw/docs/puntify-android-app-DOCUMENTAZIONE.md` (7 lug 2026) — include anche ambiente di sviluppo (JDK17/Android SDK), comandi build/install/adb wireless, credenziali (PIN admin `246810`, Basic Auth collaudo), struttura progetto AppCat.
+
 Cross-link: [[puntify]] · [[elimina-code]] (totem/coda) · [[puntify-nemi-voce-vapi]]
