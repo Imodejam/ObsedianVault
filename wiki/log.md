@@ -1,4 +1,5 @@
 # Vault Log
+## [2026-07-08] fix | Upload immagini negozio: resize+compressione client (RequestImageFileAsync, cover 1920/logo 1024 JPEG) prima upload → fine errore 'exceeds 2MB'. Commit b96d186 pushato.
 ## [2026-07-08] ingest | Specifiche immagini Puntify (cover negozio 1920x640/3:1 object-cover, logo quadrato 512, upload max 2MB jpeg/png/webp/heic). Creata wiki/projects/puntify-immagini-specs.
 ## [2026-07-08] task | Storage upload immagini env-agnostic (commit ae4c9b6): client manda chiave logica, server risolve bucket per-ambiente (ResolvePhysicalBucket tollerante) + ritorna URL pubblico. Fine mismatch nomi bucket 403/400 al cambio ambiente. Va nel prossimo deploy prod + 1 cache-clear.
 ## [2026-07-08] fix | PROD upload logo 400 Bad Request = StorageController 'Invalid bucket': disallineamento nome bucket tra config APP e SERVER (prod usa suffisso -prod). Fix: allineare Storage:Buckets (server) E StorageClient:Buckets (app) ai nomi reali -prod; devono combaciare app=server=MinIO.
