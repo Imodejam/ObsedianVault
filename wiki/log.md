@@ -1,4 +1,5 @@
 # Vault Log
+## [2026-07-08] fix | PROD upload logo 400 Bad Request = StorageController 'Invalid bucket': disallineamento nome bucket tra config APP e SERVER (prod usa suffisso -prod). Fix: allineare Storage:Buckets (server) E StorageClient:Buckets (app) ai nomi reali -prod; devono combaciare app=server=MinIO.
 ## [2026-07-08] fix | PROD upload logo 403 = nomi bucket MinIO errati in config (NoSuchBucket). Risolto da Stefano. I nomi in StorageClient:Buckets (Shops/Accounts/Receipts, default shopimages/accountimages/receiptimages) devono combaciare coi bucket reali MinIO prod.
 ## [2026-07-08] fix | Registrazione esercente: tasto Indietro dalla prima config torna alla scelta ruolo (role-selection non re-indirizza se registrazione non completata). Commit 048e686 pushato.
 ## [2026-07-08] task | Commit+push batch enorme (9ff2136, 98 file): Nemi Voce/Vapi, flotta dispositivi, stampa totem (CP437+CP866), Panoramica, admin monitoring, profili clienti, impersonazione read-only, vetrina Elimina Code. Review pre-commit: 1 HIGH (segreto Vapi in chiaro nel webhook log) FIXATO prima; M1/L1/L2 follow-up. Non deployato prod.

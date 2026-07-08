@@ -298,3 +298,6 @@ Stefano prod: "Errore caricamento logo … 403 Forbidden" caricando logo da PV. 
 
 ## 2026-07-08 (14:24) — RISOLTO upload logo prod: nomi bucket errati
 Stefano: era la causa #2 = i nomi bucket in config non combaciavano coi bucket reali MinIO prod → 403 NoSuchBucket. Fixato lui. REGOLA: StorageClient:Buckets (Shops/Accounts/Receipts; default shopimages/accountimages/receiptimages) DEVE combaciare coi bucket creati in MinIO (per ambiente). Diagnosi 403 storage chiusa.
+
+## 2026-07-08 (14:41) — PROD upload logo: 403→400 (bucket suffisso -prod)
+Dopo fix 403, ora 400 Bad Request. CAUSA: StorageController.upload-url risponde BadRequest("Invalid bucket") se il bucket richiesto dall'APP non è in _allowedBuckets (server StorageOptions.Buckets.Values). Prod ha bucket con suffisso "-prod". Disallineamento: app manda un nome, server ne consente un altro. FIX dato a Stefano: allineare a nomi reali "-prod" in ENTRAMBE le config (server Storage:Buckets + app StorageClient:Buckets) + PublicBaseUrl; devono combaciare app=server=MinIO. Nota: anche content-type filtrato (solo image jpeg/png/webp/heic; svg+html bloccati per XSS). Log server "Storage: invalid bucket '…'" per confermare il nome in arrivo.
