@@ -289,3 +289,6 @@ DEPLOY PROD (quando Stefano ok): 7 migration (nemi_credits, nemi_context_reset, 
 
 ## 2026-07-08 (09:35) — fix bug back registrazione esercente (commit 048e686)
 Stefano: da role-selection→esercente→prima config, il tasto Indietro non tornava alla scelta ruolo (ributtava nel flusso esercente). CAUSA: SelectMerchantRole salva role=3 subito; RoleSelection.OnInitializedAsync con role!=0 chiamava RedirectFromCache che per esercente-senza-profilo reindirizzava a merchant/registration → loop. FIX: RedirectFromCache ora ritorna bool; per role 2/3 reindirizza a merchant-shops SOLO se HasMerchantProfile, altrimenti false → mostra la selezione (utente può tornare indietro / scegliere cliente). Build App 0 err, app riavviata, app-cat 200. Commit 048e686 pushato origin/master.
+
+## 2026-07-08 (12:20) — Stefano in deploy PROD: data checklist post-migration
+Stefano sta aggiornando il DB prod. Data checklist (msg 5622): (1) RICARICA PostgREST prod = restart container (o NOTIFY, meno affidabile) — senza dà PGRST204, colonne nuove non salvano; (2) deploy codice prod ai commit 9ff2136+048e686 (pull+build+restart servizi); (3) impostare Vapi:WebhookSecret in env prod; (4) hard-refresh WASM app.puntify.it; (5) verifica salvando qualcosa che usa colonna nuova (toggle stampa totem). 7 migration additive di stanotte. Prod = box separato che gestisce Stefano.
