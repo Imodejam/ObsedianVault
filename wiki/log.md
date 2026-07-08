@@ -1,4 +1,5 @@
 # Vault Log
+## [2026-07-08] task | Commit+push batch enorme (9ff2136, 98 file): Nemi Voce/Vapi, flotta dispositivi, stampa totem (CP437+CP866), Panoramica, admin monitoring, profili clienti, impersonazione read-only, vetrina Elimina Code. Review pre-commit: 1 HIGH (segreto Vapi in chiaro nel webhook log) FIXATO prima; M1/L1/L2 follow-up. Non deployato prod.
 ## [2026-07-08] task | Distinta hardware Elimina Code 'leggera' (senza totem) per Stefano: fasi 0/1/2 + display TV, prodotti+prezzi+link Amazon.it. Creata wiki/projects/elimina-code-hardware-bom
 
 ## [2026-07-07] ingest | App Android Puntify consegnata da Stefano (doc): WebView contenitore per app-cat, ponte window.PuntifyNative (printRaw ESC/POS base64), stampa USB confermata su MINT POS. TODO nostro lato web: generare ESC/POS comande+biglietti totem. Creata wiki/projects/puntify-android-app + doc originale in raw/docs/puntify-android-app-DOCUMENTAZIONE.md
