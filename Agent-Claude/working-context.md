@@ -277,3 +277,7 @@ Stefano: valuta ciò che abbiamo introdotto per le code e riportalo nella vetrin
 
 ## 2026-07-08 (06:35) — distinta hardware Elimina Code (senza totem) per Stefano
 Stefano: pezzi+costi+link Amazon per elimina code minimale senza totem. Dato (msg 5612): Fase0 solo QR ~0€; Fase1 tablet Android 10"+supporto antifurto ~120-150€; Fase2 +stampante USB ESC/POS 80mm ~80-100€; opzione display TV via box Android HDMI ~40€. Esempio tipico ~270€. Vincoli: stampante USB ESC/POS (non BT), Android 12+, TV serve box. Link amazon.it reali (WebSearch). Salvato wiki/projects/elimina-code-hardware-bom.
+
+## 2026-07-08 (06:38) — vetrina Elimina Code aggiornata FATTO (subagent ad52a854)
+EliminaCode.razor: HeroDesc rivista (biglietto digitale o stampato + lingua cliente), Feat1Desc (+stampa carta), Feat2Desc (+squillo al turno), nuove Feat5 "Biglietto stampato, se serve" + Feat6 "Nella lingua del cliente" (icone stampante/globo), griglia a 6 card, 10 lingue. Build 0 err, Vetrina riavviata, /elimina-code 200, card servite verificate. Non committato. (Subagent aveva chiuso col restart ancora in corso → verificato io.)
+NOTA: TUTTO il lavoro di stanotte (7-8 lug) è su collaudo, NON committato/deployato. Al deploy prod: batch codice enorme (vedi voci precedenti) + 8 migration + reload PostgREST + ricordare i ?v bump. Attende ok Stefano.
