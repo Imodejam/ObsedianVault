@@ -1335,3 +1335,4 @@ File chiave aggiornati:
 ## [2026-07-07] task | Puntify: stampa biglietto totem (ESC/POS best-effort) + rename route /screens->/devices + tab bar/footer bar Screens.razor
 
 ## [2026-07-08] task | Nemi agentica in background: task complessi eseguiti da worker continuo (5s), non bloccano piu' la richiesta HTTP; UI polling step-by-step
+## [2026-07-08] task | Puntify MENU: Prompt AI per-menu (ai_prompt su shop_menus, accodato a generazione testi+immagini piatti/sezioni, default per-lingua editabile) + verifica traduzione menu pubblica (nome/desc menu non mostrati, tag già localizzati). Build ok, restart collaudo, no commit/deploy.
