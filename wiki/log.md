@@ -1331,3 +1331,5 @@ File chiave aggiornati:
 ## [2026-07-07] task | Nemi Voce FASE 2 IMPLEMENTATA (collaudo, NON committato/deploy): tool vocali prenotazioni Vapi (elenca_servizi/verifica_disponibilita/crea_prenotazione/trova_mie/sposta/cancella via NemiVoiceToolService + handler tool-calls in VapiWebhookController, formato {results:[{toolCallId,result}]}) + CreateVoiceBookingAsync/RescheduleBookingAsync in BookingServiceImpl (voce: nome+telefono obbligatori, email opz, source_channel=voice, GDPR informativa verbale, profilo segregato) + riconoscimento chiamante (customer.number→FindByPhone, iniezione nel system prompt) + mini-informativa GDPR nel prompt vocale. Build Puntify.Server 0 errori. Pagina wiki puntify-nemi-voce-vapi
 
 ## [2026-07-07] task | Puntify: stampa biglietto totem (ESC/POS best-effort) + rename route /screens->/devices + tab bar/footer bar Screens.razor
+
+## [2026-07-08] task | Nemi agentica in background: task complessi eseguiti da worker continuo (5s), non bloccano piu' la richiesta HTTP; UI polling step-by-step
