@@ -1,4 +1,5 @@
 # Vault Log
+## [2026-07-08] task | Commit+push Nemi agentica (c0e44bf): background exec + step-by-step realtime + robustezza. Review ok (active-task RequireShopOwner, worker per-shop, no cross-tenant). Nessuna nuova migration.
 ## [2026-07-08] fix | Generazione foto AI menu: mostra motivo reale errore (commit f930fd4). Client leggeva null sul 502 -> 'Errore sconosciuto'; ora legge il body sempre + OpenAIImageGenerator estrae {error.message} OpenAI. Causa prod probabile: chiave OpenAI non configurata per immagini.
 ## [2026-07-08] fix | Upload immagini negozio: resize+compressione client (RequestImageFileAsync, cover 1920/logo 1024 JPEG) prima upload → fine errore 'exceeds 2MB'. Commit b96d186 pushato.
 ## [2026-07-08] ingest | Specifiche immagini Puntify (cover negozio 1920x640/3:1 object-cover, logo quadrato 512, upload max 2MB jpeg/png/webp/heic). Creata wiki/projects/puntify-immagini-specs.
