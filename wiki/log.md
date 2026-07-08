@@ -1,4 +1,5 @@
 # Vault Log
+## [2026-07-08] fix | Registrazione esercente: tasto Indietro dalla prima config torna alla scelta ruolo (role-selection non re-indirizza se registrazione non completata). Commit 048e686 pushato.
 ## [2026-07-08] task | Commit+push batch enorme (9ff2136, 98 file): Nemi Voce/Vapi, flotta dispositivi, stampa totem (CP437+CP866), Panoramica, admin monitoring, profili clienti, impersonazione read-only, vetrina Elimina Code. Review pre-commit: 1 HIGH (segreto Vapi in chiaro nel webhook log) FIXATO prima; M1/L1/L2 follow-up. Non deployato prod.
 ## [2026-07-08] task | Distinta hardware Elimina Code 'leggera' (senza totem) per Stefano: fasi 0/1/2 + display TV, prodotti+prezzi+link Amazon.it. Creata wiki/projects/elimina-code-hardware-bom
 
