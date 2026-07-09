@@ -1344,3 +1344,4 @@ File chiave aggiornati:
 ## [2026-07-09] task | Vapi FIX: tool spostati in model.tools (era assistant.tools → "invalid assistant"); Nemi Voce ora accettata. + AdminMonitoring icona copia JSON
 ## [2026-07-09] task | Vapi doc-review: multilingua (Deepgram multi), guardrail prompt, turn-taking, serverMessages ridotti a tool-calls+end-of-call-report (fix "troppi webhook"); firstMessageMode + FINE CHIAMATA
 ## [2026-07-09] task | Email conferma prenotazione: 2 tasti Sposta/Annulla (15 lingue, deep-link ?action, +bugfix slot); AssistantAi callout provider rimosso
+## [2026-07-09] task | Nemi Voce addebito AL SECONDO (consumed_seconds+RPC nemi_consume_seconds, controller+model+DTO); booking detail 5 fix; callout provider rimosso
