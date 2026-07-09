@@ -1349,3 +1349,5 @@ File chiave aggiornati:
 ## [2026-07-09] task | Pagina Utilizzo Nemi: elenco chiamate stile Stripe + % su titolo + pannello compatto; popup prenotazione cliente-destra+più largo; tab admin chiamate delegato
 ## [2026-07-09] task | Tab admin chiamate (costi Vapi/esercente/ricavo + cambio reale); dettaglio chiamata merchant con numero+nome cliente cliccabili → scheda cliente (nemi_calls +3 col, backfill)
 ## [2026-07-09] task | Nemi prompt: anti ri-saluto+chiusura silenzio/2min; conferma+correzione orari; diagnosi audio chiamate simultanee = lato Vapi/Telnyx
+
+## [2026-07-09] task | Puntify ClientDetail: fix orario appuntamenti (+2) via endpoint server + rinomina cliente lato esercente (customer_profiles)
