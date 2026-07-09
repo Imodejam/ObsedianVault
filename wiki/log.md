@@ -1346,3 +1346,4 @@ File chiave aggiornati:
 ## [2026-07-09] task | Email conferma prenotazione: 2 tasti Sposta/Annulla (15 lingue, deep-link ?action, +bugfix slot); AssistantAi callout provider rimosso
 ## [2026-07-09] task | Nemi Voce addebito AL SECONDO (consumed_seconds+RPC nemi_consume_seconds, controller+model+DTO); booking detail 5 fix; callout provider rimosso
 ## [2026-07-09] decision | Nemi billing admin: cambio reale USD→EUR (frankfurter/ECB); tariffa esercente = media pacchetti negozio (fallback media esercenti / listino 0,32 finché Stripe non traccia acquisti)
+## [2026-07-09] task | Pagina Utilizzo Nemi: elenco chiamate stile Stripe + % su titolo + pannello compatto; popup prenotazione cliente-destra+più largo; tab admin chiamate delegato
