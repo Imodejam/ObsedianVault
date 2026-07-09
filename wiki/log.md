@@ -1337,3 +1337,6 @@ File chiave aggiornati:
 
 ## [2026-07-08] task | Nemi agentica in background: task complessi eseguiti da worker continuo (5s), non bloccano piu' la richiesta HTTP; UI polling step-by-step
 ## [2026-07-08] task | Puntify MENU: Prompt AI per-menu (ai_prompt su shop_menus, accodato a generazione testi+immagini piatti/sezioni, default per-lingua editabile) + verifica traduzione menu pubblica (nome/desc menu non mostrati, tag già localizzati). Build ok, restart collaudo, no commit/deploy.
+
+## [2026-07-09] task | Totem prendi-numero: overlay loading al cambio lingua (spinner + dim), CodaNegozioDisplay.razor SwitchLang async
+## [2026-07-09] task | Diagnosi Vapi Nemi Voce non risponde: assistente fisso "Giulia" assegnato al numero intercetta (webhook mai chiamato) + Timeout 1s troppo basso; URL /api/vapi/webhook path corretto (dominio cat=collaudo)
