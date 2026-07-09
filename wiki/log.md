@@ -1341,3 +1341,4 @@ File chiave aggiornati:
 ## [2026-07-09] task | Totem prendi-numero: overlay loading al cambio lingua (spinner + dim), CodaNegozioDisplay.razor SwitchLang async
 ## [2026-07-09] task | Diagnosi Vapi Nemi Voce non risponde: assistente fisso "Giulia" assegnato al numero intercetta (webhook mai chiamato) + Timeout 1s troppo basso; URL /api/vapi/webhook path corretto (dominio cat=collaudo)
 ## [2026-07-09] task | Vapi Nemi Voce: verificato webhook a runtime (200 con secret), causa "non risponde" = saldo 0 minuti shop puntify (FIX: +120 min collaudo) + assistente fisso Giulia + timeout 1s lato Vapi
+## [2026-07-09] task | Vapi FIX: tool spostati in model.tools (era assistant.tools → "invalid assistant"); Nemi Voce ora accettata. + AdminMonitoring icona copia JSON
