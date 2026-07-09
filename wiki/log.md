@@ -1348,3 +1348,4 @@ File chiave aggiornati:
 ## [2026-07-09] decision | Nemi billing admin: cambio reale USD→EUR (frankfurter/ECB); tariffa esercente = media pacchetti negozio (fallback media esercenti / listino 0,32 finché Stripe non traccia acquisti)
 ## [2026-07-09] task | Pagina Utilizzo Nemi: elenco chiamate stile Stripe + % su titolo + pannello compatto; popup prenotazione cliente-destra+più largo; tab admin chiamate delegato
 ## [2026-07-09] task | Tab admin chiamate (costi Vapi/esercente/ricavo + cambio reale); dettaglio chiamata merchant con numero+nome cliente cliccabili → scheda cliente (nemi_calls +3 col, backfill)
+## [2026-07-09] task | Nemi prompt: anti ri-saluto+chiusura silenzio/2min; conferma+correzione orari; diagnosi audio chiamate simultanee = lato Vapi/Telnyx
