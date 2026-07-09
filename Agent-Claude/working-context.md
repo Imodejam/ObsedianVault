@@ -366,3 +366,7 @@ FATTO (subagent aaa12bb8, VERIFICATO RUNTIME uk): UiStrings tutte 20 lingue → 
 ⛔ BLOCCO: MenuTranslationService usa chiave Anthropic GLOBALE (Anthropic:ApiKey, non merchant); log "credit balance too low" (400) → traduzione variabile (tagline/sezioni/menu) NON parte. Codice corretto+cache-ready, sblocca appena c'è credito.
 DECISIONE a Stefano (msg 5660): A) ricaricare credito Anthropic; B) [consigliata] translator usa chiave LLM MERCHANT (ShopAiClient, come Nemi/immagini) → ogni esercente paga, no chiave globale esaurita, rispetta regola "Anthropic solo Concilium" (memory feedback_anthropic_api_only_for_concilium). Chiesto anche se committare. ATTENDO.
 DEPLOY PROD (blocco menu): +migration shop_translations. Uncommitted ora: menu AI prompt (a9f3adb) + traduzione menu (aaa12bb8).
+
+## 2026-07-09 (10:33) — cron mattutini scaduti (sessione precedente chiusa) → RICREATI
+Stefano non ha ricevuto i messaggi mattutini. CAUSA: erano cron di SESSIONE; sessione precedente terminata → scaduti (CronList=nessuno). RICREATI in questa sessione (session-only, auto-expire 7gg): f4b2e9dc daily 8:03 controllo errori; a9301850 daily 9:03 stato traduzioni/Vetrina; d44e817c lun 9:07 test plan settimanale. Tutti inviano via mcp reply chat_id 505161324 + aggiornano vault+sync.
+LIMITE: session-scoped (muoiono a riavvio Claude) + 7gg. Offerto a Stefano un CRON DI SISTEMA sul server (script check + Telegram bot API, indipendente da Claude) per persistenza reale. ATTENDO se vuole il cron di sistema.
