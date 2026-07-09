@@ -1,4 +1,5 @@
 # Vault Log
+## [2026-07-09] task | Cron di SISTEMA report mattutino Puntify (8:04 IT / 6:04 UTC): script /home/claudebot/scripts/puntify-morning-report.sh → Telegram @Puntifynemibot chat 505161324 (servizi/errori24h/disco/mem/load). Persistente, indipendente da Claude. Rimosso cron sessione 8:00 duplicato.
 ## [2026-07-08] task | Commit+push Nemi agentica (c0e44bf): background exec + step-by-step realtime + robustezza. Review ok (active-task RequireShopOwner, worker per-shop, no cross-tenant). Nessuna nuova migration.
 ## [2026-07-08] fix | Generazione foto AI menu: mostra motivo reale errore (commit f930fd4). Client leggeva null sul 502 -> 'Errore sconosciuto'; ora legge il body sempre + OpenAIImageGenerator estrae {error.message} OpenAI. Causa prod probabile: chiave OpenAI non configurata per immagini.
 ## [2026-07-08] fix | Upload immagini negozio: resize+compressione client (RequestImageFileAsync, cover 1920/logo 1024 JPEG) prima upload → fine errore 'exceeds 2MB'. Commit b96d186 pushato.
