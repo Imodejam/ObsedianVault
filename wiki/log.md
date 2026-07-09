@@ -1343,3 +1343,4 @@ File chiave aggiornati:
 ## [2026-07-09] task | Vapi Nemi Voce: verificato webhook a runtime (200 con secret), causa "non risponde" = saldo 0 minuti shop puntify (FIX: +120 min collaudo) + assistente fisso Giulia + timeout 1s lato Vapi
 ## [2026-07-09] task | Vapi FIX: tool spostati in model.tools (era assistant.tools → "invalid assistant"); Nemi Voce ora accettata. + AdminMonitoring icona copia JSON
 ## [2026-07-09] task | Vapi doc-review: multilingua (Deepgram multi), guardrail prompt, turn-taking, serverMessages ridotti a tool-calls+end-of-call-report (fix "troppi webhook"); firstMessageMode + FINE CHIAMATA
+## [2026-07-09] task | Email conferma prenotazione: 2 tasti Sposta/Annulla (15 lingue, deep-link ?action, +bugfix slot); AssistantAi callout provider rimosso
