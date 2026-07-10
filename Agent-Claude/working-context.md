@@ -397,3 +397,7 @@ DEPLOY PROD (nuove migration accumulate): shop_translations + catalog_photo_matc
 
 ## 2026-07-09 (20:52) — Nemi Voce non risponde: numero Vapi ha assistente FISSO (intercetta)
 Stefano ha telefonato al numero Nemi (+39 02 2110 9199, Telnyx "Puntify - Official Number") → non risponde nessuno. Foto Vapi: Server URL impostato su cat.puntify.it. DIAGNOSI (log server): ZERO chiamate al webhook Vapi negli ultimi 20 min → Vapi NON chiama il nostro Server URL perché c'è un ASSISTENTE FISSO assegnato al numero (che intercetta e non risponde). Webhook nostro raggiungibile (401 senza secret) + WebhookSecret configurato su collaudo. FIX (Stefano su Vapi, non posso via API senza private key che non vuole dare): sul numero rimuovere l'assistente fisso (Inbound→Assistant→None/X), lasciare SOLO Server URL=https://cat.puntify.it/api/vapi/webhook + Secret. Poi Vapi chiama assistant-request → Nemi dinamico parte. Chiesto screenshot sezione Inbound/Assistant se non trova dove rimuoverlo. ATTENDO.
+
+---
+### 2026-07-10 — ultimo task
+Puntify: pagina cliente "Appuntamenti" (ClientBookingsController + Appointments.razor + menu Altro + i18n x10) fatta e collaudata (build 0 err, endpoint 401/403). Prossimo: verifica UX su device di Stefano.
