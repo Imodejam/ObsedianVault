@@ -1358,3 +1358,5 @@ File chiave aggiornati:
 ## [2026-07-10] task | Fix /notifications in impersonazione (usava id admin invece del cliente); /shop sezioni Qualcosa-su-di-noi + orari cliccabili + colori merchant (pill outline, ombra, scontrino)
 ## [2026-07-10] task | Riconciliazione chiamate Nemi Voce (pending + BackgroundService recupero da API Vapi, idempotente no-doppio-addebito) — verificato; attende Vapi private key
 ## [2026-07-10] task | Riconciliazione Nemi ATTIVA: Vapi:ApiKey impostata, test reale — recuperata chiamata orfana da Vapi (record+trascrizione+saldo), no doppio addebito, mai rinuncia
+
+## [2026-07-10] task | Panoramica merchant: BOX1 "Chiamate Nemi Voce" abilitato con dati reali (count/minuti precisi/costo) aggregati per scope, link tab chiamate; i18n riusate + pan_tip_calls aggiornato 10 lingue; app buildata 0 errori, puntify-app riavviato
