@@ -1357,3 +1357,4 @@ File chiave aggiornati:
 ## [2026-07-10] task | Fix pill Menu/Prenota invisibili su /shop client (CSS display:none residuo); Appuntamenti in sidebar desktop; pagina Appuntamenti cliente; popup foto URL tab; mail merchant link agenda
 ## [2026-07-10] task | Fix /notifications in impersonazione (usava id admin invece del cliente); /shop sezioni Qualcosa-su-di-noi + orari cliccabili + colori merchant (pill outline, ombra, scontrino)
 ## [2026-07-10] task | Riconciliazione chiamate Nemi Voce (pending + BackgroundService recupero da API Vapi, idempotente no-doppio-addebito) — verificato; attende Vapi private key
+## [2026-07-10] task | Riconciliazione Nemi ATTIVA: Vapi:ApiKey impostata, test reale — recuperata chiamata orfana da Vapi (record+trascrizione+saldo), no doppio addebito, mai rinuncia
