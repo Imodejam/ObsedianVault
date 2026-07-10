@@ -1355,3 +1355,4 @@ File chiave aggiornati:
 
 ## [2026-07-10] task | Puntify: pagina cliente "Appuntamenti" (lista in corso + sposta/annulla) nel menu Altro
 ## [2026-07-10] task | Fix pill Menu/Prenota invisibili su /shop client (CSS display:none residuo); Appuntamenti in sidebar desktop; pagina Appuntamenti cliente; popup foto URL tab; mail merchant link agenda
+## [2026-07-10] task | Fix /notifications in impersonazione (usava id admin invece del cliente); /shop sezioni Qualcosa-su-di-noi + orari cliccabili + colori merchant (pill outline, ombra, scontrino)
