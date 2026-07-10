@@ -1360,3 +1360,4 @@ File chiave aggiornati:
 ## [2026-07-10] task | Riconciliazione Nemi ATTIVA: Vapi:ApiKey impostata, test reale — recuperata chiamata orfana da Vapi (record+trascrizione+saldo), no doppio addebito, mai rinuncia
 
 ## [2026-07-10] task | Panoramica merchant: BOX1 "Chiamate Nemi Voce" abilitato con dati reali (count/minuti precisi/costo) aggregati per scope, link tab chiamate; i18n riusate + pan_tip_calls aggiornato 10 lingue; app buildata 0 errori, puntify-app riavviato
+## [2026-07-10] task | Prompt Nemi Voce consolidato/ottimizzato (rimossi 7 blocchi ridondanti, tutto nel base, zero doppioni); admin 4 card KPI+filtro periodo; minuti al secondo
