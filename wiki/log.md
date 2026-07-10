@@ -1354,3 +1354,4 @@ File chiave aggiornati:
 ## [2026-07-10] lint | Routine traduzioni: 7 lingue Vetrina indietro (~1627 chiavi, fallback IT); menu realtime BLOCCATO (credito Anthropic esaurito, verificato)
 
 ## [2026-07-10] task | Puntify: pagina cliente "Appuntamenti" (lista in corso + sposta/annulla) nel menu Altro
+## [2026-07-10] task | Fix pill Menu/Prenota invisibili su /shop client (CSS display:none residuo); Appuntamenti in sidebar desktop; pagina Appuntamenti cliente; popup foto URL tab; mail merchant link agenda
