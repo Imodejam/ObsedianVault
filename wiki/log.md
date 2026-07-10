@@ -1352,3 +1352,5 @@ File chiave aggiornati:
 
 ## [2026-07-09] task | Puntify ClientDetail: fix orario appuntamenti (+2) via endpoint server + rinomina cliente lato esercente (customer_profiles)
 ## [2026-07-10] lint | Routine traduzioni: 7 lingue Vetrina indietro (~1627 chiavi, fallback IT); menu realtime BLOCCATO (credito Anthropic esaurito, verificato)
+
+## [2026-07-10] task | Puntify: pagina cliente "Appuntamenti" (lista in corso + sposta/annulla) nel menu Altro
