@@ -1367,3 +1367,4 @@ File chiave aggiornati:
 ## [2026-07-11] task | Asporto: flusso pagamento in cassa (awaiting_payment + mail link tracking) — delegato a subagent
 
 ## [2026-07-11] task | Asporto: correzione — ordine NON entra in cucina se non pagato; 'Segna pagato' nella cassa (MerchantPos), poi entra in coda KitchenDisplay
+## [2026-07-11] task | Asporto pagamento in cassa IMPLEMENTATO (subagent): awaiting_payment + mail link tracking + deep-link Vetrina + pannello 'Da incassare' MerchantPos; build OK; collaudo riavviato

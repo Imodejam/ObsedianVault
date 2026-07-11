@@ -11,7 +11,7 @@ Ordini menu pubblico takeaway (menu_public_orders, order_mode=takeaway):
 - NESSUNA migration DB (status è text libero, no CHECK). Nessun pagamento online.
 
 ## Stato
-Implementazione DELEGATA a subagent general-purpose (background). In attesa build.
+IMPLEMENTATO (subagent). Build 0 errori. Collaudo riavviato (server/vetrina/app). In attesa test Stefano. NON in prod.
 
 ## File toccati (previsti)
 - Puntify.Server/Controllers/MenuController.cs (SubmitOrder status+email, ListOrders/AllowedStatuses, SetStatus link)
