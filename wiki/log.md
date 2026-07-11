@@ -1364,3 +1364,4 @@ File chiave aggiornati:
 ## [2026-07-11] task | Estratto catalogo servizi Puntify (11 categorie, da feature flag reali) → wiki/projects/puntify-servizi.md
 ## [2026-07-11] task | Richiesta connessione Google Analytics Puntify: non out-of-box (gog/MCP no Analytics); proposto GA4 Data API via Service Account. Attende credenziali da Stefano
 ## [2026-07-11] lint | Routine traduzioni: invariato (7 lingue Vetrina indietro; menu realtime bloccato credito Anthropic, 2° giorno)
+## [2026-07-11] task | Asporto: flusso pagamento in cassa (awaiting_payment + mail link tracking) — delegato a subagent
