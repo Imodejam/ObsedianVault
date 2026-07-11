@@ -1363,3 +1363,4 @@ File chiave aggiornati:
 ## [2026-07-10] task | Prompt Nemi Voce consolidato/ottimizzato (rimossi 7 blocchi ridondanti, tutto nel base, zero doppioni); admin 4 card KPI+filtro periodo; minuti al secondo
 ## [2026-07-11] task | Estratto catalogo servizi Puntify (11 categorie, da feature flag reali) → wiki/projects/puntify-servizi.md
 ## [2026-07-11] task | Richiesta connessione Google Analytics Puntify: non out-of-box (gog/MCP no Analytics); proposto GA4 Data API via Service Account. Attende credenziali da Stefano
+## [2026-07-11] lint | Routine traduzioni: invariato (7 lingue Vetrina indietro; menu realtime bloccato credito Anthropic, 2° giorno)
