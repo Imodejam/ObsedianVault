@@ -1361,3 +1361,4 @@ File chiave aggiornati:
 
 ## [2026-07-10] task | Panoramica merchant: BOX1 "Chiamate Nemi Voce" abilitato con dati reali (count/minuti precisi/costo) aggregati per scope, link tab chiamate; i18n riusate + pan_tip_calls aggiornato 10 lingue; app buildata 0 errori, puntify-app riavviato
 ## [2026-07-10] task | Prompt Nemi Voce consolidato/ottimizzato (rimossi 7 blocchi ridondanti, tutto nel base, zero doppioni); admin 4 card KPI+filtro periodo; minuti al secondo
+## [2026-07-11] task | Estratto catalogo servizi Puntify (11 categorie, da feature flag reali) → wiki/projects/puntify-servizi.md

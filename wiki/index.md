@@ -43,3 +43,4 @@ _(nessun concetto ancora)_
 - [[piracity-map-story-prompt]] — system prompt per le storie delle mappe Piracity (Vetrina + Apertura mappa, stile Disney, nomi realistici, luoghi reali). Da applicare a mappe esistenti e future
 - [[puntify-clienti-data-model]] — modello dati clienti Puntify: cosa è condiviso tra esercenti (account globale) vs isolato per-shop; RLS + RPC
 - [Nemi Voce economics (INTERNO)](decisions/nemi-voce-economics-INTERNO.md) — modello prezzi + margini/COGS, NON pubblicare
+- [Puntify — Catalogo servizi](projects/puntify-servizi.md) — elenco completo servizi erogati (da feature flag reali), base per sales/comunicazione
