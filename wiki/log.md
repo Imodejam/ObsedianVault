@@ -1373,3 +1373,4 @@ File chiave aggiornati:
 ## [2026-07-12] task | Piracity ricerca mappe RISOLTA: backend /maps param search (title/slug ilike) + frontend MarketplacePage debounce 300ms; verificato roma→3, nomatch→vuoto. Immagini già ripristinate. Entrambi chiusi su collaudo.
 ## [2026-07-12] task | Piracity 'città più vicine' (geolocation): app /marketplace sezione città ordinate per distanza + filtro; vetrina /it/towns ordine nearest-first — delegato a 2 subagent
 ## [2026-07-12] task | Piracity 'città più vicine' IMPLEMENTATO: app /marketplace chip città per distanza+filtro (tsc ok, 6 lingue); vetrina /it/towns nearest-first (tsc ok, 21 lingue, SSR-safe). Servizi 200. Collaudo.
+## [2026-07-12] fix | Piracity app /marketplace: città non si riordinavano — requestGpsPermission usa enableHighAccuracy:true (timeout su desktop). Passato a getCurrentPosition low-accuracy (timeout 8s) → posizione arriva, riordino ok. tsc pulito.
