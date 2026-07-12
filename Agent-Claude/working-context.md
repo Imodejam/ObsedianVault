@@ -21,3 +21,9 @@ IMPLEMENTATO (subagent). Build 0 errori. Collaudo riavviato (server/vetrina/app)
 ## Prossimi passi
 - Ricevere report subagent → verificare build → riavviare servizi collaudo SEQUENZIALI (server, vetrina, app) solo dopo OK.
 - Debito deploy PROD ancora aperto (migrations Nemi + codice).
+
+
+## Piracity (2026-07-12) — CHIUSO su collaudo
+- Immagini mappe ripristinate (copia assets/auto da piracity-web).
+- Ricerca Marketplace cablata (backend search param + frontend debounce). Verificato.
+- APERTO: decisione Stefano su versionare/rigenerare le cover (ora non versionate).
