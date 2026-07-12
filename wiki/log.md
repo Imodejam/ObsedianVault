@@ -1371,3 +1371,4 @@ File chiave aggiornati:
 ## [2026-07-12] lint | Routine 9:00 — Vetrina 10 lingue COMPLETE/allineate (~6246-6249 chiavi); menu realtime ANCORA BLOCCATO (credito Anthropic, decisione A/B pendente)
 ## [2026-07-12] task | Piracity incident: cover mappe rotte (DB /assets/auto/maps/ vs file mancanti) → ripristinate copiando assets/auto da piracity-web; ricerca Marketplace non cablata → fix delegato
 ## [2026-07-12] task | Piracity ricerca mappe RISOLTA: backend /maps param search (title/slug ilike) + frontend MarketplacePage debounce 300ms; verificato roma→3, nomatch→vuoto. Immagini già ripristinate. Entrambi chiusi su collaudo.
+## [2026-07-12] task | Piracity 'città più vicine' (geolocation): app /marketplace sezione città ordinate per distanza + filtro; vetrina /it/towns ordine nearest-first — delegato a 2 subagent

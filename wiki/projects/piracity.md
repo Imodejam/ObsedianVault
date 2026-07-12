@@ -528,3 +528,7 @@ Vedi [[wiki/projects/cat-stack|CAT Stack]] per i dettagli infrastrutturali. Riep
 ## [2026-07-12] Incident cover mappe + ricerca
 - Cover mappe: DB usa /assets/auto/maps/piracity-<id>.webp (schema legacy), servito da piracity-web; l'app (post c3fbae6) serve /assets/webp/maps/<id>.webp. File auto/ non versionati → persi in deploy pulito → immagini rotte. Ripristino: copia assets/auto da piracity-web. DEBITO: versionare o rigenerare le cover.
 - Ricerca Marketplace: barra non cablata + backend /maps senza param search → fix (title/slug ilike + debounce frontend).
+
+## [2026-07-12] Città più vicine (geolocation)
+- App /marketplace: sezione 'Città vicino a te' — GET /cities + haversine su gps.store.lastKnownPosition; tap città → setSearchParams cityId (filtra mappe); fallback mapsCount desc.
+- Vetrina /it/towns: lat/lng aggiunti lungo catena (cities.ts select→types→Town→page); TownsClient geoloc client + ordine per distanza; fallback alfabetico.
