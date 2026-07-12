@@ -1369,3 +1369,4 @@ File chiave aggiornati:
 ## [2026-07-11] task | Asporto: correzione — ordine NON entra in cucina se non pagato; 'Segna pagato' nella cassa (MerchantPos), poi entra in coda KitchenDisplay
 ## [2026-07-11] task | Asporto pagamento in cassa IMPLEMENTATO (subagent): awaiting_payment + mail link tracking + deep-link Vetrina + pannello 'Da incassare' MerchantPos; build OK; collaudo riavviato
 ## [2026-07-12] lint | Routine 9:00 — Vetrina 10 lingue COMPLETE/allineate (~6246-6249 chiavi); menu realtime ANCORA BLOCCATO (credito Anthropic, decisione A/B pendente)
+## [2026-07-12] task | Piracity incident: cover mappe rotte (DB /assets/auto/maps/ vs file mancanti) → ripristinate copiando assets/auto da piracity-web; ricerca Marketplace non cablata → fix delegato

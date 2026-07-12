@@ -524,3 +524,7 @@ Vedi [[wiki/projects/cat-stack|CAT Stack]] per i dettagli infrastrutturali. Riep
 ## Link correlati
 - [[wiki/people/stefano|Stefano Gitto]]
 - [[wiki/projects/puntify|Puntify]]
+
+## [2026-07-12] Incident cover mappe + ricerca
+- Cover mappe: DB usa /assets/auto/maps/piracity-<id>.webp (schema legacy), servito da piracity-web; l'app (post c3fbae6) serve /assets/webp/maps/<id>.webp. File auto/ non versionati → persi in deploy pulito → immagini rotte. Ripristino: copia assets/auto da piracity-web. DEBITO: versionare o rigenerare le cover.
+- Ricerca Marketplace: barra non cablata + backend /maps senza param search → fix (title/slug ilike + debounce frontend).
