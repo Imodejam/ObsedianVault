@@ -1469,3 +1469,5 @@ File chiave aggiornati:
 ## [2026-07-13] task | Puntify menu: formati visibili nel listino (Vetrina pubblica + editor App), non solo nel dettaglio
 
 ## [2026-07-13] task | Puntify Vetrina: formati piatto selezionabili+aggiungibili al carrello direttamente dal menu
+
+## [2026-07-13] decision | Puntify: ordini food non evasi da >5h auto-marcati Scaduto; consegnati nascosti da Archivio dopo 30min (job background)
