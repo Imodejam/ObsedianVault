@@ -32,3 +32,5 @@ IMPLEMENTATO (subagent). Build 0 errori. Collaudo riavviato (server/vetrina/app)
 - Regole: non evaso >5h → chiudi; consegnato → rimuovi dopo 30min. Solo categorie food (1,2,9,27,35).
 - In attesa: (1) stato non-evaso Scaduto/Annullato/Consegnato; (2) "rimuovi" consegnato = nascondi Archivio o delete.
 - Pattern: nuovo BackgroundService in Puntify.Server/Services/BackgroundServices/ (come BookingReminderService).
+
+### [2026-07-13] RISOLTO: auto-archivio food + coperto dettaglio — deployati su collaudo (pending prod)
