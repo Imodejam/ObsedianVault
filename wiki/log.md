@@ -1473,3 +1473,5 @@ File chiave aggiornati:
 ## [2026-07-13] decision | Puntify: ordini food non evasi da >5h auto-marcati Scaduto; consegnati nascosti da Archivio dopo 30min (job background)
 
 ## [2026-07-13] task | Puntify: auto-archivio ordini food (Scaduto >5h / consegnato nascosto 30min) + coperto visibile nel dettaglio ordine
+
+## [2026-07-13] decision | Puntify: importo pagato (coperto/formati/extra) deve essere presente e consistente su OGNI vista — regola permanente
