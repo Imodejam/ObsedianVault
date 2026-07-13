@@ -27,3 +27,8 @@ IMPLEMENTATO (subagent). Build 0 errori. Collaudo riavviato (server/vetrina/app)
 - Immagini mappe ripristinate (copia assets/auto da piracity-web).
 - Ricerca Marketplace cablata (backend search param + frontend debounce). Verificato.
 - APERTO: decisione Stefano su versionare/rigenerare le cover (ora non versionate).
+
+### [2026-07-13] PENDING: auto-archivio ordini food (job background)
+- Regole: non evaso >5h → chiudi; consegnato → rimuovi dopo 30min. Solo categorie food (1,2,9,27,35).
+- In attesa: (1) stato non-evaso Scaduto/Annullato/Consegnato; (2) "rimuovi" consegnato = nascondi Archivio o delete.
+- Pattern: nuovo BackgroundService in Puntify.Server/Services/BackgroundServices/ (come BookingReminderService).
