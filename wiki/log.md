@@ -1463,3 +1463,5 @@ File chiave aggiornati:
 ## [2026-07-13] tweak | Puntify DishEditor formati: layout goffo (input impilati, × centrata, mancava CSS .dish-format-row) → riga inline Nome|Prezzo|× (config.css). Build ok.
 ## [2026-07-13] rework | Puntify Cibo/Bevanda spostato da SEZIONE a PIATTO: migration shop_menu_dishes.kind (2026-07-13_dish_kind.sql, applicata+PostgREST); ShopMenuDish.Kind; DishEditor toggle Cibo/Bevanda; rimosso select kind da MenuEditor sezione; KitchenDisplay+DrinksDisplay _dishKind da d.Kind. persiste via dish PATCH (full model). key dish_kind 10 lingue. Server rebuild+restart.
 ## [2026-07-13] fix | Puntify KitchenDisplay default: da 'Cibo e bevande' → 'Solo cibo' (_foodOnly=true; stored!="0"). (richiesta Stefano)
+
+## [2026-07-13] task | Puntify Cassa: selezione contenuto display cucina (Cibo/Cibo+bevande) spostata nelle impostazioni del monitor
