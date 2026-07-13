@@ -1467,3 +1467,5 @@ File chiave aggiornati:
 ## [2026-07-13] task | Puntify Cassa: selezione contenuto display cucina (Cibo/Cibo+bevande) spostata nelle impostazioni del monitor
 
 ## [2026-07-13] task | Puntify menu: formati visibili nel listino (Vetrina pubblica + editor App), non solo nel dettaglio
+
+## [2026-07-13] task | Puntify Vetrina: formati piatto selezionabili+aggiungibili al carrello direttamente dal menu
