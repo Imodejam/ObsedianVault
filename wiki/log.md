@@ -1431,3 +1431,4 @@ File chiave aggiornati:
 - "Valida" attivo quando coperto.
 - Post-pagamento: "Importo pagato" + Stampa / Invia ricevuta / Avanti.
 - Tab mostra "tavolo - ordine" (es. 6 - 1004).
+## [2026-07-13] task | Puntify CASSA POS Fase 1 FATTA (subagent): tab Cassa 2 pannelli (griglia prodotti dx / conto portate sx, note, totale); OnTableClick→conto tavolo; click ordine Ordini→OpenOrderInCassa; Invia (create/UpdateOrderItemsAsync + received); Coperti keypad 'Numero di ospiti' con split/ospite live; Vendita diretta. Backend: MenuPublicOrderItem.Course + PATCH orders/{id}/items (ricalcolo totale server) + client UpdateOrderItemsAsync. 26 chiavi resx 10 lingue. Azioni Fase2 disabilitate. Build 0 err, server riavviato. Collaudo, da testare Stefano.
