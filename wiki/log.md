@@ -1425,3 +1425,9 @@ File chiave aggiornati:
 - Coperti: schermata "Numero di ospiti" (keypad) mostra conto/ospiti (quota a testa) live.
 - Pagamento: metodi Cassa/Carta/Account cliente + tastierino importo (+10/+20/+50, +/-, virgola, backspace) + Fattura + Indietro/Cassa; a destra totale grande + quota per Ospite (con n. ospiti).
 - Trasferisci/Unisci = cambia o unisci tavoli.
+## [2026-07-13] ref | Puntify Cassa POS — flusso PAGAMENTO completo (Fase 2):
+- Metodi: Cassa(contanti)/Carta/Account cliente. Digitando importo → riga pagamento parziale del metodo; split multi-metodo (righe rimovibili ×). "Cassa"=tutto contanti, "Carta"=tutto carta.
+- Rimanente (rosso) se scoperto / Resto (verde) se sovra-pagato. Quick +10/+20/+50, +/-, virgola, backspace. Fattura(checkbox), Cliente. A destra totale grande + quota/Ospite (con n).
+- "Valida" attivo quando coperto.
+- Post-pagamento: "Importo pagato" + Stampa / Invia ricevuta / Avanti.
+- Tab mostra "tavolo - ordine" (es. 6 - 1004).
