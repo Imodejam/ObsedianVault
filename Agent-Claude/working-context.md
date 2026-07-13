@@ -38,3 +38,5 @@ IMPLEMENTATO (subagent). Build 0 errori. Collaudo riavviato (server/vetrina/app)
 ### [2026-07-13] PENDING: "Togli il timer" (msg 6042) — ambiguo. Chiesto A (timer 30min consegnati → sparisce subito da Archivio) vs B (job 5h Scaduto → solo filtro vista attivi, no stato). In attesa.
 
 ### [2026-07-13] RISOLTO 6044: auto-expire tolto, solo filtri di vista (food cat). Build ok, deploy collaudo. Pending prod invariato.
+
+### [2026-07-13] PENDING coperto self-order: ordine pubblico a tavolo (dine_in) NON applica coperto (SubmitOrder total=solo piatti, no Covers) e menu pubblico non chiede n. persone. Chiesto a Stefano come gestire (persone×coperto / 1 per ordine / solo cassa)
