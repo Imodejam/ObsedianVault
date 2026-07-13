@@ -4,7 +4,20 @@
 
 **Ambienti di test (Collaudo):** Vetrina `http://localhost:8003` · App `http://localhost:8002` · Server API `http://127.0.0.1:8001`
 **Strumento:** Playwright headless (chromium: `/home/claudebot/.cache/ms-playwright/chromium-1228/chrome-linux64/chrome`, core: `/tmp/anchortest/node_modules/playwright-core/index.mjs`)
-**Ultimo aggiornamento testbook:** 2026-07-05 (creazione) · **Ultima esecuzione:** —
+**Ultimo aggiornamento testbook:** 2026-07-13 · **Ultima esecuzione:** 2026-07-13
+
+---
+
+## ⭐ Modifiche della settimana da regredire (2026-07-07 → 07-13)
+- [ ] **Recensione = flusso Typeform**: logo in alto, una domanda/schermo, stelle grandi centrate, auto-advance; niente emoji; tasto terminale testo bianco.
+- [ ] **NegozioDetail**: indirizzi → link Google Maps; tasto "Chiama" (tel:) primo; sezione "Contatti" con email (mailto); logo+image nei dati strutturati JSON-LD.
+- [ ] **Rating Google**: `SoftwareApplication` (4.9/185) SOLO su Home, NON sulle pagine negozio (solo LocalBusiness proprio).
+- [ ] **Slug negozio con città**: generazione `{nome}-{città}` alla creazione + backfill 5 negozi null (fiori-e-piante-de-paola-cosenza, madrigalas-madrid, lunapark-…).
+- [ ] **Menu FAB "I tuoi ordini"**: ancorato al bordo destro (right:0), sopra il footer.
+- [ ] **Asporto pagamento in cassa**: ordini `awaiting_payment` visibili in Dashboard (colonna "Da pagare" → "Segna pagato" → "In cucina"); pannello "Da incassare" rimosso dal POS.
+- [ ] **Dettaglio ordine**: click su card in tab Ordini apre modale dettaglio.
+- [ ] **"Nuovo ordine" con rotta propria** `/merchant/{id}/pos` (back → dashboard).
+- [ ] **Bug aperto**: codici ordine #A01 riusati tra giorni (attesa scelta Stefano giornalieri vs unici).
 
 ---
 
@@ -56,3 +69,6 @@
 ## Log esecuzioni
 <!-- L'agent aggiunge qui una riga per esecuzione: data | pass/fail per sezione | bug trovati | testbook aggiornata sì/no -->
 - 2026-07-05: testbook creata (baseline). Prima esecuzione programmata: lunedì.
+- 2026-07-13: **PASS complessivo** (regressione Playwright headless, delega QA). Vetrina pagine principali 200/render ok a 390px e 1280px; tutte le 8 modifiche della settimana verificate PASS (recensione Typeform senza emoji + tasto bianco; NegozioDetail maps/Chiama/Contatti/logo JSON-LD; rating SoftwareApplication solo su Home; slug città backfill risolvono 200; FAB menu bordo destro). Server API: 0 errori in log. App: solo health :8002=200 (login merchant non testabile headless = gap noto).
+  - **BUG minori aperti**: (1) `/it/nemi` → 404 su `avatar-hero.webm`/`.vtt` (asset video hero mancanti su collaudo); (2) rumore dev noto (service-worker MIME, HMR cert, immagini esterne/GA bloccate = no rete uscente collaudo).
+  - Nota: assegnazione atomica numero ordine (#A0x) implementata oggi (RPC next_menu_order_seq SECURITY DEFINER) — vedi log wiki.
