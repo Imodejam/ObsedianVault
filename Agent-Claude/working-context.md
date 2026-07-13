@@ -36,3 +36,5 @@ IMPLEMENTATO (subagent). Build 0 errori. Collaudo riavviato (server/vetrina/app)
 ### [2026-07-13] RISOLTO: auto-archivio food + coperto dettaglio — deployati su collaudo (pending prod)
 
 ### [2026-07-13] PENDING: "Togli il timer" (msg 6042) — ambiguo. Chiesto A (timer 30min consegnati → sparisce subito da Archivio) vs B (job 5h Scaduto → solo filtro vista attivi, no stato). In attesa.
+
+### [2026-07-13] RISOLTO 6044: auto-expire tolto, solo filtri di vista (food cat). Build ok, deploy collaudo. Pending prod invariato.
