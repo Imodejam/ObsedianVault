@@ -1465,3 +1465,5 @@ File chiave aggiornati:
 ## [2026-07-13] fix | Puntify KitchenDisplay default: da 'Cibo e bevande' → 'Solo cibo' (_foodOnly=true; stored!="0"). (richiesta Stefano)
 
 ## [2026-07-13] task | Puntify Cassa: selezione contenuto display cucina (Cibo/Cibo+bevande) spostata nelle impostazioni del monitor
+
+## [2026-07-13] task | Puntify menu: formati visibili nel listino (Vetrina pubblica + editor App), non solo nel dettaglio
