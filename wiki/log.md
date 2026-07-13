@@ -1440,3 +1440,4 @@ File chiave aggiornati:
 ## [2026-07-13] tweak | Puntify Dashboard Risorse no-scroll desktop: cfg-header--wide padding-top 12/bottom 8; cfg-main--wide bk-tabs-wrapper margin-bottom 6; main padding-top 6/bottom 72; planimetria height calc(100vh-176px). Build ok.
 ## [2026-07-13] tweak | Puntify Cassa: piatti in ordine alfabetico (CassaFilteredDishes + listino OrderBy Name CurrentCultureIgnoreCase). Build ok.
 ## [2026-07-13] fix | Puntify Dashboard header: search restava a sinistra (grid auto 1fr auto non espandeva la colonna centrale). Fix: .cfg-header--wide → display:flex + .ord-search margin-left:auto → ricerca a filo destro. Build ok.
+## [2026-07-13] tweak | Puntify search focus: sfondo focus da rgba(0,0,0,.06) traslucido → grigio pieno unico #ECECEE (no doppio tono). Build ok.
