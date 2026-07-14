@@ -1509,3 +1509,5 @@ File chiave aggiornati:
 ## [2026-07-14] task | Puntify: riscritti i 15 articoli supporto (puntify.support_articles) con step reali groundati nel codice App (route/tab/label/@L risolti da AppResource.resx) + image_prompt raffinati; niente feature inventate
 
 ## [2026-07-14] task | Puntify supporto: 2° passaggio sui 15 articoli - resi beginner-friendly (definizione termini gergali: slug/aliquota IVA/coperto/ratio punti/kiosk/totem/QR...) + nota hardware "riusa un tablet che hai gia in modalita kiosk, Puntify non vende hardware" su coda+dispositivi; mantenuti FLAG (no scarica-QR, recensioni sola consultazione); grounding invariato
+
+## [2026-07-14] task | Completato: 2° batch 10 articoli support_articles Puntify (sort 130-220), grounded su codice reale, published it. Render 200 su Vetrina.
