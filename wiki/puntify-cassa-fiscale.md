@@ -75,3 +75,28 @@ Stato Puntify oggi: menu, ordini, conto Cassa con coperto, formati, IVA per prod
 ## Fonti
 Ubify: /supporto#guida, /registratore-di-cassa, /cassa-fiscale, /articoli/ottimizzare-chiusura-cassa-giornaliera, /glossario (chiusura-giornaliera-cassa, documento-commerciale, registratore-telematico, iva-ventilata), /articoli/integrazione-pos-registratore-cassa, /registratore-di-cassa-per-tabaccherie, /normativa-fiscale, /legge-di-bilancio-2025 (solo marketing).
 Fiscali (AdE): guida memorizzazione/trasmissione corrispettivi; lotteria degli scontrini (esercenti); specifiche tecniche RT V11.1.
+
+---
+
+## Internazionale / altri Paesi UE (2026-07-14)
+
+**Regola chiave:** i CONCETTI generali di cassa sono universali; lo STRATO FISCALE è nazionale e non trasferibile.
+
+- **Riusabile ovunque (universale):** menu, ordini, conto/tavoli, coperto, formati, IVA per prodotto, forme di pagamento, resto, sconti, chiusura gestionale, report incassi, loyalty. Cambia solo l'aliquota IVA per Paese.
+- **NON riusabile (solo Italia):** Registratore Telematico (RT), corrispettivi telematici verso Agenzia Entrate, documento commerciale, lotteria degli scontrini. Sono meccanismi italiani.
+
+**Ogni Paese ha il suo regime di fiscalizzazione (molto diversi tra loro):**
+- Germania: KassenSichV + TSE (Technische Sicherheitseinrichtung) — modulo di sicurezza che firma ogni transazione.
+- Austria: RKSV — firma fiscale su catena di scontrini.
+- Francia: legge anti-frode IVA, software di cassa certificato (NF525 / attestazione editore).
+- Portogallo: software certificato + SAF-T + ATCUD/QR code sui documenti.
+- Spagna: TicketBAI (Paesi Baschi/Navarra) + Veri*Factu (nuovo sistema nazionale).
+- Polonia (registratori + JPK), Croazia (fiscalizzazione real-time), Ungheria (online cash register), Grecia (myDATA), Romania (e-Factura/SAF-T).
+- "Soft" / senza fiscalizzazione hardware obbligatoria: UK, Paesi Bassi, Irlanda (per ora).
+
+**Implicazione architetturale per Puntify internazionale:**
+- Costruire un'astrazione **"fiscal provider" pluggable per Paese** (interfaccia comune: emetti documento, chiusura, trasmissione), con implementazioni per Paese.
+- In alternativa/complemento: integrare una **fiscalization-as-a-service** (es. Fiskaly, che copre DE/AT/ES/FR e altri; o provider locali) per non reimplementare ogni normativa e restare aggiornati sui cambiamenti.
+- Il layer "cassa/menu/IVA" resta condiviso; cambia solo il provider fiscale attivo in base al Paese del negozio (già abbiamo `shops.categoryid` e i dati fiscali/Paese).
+
+> Le date/dettagli (es. rollout Veri*Factu ES, riforma FR) vanno verificati Paese per Paese prima di ogni implementazione: la normativa evolve.
