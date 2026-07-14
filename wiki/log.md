@@ -1495,3 +1495,5 @@ File chiave aggiornati:
 ## [2026-07-14] task | Puntify: aliquote IVA per-Paese (VatRates catalog) legate al Paese fiscale del negozio; predisposizione internazionale
 
 ## [2026-07-14] task | Puntify admin: azioni ciclo di vita esercenti/PV (blocco reversibile, soft/hard delete PV, elimina esercente) — in sviluppo
+
+## [2026-07-14] task | Puntify admin: blocco esercente + soft/hard delete PV + elimina esercente (Super admin, audit) FATTO su collaudo
