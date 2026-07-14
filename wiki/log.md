@@ -1485,3 +1485,5 @@ File chiave aggiornati:
 ## [2026-07-14] lint | Routine traduzioni Puntify: Vetrina 7 lingue indietro (~1500 stringhe), traduzione menu senza blocchi attivi loggati
 
 ## [2026-07-14] task | Puntify: fix Nemi chat risposte lunghe (reload storico) + icona Nemi trascinabile a calamita con posizione salvata
+
+## [2026-07-14] fix | Puntify Nemi chat: history endpoint ritornava i 500 msg più vecchi invece dei più recenti (storici >500) → messaggi recenti spariti. Risolto desc+limit+reverse
