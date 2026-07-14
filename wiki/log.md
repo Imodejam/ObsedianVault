@@ -1487,3 +1487,5 @@ File chiave aggiornati:
 ## [2026-07-14] task | Puntify: fix Nemi chat risposte lunghe (reload storico) + icona Nemi trascinabile a calamita con posizione salvata
 
 ## [2026-07-14] fix | Puntify Nemi chat: history endpoint ritornava i 500 msg più vecchi invece dei più recenti (storici >500) → messaggi recenti spariti. Risolto desc+limit+reverse
+
+## [2026-07-14] ingest | Ricerca Ubify: concetti cassa/corrispettivi/stampante fiscale → wiki/puntify-cassa-fiscale.md (gap prioritizzati per fiscalizzazione Puntify)
