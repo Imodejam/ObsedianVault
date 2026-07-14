@@ -44,3 +44,7 @@ IMPLEMENTATO (subagent). Build 0 errori. Collaudo riavviato (server/vetrina/app)
 ### [2026-07-13] RISOLTO coperto self-order: cameriere conferma i coperti in Cassa; persistenza garantita a pagamento. Cliente resta senza coperto.
 
 ### [2026-07-14] PENDING (6077): imposte nel conto Cassa prima del totale. Nessun campo IVA POS esistente (fiscale ShopEdit = billing Puntify→esercente). Chiesto: (1) IVA inclusa/scorporo (std IT, totale invariato) vs aggiunta; (2) aliquota unica per negozio vs per categoria (cibo 10
+### [2026-07-14] PENDING (6077): imposte nel conto Cassa prima del totale.
+- Nessun campo IVA POS esistente (fiscale ShopEdit = billing Puntify verso esercente).
+- Chiesto: (1) IVA inclusa/scorporo (std IT, totale invariato) vs aggiunta; (2) aliquota unica per negozio vs per categoria (cibo 10 pct / alcolici 22 pct).
+- Impl prevista: campo vat_rate su shops + scorporo nel conto Cassa (CassaGrandTotal invariato). In attesa.
