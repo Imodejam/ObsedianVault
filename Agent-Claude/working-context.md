@@ -62,3 +62,5 @@ IMPLEMENTATO (subagent). Build 0 errori. Collaudo riavviato (server/vetrina/app)
 ### [2026-07-14] 6163 URL-città: scope grande (56 occorrenze /negozi/ in ~20 file, no campo city su Shop, molte risoluzioni slug=eq). Chiesto a Stefano il bivio: nome unico globale (a) vs per-città (b, consigliato) + conferma redirect vecchi link. Build dopo risposta. ShopEdit ora libero (God mode fatta).
 
 ### [2026-07-14] TODO (6175) Dopo la sezione Supporto: inserire i link degli articoli Supporto nelle MAIL DI BENVENUTO dell'esercente (guidarlo da subito). Ricordare quando il subagent Supporto finisce.
+
+### [2026-07-14] 6180 REQUISITO articoli Supporto: scrivere per chi legge la PRIMA volta — spiegare ogni termine/concetto, anticipare le domande, niente per scontato. Es: totem = tablet che l'esercente ha già, in kiosk con l'app Puntify (idem display cucina/bevande/sala). Applicare a TUTTI gli articoli con passaggio rifinitura DOPO la riscrittura precisa (subagent ad4ea636 in corso). NB Stefano intendeva 'app Puntify' non 'Spotify' (autocorrect).
