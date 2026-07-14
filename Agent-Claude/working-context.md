@@ -50,3 +50,5 @@ IMPLEMENTATO (subagent). Build 0 errori. Collaudo riavviato (server/vetrina/app)
 - Impl prevista: campo vat_rate su shops + scorporo nel conto Cassa (CassaGrandTotal invariato). In attesa.
 
 ### [2026-07-14] PENDING (6106) Admin esercenti azioni: elimina PV (conferma a codice), elimina esercente se 0 PV, blocco (servizi+vetrina). 'In attesa'=isapproved false su MerchantProfile. Admin oggi sola-consultazione, nessun campo blocco. Chiesto: (1) delete PV hard vs soft; (2) elimina account esercente sì/no; (3) blocco scope a(login+servizi+vetrina)/b(servizi+vetrina) + reversibile. Azioni riservate Super admin. Impl prevista: endpoint admin write + RBAC + campo accounts.blocked + gating server auth + filtro Vetrina + modale conferma-nome. In attesa risposta.
+
+## [2026-07-14] note | Stefano OK a includere il fix campo indirizzo (6118) nel prossimo deploy prod. PENDING 6122 (verifica email reale): trovato blocco = GoTrue senza SMTP + autoconfirm=true; solo gotrue-puntify-cat (no prod separato visibile). Chieste 3 conferme (Resend per SMTP / un-confirm+resend ai 9 / app.puntify.it stesso server?). In attesa.
