@@ -45,3 +45,4 @@ _(nessun concetto ancora)_
 - [Nemi Voce economics (INTERNO)](decisions/nemi-voce-economics-INTERNO.md) — modello prezzi + margini/COGS, NON pubblicare
 - [Puntify — Catalogo servizi](projects/puntify-servizi.md) — elenco completo servizi erogati (da feature flag reali), base per sales/comunicazione
 - [[puntify-cassa-fiscale]] — roadmap fiscalizzazione Puntify (cassa/corrispettivi telematici/RT) da benchmark Ubify + AdE; gap P0/P1/P2
+- [[puntify-social-meta-setup]] — guida creazione app Meta (Instagram+Facebook) per SocialStudio: passi, redirect URI, credenziali da fornire
