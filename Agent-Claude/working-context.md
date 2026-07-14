@@ -60,3 +60,5 @@ IMPLEMENTATO (subagent). Build 0 errori. Collaudo riavviato (server/vetrina/app)
 ### [2026-07-14] RISOLTO God mode (fase 1) — server-routed writes + ShopEdit OK; fase 2 = pagine direct-write.
 
 ### [2026-07-14] 6163 URL-città: scope grande (56 occorrenze /negozi/ in ~20 file, no campo city su Shop, molte risoluzioni slug=eq). Chiesto a Stefano il bivio: nome unico globale (a) vs per-città (b, consigliato) + conferma redirect vecchi link. Build dopo risposta. ShopEdit ora libero (God mode fatta).
+
+### [2026-07-14] TODO (6175) Dopo la sezione Supporto: inserire i link degli articoli Supporto nelle MAIL DI BENVENUTO dell'esercente (guidarlo da subito). Ricordare quando il subagent Supporto finisce.
