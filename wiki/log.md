@@ -1491,3 +1491,5 @@ File chiave aggiornati:
 ## [2026-07-14] ingest | Ricerca Ubify: concetti cassa/corrispettivi/stampante fiscale → wiki/puntify-cassa-fiscale.md (gap prioritizzati per fiscalizzazione Puntify)
 
 ## [2026-07-14] task | Puntify: IVA per prodotto con scorporo nel conto Cassa (di cui IVA per aliquota), configurabile per piatto + default negozio, coerente in archivio/ricevuta
+
+## [2026-07-14] task | Puntify: aliquote IVA per-Paese (VatRates catalog) legate al Paese fiscale del negozio; predisposizione internazionale
