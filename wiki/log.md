@@ -1505,3 +1505,5 @@ File chiave aggiornati:
 ## [2026-07-14] task | Puntify: URL negozio con città (/negozi/citta/nome), unicità per-città, redirect vecchi link
 
 ## [2026-07-14] task | Puntify Vetrina: nuova sezione Supporto (help center + 15 articoli con image-prompt)
+
+## [2026-07-14] task | Puntify: riscritti i 15 articoli supporto (puntify.support_articles) con step reali groundati nel codice App (route/tab/label/@L risolti da AppResource.resx) + image_prompt raffinati; niente feature inventate
