@@ -1499,3 +1499,5 @@ File chiave aggiornati:
 ## [2026-07-14] task | Puntify admin: blocco esercente + soft/hard delete PV + elimina esercente (Super admin, audit) FATTO su collaudo
 
 ## [2026-07-14] task | Puntify: attivata verifica email reale (GoTrue + Resend) su collaudo; auto-approvazione esercente alla conferma; da replicare in prod
+
+## [2026-07-14] task | Puntify: URL pubblici PV con città → /{lang}/negozi/{citySlug}/{slug}; unicità slug PER-CITTÀ; redirect back-compat dai vecchi URL a singolo segmento. Migration + build 0 errori + vetrina/server riavviati
