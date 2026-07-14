@@ -64,3 +64,8 @@ IMPLEMENTATO (subagent). Build 0 errori. Collaudo riavviato (server/vetrina/app)
 ### [2026-07-14] TODO (6175) Dopo la sezione Supporto: inserire i link degli articoli Supporto nelle MAIL DI BENVENUTO dell'esercente (guidarlo da subito). Ricordare quando il subagent Supporto finisce.
 
 ### [2026-07-14] 6180 REQUISITO articoli Supporto: scrivere per chi legge la PRIMA volta — spiegare ogni termine/concetto, anticipare le domande, niente per scontato. Es: totem = tablet che l'esercente ha già, in kiosk con l'app Puntify (idem display cucina/bevande/sala). Applicare a TUTTI gli articoli con passaggio rifinitura DOPO la riscrittura precisa (subagent ad4ea636 in corso). NB Stefano intendeva 'app Puntify' non 'Spotify' (autocorrect).
+
+## [2026-07-14] Batch 2 articoli supporto Puntify
+Obiettivo: scrivere 2° batch (10 articoli) support_articles per Vetrina, grounded sul codice reale.
+Pagine target: MerchantOperators, MerchantTelegram, MerchantBilling/Payments, Panoramica/Insights, Clients/ClientDetail, Transactions, SocialStudio, ReceiptApproval, Scan, Credentials.
+Stato: lanciati 5 Explore agent per estrarre route/label resx/flussi. In attesa. Poi INSERT idempotente su puntify.support_articles (published, it).
