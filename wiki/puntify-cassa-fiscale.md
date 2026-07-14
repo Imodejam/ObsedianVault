@@ -100,3 +100,8 @@ Fiscali (AdE): guida memorizzazione/trasmissione corrispettivi; lotteria degli s
 - Il layer "cassa/menu/IVA" resta condiviso; cambia solo il provider fiscale attivo in base al Paese del negozio (già abbiamo `shops.categoryid` e i dati fiscali/Paese).
 
 > Le date/dettagli (es. rollout Veri*Factu ES, riforma FR) vanno verificati Paese per Paese prima di ogni implementazione: la normativa evolve.
+
+### Aliquote IVA per Paese (non universali)
+- **Italia:** 22 (ordinaria), 10, 5, 4 (ridotte) + esente/natura. → selettore piatto Puntify: 0/4/5/10/22 + default.
+- **Spagna:** 21 (general), 10 (reducido), 4 (superreducido) + speciali/temporanei 5 e 0 su alimenti base; Canarie usano IGIC (~7%), Ceuta/Melilla IPSI. (Verificare stato misure temporanee.)
+- Implicazione: il set di aliquote del selettore deve essere **per-Paese** (dipende da `shops` Paese/categoria), non hardcoded IT. Vedi sezione Internazionale.
