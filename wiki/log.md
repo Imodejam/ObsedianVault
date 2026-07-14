@@ -1477,3 +1477,5 @@ File chiave aggiornati:
 ## [2026-07-13] decision | Puntify: importo pagato (coperto/formati/extra) deve essere presente e consistente su OGNI vista — regola permanente
 
 ## [2026-07-13] decision | Puntify: ordini food si NASCONDONO dalle liste per scadenza tempo (5h non evasi / 30min consegnati) via filtro di vista, NON via job/stato. Reverse msg 6044
+
+## [2026-07-14] task | Puntify MenuEditor: tabbar Dati/Prodotti (tab in URL) + ricerca prodotti/ingredienti/sezioni
