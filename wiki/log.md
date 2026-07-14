@@ -1493,3 +1493,5 @@ File chiave aggiornati:
 ## [2026-07-14] task | Puntify: IVA per prodotto con scorporo nel conto Cassa (di cui IVA per aliquota), configurabile per piatto + default negozio, coerente in archivio/ricevuta
 
 ## [2026-07-14] task | Puntify: aliquote IVA per-Paese (VatRates catalog) legate al Paese fiscale del negozio; predisposizione internazionale
+
+## [2026-07-14] task | Puntify admin: azioni ciclo di vita esercenti/PV (blocco reversibile, soft/hard delete PV, elimina esercente) — in sviluppo
