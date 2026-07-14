@@ -42,3 +42,5 @@ IMPLEMENTATO (subagent). Build 0 errori. Collaudo riavviato (server/vetrina/app)
 ### [2026-07-13] PENDING coperto self-order: ordine pubblico a tavolo (dine_in) NON applica coperto (SubmitOrder total=solo piatti, no Covers) e menu pubblico non chiede n. persone. Chiesto a Stefano come gestire (persone×coperto / 1 per ordine / solo cassa)
 
 ### [2026-07-13] RISOLTO coperto self-order: cameriere conferma i coperti in Cassa; persistenza garantita a pagamento. Cliente resta senza coperto.
+
+### [2026-07-14] PENDING (6077): imposte nel conto Cassa prima del totale. Nessun campo IVA POS esistente (fiscale ShopEdit = billing Puntify→esercente). Chiesto: (1) IVA inclusa/scorporo (std IT, totale invariato) vs aggiunta; (2) aliquota unica per negozio vs per categoria (cibo 10
