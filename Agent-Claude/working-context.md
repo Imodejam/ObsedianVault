@@ -58,3 +58,5 @@ IMPLEMENTATO (subagent). Build 0 errori. Collaudo riavviato (server/vetrina/app)
 ### [2026-07-14] PENDING (6163) URL slug con città: /it/negozi/{cittaSlug}/{nomeSlug}, esercente edita solo nome. Città da indirizzo (auto). Cambia: rotte Vetrina a 2 segmenti, risoluzione shop per città+nome, tutti i generatori URL (anteprima/sitemap/email/tracking/QR), redirect vecchi link 1-segmento. Da fare DOPO God mode (evita conflitto ShopEdit). SlugHelper ha già BuildShopSlug(businessName,city).
 
 ### [2026-07-14] RISOLTO God mode (fase 1) — server-routed writes + ShopEdit OK; fase 2 = pagine direct-write.
+
+### [2026-07-14] 6163 URL-città: scope grande (56 occorrenze /negozi/ in ~20 file, no campo city su Shop, molte risoluzioni slug=eq). Chiesto a Stefano il bivio: nome unico globale (a) vs per-città (b, consigliato) + conferma redirect vecchi link. Build dopo risposta. ShopEdit ora libero (God mode fatta).
