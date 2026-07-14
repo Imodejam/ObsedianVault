@@ -1503,3 +1503,5 @@ File chiave aggiornati:
 ## [2026-07-14] task | Puntify: URL pubblici PV con città → /{lang}/negozi/{citySlug}/{slug}; unicità slug PER-CITTÀ; redirect back-compat dai vecchi URL a singolo segmento. Migration + build 0 errori + vetrina/server riavviati
 
 ## [2026-07-14] task | Puntify: URL negozio con città (/negozi/citta/nome), unicità per-città, redirect vecchi link
+
+## [2026-07-14] task | Puntify Vetrina: nuova sezione Supporto (help center + 15 articoli con image-prompt)
