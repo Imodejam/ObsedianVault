@@ -48,3 +48,5 @@ IMPLEMENTATO (subagent). Build 0 errori. Collaudo riavviato (server/vetrina/app)
 - Nessun campo IVA POS esistente (fiscale ShopEdit = billing Puntify verso esercente).
 - Chiesto: (1) IVA inclusa/scorporo (std IT, totale invariato) vs aggiunta; (2) aliquota unica per negozio vs per categoria (cibo 10 pct / alcolici 22 pct).
 - Impl prevista: campo vat_rate su shops + scorporo nel conto Cassa (CassaGrandTotal invariato). In attesa.
+
+### [2026-07-14] PENDING (6106) Admin esercenti azioni: elimina PV (conferma a codice), elimina esercente se 0 PV, blocco (servizi+vetrina). 'In attesa'=isapproved false su MerchantProfile. Admin oggi sola-consultazione, nessun campo blocco. Chiesto: (1) delete PV hard vs soft; (2) elimina account esercente sì/no; (3) blocco scope a(login+servizi+vetrina)/b(servizi+vetrina) + reversibile. Azioni riservate Super admin. Impl prevista: endpoint admin write + RBAC + campo accounts.blocked + gating server auth + filtro Vetrina + modale conferma-nome. In attesa risposta.
