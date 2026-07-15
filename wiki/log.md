@@ -1583,3 +1583,5 @@ File chiave aggiornati:
 ## [2026-07-15] task | Premi&normativa riscritto Apple/Stripe (conciso, 10 lingue). FAQ: aggiunta sezione Domande frequenti a Fidelizzazione/Prenotazioni/Menu/Ordinazioni/Social (pattern <details> nativo) — subagent in corso. Nemi/EliminaCode già ok.
 
 ## [2026-07-15] task | FAQ COMPLETATO: sezione Domande frequenti aggiunta a Fidelizzazione/Prenotazioni/Menu/Ordinazioni/Social (accordion nativo, 10 lingue). Verificato con screenshot.
+
+## [2026-07-15] task | Pagina Supporto: aggiunta barra di ricerca client-side (filtra guide per titolo/descrizione/categoria, gruppi vuoti nascosti, no-results), 10 lingue. Verificato con screenshot.
