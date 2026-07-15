@@ -1557,3 +1557,5 @@ File chiave aggiornati:
 ## [2026-07-15] task | Fix grafico callout loyalty pagina pubblica (NegozioDetail): card bianca + bordo accento negozio (non più rosa fisso) + chevron + spaziatura. Feedback Stefano su screenshot. In attesa conferma grafica.
 
 ## [2026-07-15] task | ShopEdit form: refactor tab Anagrafica da card unica gigante a 7 card Stripe-style + aggiunta "i" (FieldInfo) ai campi social. Regola fissa: ogni nuova label ha la "i". Subagent in corso (app-only).
+
+## [2026-07-15] task | ShopEdit form COMPLETATO: tab Anagrafica spezzata in 7 card Stripe-style (Base/Contatti/Indirizzo+fuso/Aspetto/Link pubblico+privacy/Social/Funzionalità), "i" su tutti i social, binding preservati, 10 lingue. App riavviata.
