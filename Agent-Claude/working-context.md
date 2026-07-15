@@ -76,3 +76,8 @@ Stato: lanciati 5 Explore agent per estrarre route/label resx/flussi. In attesa.
 - 6195: footer comune su TUTTE le email = promo Nemi + link FAQ/Supporto/Assistenza (localizzato 15 lingue), nel layout Base.
 - 6196: uniformare TUTTE le email allo stesso template Base (grafica/header/footer coerenti); riallineare eventuali email HTML-inline fuori da EmailTemplates.
 - Stato: inoltrate al subagent a9151 (feature-discovery fase 2, in esecuzione, sta editando EmailTemplates.cs). In attesa report subagent → verifica build + report a Stefano (mail esempio a imodejam@gmail.com, lista altri casi email).
+
+## [2026-07-15] 6199 support@ → pagina assistenza (FATTO)
+- Rimosso mailto support@puntify.it da: Supporto.razor, SupportoArticle.razor, Footer.razor, Assistenza.razor.
+- Contatto ora → /assistenza (form già esistente → SupportTicketController → JiraService, progetto PNT). Nuova chiave Support_Contact_Cta ("Apri una richiesta di assistenza") in SharedResource.resx (default IT; sezione Support i18n è IT-only pre-esistente). info@ mantenuto.
+- Build Vetrina ok, servizio riavviato. Nessun residuo support@ nel repo.
