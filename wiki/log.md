@@ -1525,3 +1525,6 @@ File chiave aggiornati:
 
 ## [2026-07-15] decision | Trial abbonamento: 3 mesi (2+1) per iscritti fino al 30/9/2026, poi 1 mese dal 1/10/2026. Sequenza: mail avviso (copia info@puntify.it) → Stripe ricorrente → blocco PV morosi. Canone 9,99€/mese +IVA (base Stripe già presente). Domande aperte a Stefano.
 ## [2026-07-15] decision | Scadenza punti configurabile per PV: 1 anno / 3 anni / Mai (Stefano 6207). Ledger transactions regge; scadenza via transazioni negative. Domande aperte: default Mai? semantica FIFO-da-maturazione vs inattività.
+
+## [2026-07-15] decision | Scadenza punti: default "Mai", semantica (a) ogni punto scade dopo 1/3 anni dalla maturazione FIFO (Stefano 6211). Da costruire (impostazione per-PV UI-editable + calcolo + email punti-in-scadenza).
+## [2026-07-15] task | Richiesta (6212): riportare info trial/abbonamento/sospensione/scadenza-punti nelle FAQ vetrina (FAQ.razor resx) + pagine Prezzi/Fidelizzazione, tutte le lingue. Accodato dopo subagent analytics.

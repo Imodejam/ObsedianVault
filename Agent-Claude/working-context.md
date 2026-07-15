@@ -102,3 +102,9 @@ Stato: lanciati 5 Explore agent per estrarre route/label resx/flussi. In attesa.
 - BILLING (6206): trial 3m(2+1) fino 30/9/2026, poi 1m; mail avviso (copia info@) → Stripe ricorrente → blocco morosi; canone 9,99€/mese. Domande: trial da data reg vs fissa? canone? blocco=sospensione vs totale?
 - SCADENZA PUNTI (6207): per-PV 1a/3a/mai, UI-editable. Domande: default Mai? semantica (a) FIFO da maturazione o (b) da inattività? Poi email "punti in scadenza".
 - Nessun build partito su questi due: attendo conferme (regole "ask before big work" + no azioni prod/pagamenti senza ok).
+
+## [2026-07-15] Coda lavori (sequenziale per evitare race Program.cs/server/vetrina)
+- IN CORSO (subagent bg): analytics PV capture; billing fase-1 (stato trial + email avviso).
+- ACCODATO 1: scadenza punti (default Mai, semantica A/FIFO) — build dopo che billing libera Program.cs/server.
+- ACCODATO 2: FAQ vetrina + Prezzi/Fidelizzazione con info trial/abbonamento/sospensione/scadenza-punti (tutte lingue) — dopo che analytics libera la vetrina.
+- APERTO: Insights fuso in Dashboard o separato? (domanda a Stefano, non ancora risposto)
