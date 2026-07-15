@@ -1585,3 +1585,5 @@ File chiave aggiornati:
 ## [2026-07-15] task | FAQ COMPLETATO: sezione Domande frequenti aggiunta a Fidelizzazione/Prenotazioni/Menu/Ordinazioni/Social (accordion nativo, 10 lingue). Verificato con screenshot.
 
 ## [2026-07-15] task | Pagina Supporto: aggiunta barra di ricerca client-side (filtra guide per titolo/descrizione/categoria, gruppi vuoti nascosti, no-results), 10 lingue. Verificato con screenshot.
+
+## [2026-07-15] task | Tag su articoli supporto (sinonimi per ricerca) + audit SEO/GEO tutte le pagine vetrina. Due subagent (tags=build, SEO=read-only) in corso.
