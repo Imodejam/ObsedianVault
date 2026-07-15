@@ -81,3 +81,11 @@ Stato: lanciati 5 Explore agent per estrarre route/label resx/flussi. In attesa.
 - Rimosso mailto support@puntify.it da: Supporto.razor, SupportoArticle.razor, Footer.razor, Assistenza.razor.
 - Contatto ora → /assistenza (form già esistente → SupportTicketController → JiraService, progetto PNT). Nuova chiave Support_Contact_Cta ("Apri una richiesta di assistenza") in SharedResource.resx (default IT; sezione Support i18n è IT-only pre-esistente). info@ mantenuto.
 - Build Vetrina ok, servizio riavviato. Nessun residuo support@ nel repo.
+
+## [2026-07-15] Email: feature-discovery + footer + template unico (FATTO)
+- 6191: MerchantFeatureDiscoveryService (fase 2), ~10gg, salta se non configurato o se tutto attivo; template FeatureDiscovery con card grafiche 2 colonne + deep-link; EmailStrings 15 lingue; migration feature_reminder_sent_at applicata. Mail esempio inviata a imodejam@gmail.com (consegnata via Resend).
+- 6195: footer comune nel Base = promo Nemi (/it/nemi) + link FAQ/Supporto/Assistenza. Vale per tutte le email che usano Base.
+- 6196: uniformato. Tutti i template EmailTemplates già usano Base; avvolte nel Base anche le 4 email HTML-custom (ShopPageActive, MenuController ordine ricevuto/pronto/ricevuta) con nuovo EmailTemplates.Wrap(preheader, content, lang). Mantenuto contenuto (tabelle IVA/articoli).
+- Fase 1 config-reminder allineata: "configurato = >=1 servizio attivo" via MerchantFeatureService.GetStatusAsync (IsConfigured). 
+- Proposti 10 nuovi casi email (recap mensile, menu pubblicato, re-engagement, billing/trial, punti in scadenza, primo ordine, low-activity, win-back, digest settimanale, recap Nemi).
+- Build server ok, riavviato; servizi fase1 (🏪) e fase2 (✨) loggati all'avvio.
