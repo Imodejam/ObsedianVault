@@ -1555,3 +1555,5 @@ File chiave aggiornati:
 ## [2026-07-15] task | Social PV COMPLETATO: 6 colonne social_* su shops + Shop model ([Column]+[JsonPropertyName]), sezione Social in ShopEdit anagrafica (normalizzazione https://, save esistente, 10 lingue app), blocco pubblico "Seguici" su NegozioDetail con icone SVG data-gated + tracking data-pv-event social_* (chiude gap analytics social). Build ok, servizi riavviati uno alla volta, test live ok. Hard-refresh app lato Stefano.
 
 ## [2026-07-15] task | Fix grafico callout loyalty pagina pubblica (NegozioDetail): card bianca + bordo accento negozio (non più rosa fisso) + chevron + spaziatura. Feedback Stefano su screenshot. In attesa conferma grafica.
+
+## [2026-07-15] task | ShopEdit form: refactor tab Anagrafica da card unica gigante a 7 card Stripe-style + aggiunta "i" (FieldInfo) ai campi social. Regola fissa: ogni nuova label ha la "i". Subagent in corso (app-only).
