@@ -1528,3 +1528,5 @@ File chiave aggiornati:
 
 ## [2026-07-15] decision | Scadenza punti: default "Mai", semantica (a) ogni punto scade dopo 1/3 anni dalla maturazione FIFO (Stefano 6211). Da costruire (impostazione per-PV UI-editable + calcolo + email punti-in-scadenza).
 ## [2026-07-15] task | Richiesta (6212): riportare info trial/abbonamento/sospensione/scadenza-punti nelle FAQ vetrina (FAQ.razor resx) + pagine Prezzi/Fidelizzazione, tutte le lingue. Accodato dopo subagent analytics.
+
+## [2026-07-15] task | Analytics PV capture COMPLETATO+verificato: tabella puntify.pv_events (RLS blindata, service-role only), endpoint /api/public/pv-event (cookieless, session_hash SHA256 daily-salt, no PII), pv-analytics.js beacon, PvAnalyticsService.GetWeeklySummaryAsync. Istrumentate NegozioDetail (page=shop: call/booking/menu/reviews/directions/email/website) + MerchantMenuPreview (order). GAP: mancano pulsanti share/social/loyalty/coda (non esistono o pagine coda senza shop-id) — da aggiungere in seguito.

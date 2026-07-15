@@ -108,3 +108,9 @@ Stato: lanciati 5 Explore agent per estrarre route/label resx/flussi. In attesa.
 - ACCODATO 1: scadenza punti (default Mai, semantica A/FIFO) — build dopo che billing libera Program.cs/server.
 - ACCODATO 2: FAQ vetrina + Prezzi/Fidelizzazione con info trial/abbonamento/sospensione/scadenza-punti (tutte lingue) — dopo che analytics libera la vetrina.
 - APERTO: Insights fuso in Dashboard o separato? (domanda a Stefano, non ancora risposto)
+
+## [2026-07-15] Aggiornamento coda
+- FATTO: analytics PV capture (verificato). Gap noti: pulsanti share/social/loyalty/coda non tracciati (da aggiungere).
+- IN CORSO (bg): billing fase-1 (server); FAQ vetrina + Prezzi/Fidelizzazione (vetrina, appena lanciato).
+- ACCODATO: scadenza punti (build, dopo che billing libera server/Program.cs).
+- APERTO: Insights fuso in Dashboard o separato? (Stefano non ha ancora risposto).
