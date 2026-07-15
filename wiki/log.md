@@ -1595,3 +1595,5 @@ File chiave aggiornati:
 ## [2026-07-15] task | SEO/GEO fix COMPLETATO (hreflang blog/supporto/negozi, H1 mappa, twitter, noindex coda, uk locale, JSON-LD lang) + articoli supporto nel sitemap.xml (25 ×10 lingue + indice). Verificato.
 
 ## [2026-07-15] fix | Bug prenotazioni created_at=0001: TableBookingController+TakeawayBookingController non impostavano CreatedAt (10/35 record). Fix codice + backfill + default DB now(). Cleanup percorsi interni in 7 articoli supporto.
+
+## [2026-07-15] fix | Fuso Nemi voce: path CreateVoiceBookingAsync salvava ora locale come UTC (+2h). Aggiunto TimeZoneHelper.ToUtc, convertito StartAt/EndAt, corretti 4 record esistenti (-2h DST-aware). Menu mobile: kebab azioni + conteggio prodotti sotto titolo.
