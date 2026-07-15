@@ -1577,3 +1577,5 @@ File chiave aggiornati:
 ## [2026-07-15] fix | /guadagna effetto refresh: era InteractiveServer (re-render prerender→circuito). Reso statico (scroll in onclick JS). Prezzi/Nemi restano interattive per i loro widget.
 
 ## [2026-07-15] task | Vetrina: rimozione effetto refresh da tutte le pagine — pagine marketing (Roadmap/Book/Prezzi/FAQ/LavoraConNoi/Nemi/Risorse) convertite a statiche (UI in JS puro); funzionali restano interattive. Subagent in corso.
+
+## [2026-07-15] task | Fidelizzazione hero Stripe-style: rimosso paragrafo legale dalla hero + Esr_HeroDesc accorciato a 1 frase (10 lingue, aggiornato sia default che it.resx). Verificato con screenshot.
