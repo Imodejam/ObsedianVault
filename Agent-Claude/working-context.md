@@ -126,3 +126,8 @@ Stato: lanciati 5 Explore agent per estrarre route/label resx/flussi. In attesa.
 ## [2026-07-15] Correzione billing accodata (6218)
 - trial_start = data creazione PRIMO punto vendita (non account.insertdate). Finestra 3m/1m su quella data. Account senza PV → trial non parte.
 - Fix su SubscriptionService.ComputeTrial: da account.insertdate a MIN(shops.created_at non-deleted). Applicare quando il subagent scadenza-punti libera il server. Invii già OFF → nessun impatto immediato.
+
+## [2026-07-15] Billing fix + bug serializzazione insert (FATTO)
+- SubscriptionService: trial_start da creazione primo PV. FATTO, server riavviato.
+- Scoperti e fixati Transaction + AccountShop (mancava [JsonPropertyName] → insert Stripe/ordini/prenotazioni fallivano silenziosi: punti/incassi e link account↔negozio persi). Regola: reference_puntify_insert_serialization.
+- Tutto collaudo, non committato/deployato (deploy = Stefano). Consigliato test post-deploy: pagamento/prenotazione → punti accreditati.

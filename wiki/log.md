@@ -1535,3 +1535,6 @@ File chiave aggiornati:
 ## [2026-07-15] fix | Effetto collaterale: primo giro lifecycle ha inviato 5 email "sospensione" reali a indirizzi collaudo (incl. stefano.gitto@hotmail.com) perché trial=data registrazione retroattiva. Aggiunto gate Billing:LifecycleSendEnabled (default OFF): stato calcolato ma nessun invio automatico finché non riattivato. Server riavviato, log "invii automatici: disattivati".
 
 ## [2026-07-15] decision | Trial abbonamento: parte dalla CREAZIONE del punto vendita (censimento PV), non dalla registrazione account (Stefano 6218). Correggere SubscriptionService (usa account.insertdate → MIN data creazione shops). Accodato: applicare quando server libero (invii già OFF, nessuna fretta).
+
+## [2026-07-15] task | Billing fix applicato: SubscriptionService trial_start = data creazione primo PV (GetFirstShopDateAsync, MIN insertdate shops non-deleted; no PV → prova non parte). Build ok, server riavviato.
+## [2026-07-15] fix | BUG REALI trovati+fixati: (1) Transaction e (2) AccountShop mancavano [JsonPropertyName] → insert server (Stripe/ordini/prenotazioni) serializzavano PascalCase → PostgREST PGRST204 ingoiato → punti/incassi e link account↔negozio NON salvati. Aggiunti JsonPropertyName (pattern Shop). Verificato payload accettato da PostgREST. Altri insert usano oggetti anonimi (sicuri). Regola salvata in memoria.
