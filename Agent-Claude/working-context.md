@@ -89,3 +89,11 @@ Stato: lanciati 5 Explore agent per estrarre route/label resx/flussi. In attesa.
 - Fase 1 config-reminder allineata: "configurato = >=1 servizio attivo" via MerchantFeatureService.GetStatusAsync (IsConfigured). 
 - Proposti 10 nuovi casi email (recap mensile, menu pubblicato, re-engagement, billing/trial, punti in scadenza, primo ordine, low-activity, win-back, digest settimanale, recap Nemi).
 - Build server ok, riavviato; servizi fase1 (🏪) e fase2 (✨) loggati all'avvio.
+
+## [2026-07-15] Analytics PV + recap settimanale (6202/6203) — IN CORSO
+- Approvati i 10 casi email; recap → SETTIMANALE lunedì mattina (settimana lun-dom precedente).
+- Cattura analytics pagine pubbliche (cookieless, no PII): subagent in esecuzione costruisce pv_events + endpoint /api/public/pv-event + pv-analytics.js (data-pv-event su CTA reali di NegozioDetail e affini) + PvAnalyticsService.GetWeeklySummaryAsync.
+- Recap conterrà: visite, visitatori unici, top pulsanti, provenienza, device + dati business. Stile Apple/Stripe (no foto per il recap; chiederò prompt se un'email specifica servisse immagini).
+- DOMANDA APERTA a Stefano: pagina Insight fusa subito in Dashboard/Panoramica o separata per ora?
+- Punti NON scadono oggi: proposta regola di scadenza configurabile prima dell'email "punti in scadenza" — in attesa risposta.
+- PROSSIMI: 1) attendere subagent cattura → verificare, 2) costruire recap settimanale (scheduler lunedì) su PvAnalyticsService + dati business, 3) Insights UI dopo risposta merge.

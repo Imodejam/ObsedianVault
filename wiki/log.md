@@ -1519,3 +1519,6 @@ File chiave aggiornati:
 ## [2026-07-15] task | Vetrina: rimosso support@puntify.it dappertutto (Supporto/SupportoArticle/Footer/Assistenza); CTA contatto ora punta a /assistenza (form ticket Jira PNT). Nuova chiave resx Support_Contact_Cta. info@ lasciato. Build ok, vetrina riavviata. Telegram 6199.
 
 ## [2026-07-15] task | Email nurture fase 2 (feature-discovery ogni 10gg, card grafiche) + footer comune (promo Nemi + FAQ/Supporto/Assistenza) su TUTTE le email + uniformato template: avvolte nel Base anche le 4 email custom (page-active, ordine ricevuto/pronto, ricevuta) via EmailTemplates.Wrap. Fase 1 config-reminder ora usa "configurato = >=1 servizio attivo" (helper MerchantFeatureService condiviso). Mail esempio a imodejam@gmail.com inviata. Build ok, server riavviato, servizi fase1+fase2 attivi.
+
+## [2026-07-15] task | Avviato filone analytics PV: cattura cookieless visite/click su pagine pubbliche (tabella pv_events, endpoint /api/public/pv-event, JS beacon, PvAnalyticsService) → recap settimanale esercente lunedì mattina (stile Apple/Stripe) + futura pagina Insights (forse fusa con Dashboard). Subagent in esecuzione.
+## [2026-07-15] task | Confermato: punti cliente NON scadono (nessuna logica di scadenza). Email "punti in scadenza" richiede prima regola di scadenza configurabile (proposta a Stefano).
