@@ -1538,3 +1538,5 @@ File chiave aggiornati:
 
 ## [2026-07-15] task | Billing fix applicato: SubscriptionService trial_start = data creazione primo PV (GetFirstShopDateAsync, MIN insertdate shops non-deleted; no PV → prova non parte). Build ok, server riavviato.
 ## [2026-07-15] fix | BUG REALI trovati+fixati: (1) Transaction e (2) AccountShop mancavano [JsonPropertyName] → insert server (Stripe/ordini/prenotazioni) serializzavano PascalCase → PostgREST PGRST204 ingoiato → punti/incassi e link account↔negozio NON salvati. Aggiunti JsonPropertyName (pattern Shop). Verificato payload accettato da PostgREST. Altri insert usano oggetti anonimi (sicuri). Regola salvata in memoria.
+
+## [2026-07-15] decision | Stefano: (2) procedi col recap settimanale + mail esempio → in build; (3) trial da creazione PV vale anche per clienti esistenti (implementazione già corretta; accensione invii in prod = step deliberato); (4) aggiungere al tracciamento pulsanti mancanti (condividi/social/loyalty/coda) → in build su Vetrina.

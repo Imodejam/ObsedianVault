@@ -131,3 +131,8 @@ Stato: lanciati 5 Explore agent per estrarre route/label resx/flussi. In attesa.
 - SubscriptionService: trial_start da creazione primo PV. FATTO, server riavviato.
 - Scoperti e fixati Transaction + AccountShop (mancava [JsonPropertyName] → insert Stripe/ordini/prenotazioni fallivano silenziosi: punti/incassi e link account↔negozio persi). Regola: reference_puntify_insert_serialization.
 - Tutto collaudo, non committato/deployato (deploy = Stefano). Consigliato test post-deploy: pagamento/prenotazione → punti accreditati.
+
+## [2026-07-15] Recap settimanale + pulsanti analytics (IN CORSO)
+- Recap settimanale (server): WeeklyRecapService + WeeklyRecap email (15 lingue) + scheduler lunedì Roma (gate Analytics:WeeklyRecapSendEnabled default OFF) + endpoint test → mail esempio a imodejam@. Subagent in corso.
+- Pulsanti analytics mancanti (vetrina): share + social (se configurati) + loyalty CTA (se attivo) + shop-id/coda su CodaTicket/CodaBiglietto, con data-pv-event. Subagent in corso.
+- #3 confermato: trial da creazione PV anche per esistenti. Accensione invii prod = step voluto.
