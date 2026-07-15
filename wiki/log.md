@@ -1553,3 +1553,5 @@ File chiave aggiornati:
 ## [2026-07-15] lint | Health check traduzioni: Vetrina 10 lingue copertura completa (chiavi ripartite default+it.resx, nessun IT rotto); traduzione menu on-demand 20 lingue con cache, chiave Anthropic OK, zero errori credito 24h. Nota: burst 500 del 14/7 su /api/menu/orders/{id} non legato a traduzioni.
 
 ## [2026-07-15] task | Social PV COMPLETATO: 6 colonne social_* su shops + Shop model ([Column]+[JsonPropertyName]), sezione Social in ShopEdit anagrafica (normalizzazione https://, save esistente, 10 lingue app), blocco pubblico "Seguici" su NegozioDetail con icone SVG data-gated + tracking data-pv-event social_* (chiude gap analytics social). Build ok, servizi riavviati uno alla volta, test live ok. Hard-refresh app lato Stefano.
+
+## [2026-07-15] task | Fix grafico callout loyalty pagina pubblica (NegozioDetail): card bianca + bordo accento negozio (non più rosa fisso) + chevron + spaziatura. Feedback Stefano su screenshot. In attesa conferma grafica.
