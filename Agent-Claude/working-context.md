@@ -141,3 +141,10 @@ Stato: lanciati 5 Explore agent per estrarre route/label resx/flussi. In attesa.
 - FATTO: share + loyalty CTA (data-gated HasLoyalty) su NegozioDetail, tracciati (data-pv-event share/loyalty).
 - SOCIAL: nessun campo social nel modello Shop (solo Website) → per tracciarli serve prima aggiungere campi social (feature): CHIESTO a Stefano.
 - CODA: CodaTicket/CodaBiglietto non espongono shop id (QueueInfoDto senza ShopId). ACCODATO: aggiungere ShopId a QueueInfoDto (QueuePublicController) + esporre pv-shop-id + taggare "prendi biglietto". Fare quando il recap subagent libera il server.
+
+## [2026-07-15] Recap + coda FATTI; social in attesa
+- Recap settimanale: costruito, mail esempio inviata, gate OFF. In attesa feedback design da Stefano.
+- Coda: ShopId nel DTO + tracking pulsanti prendi-biglietto (queue/queue_remote). FATTO.
+- SOCIAL: in attesa decisione Stefano (serve aggiungere campi social al negozio = piccola feature).
+- Aperto: Insight fuso/separato (non ancora risposto). Accensione invii prod (billing + recap) = step deliberato futuro.
+- Nota: visti processi dotnet watch orfani su vetrina (restart accavallati); servizio attivo, non intervengo.
