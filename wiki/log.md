@@ -1601,3 +1601,5 @@ File chiave aggiornati:
 ## [2026-07-15] task | Commit+push di tutto il lavoro (6533e5e, master, GitHub) + aggiornamento roadmap vetrina (3 fatte + 3 in arrivo pubblicabili).
 
 ## [2026-07-15] task | Checklist deploy prod fornita a Stefano: migrazioni DB (15/07), script manuale fuso Nemi, chiavi config (GodModePassword, invii gated=false, HashSalt). File migrazione mancanti creati+committati (23c5798).
+
+## [2026-07-15] task | Roadmap vetrina aggiornata (3 rilasciate + 3 in arrivo, 10 lingue) e pushata (84a4e81). Tutto il lavoro del giorno su GitHub master.
