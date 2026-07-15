@@ -71,3 +71,8 @@ Pagine target: MerchantOperators, MerchantTelegram, MerchantBilling/Payments, Pa
 Stato: lanciati 5 Explore agent per estrarre route/label resx/flussi. In attesa. Poi INSERT idempotente su puntify.support_articles (published, it).
 
 ### [2026-07-15] 6189: reminder PV — (2) a TUTTI = già così (nessun filtro isapproved), nessuna modifica. (1) criterio 'configurato' non chiaro a Stefano: rispiegato + proposto criterio più stretto = fermare i reminder solo quando ha attivato almeno un servizio (menù pubblicato / raccolta punti / prenotazioni) invece del solo indirizzo. In attesa scelta; se sì, modifica in IsPvConfiguredAsync.
+
+## [2026-07-15] Email base template unification (Telegram 6195/6196)
+- 6195: footer comune su TUTTE le email = promo Nemi + link FAQ/Supporto/Assistenza (localizzato 15 lingue), nel layout Base.
+- 6196: uniformare TUTTE le email allo stesso template Base (grafica/header/footer coerenti); riallineare eventuali email HTML-inline fuori da EmailTemplates.
+- Stato: inoltrate al subagent a9151 (feature-discovery fase 2, in esecuzione, sta editando EmailTemplates.cs). In attesa report subagent → verifica build + report a Stefano (mail esempio a imodejam@gmail.com, lista altri casi email).
