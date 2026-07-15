@@ -1579,3 +1579,5 @@ File chiave aggiornati:
 ## [2026-07-15] task | Vetrina: rimozione effetto refresh da tutte le pagine — pagine marketing (Roadmap/Book/Prezzi/FAQ/LavoraConNoi/Nemi/Risorse) convertite a statiche (UI in JS puro); funzionali restano interattive. Subagent in corso.
 
 ## [2026-07-15] task | Fidelizzazione hero Stripe-style: rimosso paragrafo legale dalla hero + Esr_HeroDesc accorciato a 1 frase (10 lingue, aggiornato sia default che it.resx). Verificato con screenshot.
+
+## [2026-07-15] task | Premi&normativa riscritto Apple/Stripe (conciso, 10 lingue). FAQ: aggiunta sezione Domande frequenti a Fidelizzazione/Prenotazioni/Menu/Ordinazioni/Social (pattern <details> nativo) — subagent in corso. Nemi/EliminaCode già ok.
