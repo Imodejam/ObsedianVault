@@ -1571,3 +1571,5 @@ File chiave aggiornati:
 ## [2026-07-15] task | Performance Vetrina: audit (freno #1 = Tailwind Play CDN runtime). Applicati safe win (defer JS, font in head). Proposta a Stefano: compilare Tailwind purged al posto della CDN (in attesa OK). PSI API in quota.
 
 ## [2026-07-15] task | Performance Vetrina COMPLETO: Tailwind Play CDN sostituita da CSS compilato+purgato (122KB, wwwroot/css/tailwind.css, auto-ricompilato via MSBuild) + defer JS + font in head. Atteso salto PageSpeed. Verifica visiva Stefano pre-deploy.
+
+## [2026-07-15] fix | Regressione Tailwind: header invisibile perché app.css .hidden vinceva su lg:flex (ordine CSS invertito). Fix: app.css prima di tailwind.css. Verificato con screenshot headless. Memoria aggiornata.
