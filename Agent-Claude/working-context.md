@@ -148,3 +148,7 @@ Stato: lanciati 5 Explore agent per estrarre route/label resx/flussi. In attesa.
 - SOCIAL: in attesa decisione Stefano (serve aggiungere campi social al negozio = piccola feature).
 - Aperto: Insight fuso/separato (non ancora risposto). Accensione invii prod (billing + recap) = step deliberato futuro.
 - Nota: visti processi dotnet watch orfani su vetrina (restart accavallati); servizio attivo, non intervengo.
+
+## [2026-07-15] Social fields (IN CORSO)
+- Stefano: campi social configurabili da anagrafica PV. 6 reti (IG/FB/TikTok/YouTube/LinkedIn/X), URL profilo, nullable. Shop model + migration + UI anagrafica app + icone pubbliche tracciate. Subagent a57772 in corso.
+- Completa il gap "social" dell'analytics.
