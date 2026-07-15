@@ -97,3 +97,8 @@ Stato: lanciati 5 Explore agent per estrarre route/label resx/flussi. In attesa.
 - DOMANDA APERTA a Stefano: pagina Insight fusa subito in Dashboard/Panoramica o separata per ora?
 - Punti NON scadono oggi: proposta regola di scadenza configurabile prima dell'email "punti in scadenza" — in attesa risposta.
 - PROSSIMI: 1) attendere subagent cattura → verificare, 2) costruire recap settimanale (scheduler lunedì) su PvAnalyticsService + dati business, 3) Insights UI dopo risposta merge.
+
+## [2026-07-15] Nuovi filoni aperti (in attesa risposte Stefano)
+- BILLING (6206): trial 3m(2+1) fino 30/9/2026, poi 1m; mail avviso (copia info@) → Stripe ricorrente → blocco morosi; canone 9,99€/mese. Domande: trial da data reg vs fissa? canone? blocco=sospensione vs totale?
+- SCADENZA PUNTI (6207): per-PV 1a/3a/mai, UI-editable. Domande: default Mai? semantica (a) FIFO da maturazione o (b) da inattività? Poi email "punti in scadenza".
+- Nessun build partito su questi due: attendo conferme (regole "ask before big work" + no azioni prod/pagamenti senza ok).

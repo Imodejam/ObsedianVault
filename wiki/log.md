@@ -1522,3 +1522,6 @@ File chiave aggiornati:
 
 ## [2026-07-15] task | Avviato filone analytics PV: cattura cookieless visite/click su pagine pubbliche (tabella pv_events, endpoint /api/public/pv-event, JS beacon, PvAnalyticsService) → recap settimanale esercente lunedì mattina (stile Apple/Stripe) + futura pagina Insights (forse fusa con Dashboard). Subagent in esecuzione.
 ## [2026-07-15] task | Confermato: punti cliente NON scadono (nessuna logica di scadenza). Email "punti in scadenza" richiede prima regola di scadenza configurabile (proposta a Stefano).
+
+## [2026-07-15] decision | Trial abbonamento: 3 mesi (2+1) per iscritti fino al 30/9/2026, poi 1 mese dal 1/10/2026. Sequenza: mail avviso (copia info@puntify.it) → Stripe ricorrente → blocco PV morosi. Canone 9,99€/mese +IVA (base Stripe già presente). Domande aperte a Stefano.
+## [2026-07-15] decision | Scadenza punti configurabile per PV: 1 anno / 3 anni / Mai (Stefano 6207). Ledger transactions regge; scadenza via transazioni negative. Domande aperte: default Mai? semantica FIFO-da-maturazione vs inattività.
