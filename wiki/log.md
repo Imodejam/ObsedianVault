@@ -1597,3 +1597,5 @@ File chiave aggiornati:
 ## [2026-07-15] fix | Bug prenotazioni created_at=0001: TableBookingController+TakeawayBookingController non impostavano CreatedAt (10/35 record). Fix codice + backfill + default DB now(). Cleanup percorsi interni in 7 articoli supporto.
 
 ## [2026-07-15] fix | Fuso Nemi voce: path CreateVoiceBookingAsync salvava ora locale come UTC (+2h). Aggiunto TimeZoneHelper.ToUtc, convertito StartAt/EndAt, corretti 4 record esistenti (-2h DST-aware). Menu mobile: kebab azioni + conteggio prodotti sotto titolo.
+
+## [2026-07-15] task | Commit+push di tutto il lavoro (6533e5e, master, GitHub) + aggiornamento roadmap vetrina (3 fatte + 3 in arrivo pubblicabili).
