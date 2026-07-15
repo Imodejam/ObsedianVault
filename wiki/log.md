@@ -1605,3 +1605,5 @@ File chiave aggiornati:
 ## [2026-07-15] task | Roadmap vetrina aggiornata (3 rilasciate + 3 in arrivo, 10 lingue) e pushata (84a4e81). Tutto il lavoro del giorno su GitHub master.
 
 ## [2026-07-15] task | Deploy prod: risolto errore ordine migrazioni (support_articles mancante = batch 14/07 non applicato). Fornito ordine cronologico completo; migrazioni idempotenti.
+
+## [2026-07-15] fix | Mojibake caratteri speciali articoli supporto in prod (client_encoding non-UTF8). Aggiunto SET client_encoding UTF8 alla migrazione contenuti (fe241e1); ri-esecuzione idempotente sistema il mojibake.
