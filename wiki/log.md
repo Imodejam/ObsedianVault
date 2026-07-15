@@ -1540,3 +1540,5 @@ File chiave aggiornati:
 ## [2026-07-15] fix | BUG REALI trovati+fixati: (1) Transaction e (2) AccountShop mancavano [JsonPropertyName] → insert server (Stripe/ordini/prenotazioni) serializzavano PascalCase → PostgREST PGRST204 ingoiato → punti/incassi e link account↔negozio NON salvati. Aggiunti JsonPropertyName (pattern Shop). Verificato payload accettato da PostgREST. Altri insert usano oggetti anonimi (sicuri). Regola salvata in memoria.
 
 ## [2026-07-15] decision | Stefano: (2) procedi col recap settimanale + mail esempio → in build; (3) trial da creazione PV vale anche per clienti esistenti (implementazione già corretta; accensione invii in prod = step deliberato); (4) aggiungere al tracciamento pulsanti mancanti (condividi/social/loyalty/coda) → in build su Vetrina.
+
+## [2026-07-15] task | Puntify Vetrina: analytics PV — aggiunti data-pv-event share+loyalty su NegozioDetail (i18n 10 lingue). Social: nessun campo sul modello Shop → non aggiunto. Coda: QueueInfoDto senza ShopId → non tracciabile senza modifica server (vietata). Build 0 errori, vetrina riavviata.
