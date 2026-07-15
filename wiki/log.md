@@ -1563,3 +1563,5 @@ File chiave aggiornati:
 ## [2026-07-15] task | Footer: rimossa riga Supporto/assistenza (6245). Mappa del sito completata con supporto/elimina-code/demo/mappa-negozi (6246). Vetrina riavviata.
 
 ## [2026-07-15] task | Premi & DPR 430/2001: bozze copy (blocco pagina Premi + FAQ + descrizioni + microcopy + disclaimer) inviate a Stefano per approvazione con 3 domande. Implementazione in attesa di OK.
+
+## [2026-07-15] decision | Premi/DPR 430 approvato da Stefano: premio stesso-genere = escluso art.6 (nessun adempimento); altre lingue = invito a verificare normativa del proprio paese (no citazione DPR); termine "Premi"; flag per-premio same_genre con "i" + esempi per categoria + avviso se categoria diversa. Implementazione App in corso, Vetrina a seguire.
