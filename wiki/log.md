@@ -1593,3 +1593,5 @@ File chiave aggiornati:
 ## [2026-07-15] task | Fix SEO/GEO (hreflang blog/supporto/negozi, H1 mappa, twitter, noindex coda, uk locale) + articoli supporto nel sitemap.xml. Subagent in corso (unico build).
 
 ## [2026-07-15] task | SEO/GEO fix COMPLETATO (hreflang blog/supporto/negozi, H1 mappa, twitter, noindex coda, uk locale, JSON-LD lang) + articoli supporto nel sitemap.xml (25 ×10 lingue + indice). Verificato.
+
+## [2026-07-15] fix | Bug prenotazioni created_at=0001: TableBookingController+TakeawayBookingController non impostavano CreatedAt (10/35 record). Fix codice + backfill + default DB now(). Cleanup percorsi interni in 7 articoli supporto.
