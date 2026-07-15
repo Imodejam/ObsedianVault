@@ -1591,3 +1591,5 @@ File chiave aggiornati:
 ## [2026-07-15] task | Tag articoli supporto FATTO: sinonimi cercabili (fidelizzazione↔fedeltà ecc.), 25 articoli IT, inclusi in data-search. Verificato.
 
 ## [2026-07-15] task | Fix SEO/GEO (hreflang blog/supporto/negozi, H1 mappa, twitter, noindex coda, uk locale) + articoli supporto nel sitemap.xml. Subagent in corso (unico build).
+
+## [2026-07-15] task | SEO/GEO fix COMPLETATO (hreflang blog/supporto/negozi, H1 mappa, twitter, noindex coda, uk locale, JSON-LD lang) + articoli supporto nel sitemap.xml (25 ×10 lingue + indice). Verificato.
