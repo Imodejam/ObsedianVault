@@ -122,3 +122,7 @@ Stato: lanciati 5 Explore agent per estrarre route/label resx/flussi. In attesa.
 - DOMANDE a Stefano: trial_start in prod = registrazione o go-live? (consiglio go-live configurabile).
 - FASE 2 = pagina /billing + Stripe ricorrente; FASE 3 = enforcement sospensione.
 - PROSSIMO: scadenza punti (dopo FAQ subagent, per non riavviare 3 servizi insieme).
+
+## [2026-07-15] Correzione billing accodata (6218)
+- trial_start = data creazione PRIMO punto vendita (non account.insertdate). Finestra 3m/1m su quella data. Account senza PV → trial non parte.
+- Fix su SubscriptionService.ComputeTrial: da account.insertdate a MIN(shops.created_at non-deleted). Applicare quando il subagent scadenza-punti libera il server. Invii già OFF → nessun impatto immediato.

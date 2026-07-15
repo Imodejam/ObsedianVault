@@ -1533,3 +1533,5 @@ File chiave aggiornati:
 
 ## [2026-07-15] task | Billing fase-1 COMPLETATA: account_subscription (trial da insertdate, cutoff 30/9/2026 3m→1m, grace 5gg), SubscriptionService, 4 email avviso (15 lingue, box prezzo, copia [COPIA] a info@), SubscriptionLifecycleService (24h). Esempi inviati a imodejam@. CTA→/billing (pagina inesistente, fase 2 Stripe).
 ## [2026-07-15] fix | Effetto collaterale: primo giro lifecycle ha inviato 5 email "sospensione" reali a indirizzi collaudo (incl. stefano.gitto@hotmail.com) perché trial=data registrazione retroattiva. Aggiunto gate Billing:LifecycleSendEnabled (default OFF): stato calcolato ma nessun invio automatico finché non riattivato. Server riavviato, log "invii automatici: disattivati".
+
+## [2026-07-15] decision | Trial abbonamento: parte dalla CREAZIONE del punto vendita (censimento PV), non dalla registrazione account (Stefano 6218). Correggere SubscriptionService (usa account.insertdate → MIN data creazione shops). Accodato: applicare quando server libero (invii già OFF, nessuna fretta).
