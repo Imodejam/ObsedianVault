@@ -152,3 +152,7 @@ Stato: lanciati 5 Explore agent per estrarre route/label resx/flussi. In attesa.
 ## [2026-07-15] Social fields (IN CORSO)
 - Stefano: campi social configurabili da anagrafica PV. 6 reti (IG/FB/TikTok/YouTube/LinkedIn/X), URL profilo, nullable. Shop model + migration + UI anagrafica app + icone pubbliche tracciate. Subagent a57772 in corso.
 - Completa il gap "social" dell'analytics.
+
+## [2026-07-15] Social PV FATTO — gap analytics social chiuso
+- 6 reti in anagrafica + icone pubbliche tracciate (social_*). Non committato/deployato.
+- Aperti residui: feedback recap sample; Insight fuso/separato; accensione invii prod (billing+recap) = step deliberato.
