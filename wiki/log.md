@@ -1559,3 +1559,5 @@ File chiave aggiornati:
 ## [2026-07-15] task | ShopEdit form: refactor tab Anagrafica da card unica gigante a 7 card Stripe-style + aggiunta "i" (FieldInfo) ai campi social. Regola fissa: ogni nuova label ha la "i". Subagent in corso (app-only).
 
 ## [2026-07-15] task | ShopEdit form COMPLETATO: tab Anagrafica spezzata in 7 card Stripe-style (Base/Contatti/Indirizzo+fuso/Aspetto/Link pubblico+privacy/Social/Funzionalità), "i" su tutti i social, binding preservati, 10 lingue. App riavviata.
+
+## [2026-07-15] task | Footer: rimossa riga Supporto/assistenza (6245). Mappa del sito completata con supporto/elimina-code/demo/mappa-negozi (6246). Vetrina riavviata.
