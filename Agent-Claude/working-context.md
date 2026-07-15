@@ -156,3 +156,8 @@ Stato: lanciati 5 Explore agent per estrarre route/label resx/flussi. In attesa.
 ## [2026-07-15] Social PV FATTO — gap analytics social chiuso
 - 6 reti in anagrafica + icone pubbliche tracciate (social_*). Non committato/deployato.
 - Aperti residui: feedback recap sample; Insight fuso/separato; accensione invii prod (billing+recap) = step deliberato.
+
+## [2026-07-15] Premi/normativa DPR 430 — bozze inviate, ATTENDO approvazione
+- Deliverable: blocco pagina Premi (rewards), 4 FAQ, descrizione sito breve+estesa, microcopy in-app (helper + avviso categoria diversa), disclaimer. Adeguare anche Vetrina.
+- Domande aperte: (1) riferimenti legge IT-only + versione generica altre lingue? (2) termine "Premi"? (3) aggiungere flag "premio stesso genere sì/no" per l'avviso?
+- Bozze in scratchpad: puntify-premi-normativa-bozze.md. Implementare dopo OK Stefano.
