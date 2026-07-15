@@ -114,3 +114,11 @@ Stato: lanciati 5 Explore agent per estrarre route/label resx/flussi. In attesa.
 - IN CORSO (bg): billing fase-1 (server); FAQ vetrina + Prezzi/Fidelizzazione (vetrina, appena lanciato).
 - ACCODATO: scadenza punti (build, dopo che billing libera server/Program.cs).
 - APERTO: Insights fuso in Dashboard o separato? (Stefano non ha ancora risposto).
+
+## [2026-07-15] Billing fase-1 fatto + gate invii OFF
+- account_subscription + SubscriptionService + 4 email + lifecycle service. Esempi a imodejam@.
+- GATE Billing:LifecycleSendEnabled default OFF (nessun invio automatico su collaudo). Riattivare solo in prod/fase 3.
+- Effetto collaterale gestito: 5 email sospensione partite a collaudo prima del gate — segnalato a Stefano.
+- DOMANDE a Stefano: trial_start in prod = registrazione o go-live? (consiglio go-live configurabile).
+- FASE 2 = pagina /billing + Stripe ricorrente; FASE 3 = enforcement sospensione.
+- PROSSIMO: scadenza punti (dopo FAQ subagent, per non riavviare 3 servizi insieme).
