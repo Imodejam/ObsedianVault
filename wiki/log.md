@@ -1599,3 +1599,5 @@ File chiave aggiornati:
 ## [2026-07-15] fix | Fuso Nemi voce: path CreateVoiceBookingAsync salvava ora locale come UTC (+2h). Aggiunto TimeZoneHelper.ToUtc, convertito StartAt/EndAt, corretti 4 record esistenti (-2h DST-aware). Menu mobile: kebab azioni + conteggio prodotti sotto titolo.
 
 ## [2026-07-15] task | Commit+push di tutto il lavoro (6533e5e, master, GitHub) + aggiornamento roadmap vetrina (3 fatte + 3 in arrivo pubblicabili).
+
+## [2026-07-15] task | Checklist deploy prod fornita a Stefano: migrazioni DB (15/07), script manuale fuso Nemi, chiavi config (GodModePassword, invii gated=false, HashSalt). File migrazione mancanti creati+committati (23c5798).
