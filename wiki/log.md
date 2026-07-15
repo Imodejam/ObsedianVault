@@ -1542,3 +1542,5 @@ File chiave aggiornati:
 ## [2026-07-15] decision | Stefano: (2) procedi col recap settimanale + mail esempio → in build; (3) trial da creazione PV vale anche per clienti esistenti (implementazione già corretta; accensione invii in prod = step deliberato); (4) aggiungere al tracciamento pulsanti mancanti (condividi/social/loyalty/coda) → in build su Vetrina.
 
 ## [2026-07-15] task | Puntify Vetrina: analytics PV — aggiunti data-pv-event share+loyalty su NegozioDetail (i18n 10 lingue). Social: nessun campo sul modello Shop → non aggiunto. Coda: QueueInfoDto senza ShopId → non tracciabile senza modifica server (vietata). Build 0 errori, vetrina riavviata.
+
+## [2026-07-15] task | Weekly Merchant Recap Email (Puntify CAT): WeeklyRecapService (web+business), template 15 lingue, WeeklyRecapSchedulerService (lunedi Roma, gate Analytics:WeeklyRecapSendEnabled=OFF), tabella idempotenza weekly_recap_log (RLS service-role only), endpoint test-weekly-recap. Sample inviato a imodejam@gmail.com (dati rappresentativi), email_queue pending->sent. Server-only, no commit/deploy.
