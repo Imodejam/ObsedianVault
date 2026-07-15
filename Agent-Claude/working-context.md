@@ -161,3 +161,8 @@ Stato: lanciati 5 Explore agent per estrarre route/label resx/flussi. In attesa.
 - Deliverable: blocco pagina Premi (rewards), 4 FAQ, descrizione sito breve+estesa, microcopy in-app (helper + avviso categoria diversa), disclaimer. Adeguare anche Vetrina.
 - Domande aperte: (1) riferimenti legge IT-only + versione generica altre lingue? (2) termine "Premi"? (3) aggiungere flag "premio stesso genere sì/no" per l'avviso?
 - Bozze in scratchpad: puntify-premi-normativa-bozze.md. Implementare dopo OK Stefano.
+
+## [2026-07-15] ACCODATO: performance Vetrina (6252)
+- Google PageSpeed 61 desktop su puntify.it (prod). Da migliorare DOPO il feature premi (App+Vetrina).
+- Interventi previsti: immagini (lazy/dimensioni/WebP-AVIF/CLS), CSS/JS render-blocking (defer/async, purge Tailwind), font (preload/font-display), caching, LCP/CLS.
+- Lavoro su codice Vetrina collaudo → attivo col deploy prod di Stefano. Analizzare prima le opportunità reali del report PSI.
