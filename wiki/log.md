@@ -1549,3 +1549,5 @@ File chiave aggiornati:
 ## [2026-07-15] task | Coda tracciata: aggiunto ShopId a QueueInfoDto (QueuePublicController) + CodaTicket.razor espone pv-shop-id/meta + data-pv-event queue/queue_remote sui pulsanti prendi-biglietto. Server+vetrina build ok, riavviati. Social: manca modello dati (solo Website) → chiesto a Stefano se aggiungere campi social.
 
 ## [2026-07-15] task | Social PV: aggiunta campi social (instagram/facebook/tiktok/youtube/linkedin/x) all'anagrafica negozio, modificabili dall'esercente + icone tracciate su pagina pubblica (data-pv-event social_*). Subagent in corso (DB+Shop model+app UI+vetrina).
+
+## [2026-07-15] lint | Health check traduzioni: Vetrina 10 lingue copertura completa (chiavi ripartite default+it.resx, nessun IT rotto); traduzione menu on-demand 20 lingue con cache, chiave Anthropic OK, zero errori credito 24h. Nota: burst 500 del 14/7 su /api/menu/orders/{id} non legato a traduzioni.
