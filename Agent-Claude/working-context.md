@@ -69,3 +69,5 @@ IMPLEMENTATO (subagent). Build 0 errori. Collaudo riavviato (server/vetrina/app)
 Obiettivo: scrivere 2° batch (10 articoli) support_articles per Vetrina, grounded sul codice reale.
 Pagine target: MerchantOperators, MerchantTelegram, MerchantBilling/Payments, Panoramica/Insights, Clients/ClientDetail, Transactions, SocialStudio, ReceiptApproval, Scan, Credentials.
 Stato: lanciati 5 Explore agent per estrarre route/label resx/flussi. In attesa. Poi INSERT idempotente su puntify.support_articles (published, it).
+
+### [2026-07-15] 6189: reminder PV — (2) a TUTTI = già così (nessun filtro isapproved), nessuna modifica. (1) criterio 'configurato' non chiaro a Stefano: rispiegato + proposto criterio più stretto = fermare i reminder solo quando ha attivato almeno un servizio (menù pubblicato / raccolta punti / prenotazioni) invece del solo indirizzo. In attesa scelta; se sì, modifica in IsPvConfiguredAsync.
