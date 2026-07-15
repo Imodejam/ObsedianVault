@@ -1607,3 +1607,5 @@ File chiave aggiornati:
 ## [2026-07-15] task | Deploy prod: risolto errore ordine migrazioni (support_articles mancante = batch 14/07 non applicato). Fornito ordine cronologico completo; migrazioni idempotenti.
 
 ## [2026-07-15] fix | Mojibake caratteri speciali articoli supporto in prod (client_encoding non-UTF8). Aggiunto SET client_encoding UTF8 alla migrazione contenuti (fe241e1); ri-esecuzione idempotente sistema il mojibake.
+
+## [2026-07-15] fix | Mojibake supporto DEFINITIVO: content migration riscritta in puro ASCII con escape Unicode Postgres (E'\uXXXX') — immune al client SQL. 25 articoli. Commit 2a63141.
