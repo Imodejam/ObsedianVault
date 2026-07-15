@@ -136,3 +136,8 @@ Stato: lanciati 5 Explore agent per estrarre route/label resx/flussi. In attesa.
 - Recap settimanale (server): WeeklyRecapService + WeeklyRecap email (15 lingue) + scheduler lunedì Roma (gate Analytics:WeeklyRecapSendEnabled default OFF) + endpoint test → mail esempio a imodejam@. Subagent in corso.
 - Pulsanti analytics mancanti (vetrina): share + social (se configurati) + loyalty CTA (se attivo) + shop-id/coda su CodaTicket/CodaBiglietto, con data-pv-event. Subagent in corso.
 - #3 confermato: trial da creazione PV anche per esistenti. Accensione invii prod = step voluto.
+
+## [2026-07-15] Pulsanti analytics — esito
+- FATTO: share + loyalty CTA (data-gated HasLoyalty) su NegozioDetail, tracciati (data-pv-event share/loyalty).
+- SOCIAL: nessun campo social nel modello Shop (solo Website) → per tracciarli serve prima aggiungere campi social (feature): CHIESTO a Stefano.
+- CODA: CodaTicket/CodaBiglietto non espongono shop id (QueueInfoDto senza ShopId). ACCODATO: aggiungere ShopId a QueueInfoDto (QueuePublicController) + esporre pv-shop-id + taggare "prendi biglietto". Fare quando il recap subagent libera il server.
