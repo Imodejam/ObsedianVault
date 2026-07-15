@@ -1589,3 +1589,5 @@ File chiave aggiornati:
 ## [2026-07-15] task | Tag su articoli supporto (sinonimi per ricerca) + audit SEO/GEO tutte le pagine vetrina. Due subagent (tags=build, SEO=read-only) in corso.
 
 ## [2026-07-15] task | Tag articoli supporto FATTO: sinonimi cercabili (fidelizzazione↔fedeltà ecc.), 25 articoli IT, inclusi in data-search. Verificato.
+
+## [2026-07-15] task | Fix SEO/GEO (hreflang blog/supporto/negozi, H1 mappa, twitter, noindex coda, uk locale) + articoli supporto nel sitemap.xml. Subagent in corso (unico build).
