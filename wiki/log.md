@@ -1643,3 +1643,5 @@ File chiave aggiornati:
 ## [2026-07-16] task | Fix upload immagini prod (foto piatti/AI): AmazonS3Config RequestChecksumCalculation=WHEN_REQUIRED (SDK v4 chunked+CRC32 trailer rifiutato da MinIO).
 
 ## [2026-07-16] task | Web push biglietto coda (Fase 1): SW+FCM web su Vetrina, token per biglietto, invio "tocca a te"/"manca poco" su call-next. Da testare CAT (HTTPS).
+
+## [2026-07-16] lint | Routine 9:00: traduzioni Vetrina 10 lingue complete (0 mancanti); traduzione menu (Anthropic claude-haiku-4-5) senza blocchi. Nessun problema.
