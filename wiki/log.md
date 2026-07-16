@@ -1671,3 +1671,5 @@ File chiave aggiornati:
 ## [2026-07-16] decision | Nuovo progetto Puntify Social Skin (post giornaliero brand su IG/LinkedIn/FB, gpt-image-2 + approvazione Telegram + Buffer). Inviate domande di scoping, in attesa.
 
 ## [2026-07-16] task | Social Skin: risposte scoping ricevute, knowledge base creato, gpt-image-2 verificato, prototipo (Elimina code) generato e inviato per approvazione. Blocco: token Buffer.
+
+## [2026-07-16] task | Social Skin: versione immagine con icona Puntify sullo schermo (approvata), libreria persistente /home/progetti/puntify-social + metadata, direzione creativa spirito Taffo/KiRweb aggiunta al knowledge.

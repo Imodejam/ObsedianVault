@@ -80,3 +80,27 @@ Angolo: "capisci cosa funziona, ogni lunedì".
 - Rotazione: non ripetere lo stesso servizio nei 5 giorni precedenti (tenere uno storico nello state).
 - Best time: usare la pianificazione ottimale di Buffer.
 - Approvazione SEMPRE prima della pubblicazione (Approva / Rigenera / Modifica testo).
+
+## Direzione creativa — spirito Taffo / KiRweb (Riccardo Pirrone)
+Obiettivo: post ORIGINALI e condivisibili, non foto stock generiche. Principi:
+1. Ironia intelligente: un'osservazione arguta + un twist. Mai corporate/piatto.
+2. Newsjacking / instant marketing: agganciarsi a attualita', stagionalita', meteo, festivita', trend
+   virali del momento, con l'angolo Puntify. (Il post giornaliero puo' cavalcare cio' che e' "caldo" oggi.)
+3. Copy corto e sfrontato: una frase bold + punchline. Meno testo, piu' impatto.
+4. Un "nemico" riconoscibile = i dolori VERI del negoziante: la fila, il caos, i clienti che spariscono,
+   lo scontrino perso, il telefono che squilla mentre servi, il menu cartaceo unto. Puntify = la soluzione furba.
+5. Linea di gusto: audace ma mai offensivo verso i clienti. Come Taffo scherza sulla morte (il concetto)
+   e non sui morti: noi scherziamo sui PROBLEMI, non sulle persone. Niente politica/religione/tragedie.
+6. Spettacolo > polish: sorprendere, essere memorabili, generare condivisioni e commenti.
+
+Esempi di linea (testo, tono Taffo adattato):
+- FEDELTA': "I clienti hanno la memoria di un pesce rosso. Con la raccolta punti Puntify, se la ricordano eccome. 🐠"
+- ELIMINA CODE: "La fila davanti al bancone e' come le tasse: nessuno la vuole ma arriva sempre. Con Puntify, sparisce."
+- MENU DIGITALE: "Il tuo menu cartaceo ha toccato piu' mani di un corrimano della metro. Passa al menu digitale. 🧼"
+- NEMI VOCE: "Squilla il telefono mentre hai le mani nel forno? Risponde Nemi. Tu continui a infornare."
+- CASSA: "Perdere uno scontrino e' come perdere le chiavi: sempre nel momento peggiore. Con la Cassa Puntify il conto torna."
+- PRENOTAZIONI: "Il tuo locale lavora anche mentre dormi. Le prenotazioni Puntify arrivano h24, tu russi."
+
+Uso operativo: la skin, oltre alla rotazione servizi, valuta ogni giorno se c'e' un aggancio di attualita'
+sfruttabile (newsjacking) e sceglie l'angolo piu' condivisibile. L'immagine gpt-image-2 deve rispecchiare
+il concetto (spesso una scena reale col totem/schermo che mostra l'app/icona Puntify), stile agenzia.
