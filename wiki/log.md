@@ -1623,3 +1623,5 @@ File chiave aggiornati:
 ## [2026-07-16] task | Email FeatureDiscovery: icone servizi della home esercente (PNG da webp) al posto delle emoji nelle card.
 
 ## [2026-07-16] task | Prod menu 500 risolto: created_at corrotto (offset LMT Roma) -> converter DateTime tollerante in SupabaseClient + migration cleanup created_at/updated_at su tutto lo schema.
+
+## [2026-07-16] task | /consent 42P01 risolto: trigger consensi inseriva in consent_history non qualificato (public) mentre la tabella e' in puntify; in prod mancava. Migration crea tabella + qualifica funzione.
