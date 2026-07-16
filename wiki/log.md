@@ -1685,3 +1685,5 @@ File chiave aggiornati:
 ## [2026-07-16] ingest | Social Skin: scaricate 25 creativita KiRweb (12 clienti) + EXTRA_PRINCIPLES.md (11 tecniche); integrate nel knowledge base.
 
 ## [2026-07-16] task | Social Skin: Stefano approva demo. Avviata build scripts skin (subagent): topics rotation, image gen+composite, storage files.puntify.it, buffer publish, run_draft/publish. Cron 7gg da ri-armare.
+
+## [2026-07-16] task | Social Skin: cron corretto a 13:37 UTC=15:37 Roma (sessione UTC, Stefano CEST). Job 1430aba3. Prima bozza 17/07 inviata a mano oggi (finestra 15-16 gia passata); dal 17 cron automatico.
