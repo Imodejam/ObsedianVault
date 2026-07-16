@@ -1681,3 +1681,5 @@ File chiave aggiornati:
 ## [2026-07-16] task | Social Skin: analisi 12 pubblicita Taffo + prompt distillato (PUNTIFY_STYLE_PROMPT.md) come motore creativo (copy+immagine, guardrail, 5 esempi). Inviato a Stefano.
 
 ## [2026-07-16] task | Social Skin: generato demo post stile Taffo (servizio Cassa/scontrino) — gpt-image-2 scena + headline/logo reale compositati; inviato a Stefano per approvazione. Subagent scarica campagne KiRweb.
+
+## [2026-07-16] ingest | Social Skin: scaricate 25 creativita KiRweb (12 clienti) + EXTRA_PRINCIPLES.md (11 tecniche); integrate nel knowledge base.

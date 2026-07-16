@@ -118,3 +118,19 @@ template copy con guardrail, template immagine gpt-image-2, 5 esempi). Pivot: br
 dolore del negoziante (fila/caos/scontrini/telefono/menu unto), cliente sempre eroe.
 Immagine: scena/oggetto-simbolo minimale, accento rosso #B80000, headline aggiunta in post,
 logo Puntify reale compositato (mai disegnato dall'AI).
+
+## Tecniche extra KiRweb (25 creativita, 12 clienti oltre Taffo)
+Analisi in /home/progetti/puntify-social/research/kirweb/ANALYSIS.md + EXTRA_PRINCIPLES.md.
+11 tecniche aggiuntive oltre i 7 principi Taffo, da usare nel motore creativo:
+- A. Prima il REGISTRO (ironico per food/retail, empatico/serio per temi delicati), poi lo stesso scheletro.
+- B. FORMAT SERIALI: progettare template riempibili ("[X] fa Y"), non one-shot -> scalabile e riconoscibile.
+- C. PARODIA CULTURALE evergreen (arte, letteratura, proverbi) oltre al newsjacking di attualita.
+- D. PLATFORM MIMICRY: finta notifica/DM/recensione/ordine/prenotazione nativa -> scroll-stop (ottimo per Puntify).
+- E. PAIN-POINT DIMOSTRATO: mostrare la frustrazione (fila/caos/scontrino), non elogiare il prodotto.
+- F. METAFORA VISIVA LETTERALE: realizzare fisicamente un modo di dire.
+- G. BRAND/FUNZIONE DENTRO L'IDIOMA: sostituire una parola di un modo di dire con Puntify/servizio.
+- H. ANIMALI/TENEREZZA come moltiplicatore di reach quando il tema lo consente.
+- I. COLORE = insegna: accento sempre dal brand (Puntify = rosso #B80000).
+- J. LAYOUT SOLO-TESTO ammesso quando la battuta basta (tipografia + campo colore).
+- K. CTA travestita da battuta: l'azione-prodotto dentro la gag.
+Best fit per Puntify: A, B (serie), D (finta prenotazione/ordine/recensione), E, G, K.
