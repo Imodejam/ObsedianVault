@@ -1611,3 +1611,5 @@ File chiave aggiornati:
 ## [2026-07-15] fix | Mojibake supporto DEFINITIVO: content migration riscritta in puro ASCII con escape Unicode Postgres (E'\uXXXX') — immune al client SQL. 25 articoli. Commit 2a63141.
 
 ## [2026-07-16] task | Pagina Dispositivi: fix hijack anteprima totem su iOS (embed+guardie coda) + separazione cucina/code + hiding monitor per feature-flag (HasQueue/HasScreens). Subagent in corso.
+
+## [2026-07-16] task | Pagina Dispositivi: fix hijack totem iOS (embed+guardie+sandbox), gruppi Code/Cucina, hiding per feature-flag. Rimossa migrazione obsoleta. Commit c803df5 pushato.
