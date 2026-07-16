@@ -1627,3 +1627,5 @@ File chiave aggiornati:
 ## [2026-07-16] task | /consent 42P01 risolto: trigger consensi inseriva in consent_history non qualificato (public) mentre la tabella e' in puntify; in prod mancava. Migration crea tabella + qualifica funzione.
 
 ## [2026-07-16] task | /consent: esito salvataggio ora via toast standard (cfg-toast success/error) invece dell'alert inline.
+
+## [2026-07-16] task | Pannello Nemi: contesto pagina nel system prompt + chiusura con ESC + icona nuova conversazione chiara (compose).
