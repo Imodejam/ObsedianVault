@@ -1714,3 +1714,5 @@ File chiave aggiornati:
 ## [2026-07-16 19:15] task | Rifinitura home kiosk (feedback Stefano): blocchi Consigliati/Esplora -> titolo in alto + sezioni sotto full-width (no piu label-left/card-right che si tagliano); font riequilibrati per monitor grande; rename residuo "I piatti piu amati"->"proposte" tutte lingue. Subagent in corso, screenshot per OK.
 
 ## [2026-07-16 19:20] task | Home kiosk rifinita: titolo sopra + griglia 3 col full-width, font riequilibrati, "Le proposte piu amate". Verificato headless. Inviato a Stefano per OK finale -> poi commit pacchetto kiosk (MerchantMenuPreview.razor+menu-public.css, non ancora committato dopo 3315641) + deploy Vetrina prod.
+
+## [2026-07-16 22:54] task | Nemi tool formati+tipo: AddDishTool e UpdateDishTool ora espongono `formats` (varianti prezzo: calice/bottiglia/media/al metro) e `kind` (food/drink); add_dish marca anche la nuova sezione drink; system prompt NemiChatService aggiornato (bevande->drink + proponi formati). Modello DB gia supportava (ShopMenuDish.Formats/Kind, DishFormat). Hot-reload CAT OK. Da committare.
