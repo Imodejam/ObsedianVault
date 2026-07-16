@@ -1621,3 +1621,5 @@ File chiave aggiornati:
 ## [2026-07-16] task | Supporto multilingua COMPLETO: 25 articoli + 38 stringhe UI in 9 lingue (en,es,fr,pt,zh,ar,hi,bn,uk); render verificato; migration prod pronta.
 
 ## [2026-07-16] task | Email FeatureDiscovery: icone servizi della home esercente (PNG da webp) al posto delle emoji nelle card.
+
+## [2026-07-16] task | Prod menu 500 risolto: created_at corrotto (offset LMT Roma) -> converter DateTime tollerante in SupabaseClient + migration cleanup created_at/updated_at su tutto lo schema.
