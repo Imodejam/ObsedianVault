@@ -1615,3 +1615,5 @@ File chiave aggiornati:
 ## [2026-07-16] task | Pagina Dispositivi: fix hijack totem iOS (embed+guardie+sandbox), gruppi Code/Cucina, hiding per feature-flag. Rimossa migrazione obsoleta. Commit c803df5 pushato.
 
 ## [2026-07-16] task | App: auto-reload dopo pubblicazione (version-watch.js poll build-info) — elimina l'hard-refresh manuale del cliente su browser e WebView iOS/Android.
+
+## [2026-07-16] task | Supporto multilingua: 25 articoli x 9 lingue su CAT (migration ASCII-safe idempotente) + fix pagina articolo per-lingua; in corso traduzione chiavi UI resx.
