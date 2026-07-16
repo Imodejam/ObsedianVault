@@ -1691,3 +1691,5 @@ File chiave aggiornati:
 ## [2026-07-16] task | Social Skin: script build+test OK (LinkedIn+FB connessi, IG disconnesso). Bozza 17/07 raccolta_punti generata e verificata; invio programmato 17:00 Roma (one-shot 250ecb5b). Cron giornaliero 15:37 Roma (1430aba3).
 
 ## [2026-07-16] task | Puntify App fix: popup conferma eliminazione (prodotto+sezione) in MenuEditor.razor si chiudeva dopo 2.2s (await Toast prima della chiusura). Ora chiude subito poi mostra toast.
+
+## [2026-07-16] task | Nemi si blocca (segnalazione Stefano): 2 screenshot. (1) chat Nemi da solo ACK senza agire; (2) puntify.it/api/menu/dishes/{id} -> {"error":"API Key missing"} (guard ApiKeyAuthMiddleware, atteso per hit browser senza X-API-Key). nemi_tasks CAT: task vecchie >24h fallite "operation canceled" (timeout LLM). Chat attuale = interattiva (non coda). Chiesto a Stefano se prod o CAT per log giusti.
