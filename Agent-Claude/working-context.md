@@ -166,3 +166,8 @@ Stato: lanciati 5 Explore agent per estrarre route/label resx/flussi. In attesa.
 - Google PageSpeed 61 desktop su puntify.it (prod). Da migliorare DOPO il feature premi (App+Vetrina).
 - Interventi previsti: immagini (lazy/dimensioni/WebP-AVIF/CLS), CSS/JS render-blocking (defer/async, purge Tailwind), font (preload/font-display), caching, LCP/CLS.
 - Lavoro su codice Vetrina collaudo → attivo col deploy prod di Stefano. Analizzare prima le opportunità reali del report PSI.
+
+## [2026-07-16 13:15] Nuovo progetto: Puntify Social Skin
+Skill post giornaliero brand (IG/LinkedIn/FB) via gpt-image-2 + approvazione @PuntifyNemiBot + Buffer.
+Inviate 8 domande di scoping (msg 6412), in attesa risposte. Dettagli: wiki/projects/puntify-social-skin.md.
+gpt-image-2 c'e'; Buffer no. Social Studio OAuth = merchant, non brand.
