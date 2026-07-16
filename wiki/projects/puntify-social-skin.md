@@ -38,3 +38,18 @@ Risposte Stefano: 1=A (skill schedulata che orchestro io), 2=Sì (ha Buffer), 3=
 1. Ricevere token Buffer -> integrare pubblicazione (best time) su IG/LinkedIn/FB.
 2. Costruire la skill/cron giornaliera: topic-rotation (storico ultimi 5gg) -> testo -> gpt-image-2 -> invio approvazione con pulsanti inline -> on Approva pubblica su Buffer.
 3. Stato/storico argomenti (per evitare ripetizioni).
+
+## Aggiornamento 2026-07-16 13:40 — pipeline VALIDATA
+- Immagine: OpenAI /v1/images/edits con gpt-image-2 + logo reale in input (puntify.red.png) -> scena
+  REALISTICA con UI app sullo schermo (numero coda) e logo molto fedele. Meglio del compositing per il realismo.
+  (Compositing resta opzione per logo pixel-perfect garantito.)
+- BUFFER: token (Public API) funziona su api.buffer.com (GraphQL). Account imodejam@hotmail.it,
+  org 62626715e1ac600e8b5da016. Canali collegati: Facebook "Puntify", Instagram "puntify.it", LinkedIn "puntify".
+  Mutation createPost disponibile. Input: channelId + text + assets:[{image:{url}}] + schedulingType(notification/automatic)/dueAt.
+  Immagine via URL PUBBLICO (Buffer la scarica) -> hostare su MinIO/S3 pubblico Puntify.
+  Token in /home/progetti/puntify-social/.secrets/buffer_token (600, fuori repo).
+- Pipeline completa validata: topic -> testo (Taffo) -> gpt-image-2 edits+logo -> upload URL pubblico ->
+  approvazione inline @PuntifyNemiBot -> createPost sui 3 canali (dueAt=best time).
+
+## TODO build
+- Skill/cron giornaliera; hosting immagine (bucket pubblico); approvazione inline via NemiBot token (Telegram Bot API sendPhoto+inline_keyboard, callback via webhook Puntify o polling); rotazione+newsjacking; best-time scheduling.

@@ -1673,3 +1673,5 @@ File chiave aggiornati:
 ## [2026-07-16] task | Social Skin: risposte scoping ricevute, knowledge base creato, gpt-image-2 verificato, prototipo (Elimina code) generato e inviato per approvazione. Blocco: token Buffer.
 
 ## [2026-07-16] task | Social Skin: versione immagine con icona Puntify sullo schermo (approvata), libreria persistente /home/progetti/puntify-social + metadata, direzione creativa spirito Taffo/KiRweb aggiunta al knowledge.
+
+## [2026-07-16] task | Social Skin: pipeline VALIDATA end-to-end. gpt-image-2 edits+logo reale (realistico). Buffer token OK (api.buffer.com GraphQL), 3 canali collegati (FB/IG/LinkedIn), createPost pronto, immagine via URL pubblico.
