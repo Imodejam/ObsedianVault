@@ -1609,3 +1609,5 @@ File chiave aggiornati:
 ## [2026-07-15] fix | Mojibake caratteri speciali articoli supporto in prod (client_encoding non-UTF8). Aggiunto SET client_encoding UTF8 alla migrazione contenuti (fe241e1); ri-esecuzione idempotente sistema il mojibake.
 
 ## [2026-07-15] fix | Mojibake supporto DEFINITIVO: content migration riscritta in puro ASCII con escape Unicode Postgres (E'\uXXXX') — immune al client SQL. 25 articoli. Commit 2a63141.
+
+## [2026-07-16] task | Pagina Dispositivi: fix hijack anteprima totem su iOS (embed+guardie coda) + separazione cucina/code + hiding monitor per feature-flag (HasQueue/HasScreens). Subagent in corso.
