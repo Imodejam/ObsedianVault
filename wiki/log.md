@@ -1700,3 +1700,5 @@ File chiave aggiornati:
 ## [2026-07-16] decision | Commit 0f06086 pushato su master (Imodejam/Puntify): 5 fix (retry MiniMax, retry S3, guard admin_activity_log, verbosita upload, popup elimina). Stefano deploya prod.
 
 ## [2026-07-16] decision | Upload foto sezione prod: ROOT CAUSE = Expect:100-Continue non gestito dal proxy storage prod (bucket dishimages-prod) -> Connection reset. Fix commit 6ca82ee: ServicePointManager.Expect100Continue=false in S3StorageService. (CAT ok perche Caddy lo gestisce). Verbosita upload (0f06086) ha rivelato detail/inner. Stefano rideploya prod.
+
+## [2026-07-16] task | Redesign menu pubblico (Vetrina MerchantMenuPreview): sotto-sezioni ora scroll verticale continuo con header sticky ricorsivo (3 livelli), niente piu card drill-down. + media query kiosk 1080x1920. Fix bug sticky (overflow-x body->clip su menu-public.css). CSS ?v bumpato. Testato headless su Pepto (dati nidificati temp, rimossi). NON committato: attendo OK Stefano + decisione colonna sinistra vuota (centrare?). Serve deploy Vetrina prod.
