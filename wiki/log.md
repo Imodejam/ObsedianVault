@@ -1631,3 +1631,5 @@ File chiave aggiornati:
 ## [2026-07-16] task | Pannello Nemi: contesto pagina nel system prompt + chiusura con ESC + icona nuova conversazione chiara (compose).
 
 ## [2026-07-16] task | Pagina coda: label Aperta verde / Chiusa rossa (QueueList).
+
+## [2026-07-16] task | Notifica Telegram (@PuntifyNemiBot) alla creazione di una coda, come per i premi (app->admin-events->AdminMonitorHelper).
