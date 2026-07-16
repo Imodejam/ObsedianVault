@@ -1635,3 +1635,5 @@ File chiave aggiornati:
 ## [2026-07-16] task | Notifica Telegram (@PuntifyNemiBot) alla creazione di una coda, come per i premi (app->admin-events->AdminMonitorHelper).
 
 ## [2026-07-16] task | Totem coda: tasti centrati quando pochi + matrice/lista responsive (flex wrap).
+
+## [2026-07-16] task | Totem tasti uniformi (stessa larghezza/altezza). Diagnosi suono/Firebase coda: web-push biglietto mancante, proposto di implementarlo.
