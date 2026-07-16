@@ -1641,3 +1641,5 @@ File chiave aggiornati:
 ## [2026-07-16] task | Icone "i" su tutte le pagine Risorse (33 campi) con tooltip tradotti in 10 lingue.
 
 ## [2026-07-16] task | Fix upload immagini prod (foto piatti/AI): AmazonS3Config RequestChecksumCalculation=WHEN_REQUIRED (SDK v4 chunked+CRC32 trailer rifiutato da MinIO).
+
+## [2026-07-16] task | Web push biglietto coda (Fase 1): SW+FCM web su Vetrina, token per biglietto, invio "tocca a te"/"manca poco" su call-next. Da testare CAT (HTTPS).
