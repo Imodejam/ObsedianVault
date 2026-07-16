@@ -1657,3 +1657,5 @@ File chiave aggiornati:
 ## [2026-07-16] task | Fix creazione accesso operatore: pre-check email UNIQUE + rollback utente auth orfano (prod: email demo gia' esistente faceva fallire l'insert account e lasciava orfani).
 
 ## [2026-07-16] task | Commit f5ce07d pushato su master: 76 file (fix prod + web push biglietto + code + Nemi + traduzioni supporto + Risorse + totem). 4 migration prod pronte.
+
+## [2026-07-16] task | Web push ordini menu (Fase 2): notifica cliente a ogni cambio stato (ricevuto/in preparazione/pronto), token legato all'ordine, riusa infra Fase 1.
