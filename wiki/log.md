@@ -1629,3 +1629,5 @@ File chiave aggiornati:
 ## [2026-07-16] task | /consent: esito salvataggio ora via toast standard (cfg-toast success/error) invece dell'alert inline.
 
 ## [2026-07-16] task | Pannello Nemi: contesto pagina nel system prompt + chiusura con ESC + icona nuova conversazione chiara (compose).
+
+## [2026-07-16] task | Pagina coda: label Aperta verde / Chiusa rossa (QueueList).
