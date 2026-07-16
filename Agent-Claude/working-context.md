@@ -1,7 +1,7 @@
 # Working context — 2026-07-16 ~23:01 Roma (fine giornata)
 
 ## Commit oggi su master (Imodejam/Puntify) — DA DEPLOYARE IN PROD
-Server: 0f06086 (retry MiniMax+S3, guard admin_activity_log, verbosita upload, popup elimina), 6ca82ee (Expect:100-Continue off upload), 662fa7c (Nemi formati/tipo food-drink)
+Server: 0f06086 (retry MiniMax+S3, guard admin_activity_log, verbosita upload, popup elimina), 6ca82ee (Expect:100-Continue off upload), 662fa7c (Nemi formati/tipo food-drink), 87a1f50 (Nemi allergeni obbligatori)
 Vetrina: 3315641 (menu sotto-sezioni scroll+sticky), 6a06f91 (kiosk McDonald + terminologia proposte)
 Su CAT tutto attivo (hot-reload).
 

@@ -1718,3 +1718,5 @@ File chiave aggiornati:
 ## [2026-07-16 22:54] task | Nemi tool formati+tipo: AddDishTool e UpdateDishTool ora espongono `formats` (varianti prezzo: calice/bottiglia/media/al metro) e `kind` (food/drink); add_dish marca anche la nuova sezione drink; system prompt NemiChatService aggiornato (bevande->drink + proponi formati). Modello DB gia supportava (ShopMenuDish.Formats/Kind, DishFormat). Hot-reload CAT OK. Da committare.
 
 ## [2026-07-16 23:01] decision | Push finale: 6a06f91 (kiosk McDonald+proposte, Vetrina) e 662fa7c (Nemi formati/tipo food-drink, Server). Deploy prod da fare: Server(0f06086,6ca82ee,662fa7c)+Vetrina(3315641,6a06f91). Aperto: upload foto prod (Caddy request_body max_size).
+
+## [2026-07-16 23:07] task | Nemi allergeni obbligatori: system prompt NemiChatService istruisce a inferire+popolare SEMPRE gli allergeni EU14 (campo allergens gia esistente) creando/riempiendo un prodotto (cibo/bevanda). Commit 87a1f50 pushato. Deploy Server prod aggiornato: +87a1f50.
