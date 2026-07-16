@@ -109,3 +109,12 @@ Esempi di linea (testo, tono Taffo adattato):
 Uso operativo: la skin, oltre alla rotazione servizi, valuta ogni giorno se c'e' un aggancio di attualita'
 sfruttabile (newsjacking) e sceglie l'angolo piu' condivisibile. L'immagine gpt-image-2 deve rispecchiare
 il concetto (spesso una scena reale col totem/schermo che mostra l'app/icona Puntify), stile agenzia.
+
+## Motore creativo — stile Taffo (analisi + prompt)
+Analisi di 12 pubblicita Taffo/KiRweb reali + prompt distillato riadattato a Puntify in:
+/home/progetti/puntify-social/research/taffo/ANALYSIS.md e PUNTIFY_STYLE_PROMPT.md
+Usare quel PUNTIFY_STYLE_PROMPT.md come motore per COPY e IMMAGINE dei post (7 principi DNA,
+template copy con guardrail, template immagine gpt-image-2, 5 esempi). Pivot: bright humor sul
+dolore del negoziante (fila/caos/scontrini/telefono/menu unto), cliente sempre eroe.
+Immagine: scena/oggetto-simbolo minimale, accento rosso #B80000, headline aggiunta in post,
+logo Puntify reale compositato (mai disegnato dall'AI).
