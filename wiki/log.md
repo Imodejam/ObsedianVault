@@ -1665,3 +1665,5 @@ File chiave aggiornati:
 ## [2026-07-16] task | Email operatore modificabile + email di avviso all'operatore su creazione/cambio (endpoint change-email + notifica).
 
 ## [2026-07-16] task | Biglietto: tap silenzia cicalino + recensione a fine servizio (riuso /recensione esteso ai ticket coda). Fix 42501 reviews (grant+policy lettura pubblicate).
+
+## [2026-07-16] task | Commit bc042d2 pushato su master: web push ordini Fase 2, email operatore, recensione biglietto, fix accesso operatore + reviews 42501. 8 migration prod totali oggi.
