@@ -1722,3 +1722,5 @@ File chiave aggiornati:
 ## [2026-07-16 23:07] task | Nemi allergeni obbligatori: system prompt NemiChatService istruisce a inferire+popolare SEMPRE gli allergeni EU14 (campo allergens gia esistente) creando/riempiendo un prodotto (cibo/bevanda). Commit 87a1f50 pushato. Deploy Server prod aggiornato: +87a1f50.
 
 ## [2026-07-16 23:16] task | Nemi riservatezza tecnica: guardrail system prompt - mai mostrare al merchant stack/tecnologia, id/UUID, chiavi, query, tabelle, nomi tool, log/errori tecnici; solo termini business; id solo dentro URL link. Commit pushato.
+
+## [2026-07-16 23:30] task | Nemi autonomia multi-step: regola system prompt - dopo ok/piano esegue TUTTI gli step coi tool senza fermarsi tra uno e l altro ne solo descrivere; stop solo per info mancante o op distruttiva. (ExecuteRemainingSteps gia autonomo lato worker; fix comportamentale conversazionale). Commit pushato.
