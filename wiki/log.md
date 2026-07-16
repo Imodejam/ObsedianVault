@@ -1639,3 +1639,5 @@ File chiave aggiornati:
 ## [2026-07-16] task | Totem tasti uniformi (stessa larghezza/altezza). Diagnosi suono/Firebase coda: web-push biglietto mancante, proposto di implementarlo.
 
 ## [2026-07-16] task | Icone "i" su tutte le pagine Risorse (33 campi) con tooltip tradotti in 10 lingue.
+
+## [2026-07-16] task | Fix upload immagini prod (foto piatti/AI): AmazonS3Config RequestChecksumCalculation=WHEN_REQUIRED (SDK v4 chunked+CRC32 trailer rifiutato da MinIO).
