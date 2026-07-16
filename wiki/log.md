@@ -1663,3 +1663,5 @@ File chiave aggiornati:
 ## [2026-07-16] task | Diagnosi prod operatore 500 dai log: set_account_id() prod obsoleta (manca caso service_role) -> P0001 Not authenticated. Migration fix_set_account_id pronta.
 
 ## [2026-07-16] task | Email operatore modificabile + email di avviso all'operatore su creazione/cambio (endpoint change-email + notifica).
+
+## [2026-07-16] task | Biglietto: tap silenzia cicalino + recensione a fine servizio (riuso /recensione esteso ai ticket coda). Fix 42501 reviews (grant+policy lettura pubblicate).
