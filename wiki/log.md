@@ -1698,3 +1698,5 @@ File chiave aggiornati:
 
 ## [2026-07-16] task | Social: post 17/07 (raccolta_punti) schedulato su Buffer IG+LI+FB per 2026-07-17 12:30 Roma (customScheduled dueAt); create_post ora setta metadata per-servizio (IG type+shouldShareToFeed, FB type). topic-history aggiornato.
 ## [2026-07-16] decision | Commit 0f06086 pushato su master (Imodejam/Puntify): 5 fix (retry MiniMax, retry S3, guard admin_activity_log, verbosita upload, popup elimina). Stefano deploya prod.
+
+## [2026-07-16] decision | Upload foto sezione prod: ROOT CAUSE = Expect:100-Continue non gestito dal proxy storage prod (bucket dishimages-prod) -> Connection reset. Fix commit 6ca82ee: ServicePointManager.Expect100Continue=false in S3StorageService. (CAT ok perche Caddy lo gestisce). Verbosita upload (0f06086) ha rivelato detail/inner. Stefano rideploya prod.
