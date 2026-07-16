@@ -1710,3 +1710,5 @@ File chiave aggiornati:
 ## [2026-07-16] task | Menu terminologia: "piatti" -> "proposte" (termine neutro cibo+bevande) nel contatore e sottotitolo, tutte le lingue (UiStrings in MerchantMenuPreview.razor). Integrato nel subagent kiosk (stesso file, evita conflitti). Override negozi-servizi resta "servizi".
 
 ## [2026-07-16] task | Menu kiosk McDonald DONE (CAT): rail sinistra sezioni (foto+accento), prodotti destra griglia 2col + header sticky, barra orizzontale nascosta solo kiosk, mobile/desktop invariati. + rename piatti->proposte in 20 lingue (servizi resta). Verificato headless (3 screenshot). NON committato: attendo OK Stefano. Nota: card categorie in home kiosk ridondanti col rail (posso nascondere).
+
+## [2026-07-16 19:15] task | Rifinitura home kiosk (feedback Stefano): blocchi Consigliati/Esplora -> titolo in alto + sezioni sotto full-width (no piu label-left/card-right che si tagliano); font riequilibrati per monitor grande; rename residuo "I piatti piu amati"->"proposte" tutte lingue. Subagent in corso, screenshot per OK.
