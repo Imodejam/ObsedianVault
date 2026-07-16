@@ -1651,3 +1651,5 @@ File chiave aggiornati:
 ## [2026-07-16] task | Pagina operate coda: combo selezione coda + modalità "Tutte" (call-next cross-coda per attesa più lunga).
 
 ## [2026-07-16] task | Fix falsa notifica "utente registrato" per email gia' esistente (GoTrue anti-enumerazione: Identities vuoto = non nuovo).
+
+## [2026-07-16] task | Panoramica sezione code: nuovo endpoint tickets/range (tutti stati sul periodo) - prima usava l'endpoint operativo (solo oggi/attivi) e restava vuota.
