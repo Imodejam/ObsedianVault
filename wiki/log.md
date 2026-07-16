@@ -1647,3 +1647,5 @@ File chiave aggiornati:
 ## [2026-07-16] lint | Routine 9:00: traduzioni Vetrina 10 lingue complete (0 mancanti); traduzione menu (Anthropic claude-haiku-4-5) senza blocchi. Nessun problema.
 
 ## [2026-07-16] task | Chat Nemi: Shift+Invio a capo, suoni invio/risposta, effetto typewriter, refresh pagina dopo modifiche (ToolsUsed).
+
+## [2026-07-16] task | Pagina operate coda: combo selezione coda + modalità "Tutte" (call-next cross-coda per attesa più lunga).
