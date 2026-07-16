@@ -1724,3 +1724,5 @@ File chiave aggiornati:
 ## [2026-07-16 23:16] task | Nemi riservatezza tecnica: guardrail system prompt - mai mostrare al merchant stack/tecnologia, id/UUID, chiavi, query, tabelle, nomi tool, log/errori tecnici; solo termini business; id solo dentro URL link. Commit pushato.
 
 ## [2026-07-16 23:30] task | Nemi autonomia multi-step: regola system prompt - dopo ok/piano esegue TUTTI gli step coi tool senza fermarsi tra uno e l altro ne solo descrivere; stop solo per info mancante o op distruttiva. (ExecuteRemainingSteps gia autonomo lato worker; fix comportamentale conversazionale). Commit pushato.
+
+## [2026-07-16 23:33] task | Nemi grounding+onesta (da chat reale Stefano): Nemi inventava menu Sera + 6 piatti inesistenti e dichiarava rimozione/verifica mai avvenute. Fix system prompt: LEGGI-PRIMA-DI-AGIRE (list_* per stato reale, no nomi inventati) + ONESTA-SUI-RISULTATI (esito reale, niente falsi completato/verifica). Follow-up noto: ristrutturare flusso per non ri-pianificare a ogni follow-up. Commit pushato.
