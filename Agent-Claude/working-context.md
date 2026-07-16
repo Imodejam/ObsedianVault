@@ -1,25 +1,22 @@
-# Working context
+# Working context — 2026-07-16 ~17:10 Roma
 
-## Ora — Puntify Social Skin operativa
-Skin giornaliera COSTRUITA e testata. Script in /home/progetti/puntify-social/skin/
-(config.json, lib/{appconfig,topics,image,storage,buffer}.py, run_draft.py, publish.py).
-Standard immagine approvato (gpt-image-2 scena + headline + logo reale composited).
+## In attesa di Stefano (2 thread)
+1. PROD FIX: 3 fix pronti su CAT (hot-reload OK), da portare in prod (commit+push+deploy). Chiesto a Stefano se committare/pushare io.
+   - Nemi/MiniMax 502 -> retry backoff 3x (ShopAiClient.CallMiniMaxChatAsync)
+   - Upload foto sezione connection-reset -> retry transitori (S3StorageService.UploadAsync); causa primaria: PROD gira build STALE senza WHEN_REQUIRED (gia in codice) -> DEPLOY. Se persiste: nginx client_max_body_size davanti a MinIO.
+   - admin_activity_log FK admin_id=0 -> guard skip (AdminService.LogAsync)
+   - + verbosita: MenuController ritorna detail; MenuApiService logga status+body in console.
+2. SOCIAL: inviata bozza 17/07 (raccolta_punti) per approvazione. Canali IG+LI+FB tutti connessi. Su OK -> publish.py Buffer best-time 17/07.
 
-## Stato canali Buffer
-- LinkedIn "Puntify" 69b986107be9f8b17166990a — CONNESSO
-- Facebook "Puntify" 69b9bf437be9f8b17167d13f — CONNESSO
-- Instagram puntify.it 69e0a49f031bfa423c0c9bb5 — DISCONNESSO (Stefano deve riconnettere)
-Buffer endpoint: https://api.buffer.com/graphql ; createPost per singolo canale (loop), addToQueue+automatic best-time.
+## Skin social — stato
+- Script in /home/progetti/puntify-social/skin/ (build+test OK).
+- Cron giornaliero 1430aba3: 13:37 UTC = 15:37 Roma -> bozza del giorno dopo. (One-shot 17:00 di oggi cancellato: inviato a mano.)
+- Buffer: IG 69e0a49f031bfa423c0c9bb5, LI 69b986107be9f8b17166990a, FB 69b9bf437be9f8b17167d13f. Cron scade 7gg -> RI-ARMARE.
 
-## Scheduling
-- Cron giornaliero 1430aba3: 13:37 UTC = 15:37 Roma -> genera bozza del giorno DOPO, invia a Stefano (505161324), su OK publish.py su Buffer best-time. Scade 7gg -> RI-ARMARE.
-- One-shot 250ecb5b: oggi 15:00 UTC = 17:00 Roma -> invia la prima bozza (17/07 raccolta_punti) gia' pronta.
+## Fatto oggi (altri)
+- Popup conferma eliminazione prodotto/sezione: chiude subito (MenuEditor.razor).
+- Analisi Taffo (12) + KiRweb (25) -> motore creativo integrato.
 
 ## Prossimi passi
-- 17:00: parte l'invio della bozza 17/07 (raccolta_punti). Attendere approvazione Stefano -> publish.py.
-- Stefano deve dire se spostare il cron giornaliero alle 17 (ora 15:37).
-- Stefano deve riconnettere Instagram su Buffer.
-- Ri-armare i cron ogni <7 giorni.
-
-## Post pronti
-- posts/2026-07-17_raccolta_punti/ (pending_approval) — bar penombra, sgabello vuoto rosso, "IL CLIENTE MIGLIORE / È QUELLO CHE NON TORNA."
+- Ricevere: OK commit/push prod; approvazione bozza social.
+- Su approvazione social: publish.py + aggiorna topic-history.
