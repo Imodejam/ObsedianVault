@@ -1637,3 +1637,5 @@ File chiave aggiornati:
 ## [2026-07-16] task | Totem coda: tasti centrati quando pochi + matrice/lista responsive (flex wrap).
 
 ## [2026-07-16] task | Totem tasti uniformi (stessa larghezza/altezza). Diagnosi suono/Firebase coda: web-push biglietto mancante, proposto di implementarlo.
+
+## [2026-07-16] task | Icone "i" su tutte le pagine Risorse (33 campi) con tooltip tradotti in 10 lingue.
