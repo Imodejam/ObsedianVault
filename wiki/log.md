@@ -1669,3 +1669,5 @@ File chiave aggiornati:
 ## [2026-07-16] task | Commit bc042d2 pushato su master: web push ordini Fase 2, email operatore, recensione biglietto, fix accesso operatore + reviews 42501. 8 migration prod totali oggi.
 
 ## [2026-07-16] decision | Nuovo progetto Puntify Social Skin (post giornaliero brand su IG/LinkedIn/FB, gpt-image-2 + approvazione Telegram + Buffer). Inviate domande di scoping, in attesa.
+
+## [2026-07-16] task | Social Skin: risposte scoping ricevute, knowledge base creato, gpt-image-2 verificato, prototipo (Elimina code) generato e inviato per approvazione. Blocco: token Buffer.

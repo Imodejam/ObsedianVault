@@ -24,3 +24,17 @@ approvazione su @PuntifyNemiBot, e dopo l'OK pubblica su Buffer scegliendo l'ora
 
 ## Prossimi passi
 - Ricevere risposte -> definire architettura -> preparare knowledge testi servizi -> pipeline (topic -> testo -> immagine gpt-image-2 -> approvazione @PuntifyNemiBot -> Buffer).
+
+## Aggiornamento 2026-07-16 13:20 — risposte + prototipo
+Risposte Stefano: 1=A (skill schedulata che orchestro io), 2=Sì (ha Buffer), 3=A (pulsanti inline),
+4=logo/palette dal sito (scelgo io), 5=IT + CTA + hashtag, 6=ruota argomenti, 7=best time Buffer, 8=preparo io i testi.
+- Knowledge base creato: wiki/projects/puntify-social-skin-knowledge.md (brand, 10 servizi con angoli, hashtag, CTA, regole immagine).
+- gpt-image-2 VERIFICATO funzionante (OpenAi:ImageApiKey in appsettings; endpoint /v1/images/generations, b64_json).
+- PROTOTIPO generato e inviato (msg 6414): argomento Elimina code, immagine agenzia + testo IT + hashtag. In attesa feedback.
+- BLOCCO: serve il TOKEN API Buffer per la pubblicazione (verificare che il piano dia accesso API; fallback API native social, LinkedIn app dedicata).
+- Pulsanti Approva/Rigenera/Modifica: da implementare via @PuntifyNemiBot nella skin finale.
+
+## Prossimi passi
+1. Ricevere token Buffer -> integrare pubblicazione (best time) su IG/LinkedIn/FB.
+2. Costruire la skill/cron giornaliera: topic-rotation (storico ultimi 5gg) -> testo -> gpt-image-2 -> invio approvazione con pulsanti inline -> on Approva pubblica su Buffer.
+3. Stato/storico argomenti (per evitare ripetizioni).
