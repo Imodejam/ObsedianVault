@@ -1655,3 +1655,5 @@ File chiave aggiornati:
 ## [2026-07-16] task | Panoramica sezione code: nuovo endpoint tickets/range (tutti stati sul periodo) - prima usava l'endpoint operativo (solo oggi/attivi) e restava vuota.
 
 ## [2026-07-16] task | Fix creazione accesso operatore: pre-check email UNIQUE + rollback utente auth orfano (prod: email demo gia' esistente faceva fallire l'insert account e lasciava orfani).
+
+## [2026-07-16] task | Commit f5ce07d pushato su master: 76 file (fix prod + web push biglietto + code + Nemi + traduzioni supporto + Risorse + totem). 4 migration prod pronte.
