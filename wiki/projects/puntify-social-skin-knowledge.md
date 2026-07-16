@@ -72,8 +72,13 @@ Angolo: "capisci cosa funziona, ogni lunedì".
 ## Regole immagine (gpt-image-2)
 - Stile: fotografia/render pulito "da agenzia", luce morbida, composizione ariosa, mockup di negozio
   locale reale (bar/ristorante/retail), un tocco di rosso #B80000 come accento.
-- NIENTE testo generato dentro l'immagine (i modelli sbagliano il testo) salvo un piccolo accento brand;
-  il messaggio sta nella caption. Eventuale logo Puntify sovrapposto in post-produzione se serve.
+- LOGO/ICONA PUNTIFY = SEMPRE il PNG REALE compositato in post-produzione (pixel-perfect). gpt-image-2 NON
+  renderizza il logo identico (produce una P generica sbagliata) -> le scene si generano BRANDING-FREE
+  (schermi vuoti/neutri, niente loghi AI) e poi si sovrappone il logo vero (puntify.red.png su chiaro,
+  puntify.white.png su scuro; icona app da puntify.512.png). Lockup frontale = esatto e facile; su uno
+  schermo frontale si puo' compositare anche un mockup UI reale; schermi angolati richiedono warp prospettico.
+- NIENTE testo AI dentro l'immagine (i modelli lo sbagliano): il messaggio sta nella caption; eventuali
+  testi on-screen li compositiamo noi. Curare i dettagli di OGNI icona/testo (richiesta Stefano).
 - Coerenza: palette rosso/bianco/neutri; niente stock generico anonimo, deve sembrare curato.
 
 ## Note operative
