@@ -1706,3 +1706,5 @@ File chiave aggiornati:
 ## [2026-07-16] decision | Redesign menu committato/pushato: commit 3315641 su master. Stefano deploya Vetrina prod. Aperto: decisione colonna sinistra vuota desktop/kiosk (centrare).
 
 ## [2026-07-16] task | Menu kiosk stile McDonald: Stefano conferma. Avviata build (subagent): rail verticale sinistra con sezioni (foto/accento), prodotti a destra con header sticky, prova griglia 2 col, barra orizzontale nascosta solo su kiosk; mobile/desktop invariati. Test headless Pepto, screenshot per OK prima del commit.
+
+## [2026-07-16] task | Menu terminologia: "piatti" -> "proposte" (termine neutro cibo+bevande) nel contatore e sottotitolo, tutte le lingue (UiStrings in MerchantMenuPreview.razor). Integrato nel subagent kiosk (stesso file, evita conflitti). Override negozi-servizi resta "servizi".
