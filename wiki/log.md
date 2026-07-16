@@ -1659,3 +1659,5 @@ File chiave aggiornati:
 ## [2026-07-16] task | Commit f5ce07d pushato su master: 76 file (fix prod + web push biglietto + code + Nemi + traduzioni supporto + Risorse + totem). 4 migration prod pronte.
 
 ## [2026-07-16] task | Web push ordini menu (Fase 2): notifica cliente a ogni cambio stato (ricevuto/in preparazione/pronto), token legato all'ordine, riusa infra Fase 1.
+
+## [2026-07-16] task | Diagnosi prod operatore 500 dai log: set_account_id() prod obsoleta (manca caso service_role) -> P0001 Not authenticated. Migration fix_set_account_id pronta.
