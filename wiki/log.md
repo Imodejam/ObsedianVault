@@ -1633,3 +1633,5 @@ File chiave aggiornati:
 ## [2026-07-16] task | Pagina coda: label Aperta verde / Chiusa rossa (QueueList).
 
 ## [2026-07-16] task | Notifica Telegram (@PuntifyNemiBot) alla creazione di una coda, come per i premi (app->admin-events->AdminMonitorHelper).
+
+## [2026-07-16] task | Totem coda: tasti centrati quando pochi + matrice/lista responsive (flex wrap).
