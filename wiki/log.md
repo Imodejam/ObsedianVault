@@ -1720,3 +1720,5 @@ File chiave aggiornati:
 ## [2026-07-16 23:01] decision | Push finale: 6a06f91 (kiosk McDonald+proposte, Vetrina) e 662fa7c (Nemi formati/tipo food-drink, Server). Deploy prod da fare: Server(0f06086,6ca82ee,662fa7c)+Vetrina(3315641,6a06f91). Aperto: upload foto prod (Caddy request_body max_size).
 
 ## [2026-07-16 23:07] task | Nemi allergeni obbligatori: system prompt NemiChatService istruisce a inferire+popolare SEMPRE gli allergeni EU14 (campo allergens gia esistente) creando/riempiendo un prodotto (cibo/bevanda). Commit 87a1f50 pushato. Deploy Server prod aggiornato: +87a1f50.
+
+## [2026-07-16 23:16] task | Nemi riservatezza tecnica: guardrail system prompt - mai mostrare al merchant stack/tecnologia, id/UUID, chiavi, query, tabelle, nomi tool, log/errori tecnici; solo termini business; id solo dentro URL link. Commit pushato.
