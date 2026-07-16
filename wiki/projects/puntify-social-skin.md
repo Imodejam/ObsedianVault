@@ -53,3 +53,9 @@ Risposte Stefano: 1=A (skill schedulata che orchestro io), 2=Sì (ha Buffer), 3=
 
 ## TODO build
 - Skill/cron giornaliera; hosting immagine (bucket pubblico); approvazione inline via NemiBot token (Telegram Bot API sendPhoto+inline_keyboard, callback via webhook Puntify o polling); rotazione+newsjacking; best-time scheduling.
+
+## Aggiornamento 2026-07-16 13:45 — STANDARD IMMAGINE APPROVATO
+Stefano: "la foto ora e' perfetta". Standard confermato: OpenAI /v1/images/edits (gpt-image-2) con
+il LOGO REALE passato in input (puntify.red.png), istruendo il modello a posizionarlo e non alterarlo,
+scena REALISTICA con UI app sullo schermo (no schermo bianco). Ritocco compositing solo se serve pixel-perfect.
+Task in corso: analisi pubblicita' Taffo (subagent) -> distillare prompt stile Taffo per Puntify.

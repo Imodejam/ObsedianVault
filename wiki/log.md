@@ -1675,3 +1675,5 @@ File chiave aggiornati:
 ## [2026-07-16] task | Social Skin: versione immagine con icona Puntify sullo schermo (approvata), libreria persistente /home/progetti/puntify-social + metadata, direzione creativa spirito Taffo/KiRweb aggiunta al knowledge.
 
 ## [2026-07-16] task | Social Skin: pipeline VALIDATA end-to-end. gpt-image-2 edits+logo reale (realistico). Buffer token OK (api.buffer.com GraphQL), 3 canali collegati (FB/IG/LinkedIn), createPost pronto, immagine via URL pubblico.
+
+## [2026-07-16] decision | Social Skin: standard immagine approvato da Stefano (gpt-image-2 edits + logo reale in input, scena realistica). Avviata analisi stile Taffo per distillare prompt.
