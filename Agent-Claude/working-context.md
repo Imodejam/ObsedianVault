@@ -1,16 +1,25 @@
 # Working context
 
-## Ora
-Puntify Social Skin — fase creativa/demo.
-- Stefano: "Proviamo" (demo post stile Taffo) + scarica più campagne KiRweb.
-- FATTO: demo post servizio Cassa ("Il tuo incasso di marzo era questo" / scontrino accartocciato dark + logo Puntify bianco reale). Salvato in /home/progetti/puntify-social/posts/2026-07-16_cassa-scontrino/ (image.jpg + base + meta.json con metatag). Inviato a Stefano (Telegram 6435/6436) per approvazione.
-- IN CORSO: subagent a8a7edeac22bcd485 scarica + analizza altre campagne KiRweb in research/kirweb/.
+## Ora — Puntify Social Skin operativa
+Skin giornaliera COSTRUITA e testata. Script in /home/progetti/puntify-social/skin/
+(config.json, lib/{appconfig,topics,image,storage,buffer}.py, run_draft.py, publish.py).
+Standard immagine approvato (gpt-image-2 scena + headline + logo reale composited).
+
+## Stato canali Buffer
+- LinkedIn "Puntify" 69b986107be9f8b17166990a — CONNESSO
+- Facebook "Puntify" 69b9bf437be9f8b17167d13f — CONNESSO
+- Instagram puntify.it 69e0a49f031bfa423c0c9bb5 — DISCONNESSO (Stefano deve riconnettere)
+Buffer endpoint: https://api.buffer.com/graphql ; createPost per singolo canale (loop), addToQueue+automatic best-time.
+
+## Scheduling
+- Cron giornaliero 1430aba3: 13:37 UTC = 15:37 Roma -> genera bozza del giorno DOPO, invia a Stefano (505161324), su OK publish.py su Buffer best-time. Scade 7gg -> RI-ARMARE.
+- One-shot 250ecb5b: oggi 15:00 UTC = 17:00 Roma -> invia la prima bozza (17/07 raccolta_punti) gia' pronta.
 
 ## Prossimi passi
-- Ricevere approvazione/feedback Stefano sul demo (approva/rigenera/cambia copy).
-- Integrare EXTRA_PRINCIPLES.md KiRweb nel knowledge quando il subagent finisce.
-- Se OK: costruire la skin giornaliera completa (rotazione topic -> copy Taffo -> gpt-image-2 edits+logo -> approvazione NemiBot inline -> Buffer 3 canali best time).
+- 17:00: parte l'invio della bozza 17/07 (raccolta_punti). Attendere approvazione Stefano -> publish.py.
+- Stefano deve dire se spostare il cron giornaliero alle 17 (ora 15:37).
+- Stefano deve riconnettere Instagram su Buffer.
+- Ri-armare i cron ogni <7 giorni.
 
-## Pipeline validata
-gpt-image-2 (scena senza testo) -> PIL compositing (headline Liberation Sans Bold + accento rosso #B80000 + logo bianco reale) -> approvazione -> Buffer.
-Standard immagine approvato ("perfetta"): logo VERO compositato, mai disegnato dall'AI.
+## Post pronti
+- posts/2026-07-17_raccolta_punti/ (pending_approval) — bar penombra, sgabello vuoto rosso, "IL CLIENTE MIGLIORE / È QUELLO CHE NON TORNA."

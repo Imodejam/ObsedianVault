@@ -1687,3 +1687,5 @@ File chiave aggiornati:
 ## [2026-07-16] task | Social Skin: Stefano approva demo. Avviata build scripts skin (subagent): topics rotation, image gen+composite, storage files.puntify.it, buffer publish, run_draft/publish. Cron 7gg da ri-armare.
 
 ## [2026-07-16] task | Social Skin: cron corretto a 13:37 UTC=15:37 Roma (sessione UTC, Stefano CEST). Job 1430aba3. Prima bozza 17/07 inviata a mano oggi (finestra 15-16 gia passata); dal 17 cron automatico.
+
+## [2026-07-16] task | Social Skin: script build+test OK (LinkedIn+FB connessi, IG disconnesso). Bozza 17/07 raccolta_punti generata e verificata; invio programmato 17:00 Roma (one-shot 250ecb5b). Cron giornaliero 15:37 Roma (1430aba3).
