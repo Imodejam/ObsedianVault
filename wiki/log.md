@@ -1619,3 +1619,5 @@ File chiave aggiornati:
 ## [2026-07-16] task | Supporto multilingua: 25 articoli x 9 lingue su CAT (migration ASCII-safe idempotente) + fix pagina articolo per-lingua; in corso traduzione chiavi UI resx.
 
 ## [2026-07-16] task | Supporto multilingua COMPLETO: 25 articoli + 38 stringhe UI in 9 lingue (en,es,fr,pt,zh,ar,hi,bn,uk); render verificato; migration prod pronta.
+
+## [2026-07-16] task | Email FeatureDiscovery: icone servizi della home esercente (PNG da webp) al posto delle emoji nelle card.
