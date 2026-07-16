@@ -1704,3 +1704,5 @@ File chiave aggiornati:
 ## [2026-07-16] task | Redesign menu pubblico (Vetrina MerchantMenuPreview): sotto-sezioni ora scroll verticale continuo con header sticky ricorsivo (3 livelli), niente piu card drill-down. + media query kiosk 1080x1920. Fix bug sticky (overflow-x body->clip su menu-public.css). CSS ?v bumpato. Testato headless su Pepto (dati nidificati temp, rimossi). NON committato: attendo OK Stefano + decisione colonna sinistra vuota (centrare?). Serve deploy Vetrina prod.
 
 ## [2026-07-16] decision | Redesign menu committato/pushato: commit 3315641 su master. Stefano deploya Vetrina prod. Aperto: decisione colonna sinistra vuota desktop/kiosk (centrare).
+
+## [2026-07-16] task | Menu kiosk stile McDonald: Stefano conferma. Avviata build (subagent): rail verticale sinistra con sezioni (foto/accento), prodotti a destra con header sticky, prova griglia 2 col, barra orizzontale nascosta solo su kiosk; mobile/desktop invariati. Test headless Pepto, screenshot per OK prima del commit.
