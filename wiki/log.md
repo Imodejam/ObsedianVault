@@ -1683,3 +1683,5 @@ File chiave aggiornati:
 ## [2026-07-16] task | Social Skin: generato demo post stile Taffo (servizio Cassa/scontrino) — gpt-image-2 scena + headline/logo reale compositati; inviato a Stefano per approvazione. Subagent scarica campagne KiRweb.
 
 ## [2026-07-16] ingest | Social Skin: scaricate 25 creativita KiRweb (12 clienti) + EXTRA_PRINCIPLES.md (11 tecniche); integrate nel knowledge base.
+
+## [2026-07-16] task | Social Skin: Stefano approva demo. Avviata build scripts skin (subagent): topics rotation, image gen+composite, storage files.puntify.it, buffer publish, run_draft/publish. Cron 7gg da ri-armare.
