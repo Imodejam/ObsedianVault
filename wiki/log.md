@@ -1613,3 +1613,5 @@ File chiave aggiornati:
 ## [2026-07-16] task | Pagina Dispositivi: fix hijack anteprima totem su iOS (embed+guardie coda) + separazione cucina/code + hiding monitor per feature-flag (HasQueue/HasScreens). Subagent in corso.
 
 ## [2026-07-16] task | Pagina Dispositivi: fix hijack totem iOS (embed+guardie+sandbox), gruppi Code/Cucina, hiding per feature-flag. Rimossa migrazione obsoleta. Commit c803df5 pushato.
+
+## [2026-07-16] task | App: auto-reload dopo pubblicazione (version-watch.js poll build-info) — elimina l'hard-refresh manuale del cliente su browser e WebView iOS/Android.
