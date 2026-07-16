@@ -1649,3 +1649,5 @@ File chiave aggiornati:
 ## [2026-07-16] task | Chat Nemi: Shift+Invio a capo, suoni invio/risposta, effetto typewriter, refresh pagina dopo modifiche (ToolsUsed).
 
 ## [2026-07-16] task | Pagina operate coda: combo selezione coda + modalità "Tutte" (call-next cross-coda per attesa più lunga).
+
+## [2026-07-16] task | Fix falsa notifica "utente registrato" per email gia' esistente (GoTrue anti-enumerazione: Identities vuoto = non nuovo).
