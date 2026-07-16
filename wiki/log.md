@@ -1708,3 +1708,5 @@ File chiave aggiornati:
 ## [2026-07-16] task | Menu kiosk stile McDonald: Stefano conferma. Avviata build (subagent): rail verticale sinistra con sezioni (foto/accento), prodotti a destra con header sticky, prova griglia 2 col, barra orizzontale nascosta solo su kiosk; mobile/desktop invariati. Test headless Pepto, screenshot per OK prima del commit.
 
 ## [2026-07-16] task | Menu terminologia: "piatti" -> "proposte" (termine neutro cibo+bevande) nel contatore e sottotitolo, tutte le lingue (UiStrings in MerchantMenuPreview.razor). Integrato nel subagent kiosk (stesso file, evita conflitti). Override negozi-servizi resta "servizi".
+
+## [2026-07-16] task | Menu kiosk McDonald DONE (CAT): rail sinistra sezioni (foto+accento), prodotti destra griglia 2col + header sticky, barra orizzontale nascosta solo kiosk, mobile/desktop invariati. + rename piatti->proposte in 20 lingue (servizi resta). Verificato headless (3 screenshot). NON committato: attendo OK Stefano. Nota: card categorie in home kiosk ridondanti col rail (posso nascondere).
