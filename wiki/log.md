@@ -1653,3 +1653,5 @@ File chiave aggiornati:
 ## [2026-07-16] task | Fix falsa notifica "utente registrato" per email gia' esistente (GoTrue anti-enumerazione: Identities vuoto = non nuovo).
 
 ## [2026-07-16] task | Panoramica sezione code: nuovo endpoint tickets/range (tutti stati sul periodo) - prima usava l'endpoint operativo (solo oggi/attivi) e restava vuota.
+
+## [2026-07-16] task | Fix creazione accesso operatore: pre-check email UNIQUE + rollback utente auth orfano (prod: email demo gia' esistente faceva fallire l'insert account e lasciava orfani).
