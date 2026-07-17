@@ -26,3 +26,7 @@ Su CAT tutto attivo (hot-reload).
 ### Ancora aperto
 - Upload foto prod: esito Caddy (request_body max_size).
 - Deploy prod: Server (7 commit) + Vetrina (2 commit) gia pushati; + tutto il non-committato sopra quando Stefano dice.
+
+
+## [2026-07-17 15:37] Social skin
+- Bozza 18/07 (menu_digitale) inviata a Stefano per approvazione. Su OK: publish.py Buffer (IG/LI/FB) best-time 18/07 + append topic-history. Post 17/07 (raccolta_punti) gia schedulato.
