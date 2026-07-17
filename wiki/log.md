@@ -1814,3 +1814,4 @@ File chiave aggiornati:
 
 ## [2026-07-05] task | Kiosk menu: prodotti come card animate stile McDonald's (Vetrina, kiosk-only) — delegato a subagent, in corso
 ## [2026-07-17] task | Kiosk menu: card animate McDonald-style + ?kiosk=1 force override (single-source, class .mp-kioskon) + logo esercente nel primo tile del rail (Vetrina, uncommitted, atteso OK Stefano)
+## [2026-07-17] task | Kiosk fix: persistenza sessione (sessionStorage+enhancedload), no ombra logo, larghezza card uniforme (grid width:100%); + Photo picker "Dal tuo menu" (foto sezioni/piatti attinenti) in MenuEditor/DishEditor. Tutto uncommitted, live CAT, atteso OK Stefano

@@ -45,3 +45,8 @@ Su CAT tutto attivo (hot-reload).
   - Primo tile rail = logo negozio (_shop.Logo) invece di "Tutto"; fallback "Tutto" se no logo
 - File: Puntify.Vetrina/Pages/MerchantMenuPreview.razor, Shared/MenuLayout.razor, wwwroot/css/menu-public.css
 - Screenshot in /home/progetti/puntify-social/scratch/kiosk_force/ e /kiosk_cards/
+
+## Checkpoint 17/07 (sera) — batch kiosk+picker DONE (uncommitted, atteso OK)
+- Kiosk: ?kiosk=1 force + persist sessionStorage (fix "alcune pagine desktop navigando"); logo negozio nel primo tile (no ombra); card larghezza uniforme (grid width:100% su .mp-dishes-list-rows). CSS ?v=20260717e. File: MerchantMenuPreview.razor, Shared/MenuLayout.razor, wwwroot/css/menu-public.css
+- Photo picker "Scegli foto": nuovo gruppo "Dal tuo menu" (foto sezioni+piatti del negozio, attinenti-first) sopra il catalogo condiviso. File: PhotoPickerModal.razor (+param RecentPhotos/PhotoSuggestion), MenuEditor.razor (BuildMenuPhotos), DishEditor.razor (+MenuPhotos), config.css (.pp-group-title), 2 resx keys x10 lingue. Build App pulita.
+- Prossimo: al via libera di Stefano, commit di TUTTO (kiosk+picker) in Puntify. NIENTE attribution Claude nei commit.
