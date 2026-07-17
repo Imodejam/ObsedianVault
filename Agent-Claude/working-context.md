@@ -37,3 +37,11 @@ Su CAT tutto attivo (hot-reload).
 - Delegato a subagent: modifica Puntify.Vetrina/Pages/MerchantMenuPreview.razor + wwwroot/css/menu-public.css nella media query kiosk (min-width:1000px & min-height:1400px). Verifica headless 1080x1920 su Pepto.
 - NON committare finché non approvato da Stefano.
 - Pendenti: CEO Dashboard /admin/dashboard uncommitted (attende review Stefano); conferma prod NOTIFY pgrst reload descrizione sezioni; OK Haiku 4.5 su Nemi.
+
+## Checkpoint kiosk (17/07)
+- FATTO (uncommitted, live su CAT hot-reload, atteso OK Stefano):
+  - Card prodotti animate stile McDonald's (kiosk-only)
+  - ?kiosk=1 forza la vista kiosk su qualsiasi schermo (gate class .mp-kioskon in MenuLayout.razor server-side + JS matchMedia; media query rimossa, single-source). CSS ?v=20260717d
+  - Primo tile rail = logo negozio (_shop.Logo) invece di "Tutto"; fallback "Tutto" se no logo
+- File: Puntify.Vetrina/Pages/MerchantMenuPreview.razor, Shared/MenuLayout.razor, wwwroot/css/menu-public.css
+- Screenshot in /home/progetti/puntify-social/scratch/kiosk_force/ e /kiosk_cards/
