@@ -47,3 +47,5 @@ _(nessun concetto ancora)_
 - [[puntify-cassa-fiscale]] — roadmap fiscalizzazione Puntify (cassa/corrispettivi telematici/RT) da benchmark Ubify + AdE; gap P0/P1/P2
 - [[puntify-social-meta-setup]] — guida creazione app Meta (Instagram+Facebook) per SocialStudio: passi, redirect URI, credenziali da fornire
 - [[puntify-email-verification-prod]] — verifica email reale: fatto su collaudo (GoTrue autoconfirm off + SMTP Resend + trigger auto-approva); checklist per applicarla in produzione
+
+- [Puntify — Idee servizi futuri](projects/puntify-servizi-futuri.md) — brainstorming CEO servizi aggiuntivi per i punti vendita (pagamenti, gift card, marketing automation, magazzino, fiscale, network punti, estensioni Nemi)

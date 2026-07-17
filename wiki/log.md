@@ -1781,3 +1781,5 @@ File chiave aggiornati:
 ## [2026-07-17 11:06] decision | Commit c2a05b0 pushato (sotto-sezioni+drag MenuEditor). Dashboard CEO NON committata (Fase 2 UI in corso subagent) -> commit unico a fine Fase 2. Deploy prod App: +c2a05b0.
 
 ## [2026-07-17 11:17] task | Dashboard CEO Fase 2 DONE (subagent): AdminDashboard.razor (/admin/dashboard, admin-gated) + link AdminHome + admin.css + 62 chiavi ceo_* (IT+9 lingue) + FieldInfo tooltip su ogni voce. Grafici via puntifyCharts (renderMultiArea/Bar/Donut, guardati _chartsDirty): crescita, nuovi, utilizzo servizi, fedelta, adozione feature, settori, abbonamenti; KPI+delta%; selettore 7/30/90g/12m. Build app pulito. Login-gated -> non screenshottabile: fatta verificare a Stefano su CAT. NON committato: attendo OK (poi commit unico feature: 4 nuovi + 5 modificati + migrazione 20260717_admin_ceo_dashboard.sql). Prod: migrazione + deploy.
+
+## [2026-07-17 12:06] decision | Brainstorming servizi futuri Puntify (richiesto Stefano). Creata pagina wiki projects/puntify-servizi-futuri.md. Top-3 raccomandati: Pagamenti+caparra, Gift card/tessere, Marketing automation. Offerto scoping/mockup di uno.
