@@ -67,3 +67,6 @@ LEZIONE: per contare chiavi/entry in file strutturati NON usare grep di righe; u
 
 ## [2026-07-17] Feature spedita con save rotto per vincolo DB non aggiornato
 Ho rilasciato il photo picker "Dal tuo menu" (source="catalog") senza verificare il CHECK su shop_menu_dishes.photo_source, che ammetteva solo user_upload/ai_generated/ocr -> "Save error" per Stefano. Lezione: quando una feature scrive un valore in una colonna con dominio ristretto (enum/CHECK), verificare SEMPRE il vincolo DB prima di considerarla completa. Testare il salvataggio end-to-end reale, non solo il build.
+
+## [2026-07-17] Bind-mount di singolo file + editor che cambia inode
+Editando /opt/ops/caddy/Caddyfile (montato come singolo file in ops-caddy) con perl -i, l'inode e' cambiato e il container ha continuato a vedere il vecchio contenuto (bind-mount legato all'inode originale). Lezione: per file bind-mounted singoli, editare in modo inode-preserving (tee/cp truncate) OPPURE fare docker restart del container per ri-risolvere il mount. `caddy reload` non funzionava (admin API :2019 disabilitata) -> usato docker restart.
