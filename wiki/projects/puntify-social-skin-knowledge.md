@@ -119,6 +119,16 @@ dolore del negoziante (fila/caos/scontrini/telefono/menu unto), cliente sempre e
 Immagine: scena/oggetto-simbolo minimale, accento rosso #B80000, headline aggiunta in post,
 logo Puntify reale compositato (mai disegnato dall'AI).
 
+## LO SPIRITO (regola confermata da Stefano 2026-07-17)
+La copy deve essere DAVVERO in stile Taffo/KiRweb: simpatica, carismatica, memorabile —
+NON descrittiva/soft. Serve una battuta VIVIDA con un solo perno forte (spesso gross-funny,
+iperbole quotidiana, doppio senso), bersaglio = il PROBLEMA del negoziante mai le persone.
+Esempio approvato (menu digitale, 18/07): headline "IL TUO MENÙ HA TOCCATO PIÙ MANI DI UN
+CORRIMANO" + claim "Il menu che nessuno deve più toccare". La prima stesura ("il tuo menu ha
+più storia di quanto vorresti…") era corretta ma TROPPO MORBIDA -> Stefano l'ha bocciata.
+Regola operativa per il cron giornaliero: prima di generare, spingi la battuta finché fa
+sorridere/storcere il naso; se è solo "carina/informativa", riscrivila.
+
 ## Tecniche extra KiRweb (25 creativita, 12 clienti oltre Taffo)
 Analisi in /home/progetti/puntify-social/research/kirweb/ANALYSIS.md + EXTRA_PRINCIPLES.md.
 11 tecniche aggiuntive oltre i 7 principi Taffo, da usare nel motore creativo:
