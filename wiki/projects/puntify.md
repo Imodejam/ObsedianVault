@@ -268,3 +268,8 @@ Incasso reale delle prenotazioni postazioni/ombrelloni. I soldi vanno al **lido*
 ## Link correlati
 - [[wiki/people/stefano|Stefano Gitto]]
 - [[wiki/projects/cat-stack|CAT Stack]]
+
+## Booking: modalità & configurazione (17/07)
+- BookingModes bitmask su shop: 1=Appuntamenti(prenotabile), 2=Tavolo, 4=Asporto. Attivazione: tab Funzionalità (PuntifyFeaturesTab → SetBookingModesAsync).
+- Config: /merchant/shop/{id}/booking (BookingHub) tabs Agenda/Opzioni/Finestre-asporto/Cestino; /booking/availability (orari); Servizi (/services) per i servizi prenotabili (risorsa/operatore).
+- Public /book (PublicBookingFlow): elenco unico "Prenota"; auto-route se 1 sola opzione prenotabile; voci sintetiche Tavolo/Asporto solo se HasTables/HasTakeaway && non coperti da servizio slot && con disponibilità (pre-check 60gg).
