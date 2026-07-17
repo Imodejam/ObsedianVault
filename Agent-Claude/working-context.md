@@ -30,3 +30,10 @@ Su CAT tutto attivo (hot-reload).
 
 ## [2026-07-17 15:37] Social skin
 - Bozza 18/07 (menu_digitale) inviata a Stefano per approvazione. Su OK: publish.py Buffer (IG/LI/FB) best-time 18/07 + append topic-history. Post 17/07 (raccolta_punti) gia schedulato.
+---
+
+## Checkpoint kiosk cards
+- Richiesta Stefano: nel kiosk mostrare i prodotti come CARD (foto grande, nome, prezzo, +) stile McDonald's con animazioni. Solo kiosk; mobile/desktop invariati.
+- Delegato a subagent: modifica Puntify.Vetrina/Pages/MerchantMenuPreview.razor + wwwroot/css/menu-public.css nella media query kiosk (min-width:1000px & min-height:1400px). Verifica headless 1080x1920 su Pepto.
+- NON committare finché non approvato da Stefano.
+- Pendenti: CEO Dashboard /admin/dashboard uncommitted (attende review Stefano); conferma prod NOTIFY pgrst reload descrizione sezioni; OK Haiku 4.5 su Nemi.
