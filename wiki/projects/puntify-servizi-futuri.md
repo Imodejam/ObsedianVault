@@ -1,5 +1,7 @@
 # Puntify — Idee servizi futuri per i punti vendita
 
+> STATO: BACKLOG / possibili sviluppi futuri (non pianificati, non in costruzione). Registrati su richiesta di Stefano 2026-07-17. Interni: NON sulla Roadmap pubblica finché non confermati.
+
 Brainstorming strategico (2026-07-17, richiesto da Stefano) su servizi AGGIUNTIVI oltre a quelli
 implementati (fedeltà, menu, ordini, cassa, prenotazioni, elimina-code, Nemi voce+chat, Social Studio,
 pagina pubblica/QR, insights, billing). Ordine per impatto.
