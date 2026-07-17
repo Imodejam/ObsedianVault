@@ -1747,3 +1747,5 @@ File chiave aggiornati:
 ## [2026-07-17 09:28] decision | Commit 74c672e pushato (batch: descrizione sezione + peso code + 5 fix UI, 42 file). Unico commit per file sovrapposti (no staging interattivo). DEPLOY PROD: 2 migrazioni (add_section_description.sql, add_queue_weight.sql) + deploy Server+App+Vetrina. Server commits: 0f06086,6ca82ee,662fa7c,87a1f50,3506757,85f6458,5cb423f,74c672e. Vetrina: 3315641,6a06f91,74c672e.
 
 ## [2026-07-17 09:32] fix | CAT "Errore salvataggio coda" = corruzione runtime dotnet watch (Token a000000 not valid in scope of module, flood su notification_queue/email_queue/tutte le query Supabase), NON il campo weight (colonna queues.weight OK su CAT default 1). Restart pulito puntify-server -> errori spariti, pollers ok. Riferimento [[reference_puntify_watch_token_corruption]].
+
+## [2026-07-17 09:00] lint | Routine traduzioni: Vetrina EN/UK ~complete, ES/FR/PT/AR/BN/HI/ZH ~70% (~1626 chiavi mancanti, fallback IT), IT default. Menu translation = Anthropic Haiku (chiave presente, no blocchi credito ultime 6h). Report inviato a Stefano; proposto batch allineamento + alert credito.
