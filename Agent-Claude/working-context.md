@@ -16,3 +16,13 @@ Su CAT tutto attivo (hot-reload).
 
 ## Note skin social
 /home/progetti/puntify-social/skin/ (topics, image, storage files.puntify.it, buffer). create_post: customScheduled+dueAt per data specifica; metadata per-servizio (IG type+shouldShareToFeed, FB type). Buffer channels: IG 69e0a49f031bfa423c0c9bb5, LI 69b986107be9f8b17166990a, FB 69b9bf437be9f8b17167d13f.
+
+## [Aggiornamento 2026-07-17 mattina]
+### Da committare (CAT, non ancora committato) — attendo "commit" di Stefano
+- Descrizione SEZIONE (ieri sera): migrazione add_section_description.sql + modello + tool Nemi + editor + display cliente.
+- 5 fix UI stamattina: (1) MenuEditor tab default Prodotti se menu impostato; (2) DishEditor tasto formato piccolo+contrasto; (3) DishEditor foto->lightbox; (4) MenuEditor search bar distanziata; (5) TablesPlanimetry popup risorsa piu largo tablet/desktop.
+### In discussione (design, non iniziato)
+- Priorita code: attendo scelta Stefano (% globale peso vs % per coda). Poi: migrazione priority + QueueEdit campo + CallNext "Tutte" pesato anti-fame + descrizioni vetrina tutte lingue.
+### Ancora aperto
+- Upload foto prod: esito Caddy (request_body max_size).
+- Deploy prod: Server (7 commit) + Vetrina (2 commit) gia pushati; + tutto il non-committato sopra quando Stefano dice.
