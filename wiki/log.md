@@ -1818,3 +1818,4 @@ File chiave aggiornati:
 ## [2026-07-17] task | Kiosk detail sheet: bug "placeholder nel pannello in basso" NON riproducibile (sheet gia pulito, placeholder scoped solo alle card); probabile cache vecchia lato Stefano -> chiesto hard-refresh + screenshot se persiste
 ## [2026-07-17] task | Push Puntify master: commit b058510 (kiosk card+persistenza+logo+larghezza) + d6b569d (photo picker "Dal tuo menu"). CEO Dashboard NON committata (attesa review Stefano)
 ## [2026-07-17] task | Push Dashboard admin (/admin/dashboard) commit d17bedd; rinominata "CEO Dashboard" -> "Dashboard" (tile+PageTitle+ceo_title 10 lingue; chiavi/classi ceo_* interne restano); migration rinominata 20260717_admin_dashboard.sql (RPC admin_dashboard gia su CAT); endpoint admin-gated+audit
+## [2026-07-17] task | Menu editor: allargati popup DishEditor (1080->1240px desktop) e PhotoPickerModal (.cfg-modal.pp-modal 420->820px) in config.css. Live CAT, non ancora committato (attesa ok Stefano)
