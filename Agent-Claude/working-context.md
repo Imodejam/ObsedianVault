@@ -80,3 +80,7 @@ Prod deploy: workflow_dispatch manuale Stefano + migration (admin_dashboard, pho
 - Falle rimandate (non implementate): #2 quota Telegram condivisa, #8 tenant voice webhook (verificare firma Vapi), #6 tz voice (da verificare), #15 log errori tool voce, #17 KB auto-refresh, #19 audit log, #20 rate limit
 
 [2026-07-18] Checkpoint: implementata opzione B menu-publish gap Nemi in Puntify.Server (promemoria salva menu). Testato e deployato su CAT, NON committato.
+
+## BLOCCO: credito Anthropic Puntify esaurito (18/07 notte)
+- La chiave Anthropic in Puntify.Server/appsettings.Development.json non ha credito -> OCR menu (nuova feature + scatta cartaceo + traduzioni MenuTranslationService) tutti ko su CAT
+- Atteso: Stefano ricarica credito o fornisce nuova chiave -> POI rifare test E2E drag-menu (immagine test in scratchpad test_menu.jpg, script python nel transcript)
