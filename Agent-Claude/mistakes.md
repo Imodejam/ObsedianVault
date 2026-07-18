@@ -70,3 +70,6 @@ Ho rilasciato il photo picker "Dal tuo menu" (source="catalog") senza verificare
 
 ## [2026-07-17] Bind-mount di singolo file + editor che cambia inode
 Editando /opt/ops/caddy/Caddyfile (montato come singolo file in ops-caddy) con perl -i, l'inode e' cambiato e il container ha continuato a vedere il vecchio contenuto (bind-mount legato all'inode originale). Lezione: per file bind-mounted singoli, editare in modo inode-preserving (tee/cp truncate) OPPURE fare docker restart del container per ri-risolvere il mount. `caddy reload` non funzionava (admin API :2019 disabilitata) -> usato docker restart.
+
+## [2026-07-18] Diagnosi "e' la cache" sbagliata + "verificato" senza prova reale
+Ho detto 2 volte a Stefano che il bug "2 giorni" prenotazione era cache/service-worker (avevo verificato che l'assembly servito conteneva i simboli del fix). In incognito il bug persisteva -> NON era cache: era un bug di fuso in DESERIALIZZAZIONE (STJ converte "+00:00" al fuso browser). Lezione: verificare col caso reale end-to-end (riprodurre il fuso del browser) PRIMA di dire "fatto"; una scheda incognito esclude la cache; leggere il JSON/dato reale, non fidarsi del solo "il codice c'e'". Vedi [[feedback_dev_verify_process]].
