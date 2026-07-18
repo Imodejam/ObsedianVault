@@ -73,3 +73,8 @@ Prod deploy: workflow_dispatch manuale Stefano + migration (admin_dashboard, pho
 - Fase 1 audit read-only in corso (subagent): mappa funzionalita + falle su NemiChatService/Tools/Voice-Vapi/Telegram/ResumeService/KB/AssistantAi.razor/modelli
 - Fase 2: report a Stefano con priorita. Fase 3: fix + test (regole: capire richiesta, 2+ test lateral, ottimizzare, commenti/pattern)
 - Contesto falle note: pausa multi-step (fixata oggi, verificare buchi), "nuovo menu" reinterpretato, tz wall-clock bookings, PGRST204 JsonPropertyName
+
+## Nemi audit: fasi 1-3 done (18/07 notte)
+- Audit 20 falle -> fix critiche+alte implementate e testate (45/45). Live CAT, UNCOMMITTED (batch grosso ora: kiosk gia in master; da committare: telegram booking fix, tz booking fix, popup, logo book, migration foto, menu tz/cavallo-mezzanotte, Nemi pause fix, Nemi audit fixes F1-F8, UI waiting banner)
+- PENDING Stefano: scelta F9 publish menu (A auto-republish se gia pubblicato / B avviso); flusso Nemi drag-drop menu (anteprima vs diretta); checklist deploy prod
+- Falle rimandate (non implementate): #2 quota Telegram condivisa, #8 tenant voice webhook (verificare firma Vapi), #6 tz voice (da verificare), #15 log errori tool voce, #17 KB auto-refresh, #19 audit log, #20 rate limit
