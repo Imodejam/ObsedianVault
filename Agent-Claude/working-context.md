@@ -78,3 +78,5 @@ Prod deploy: workflow_dispatch manuale Stefano + migration (admin_dashboard, pho
 - Audit 20 falle -> fix critiche+alte implementate e testate (45/45). Live CAT, UNCOMMITTED (batch grosso ora: kiosk gia in master; da committare: telegram booking fix, tz booking fix, popup, logo book, migration foto, menu tz/cavallo-mezzanotte, Nemi pause fix, Nemi audit fixes F1-F8, UI waiting banner)
 - PENDING Stefano: scelta F9 publish menu (A auto-republish se gia pubblicato / B avviso); flusso Nemi drag-drop menu (anteprima vs diretta); checklist deploy prod
 - Falle rimandate (non implementate): #2 quota Telegram condivisa, #8 tenant voice webhook (verificare firma Vapi), #6 tz voice (da verificare), #15 log errori tool voce, #17 KB auto-refresh, #19 audit log, #20 rate limit
+
+[2026-07-18] Checkpoint: implementata opzione B menu-publish gap Nemi in Puntify.Server (promemoria salva menu). Testato e deployato su CAT, NON committato.
