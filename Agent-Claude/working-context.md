@@ -68,3 +68,8 @@ Su CAT tutto attivo (hot-reload).
 7. Menu disponibilita fuso+cavallo-mezzanotte (MenuController.GetActive)
 + CEO Dashboard gia committato (d17bedd)
 Prod deploy: workflow_dispatch manuale Stefano + migration (admin_dashboard, photo_source, add_section_description con NOTIFY pgrst) + snippet Caddy no-cache su app.puntify.it
+
+## Audit Nemi (18/07 sera, in corso)
+- Fase 1 audit read-only in corso (subagent): mappa funzionalita + falle su NemiChatService/Tools/Voice-Vapi/Telegram/ResumeService/KB/AssistantAi.razor/modelli
+- Fase 2: report a Stefano con priorita. Fase 3: fix + test (regole: capire richiesta, 2+ test lateral, ottimizzare, commenti/pattern)
+- Contesto falle note: pausa multi-step (fixata oggi, verificare buchi), "nuovo menu" reinterpretato, tz wall-clock bookings, PGRST204 JsonPropertyName
