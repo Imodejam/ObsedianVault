@@ -51,7 +51,9 @@ Su CAT tutto attivo (hot-reload).
 - Photo picker "Scegli foto": nuovo gruppo "Dal tuo menu" (foto sezioni+piatti del negozio, attinenti-first) sopra il catalogo condiviso. File: PhotoPickerModal.razor (+param RecentPhotos/PhotoSuggestion), MenuEditor.razor (BuildMenuPhotos), DishEditor.razor (+MenuPhotos), config.css (.pp-group-title), 2 resx keys x10 lingue. Build App pulita.
 - Prossimo: al via libera di Stefano, commit di TUTTO (kiosk+picker) in Puntify. NIENTE attribution Claude nei commit.
 
-## Social skin 19/07 (pending approvazione)
+## Social skin 19/07 (SCHEDULATO - fatto)
 - Bozza: posts/2026-07-19_ordini_online/ (image.jpg + meta.json status=pending_approval)
 - Topic ordini_online; copy "telefono senza fili"; hashtag 6
 - Inviata a Stefano (Telegram 6670/6671). ATTESA: Approva -> publish.py --folder posts/2026-07-19_ordini_online (Buffer IG/LI/FB best time) + aggiorna topic-history.json + meta status. NON pubblicare senza OK.
+
+- FATTO: approvato Stefano + schedulato Buffer 19/07 18:30 Roma (IG/LI/FB). status=scheduled.
