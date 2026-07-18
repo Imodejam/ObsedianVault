@@ -57,3 +57,14 @@ Su CAT tutto attivo (hot-reload).
 - Inviata a Stefano (Telegram 6670/6671). ATTESA: Approva -> publish.py --folder posts/2026-07-19_ordini_online (Buffer IG/LI/FB best time) + aggiorna topic-history.json + meta status. NON pubblicare senza OK.
 
 - FATTO: approvato Stefano + schedulato Buffer 19/07 18:30 Roma (IG/LI/FB). status=scheduled.
+
+## Batch uncommitted (18/07 sera) - da committare + deploy prod
+1. Notifica Telegram prenotazione (PublicBookingController UserId)
+2. Orario/2-giorni tavolo (BookingAgenda+ClientDetail+BookingModels IsMultiDay)
+3. Popup allargati (config.css)
+4. Logo book cerchio (booking.css+Book.razor)
+5. Migration 20260717_photo_source_allow_catalog_url.sql
+6. Nemi pause fix (NemiChatService+PauseAndAskTool.cs+Program.cs DI+prompt)
+7. Menu disponibilita fuso+cavallo-mezzanotte (MenuController.GetActive)
++ CEO Dashboard gia committato (d17bedd)
+Prod deploy: workflow_dispatch manuale Stefano + migration (admin_dashboard, photo_source, add_section_description con NOTIFY pgrst) + snippet Caddy no-cache su app.puntify.it
