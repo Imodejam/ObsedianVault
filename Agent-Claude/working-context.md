@@ -26,3 +26,9 @@ Owner: Stefano. Su master 0038970 (tree pulito). NO commit/push.
 - Bit feature 128 = marketing (ShopExtensions.HasMarketing)
 - Riuso: EmailQueueService, rewards/account_reward/redeem_reward, pattern WeeklyRecapScheduler, RLS customer_profiles
 - DB CAT: sudo docker exec -i ops-postgres psql -U postgres -d puntify_cat
+
+## Stato 19/07 ~09:45 (dopo reset limite sessione)
+- ROADMAP fixes: nel working tree, compilano. max_redemptions applicata CAT. EXCLUDE booking migration pronta ma non applicata (overlap demo). R3-R6 da testare/verificare.
+- MARKETING: rilanciata build FASE1 backend pulita (agent a9cb62e). Poi: frontend (integra Consent.razor esistente) + Nemi tools.
+- DA COMMITTARE quando pronto: roadmap fixes (30 file circa) + marketing FASE1.
+- Migration accumulate per prod: aggiungere reward_max_redemptions, bookings_exclude_overlap (dopo cleanup overlap), + marketing FASE1.
