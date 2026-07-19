@@ -1,10 +1,21 @@
 # Working Context
 
-## Sessione 2026-07-19 — Puntify hardening H1-H4 — COMPLETATO
-Tutti gli item verificati e fixati. Build 0 errori. Server ripristinato sotto systemd (puntify-server active). Testato 2 round live. NO commit/push (come richiesto).
+## Sessione 2026-07-19 — Puntify ROADMAP follow-up (batch R1-R6)
+Owner: Stefano. Su master 0038970 (tree pulito). NO commit/push.
 
-Dettaglio in Agent-Claude/daily/2026-07-19.md.
+### Task
+- R1: rewards.max_redemptions cap + enforce in redeem_reward RPC + UI merchant + resx 10 lingue
+- R2: EXCLUDE constraint anti-overlap su puntify.bookings (btree_gist) + mapping 409 server
+- R3: Stripe charge.refunded handler -> transazione loyalty negativa idempotente
+- R4: MenuController UpdateDish/UpdateSection validazione server-side (name, price) su UPDATE
+- R5: MenuController.Publish re-sequence sort_order deterministico
+- R6: ClientDetail.razor tab in URL + NegozioDetail.razor canonical env-aware (CAT)
 
-### Prossimi passi (a discrezione Stefano)
-- Review + commit delle modifiche (non fatto per istruzione).
-- Se si scala il server orizzontalmente: spostare OAuthStateStore da in-memory a tabella/Redis.
+### Fatti schema verificati (live puntify_cat)
+- transactions.reason: 1=credit(+), 2=debit(-). Balance=SUM(reason=1?+points:-points). Ha booking_id, stripe_payment_id, source, description.
+- rewards: id, shopid, title, minpoints, description, image, same_genre. Manca max_redemptions.
+- account_reward: accountid, rewardid, used, insertdate.
+- bookings: operator_id nullable, status in (confirmed,pending,cancelled), start_at/end_at tstzrange.
+- redeem_reward(p_account,p_reward) RETURNS jsonb, SECURITY DEFINER, advisory lock su account+shop.
+
+### Stato: subagent lanciati in parallelo. Build/restart/apply migrazioni centralizzati a fine.
