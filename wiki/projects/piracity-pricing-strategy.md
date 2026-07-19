@@ -114,3 +114,6 @@ I micro-copy finali per ognuno dei 4 tier e 2 piani Pass sono nei file `content/
 - [[piracity-web|Piracity Web (vetrina)]]
 - [[piracity-pricing-v1-execution|Pricing V1 — Piano di Esecuzione]]
 - Doc sorgente: `raw/docs/piracity/pricing-v1-2026-05-08.md`
+
+## AGGIORNAMENTO 2026-07-19 — prezzo libero per mappa (Stefano)
+Stefano ha deciso di NON adottare il catalogo a 4 fasce fisse (Mini/Classica/Estesa/Pack). Il prezzo si decide MAPPA PER MAPPA in base al numero di tappe, al momento della creazione. Il modello attuale (colonna `maps.price` libera) e" gia" corretto e usato da acquisto/regalo. La Fase 1 di [[piracity-pricing-v1-execution]] (rifondazione catalogo SKU) NON serve.
