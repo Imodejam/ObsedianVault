@@ -90,3 +90,9 @@ Prod deploy: workflow_dispatch manuale Stefano + migration (admin_dashboard, pho
 - BOOKING: IDOR operatori, validazione create manuale, anti-race pre-insert, fix min-advance reschedule pubblico
 - PENDING Stefano: (a) EXCLUDE constraint anti-overlap su bookings (schema change), (b) ricarica credito Anthropic (blocca OCR/drag-menu/traduzioni), (c) "committa e pusha" del batch GIGANTE, (d) checklist deploy prod
 - Batch uncommitted attuale: fix tz booking all-screens, telegram booking notify, popup, logo book, migration foto, menu fasce orarie, Nemi (pausa+audit F1-F8+banner UI+reminder salva+drag-menu feature), booking fixes (IDOR/validazioni/race/min-advance), queue fixes (weight+confirmed), migration 20260718_queue_weight_priority.sql
+
+## Revisione TOTALE app (19/07 mattina, in corso)
+- Ondata 1 IN CORSO: audit Cassa/POS+ordini (a6620af) + Loyalty (a41522e)
+- Ondata 2 TODO: menu editor + pagina pubblica PV + clienti/CRM + recensioni
+- Ondata 3 TODO: Social Studio + Insights + admin + billing + notifiche/email/auth
+- Metodo per ondata: audit -> verifica falle (scarto falsi positivi) -> fix test doppio -> report Stefano
