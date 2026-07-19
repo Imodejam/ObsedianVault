@@ -19,3 +19,10 @@ Owner: Stefano. Su master 0038970 (tree pulito). NO commit/push.
 - redeem_reward(p_account,p_reward) RETURNS jsonb, SECURITY DEFINER, advisory lock su account+shop.
 
 ### Stato: subagent lanciati in parallelo. Build/restart/apply migrazioni centralizzati a fine.
+
+## [2026-07-19] FASE-1 Marketing module Puntify (subagent build)
+- Obiettivo: fondamenta modulo marketing email-only (no frontend, no SMS reale, no Stripe purchase)
+- Build: 4 migrazioni CAT + 6 modelli Marketing + servizi + controller + scheduler compleanni
+- Bit feature 128 = marketing (ShopExtensions.HasMarketing)
+- Riuso: EmailQueueService, rewards/account_reward/redeem_reward, pattern WeeklyRecapScheduler, RLS customer_profiles
+- DB CAT: sudo docker exec -i ops-postgres psql -U postgres -d puntify_cat
