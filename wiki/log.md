@@ -1899,3 +1899,5 @@ File chiave aggiornati:
 
 ## [2026-07-19] task | Puntify: gate marketing globali UI-editabili (app_settings + IAppSettingsService + admin endpoint + AdminConfig toggles, 10 locali resx); CAT gates lasciati OFF/OFF/0.6
 ## [2026-07-19] task | Admin gates marketing DONE+TESTED: app_settings table (RLS server-only) + IAppSettingsService (cache 45s, fallback config) + 3 servizi leggono a runtime + endpoint GET/PATCH admin (super, CanSee config) + AdminConfig.razor 2 toggle+soglia (14 resx x10 lingue). Gate CAT OFF. FLAG bug pre-esistente: admin_activity_log non salva dal 14/07 (LogAsync serializza details jsonb a stringa) -> da fixare (tracciabilita azioni admin). Avviato RICONTROLLO funzionale (R1/R3/R4/R5/R6 + smoke marketing + admin-gates) su CAT. Roadmap fixes R2 EXCLUDE resta non applicato (overlap demo)
+
+## [2026-07-19] task | Puntify RE-CHECK roadmap fixes (R1,R3,R4,R5,R6) + Marketing Fase-1 smoke su CAT — tutti PASS, nessuna regressione, dati test ripuliti (0 residui)
