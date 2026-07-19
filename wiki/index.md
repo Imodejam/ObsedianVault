@@ -17,6 +17,7 @@
   - [[wiki/projects/piracity-pricing-strategy|Piracity · Strategia prezzi V1]] — posizionamento, 4 SKU mappa + 2 piani Pass, Piastre, decisioni e gap codice/vetrina
   - [[wiki/projects/piracity-pricing-v1-execution|Piracity · Pricing V1 — Piano di Esecuzione]] — gap analysis vs GDD 2026-05-08 e fasi (Catalogo / Pass / EL / Voucher / Stagionalità)
   - [[wiki/projects/piracity-web|Piracity Web]] — sito vetrina marketing Next.js 14 (5 lingue). Sanity rimosso 2026-05-09: ora legge dal Supabase della PWA (mappe `is_official` published).
+  - [[wiki/projects/piracity-golive-payment-gift|Piracity · Go-live pagamento+regalo]] — review 19/07: Stripe vetrina gia ok, manca ownership/email/QR/redeem + buco paywall; flusso regalo proposto
 - [[wiki/projects/openclaw-setup|OpenClaw Setup]] — Ottimizzazione configurazione OpenClaw, agenti, monitoraggio
 - [[wiki/projects/clawroom|ClawRoom]] — Dashboard operativa Blazor per team AI (Kanban, costi, modelli)
 
