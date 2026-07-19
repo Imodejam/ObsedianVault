@@ -16,8 +16,13 @@ Eseguire sul Postgres di PROD (NON puntify_cat). Ognuna e' idempotente.
 5. `20260718_queue_weight_priority.sql`  (RPC queue_call_next_across con peso — DOPO add_queue_weight)
 6. `20260719_rls_transactions_isolation.sql`  (RLS transactions cross-shop leak)
 7. `20260719_social_sentiment_check.sql`  (CHECK sentiment)
+8. `20260720_*` (marketing FASE-1: suppression, credits, campaigns, voucher_columns, app_settings) — batch marketing base
+9. `20260721_campaign_presets.sql`  (catalogo campagne: colonne preset_key+trigger_config, unique index, ED ESTENDE il CHECK campaigns_kind_check con 'auto'+'manual_template' — SENZA questo l'enable preset fallisce 23514)
+10. `20260721_social_settings.sql`  (tabella shop_social_settings: cadenza+profondita import per PV)
 
 Dopo OGNI migration con ADD COLUMN/RPC: verificare `NOTIFY pgrst, 'reload schema';` (incluso negli script) o restart PostgREST prod, altrimenti PGRST204 / RPC non vista.
+
+NB batch 21/07 (catalogo marketing + Social) GIA' applicato su CAT e testato end-to-end (enable/disable/patch/use-template preset OK dopo fix constraint; social settings GET/PUT OK). Il fix constraint campaigns_kind_check e' incluso nella stessa 20260721_campaign_presets.sql (idempotente).
 
 ## 3. Config PROD
 - Caddy prod (app.puntify.it / puntify.it): aggiungere header no-cache su index.html/build-info.js/_framework/blazor.boot.json/service-worker (snippet gia' dato) per il bug "nuova versione in loop".
