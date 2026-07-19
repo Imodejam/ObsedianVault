@@ -96,3 +96,9 @@ Prod deploy: workflow_dispatch manuale Stefano + migration (admin_dashboard, pho
 - Ondata 2 TODO: menu editor + pagina pubblica PV + clienti/CRM + recensioni
 - Ondata 3 TODO: Social Studio + Insights + admin + billing + notifiche/email/auth
 - Metodo per ondata: audit -> verifica falle (scarto falsi positivi) -> fix test doppio -> report Stefano
+
+## Revisione app - stato ondate (19/07)
+- ONDATA 1 (Cassa/POS+Loyalty): COMPLETA, tutti fix testati live, UNCOMMITTED
+- ONDATA 2 IN CORSO: audit pagina pubblica+recensioni (aa6659d) + CRM+menu editor (ab453f5)
+- ONDATA 3 TODO: Social Studio+Insights+admin+billing+auth/notifiche
+- Decisioni Stefano pendenti: Floor vs Round punti, max_redemptions premi, handler refund Stripe, EXCLUDE constraint booking, credito Anthropic, commit batch, checklist prod
