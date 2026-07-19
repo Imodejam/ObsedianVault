@@ -102,3 +102,9 @@ Prod deploy: workflow_dispatch manuale Stefano + migration (admin_dashboard, pho
 - ONDATA 2 IN CORSO: audit pagina pubblica+recensioni (aa6659d) + CRM+menu editor (ab453f5)
 - ONDATA 3 TODO: Social Studio+Insights+admin+billing+auth/notifiche
 - Decisioni Stefano pendenti: Floor vs Round punti, max_redemptions premi, handler refund Stripe, EXCLUDE constraint booking, credito Anthropic, commit batch, checklist prod
+
+## Revisione app - ondate (aggiornamento 19/07)
+- ONDATA 1 (POS+Loyalty): COMPLETA
+- ONDATA 2 (pagina pubblica+recensioni+CRM+menu): COMPLETA (RLS transactions fix, snapshot formats/vat, review validation)
+- ONDATA 3 IN CORSO: audit Billing+Admin (acaf707) + Social Studio+Insights+trasversali (a02aac3)
+- Migration accumulate per prod: queue_weight_priority, photo_source_allow_catalog_url, rls_transactions_isolation, add_section_description, add_queue_weight, admin_dashboard (+NOTIFY pgrst dove serve)
