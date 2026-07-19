@@ -84,3 +84,9 @@ Prod deploy: workflow_dispatch manuale Stefano + migration (admin_dashboard, pho
 ## BLOCCO: credito Anthropic Puntify esaurito (18/07 notte)
 - La chiave Anthropic in Puntify.Server/appsettings.Development.json non ha credito -> OCR menu (nuova feature + scatta cartaceo + traduzioni MenuTranslationService) tutti ko su CAT
 - Atteso: Stefano ricarica credito o fornisce nuova chiave -> POI rifare test E2E drag-menu (immagine test in scratchpad test_menu.jpg, script python nel transcript)
+
+## Revisione Prenotazioni+Code (19/07 notte) — COMPLETATA ondate critiche
+- CODE: weight priority attiva (migration 20260718_queue_weight_priority.sql su CAT, da eseguire in prod) + confirmed filter operatore
+- BOOKING: IDOR operatori, validazione create manuale, anti-race pre-insert, fix min-advance reschedule pubblico
+- PENDING Stefano: (a) EXCLUDE constraint anti-overlap su bookings (schema change), (b) ricarica credito Anthropic (blocca OCR/drag-menu/traduzioni), (c) "committa e pusha" del batch GIGANTE, (d) checklist deploy prod
+- Batch uncommitted attuale: fix tz booking all-screens, telegram booking notify, popup, logo book, migration foto, menu fasce orarie, Nemi (pausa+audit F1-F8+banner UI+reminder salva+drag-menu feature), booking fixes (IDOR/validazioni/race/min-advance), queue fixes (weight+confirmed), migration 20260718_queue_weight_priority.sql
