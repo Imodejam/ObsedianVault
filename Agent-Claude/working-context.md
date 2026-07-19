@@ -11,8 +11,11 @@ Costruito + testato + audit su collaudo. Orchestrato con 5 subagent (esplorazion
 - Sicurezza (audit): C1 CRITICAL RCE /api/upload-photo (vetrina) CHIUSA (execFile array, UUID, auth admin); H2 score location ora server-authoritative (game_stage_checkins); M1 webhook usa orders.user_id; M2 rate-limit 10/15min su login+redeem.
 - E2E verificato: register->paywall 403->gift->redeem 200->gioco 201->map-access; C1 401 no-auth; M2 429; H2 client-inflated ignorato. 0 residui test.
 
+### Newsletter (COMPLETATA su CAT, non committata)
+- Form reale (email+lingua), /api/newsletter subscribe+unsubscribe, /api/newsletter/dispatch protetto x-cron-secret idempotente per mese. Contenuto: mappe nuove del mese + top5 piu giocate, localizzato per lingua iscritto (21 lingue). Migration 019 su CAT. CRON impostato: crontab "0 7 1 * *" -> /home/claudebot/scripts/piracity-newsletter-dispatch.sh (secret in .env.local vetrina). Verificato e2e (subscribe->dispatch dryRun recipients=1). Serve Resend key/dominio per invii reali.
+
 ### PENDENTI
-- Commit+push (al "committa" di Stefano). Migration da portare in prod: 017, 018 (+ le altre gia' in checklist se non fatte). NIENTE Co-Authored-By Claude.
+- Commit+push (al "committa" di Stefano). Migration da portare in prod: 017, 018, 019 (+ le altre gia' in checklist se non fatte). NIENTE Co-Authored-By Claude.
 - PROD prerequisiti: chiave Resend + dominio email Piracity (assenti->email non partono); price_id Stripe prod; PHOTO_UPLOAD_ENABLED=0 in prod.
 - Catalogo pricing V1 4-fasce (Mini/Classica/Estesa/Pack) resta da allineare (separato, non richiesto ora).
 
