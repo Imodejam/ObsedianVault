@@ -37,6 +37,7 @@
 ## Concetti
 _(nessun concetto ancora)_
 - [[projects/puntify-admin]] — Area Admin di sistema Puntify (pianificazione, F1)
+- [[projects/puntify-marketing-campagne]] — Catalogo 14 campagne marketing preconfigurate (proposte 19/07, attesa OK); #1 compleanno e #8 flash gia' fatte
 
 - [[projects/puntify-funzionalita|Puntify — Resoconto funzionalità]] — mappa completa funzioni (esercente/cliente/vetrina/admin) + 10 claim esterni
 - [[piracity-tappa-template]] — formato obbligatorio per creare/visualizzare una tappa Piracity (tono pirata, struttura a sezioni fisse)
