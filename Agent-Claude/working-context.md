@@ -1,27 +1,18 @@
-# Working Context
+# Working context
 
-## COMPLETATO 2026-07-19 - 14 campagne marketing + revisione Social Studio (tutto CAT, testato)
-- Marketing catalogo: 7 runner auto + 5 modelli manuali + registry + email 10 lingue + galleria UI CampaignCatalog.razor (toggle/config/usa-modello) + 5 endpoint. Migration 20260721_campaign_presets (colonne + unique + FIX CHECK kind 'auto'/'manual_template'). Testato end-to-end (enable/disable/patch/use-template, validazioni). AUTO nascono paused, gate globale OFF.
-- Social Studio: modifica bozza (PATCH+UI), cutoff import 12 mesi, shop_social_settings (cadenza+profondita per PV, migration 20260721_social_settings), background service cadenza per-PV, enrichment sentiment su import (era MANCANTE). Immagini solo-URL. Testato (settings GET/PUT).
-- Delegato a 3 subagent (backend mkt / social / frontend mkt), orchestrato + testato + fixato io.
-### PENDENTI
-- Commit+push del blocco (attendo OK Stefano): fix audit-log + roadmap fixes + Marketing FASE-1 + admin gates + catalogo 14 campagne + Social. NIENTE Co-Authored-By Claude.
-- Deploy prod guidato (checklist puntify-deploy-checklist-20260719.md, ora 10 migration).
-- Pubblicazione reale IG/FB/TikTok resta stub (fuori scope, serve OAuth+API provider).
+## Task corrente (2026-07-19) — COMPLETATO
+Piracity backend (/home/progetti/piracity/backend) — sistema possesso mappe + regalo.
 
-## COMPLETATO 2026-07-19 - FIX bug audit-log admin (fermo dal 14/07)
-Causa: `AdminUser` senza `[JsonPropertyName]` + `_readJsonOptions` STJ case-sensitive -> `admin.Id=Guid.Empty` -> `LogAsync` esce alla guardia. Anche `Profile` restava default "super" (RBAC latente). FIX: `[JsonPropertyName]` su tutti i campi AdminUser. Verificato 2x (241->243 righe, admin_id reale). Build 0 errori. NON committato (attendo OK).
-### Pendenti da Stefano
-- Approvazione catalogo 14 campagne marketing precon​figurate (presentate msg 6732)
-- OK "committa e pusha" per il blocco uncommitted (roadmap fixes + Marketing Fase-1 + admin gates + roadmap.razor + fix audit-log)
-- Deploy prod guidato (checklist in wiki/projects/puntify-deploy-checklist-20260719.md)
+### Fatto
+- services/entitlement.service.ts: `userOwnsMap(userId, mapId)` — true se mappa gratuita (price NULL o <=0) o esiste user_map_unlocks.
+- routes/game.routes.ts: POST /game/sessions ora fa gate paywall -> 403 {error:'map_not_owned'} se non posseduta.
+- routes/redeem.routes.ts: POST /redeem (requireAuth, zod token min 10). Idempotente: 404 invalid_token / 200 alreadyOwned (stesso utente) / 409 already_redeemed (altro) / 410 expired (expired|cancelled|expires_at passato, promuove pending scaduto a expired) / 200 unlock+redeemed (pending). Guardia anti doppio-riscatto concorrente su UPDATE ... WHERE status='pending'.
+- routes/me.routes.ts: GET /me/map-access -> {mapIds:[]} dagli unlock di req.userId.
+- app.ts: registrate redeemRoutes su '/' (POST /redeem con requireAuth per-route, NON router.use, per non intercettare /health) e meRoutes su '/me'.
 
-## COMPLETATO 2026-07-19 - Puntify Nemi proposte marketing autonome (low-traffic)
-Consegnato server-side (no commit). Dettaglio in Agent-Claude/daily/2026-07-19.md.
-File: LowTrafficAnalyzer.cs, MarketingProposalPayload.cs, NemiMarketingProposalService.cs (nuovi);
-Program.cs + NemiChatService.cs (modificati, branch [MKT_PROPOSAL] mirror OCR).
-Gate Marketing:NemiProposalsEnabled default FALSE. Anti-auto-send invariato/verificato. Trace su CAT + cleanup.
+### Verifica
+- tsc: 0 errori nei file toccati (unico errore preesistente in payment.service.ts, versione Stripe, non toccato).
+- Self-test curl su :6001 a-e tutti OK; dati di test ripuliti (utenti + gifts + unlocks + sessions).
 
-### Prossimi passi possibili
-- UI merchant per vedere/gestire le proposte flash pending_approval (regola UI-editable)
-- Attivare il gate su un negozio pilota quando Stefano vuole test reale
+### Prossimi passi
+- La vetrina (altro agent) genera il token gift e crea la riga map_gifts. Contratto rispettato: /redeem {token}, /me/map-access {mapIds:[]}.
