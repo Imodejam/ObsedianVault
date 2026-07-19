@@ -1926,3 +1926,5 @@ File chiave aggiornati:
 ## [2026-07-19] task | Piracity backend: chiuso buco paywall POST /game/sessions (entitlement.service userOwnsMap) + POST /redeem (riscatto regalo idempotente) + GET /me/map-access; migration 017 (user_map_unlocks/map_gifts); self-test a-e OK, 0 errori tsc miei file
 
 ## [2026-07-19] task | Piracity frontend: possesso mappa (GET /me/map-access) + gating play + route /redeem (riscatto regalo) implementati; compila (tsc+build OK)
+
+## [2026-07-19] task | Piracity Vetrina: flusso acquisto/regalo mappe (Stripe unlock + buono regalo QR via Resend). checkout metadata isGift/recipientEmail/giftMessage/locale, webhook fulfillOrder idempotente (user_map_unlocks upsert / map_gifts token base64url), email conferma+regalo (it/en/es/de/fr/pt), admin colonna Regalo, i18n gift 21 lingue. tsc+build 0 errori, :6010 200. Env nuovi: RESEND_API_KEY, RESEND_FROM, PIRACITY_APP_URL.
