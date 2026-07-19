@@ -1924,3 +1924,5 @@ File chiave aggiornati:
 ## [2026-07-19] task | Piracity go-live: Stefano OK ai 3 default (vendita per-mappa prezzo attuale, opzione regalo al checkout, email Resend). Applicata migration 017 su CAT (user_map_unlocks + map_gifts, RLS, NOTIFY pgrst). Delegati 3 agent in parallelo: (A) backend Express = chiude buco paywall in /game/sessions (entitlement) + POST /redeem + GET /me/map-access; (B) vetrina Next = checkout opzione regalo + webhook sblocco/gift + QR + email Resend; (C) frontend React = ownedMapIds dal server + gating play + route /redeem deep-link. Contratto: link riscatto https://app-cat.piracity.app/redeem?token=<TOKEN>. Audit sicurezza completo dopo (agent D). Poi test end-to-end io.
 
 ## [2026-07-19] task | Piracity backend: chiuso buco paywall POST /game/sessions (entitlement.service userOwnsMap) + POST /redeem (riscatto regalo idempotente) + GET /me/map-access; migration 017 (user_map_unlocks/map_gifts); self-test a-e OK, 0 errori tsc miei file
+
+## [2026-07-19] task | Piracity frontend: possesso mappa (GET /me/map-access) + gating play + route /redeem (riscatto regalo) implementati; compila (tsc+build OK)
