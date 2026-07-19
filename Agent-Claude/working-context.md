@@ -1,18 +1,10 @@
 # Working Context
 
-## Sessione 2026-07-19 — Puntify hardening (H1-H4)
-Obiettivo: fix hardening verificati in Puntify (no commit/push). Fuori scope: billing suspension gate, Stripe recurring/VAT, MerchantBilling.razor.
+## Sessione 2026-07-19 — Puntify hardening H1-H4 — COMPLETATO
+Tutti gli item verificati e fixati. Build 0 errori. Server ripristinato sotto systemd (puntify-server active). Testato 2 round live. NO commit/push (come richiesto).
 
-### Stato verifiche
-- H1 Google token leak: CONFERMATO GoogleBusinessService.cs:83 + GenericOAuthProvider.cs:69,84 loggano body con token
-- H2 AdminEvents email: CONFERMATO nessuna validazione email/esistenza account
-- H3 OAuth state no nonce: CONFERMATO state prevedibile in GenericOAuthProvider + GoogleBusinessService
-- H4a AI score NaN: da verificare (sqrt/divisioni)
-- H4b sentiment constraint: nessun CHECK esistente; CAT ha valori 'positive' (EN) da test data -> normalizzare
-- H4c upload magic-byte: SocialStudioController.UploadImage riceve bytes server-side (StorageController usa presigned URL, non applicabile). Riuso MenuOcrSanitizer.SniffContentType
+Dettaglio in Agent-Claude/daily/2026-07-19.md.
 
-### Approccio OAuth state (H3)
-Nonce in-memory ConcurrentDictionary con TTL (pattern GodModeGrantStore) — evita migration, caveat multi-instance (attuale deploy single-instance).
-
-### Task in corso
-Implementazione fix.
+### Prossimi passi (a discrezione Stefano)
+- Review + commit delle modifiche (non fatto per istruzione).
+- Se si scala il server orizzontalmente: spostare OAuthStateStore da in-memory a tabella/Redis.
