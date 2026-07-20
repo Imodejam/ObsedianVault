@@ -1997,3 +1997,4 @@ File chiave aggiornati:
 ## [2026-07-20] task | Puntify Vetrina: conferma ordine titolo live per stato + icona avvisi SVG (req 6912)
 
 ## [2026-07-20] task | Puntify Vetrina CAT: lock tavolo con ordine aperto su MerchantMenuPreview (nuovi ordini sullo stesso conto, picker/chip bloccati, nota table.locked_note in 20 lingue)
+## [2026-07-20] task | Puntify — tavolo con ordine aperto: nuovi ordini stesso tavolo, cambio bloccato (endpoint /open + lock Vetrina)
