@@ -1970,3 +1970,5 @@ File chiave aggiornati:
 - i18n: meccanismo = dizionario inline UiStrings (NON resx) nel .razor. Aggiunte chiavi track.stations/track.station_kitchen/track.station_bar + status.cancelled in tutte le 20 lingue del dizionario.
 - CSS: mp-track-* in menu-public.css, bump ?v=20260720a.
 - Build server+vetrina 0 errori; restart puntify-server poi puntify-vetrina; verificato endpoint reale ordine pepto/#A01 ritorna kitchen_status=preparing bar_status=received.
+
+## [2026-07-20] task | Puntify App CAT — Cassa: id conto/tavolo nel path (deep-link), badge stato per-giro, "Invia" contestuale (Invia in cucina / Incassa); "Tav. N" ovunque (Dashboard+TablesPlanimetry) + sedie colorate per coperti seduti. 3 nuove chiavi resx x10 lingue (cassa_collect/cassa_send_kitchen/cassa_send_hint_empty). Build OK, restart puntify-app.service.
