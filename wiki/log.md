@@ -2004,3 +2004,4 @@ File chiave aggiornati:
 ## [2026-07-20] task | Puntify — gate coperti completo (server+Cassa UI) + email non richiesta su giri successivi conto aperto
 ## [2026-07-20] task | Social Skin — post Nemi 21/07 approvato e schedulato su Buffer (IG/LI/FB, 13:00)
 ## [2026-07-20] task | Social Skin — newsjacking sistematico: calendario eventi (events.py) + routine giornaliera aggiornata
+## [2026-07-21] task | Puntify — audit Cassa completo (5 lenti + test adversarial): 20 bug trovati, fix server+client implementati e verificati (13/13 PASS)
