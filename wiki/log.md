@@ -1987,3 +1987,4 @@ File chiave aggiornati:
 
 ## [2026-07-20] task | Vetrina MerchantMenuPreview: terminologia catalogo-aware (menu->catalogo, piatti->prodotti per cataloghi non-ristorazione) su 20 lingue via CatalogOverrides+TCtx keyed su CatalogTypes.IsFood; ristorazione invariata; build 0 err, vetrina 302
 ## [2026-07-20] task | Puntify — pagina pubblica catalogo adattiva per tipologia (Menu vs Catalogo, 20 lingue) + riga tipo-sezione compatta
+## [2026-07-20] task | Puntify — tasto catalogo pagina negozio dinamico (Ordina Ora/Menù/Catalogo per tipo+ordini)
