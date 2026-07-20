@@ -4,7 +4,21 @@
 
 **Ambienti di test (Collaudo):** Vetrina `http://localhost:8003` · App `http://localhost:8002` · Server API `http://127.0.0.1:8001`
 **Strumento:** Playwright headless (chromium: `/home/claudebot/.cache/ms-playwright/chromium-1228/chrome-linux64/chrome`, core: `/tmp/anchortest/node_modules/playwright-core/index.mjs`)
-**Ultimo aggiornamento testbook:** 2026-07-13 · **Ultima esecuzione:** 2026-07-13
+**Ultimo aggiornamento testbook:** 2026-07-20 · **Ultima esecuzione:** 2026-07-20
+
+---
+
+## ⭐ Modifiche della settimana da regredire (2026-07-14 → 07-20)
+- [ ] **Menu — flusso ordini ridisegnato**: stato PER STAZIONE (cucina/bar indipendenti); dine-in resta APERTO finché non pagato; SOLO il pagamento chiude l'ordine e libera la risorsa.
+- [ ] **Conto tavolo (Opzione B)**: ogni invio = ordine separato attribuito allo stesso tavolo, aggregati in un unico conto; `POST /api/menu/orders/pay-table` salda tutti i giri, fedeltà 1 volta, idempotente.
+- [ ] **ClassifyOrderStations**: smistamento cucina/bar in base al KIND della SEZIONE (non del piatto) → drink al bar.
+- [ ] **MenuEditor**: selettore Tipo sezione (Cucina/Bar) configurabile da UI + FieldInfo; persiste via UpdateSection.
+- [ ] **Vetrina MerchantMenuPreview**: tracking ordine persistente ricevuto→in prep→pronto + stato per stazione (GET order/{id}/status con kitchen_status/bar_status).
+- [ ] **Cassa (Dashboard)**: id ordine nel path, badge stato per giro, conto tavolo aggregato, keypad coperti stile Stripe, tasto invia chiarito.
+- [ ] **Agenda/Booking**: day view corretta, "Nuovo appuntamento" planning, celle settimana full-width, n. persone in dettaglio+agenda, DatePickerModal fullscreen stile Stripe, tipo servizio nascosto se unico.
+- [ ] **Risorse**: sedie colorate per coperti, "Tav. N" ovunque, blocco modifica coperti se prenotazioni associate, controllo capienza vs n. persone.
+- [ ] **NegozioDetail**: ombra tasti accento negozio (verde) non rosso; pannello loyalty sotto i premi.
+- [ ] **Marketing**: 14 campagne preconfigurate (galleria + 7 runner auto + 5 template).
 
 ---
 
@@ -69,6 +83,7 @@
 ## Log esecuzioni
 <!-- L'agent aggiunge qui una riga per esecuzione: data | pass/fail per sezione | bug trovati | testbook aggiornata sì/no -->
 - 2026-07-05: testbook creata (baseline). Prima esecuzione programmata: lunedì.
+- 2026-07-20: **PASS complessivo 9/9** (regressione Playwright headless + smoke API, delega QA). Vetrina home/negozi(58 PV)/pepto(accento verde ok, loyalty sotto premi)/menu/blog 200+render; API health :8001=200 + GET order status con kitchen_status/bar_status/order_mode/table_label OK; servizi systemd server/app/vetrina active; app WASM :8002=200. 0 FAIL, 0 regressi, nessun dato di test creato. Note non-bug: menu Blazor Server = falso negativo timing (serve virtual-time 20s); banner WebGL mappa atteso in headless (--disable-gpu). Modifiche settimana (flusso ordini per-stazione, conto tavolo B, tipo sezione UI) verificate a livello Vetrina+API; conferma UI-app merchant = gap noto headless.
 - 2026-07-13: **PASS complessivo** (regressione Playwright headless, delega QA). Vetrina pagine principali 200/render ok a 390px e 1280px; tutte le 8 modifiche della settimana verificate PASS (recensione Typeform senza emoji + tasto bianco; NegozioDetail maps/Chiama/Contatti/logo JSON-LD; rating SoftwareApplication solo su Home; slug città backfill risolvono 200; FAB menu bordo destro). Server API: 0 errori in log. App: solo health :8002=200 (login merchant non testabile headless = gap noto).
   - **BUG minori aperti**: (1) `/it/nemi` → 404 su `avatar-hero.webm`/`.vtt` (asset video hero mancanti su collaudo); (2) rumore dev noto (service-worker MIME, HMR cert, immagini esterne/GA bloccate = no rete uscente collaudo).
   - Nota: assegnazione atomica numero ordine (#A0x) implementata oggi (RPC next_menu_order_seq SECURITY DEFINER) — vedi log wiki.
