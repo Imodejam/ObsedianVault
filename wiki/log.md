@@ -1978,3 +1978,5 @@ File chiave aggiornati:
 
 ## [2026-07-20] task | Puntify — selettore Tipo sezione (Cucina/Bar) nell'editor menu (fix feedback 6863)
 ## [2026-07-20] lint | Regressione settimanale Puntify collaudo: 9 PASS / 0 FAIL (Vetrina+API+servizi)
+
+## [2026-07-20] task | Vetrina rebrand IT "Menu"->"Catalogo" nei due resx IT (SharedResource.resx + .it.resx): rinominata label prodotto menu-digitale in Catalogo su chiavi Menu_* / Meta_Menu_* / Btn_DiscoverMenu / Mega_Feat_Menu_Desc / Nd_MenuBtn / Footer_Link_Menu / Menu_Faq*. Solo <value>, chiavi/URL invariati.
