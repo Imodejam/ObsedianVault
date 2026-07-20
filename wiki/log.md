@@ -1990,4 +1990,4 @@ File chiave aggiornati:
 ## [2026-07-20] task | Puntify — tasto catalogo pagina negozio dinamico (Ordina Ora/Menù/Catalogo per tipo+ordini)
 ## [2026-07-20] task | Puntify — email cliente su "in preparazione" (verificata) + diagnosi push Firebase (0 token registrati)
 
-## [2026-07-20] task | Puntify Vetrina: opt-in web push avvisi ordine su schermata conferma menu (MerchantMenuPreview) — bottone gesto-utente + auto-register se granted, RegisterOrderPushAsync indurito (no swallow silenzioso), 20 lingue
+## [2026-07-20] task | Puntify Vetrina: web push ordine menu: prompt permessi automatico nel gesto "ordina" (SubmitOrder) + bottone solo come fallback; RegisterOrderPushAsync indurito (console.warn, no swallow); 20 lingue
