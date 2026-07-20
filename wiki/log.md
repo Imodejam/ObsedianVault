@@ -1999,3 +1999,4 @@ File chiave aggiornati:
 ## [2026-07-20] task | Puntify Vetrina CAT: lock tavolo con ordine aperto su MerchantMenuPreview (nuovi ordini sullo stesso conto, picker/chip bloccati, nota table.locked_note in 20 lingue)
 ## [2026-07-20] task | Puntify — tavolo con ordine aperto: nuovi ordini stesso tavolo, cambio bloccato (endpoint /open + lock Vetrina)
 ## [2026-07-20] task | Puntify — overlay manutenzione Vetrina: reload automatico appena il server risponde (watchdog, testato e2e)
+## [2026-07-20] task | Task completato: Puntify.App gate coperti — badge "Da confermare" + conferma coperti in Cassa (endpoint confirm-covers), resx x10, build+restart OK
