@@ -1984,3 +1984,5 @@ File chiave aggiornati:
 ## [2026-07-20] task | Vetrina: rinominata label prodotto "Menu" -> "Catalogo" (11 lingue resx, route/URL invariati)
 
 ## [2026-07-20] task | Puntify — Catalogo con tipologia (restaurant/services/retail/generic) + rename Menu->Catalogo (App+Vetrina, no rotte)
+
+## [2026-07-20] task | Vetrina MerchantMenuPreview: terminologia catalogo-aware (menu->catalogo, piatti->prodotti per cataloghi non-ristorazione) su 20 lingue via CatalogOverrides+TCtx keyed su CatalogTypes.IsFood; ristorazione invariata; build 0 err, vetrina 302
