@@ -2002,3 +2002,4 @@ File chiave aggiornati:
 ## [2026-07-20] task | Task completato: Puntify.App gate coperti — badge "Da confermare" + conferma coperti in Cassa (endpoint confirm-covers), resx x10, build+restart OK
 ## [2026-07-20] ingest | KiRweb visual playbook: analisi 23 creativita' Foxy+Roadhouse -> wiki/projects/kirweb-visual-playbook.md
 ## [2026-07-20] task | Puntify — gate coperti completo (server+Cassa UI) + email non richiesta su giri successivi conto aperto
+## [2026-07-20] task | Social Skin — post Nemi 21/07 approvato e schedulato su Buffer (IG/LI/FB, 13:00)
