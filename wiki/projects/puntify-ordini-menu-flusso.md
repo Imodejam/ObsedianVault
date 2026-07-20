@@ -28,3 +28,12 @@ Creazione dine_in/takeaway, occupazione tavolo, notifiche+email, stato per-stazi
 
 ## Gia' fatto stasera (batch ordini menu, su CAT non committato)
 Stato per-stazione + email pronto per tavolo + Tav.N schermi + dine-in fino al pagamento + colonna "Servito da incassare" + sedie planimetria centrate + vetrina "Al tavolo N". Migration 20260720_menu_order_station_status applicata su CAT.
+
+## [2026-07-20] Opzione B IMPLEMENTATA (conto tavolo)
+Stefano ha scelto **B** (dopo che un agent aveva avviato l'append A -> REVERTATO).
+
+- **REVERT append**: rimossi i 2 blocchi `TryAppendCourseToOpenTableOrderAsync` (SubmitOrder pubblico ~1401 + POS ~1907) + helper + `StationNeedsReopen`. Ogni invio (pubblico e POS) crea SEMPRE un nuovo ordine.
+- **Server**: `POST /api/menu/orders/pay-table` (record `PayTableRequest`: `{ shopId+tableOperatorId }` o `{ orderIds[] }` + payments + invoiceRequested). Salda TUTTI i giri aperti del tavolo (paid/status+stazioni=delivered), idempotente (2o colpo 409 nothing_to_pay), fedelta' UNA volta sul totale complessivo (`CreditTableLoyaltyAsync`, guardia `loyalty_credited` su tutti i giri, 1 sola transaction). `/{orderId}/pay` singolo INVARIATO (asporto).
+- **Cassa (Dashboard.razor)**: `_cassaTableOrders` (giri inviati read-only), `OnTableClick`->`LoadTableConto` (tutti gli ordini aperti + draft vuoto). `CassaGrandTotal` = inviati + draft; `CassaPayableTotal` = solo inviati; `PayPrimaryAsync` -> `PayTableAsync(orderIds)` se conto tavolo, altrimenti `/pay`. VAT breakdown include i giri. `MenuOrdersApiService.PayTableAsync`. Resx `cassa_order`/`cassa_sent_round`/`cassa_new_round` in 10 lingue.
+- **Occupazione**: `ComputeOccupiedTables` gia' "aperto se non pagato/non cancelled" -> regge con piu' ordini (tavolo libero solo quando TUTTI pagati). OK.
+- **Verificato** su Pepto: 2 ordini separati -> 2 record; pay-table -> entrambi paid/delivered + fedelta' 1 tx; 2o=409; asporto /pay ok. Build 0 err, servizi riavviati. GAP 1 e 2 RISOLTI.
