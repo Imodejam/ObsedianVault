@@ -2000,3 +2000,5 @@ File chiave aggiornati:
 ## [2026-07-20] task | Puntify — tavolo con ordine aperto: nuovi ordini stesso tavolo, cambio bloccato (endpoint /open + lock Vetrina)
 ## [2026-07-20] task | Puntify — overlay manutenzione Vetrina: reload automatico appena il server risponde (watchdog, testato e2e)
 ## [2026-07-20] task | Task completato: Puntify.App gate coperti — badge "Da confermare" + conferma coperti in Cassa (endpoint confirm-covers), resx x10, build+restart OK
+## [2026-07-20] ingest | KiRweb visual playbook: analisi 23 creativita' Foxy+Roadhouse -> wiki/projects/kirweb-visual-playbook.md
+## [2026-07-20] task | Puntify — gate coperti completo (server+Cassa UI) + email non richiesta su giri successivi conto aperto
