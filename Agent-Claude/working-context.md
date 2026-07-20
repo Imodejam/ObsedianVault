@@ -1,6 +1,6 @@
 # Working context
 
-## Ultimo task (2026-07-20) — Catalogo con tipologia (feedback Stefano 6866)
+## Ultimo task (2026-07-20) - Catalogo tipologia + pagina pubblica per tipo (DONE, non committato)
 Rinominare "Menu" -> "Catalogo" (etichette, non rotte) su App+Vetrina + tipologia catalogo.
 
 ### Fatto da me (foundation)
