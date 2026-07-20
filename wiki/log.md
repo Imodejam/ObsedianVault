@@ -1993,3 +1993,5 @@ File chiave aggiornati:
 ## [2026-07-20] task | Puntify Vetrina: web push ordine menu: prompt permessi automatico nel gesto "ordina" (SubmitOrder) + bottone solo come fallback; RegisterOrderPushAsync indurito (console.warn, no swallow); 20 lingue
 ## [2026-07-20] task | Puntify — fix push web (SW MIME text/html->js su Vetrina) + email ordine in preparazione + opt-in push automatico
 ## [2026-07-20] task | Social Skin — bozza 21/07 tema Nemi inviata per approvazione (cassa scartata da Stefano)
+
+## [2026-07-20] task | Puntify Vetrina: conferma ordine titolo live per stato + icona avvisi SVG (req 6912)
