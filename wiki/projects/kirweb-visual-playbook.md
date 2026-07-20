@@ -57,4 +57,11 @@
 - Adottare: (a) espressioni tragicomiche esagerate o inquadrature solo-mani nelle scene con persone; (b) colore fascia contestuale nelle ricorrenze (il rosso Puntify resta il default); (c) 2-3 format seriali riconoscibili da ruotare; (d) metafora visiva letterale quando possibile (l'oggetto del pain trasformato); (e) mimicry di UI (notifiche, chat, scontrini) per pattern-interrupt; (f) l'assenza/il dopo come soggetto.
 - Evitare: piu' di un perno, scene affollate, espressioni neutre, prodotto al centro.
 
+## E. Newsjacking sistematico (operativo dal 2026-07-20)
+Richiesta Stefano: uscire lo stesso giorno o qualche giorno prima di eventi noti (mondiali, feste, stagionali, Sanremo, Black Friday, food day...) con un post attinente a Puntify in stile KiRweb.
+- Calendario: `/home/progetti/puntify-social/skin/lib/events.py` (feste IT ricorrenti, stagionali/commerciali, food day, edizioni specifiche con lead di anticipo per evento). Test: `python3 skin/lib/events.py [YYYY-MM-DD]`.
+- La routine giornaliera (cron 15:37 Roma) controlla gli eventi in finestra: se presente -> post a tema evento (aggancio + perno Puntify, colore fascia contestuale), altrimenti rotazione topic normale.
+- Guardrail: niente politica/religione/tragedie; date sensibili -> auguri sobri o skip. Sempre bozza -> approvazione Stefano -> publish.
+- Manutenzione: aggiornare le edizioni specifiche (Sanremo, sport, Black Friday) quando le date vengono annunciate.
+
 Collegamenti: [[puntify-social-skin-knowledge]] · progetto /home/progetti/puntify-social (research/kirweb/EXTRA_PRINCIPLES.md gia' esistente = principi; questa pagina = analisi immagine-per-immagine).
