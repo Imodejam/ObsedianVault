@@ -1991,3 +1991,5 @@ File chiave aggiornati:
 ## [2026-07-20] task | Puntify — email cliente su "in preparazione" (verificata) + diagnosi push Firebase (0 token registrati)
 
 ## [2026-07-20] task | Puntify Vetrina: web push ordine menu: prompt permessi automatico nel gesto "ordina" (SubmitOrder) + bottone solo come fallback; RegisterOrderPushAsync indurito (console.warn, no swallow); 20 lingue
+## [2026-07-20] task | Puntify — fix push web (SW MIME text/html->js su Vetrina) + email ordine in preparazione + opt-in push automatico
+## [2026-07-20] task | Social Skin — bozza 21/07 tema Nemi inviata per approvazione (cassa scartata da Stefano)
