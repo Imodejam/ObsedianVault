@@ -1972,3 +1972,5 @@ File chiave aggiornati:
 - Build server+vetrina 0 errori; restart puntify-server poi puntify-vetrina; verificato endpoint reale ordine pepto/#A01 ritorna kitchen_status=preparing bar_status=received.
 
 ## [2026-07-20] task | Puntify App CAT — Cassa: id conto/tavolo nel path (deep-link), badge stato per-giro, "Invia" contestuale (Invia in cucina / Incassa); "Tav. N" ovunque (Dashboard+TablesPlanimetry) + sedie colorate per coperti seduti. 3 nuove chiavi resx x10 lingue (cassa_collect/cassa_send_kitchen/cassa_send_hint_empty). Build OK, restart puntify-app.service.
+
+## [2026-07-20] task | Puntify 3 tweak UI: A) Cassa deep-link ordine nel path + badge stato per-giro + tasto Invia contestuale (Invia in cucina/Incassa); B) "Tav. N" ovunque (Dashboard/Planimetry) + sedie colorate per coperti (max Covers giri aperti, rosso occupazione); C) Vetrina tracking ordine persistente + stato per stazione (esteso endpoint status con kitchen_status/bar_status). Build 0 err (server/app/vetrina), restart :8001/:8002/:8003 ok. per-item delivered = follow-up.
