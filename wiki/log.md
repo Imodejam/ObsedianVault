@@ -1995,3 +1995,5 @@ File chiave aggiornati:
 ## [2026-07-20] task | Social Skin — bozza 21/07 tema Nemi inviata per approvazione (cassa scartata da Stefano)
 
 ## [2026-07-20] task | Puntify Vetrina: conferma ordine titolo live per stato + icona avvisi SVG (req 6912)
+
+## [2026-07-20] task | Puntify Vetrina CAT: lock tavolo con ordine aperto su MerchantMenuPreview (nuovi ordini sullo stesso conto, picker/chip bloccati, nota table.locked_note in 20 lingue)
