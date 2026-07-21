@@ -2013,3 +2013,4 @@ File chiave aggiornati:
 ## [2026-07-21] task | Puntify — receipt engine core consegnato (37/37 test, 4 sample) + layer fiscale multi-vendor in corso
 ## [2026-07-21] task | Puntify receipts FASE 2: layer dispositivi fiscali (Fiscal/) - contratto IFiscalDevice completo, SimulatedFiscalDevice, driver Epson FP + scheletri Custom/RCH/Olivetti, registry, idempotenza+riconciliazione, migration fiscal_devices su CAT, 84/84 test
 ## [2026-07-21] task | Puntify: ricevuta email/stampa = documento commerciale (engine Receipts integrato in MenuController + Cassa archivio, mapper condiviso BillReceiptMapper)
+## [2026-07-21] task | Puntify — documento commerciale COMPLETO (core+fiscale+integrazione live): ricevuta email/stampa = scontrino del motore, 84/84 test
