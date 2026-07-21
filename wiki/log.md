@@ -2026,3 +2026,4 @@ File chiave aggiornati:
 ## [2026-07-21] task | Puntify Cassa (7040, screenshot): via footer bar in cassa desktop + margini minimi — delegato a subagent
 ## [2026-07-21] task | Puntify Cassa: footer bar rimossa in tab cassa desktop (.cassa-lock .dash-orderbar) + margini area ridotti a 6-8px — deploy CAT
 ## [2026-07-21] task | Puntify Cassa: fix regressione layout centrato (margin auto vs flex stretch) — width 100% forzata su header/main in cassa-lock
+## [2026-07-21] task | Puntify Cassa: contatore pezzi per sezione sui chip categoria + totale su Tutti — deploy CAT
