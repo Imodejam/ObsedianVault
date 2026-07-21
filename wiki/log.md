@@ -2039,3 +2039,5 @@ File chiave aggiornati:
 ## [2026-07-21] task | Puntify POS Configurazione: migration shop_pos_settings applicata a CAT + modello shared; UI+Cassa adattiva delegati
 ## [2026-07-21] task | Puntify Cassa: riduzione lieve font prodotti pannello conto (7066) — in coda dopo task Configurazione (stesso file)
 ## [2026-07-21] task | Puntify POS: tab Configurazione live (Subito/Dopo x4, Cassa adattiva pay-first) + font conto 17->15px — deploy CAT
+## [2026-07-21] decision | Puntify ordini: proposta refactor stati (solo lavorazione: Da confermare->In cucina->In preparazione->Pronto->Servito; pagamento come label Da pagare/Pagato dal campo paid esistente; via colonne Da pagare e da incassare; archivio=servito+pagato) — inviata a Stefano (7073), attesa conferma
+## [2026-07-21] task | Puntify POS Configurazione: allargamento contenuto full width (7072) — delegato
