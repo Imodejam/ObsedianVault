@@ -2015,3 +2015,4 @@ File chiave aggiornati:
 ## [2026-07-21] task | Puntify: ricevuta email/stampa = documento commerciale (engine Receipts integrato in MenuController + Cassa archivio, mapper condiviso BillReceiptMapper)
 ## [2026-07-21] task | Puntify — documento commerciale COMPLETO (core+fiscale+integrazione live): ricevuta email/stampa = scontrino del motore, 84/84 test
 ## [2026-07-21] task | Puntify — pagine dedicate Ordine (timeline eventi con delta) e Conto (giri, pagamenti, punti, scontrino) con path + trigger storico eventi
+## [2026-07-21] task | Puntify — Cassa ottimizzata per tablet (tap target 44-60px, iPad portrait 2 pannelli, griglia densa) + filtri archivio in tab bar + card conto restyle
