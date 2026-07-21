@@ -2037,3 +2037,4 @@ File chiave aggiornati:
 ## [2026-07-21] task | Puntify Cassa: bug badge non visibili su conto caricato (contavano solo _cassaLines, non i giri) — fix delegato
 ## [2026-07-21] task | Puntify Cassa: badge contano anche i giri registrati (cache ReferenceEquals) — deploy CAT
 ## [2026-07-21] task | Puntify POS Configurazione: migration shop_pos_settings applicata a CAT + modello shared; UI+Cassa adattiva delegati
+## [2026-07-21] task | Puntify Cassa: riduzione lieve font prodotti pannello conto (7066) — in coda dopo task Configurazione (stesso file)
