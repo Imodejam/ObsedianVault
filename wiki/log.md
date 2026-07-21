@@ -2033,3 +2033,4 @@ File chiave aggiornati:
 ## [2026-07-21] task | Puntify POS: pos-lock esteso a tutti i tab (scroll interni, +Nuovo ordine in tab bar, footer solo mobile) — deploy CAT
 ## [2026-07-21] task | Vetrina: modal dettaglio piatto orizzontale su desktop landscape (foto sx 50%, body dx scroll, 90vh) — live su cat.puntify.it, verifica CDP con modal aperto
 ## [2026-07-21] task | Puntify: redesign pagina Conto (/bill/{id}) stile Stripe/Apple + layout POS — delegato a subagent
+## [2026-07-21] task | Puntify: pagina Conto ridisegnata stile Stripe/Apple (hero totale, breakdown quadrato, 2 colonne, fix Tav. Asporto) — deploy CAT
