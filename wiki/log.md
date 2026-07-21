@@ -2029,3 +2029,4 @@ File chiave aggiornati:
 ## [2026-07-21] task | Puntify Cassa: contatore pezzi per sezione sui chip categoria + totale su Tutti — deploy CAT
 ## [2026-07-21] task | Puntify POS: richiesta tab Configurazione (timing incasso per modalita, Cassa adattiva) — design proposto a Stefano (7050), attesa conferma
 ## [2026-07-21] task | Vetrina menu pubblico: modal piatto orizzontale su desktop landscape (foto sx, testo dx) — delegato a subagent
+## [2026-07-21] task | Puntify POS: estensione layout cassa-lock a tutti i tab (viewport-lock, margini minimi, footer via, +Nuovo ordine in alto) — delegato a subagent
