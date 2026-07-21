@@ -2031,3 +2031,4 @@ File chiave aggiornati:
 ## [2026-07-21] task | Vetrina menu pubblico: modal piatto orizzontale su desktop landscape (foto sx, testo dx) — delegato a subagent
 ## [2026-07-21] task | Puntify POS: estensione layout cassa-lock a tutti i tab (viewport-lock, margini minimi, footer via, +Nuovo ordine in alto) — delegato a subagent
 ## [2026-07-21] task | Puntify POS: pos-lock esteso a tutti i tab (scroll interni, +Nuovo ordine in tab bar, footer solo mobile) — deploy CAT
+## [2026-07-21] task | Vetrina: modal dettaglio piatto orizzontale su desktop landscape (foto sx 50%, body dx scroll, 90vh) — live su cat.puntify.it, verifica CDP con modal aperto
