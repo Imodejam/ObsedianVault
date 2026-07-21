@@ -1,29 +1,29 @@
 # Working context
 
-## Ultimo task (2026-07-21) - Documento commerciale 3 fasi COMPLETO + entita Conto + audit Cassa (non committato)
-Rinominare "Menu" -> "Catalogo" (etichette, non rotte) su App+Vetrina + tipologia catalogo.
+## Task corrente (2026-07-21, msg 7014) - Fix tab bar centrata + rename sezione dashboard -> POS
+Richiesta Stefano: (1) tab bar finita al centro su tutte le pagine /merchant/{id}/dashboard/* — regressione;
+(2) la sezione ordini/cassa va chiamata POS: URL /merchant/{id}/POS/*.
 
-### Fatto da me (foundation)
-- Modello: `ShopMenu.CatalogType` (default restaurant) + costanti `CatalogTypes`
-  (Restaurant/Services/Retail/Generic, .All, .IsFood()) in Punto.Shared/Models/Menu/MenuModels.cs.
-- Migration `docs/DB Migrations/2026-07-20_catalog_type.sql`: ADD COLUMN catalog_type
-  su puntify.shop_menus, CHECK in (restaurant,services,retail,generic), NOTIFY pgrst. Applicata a CAT (3 menu = restaurant).
-- Server: CreateMenu/UpdateMenu persistono (full-model); duplicate copia CatalogType. Build+restart server OK (8001=200).
+### Diagnosi (fatta)
+- Causa tab bar: nuovo blocco in booking.css (filtri archivio 7010)
+  `.bk-tabs-wrapper { display:flex; ... }` — da flex container, la regola desktop preesistente
+  `@media(min-width:768px) .bk-tabs { margin-left:auto; margin-right:auto; max-width:500px }`
+  centra la tab bar come flex item (margin auto assorbe lo spazio). Fix: azzerare i margin
+  di `.bk-tabs-wrapper .bk-tabs`.
 
-### Delegato a 2 subagent (in corso)
-- A (Puntify.App): selettore tipologia catalogo in MenuEditor "dati" (card), tipo-sezione Cibo/Bevande
-  SOLO se restaurant + combo ridisegnata (fondo bianco/separata, CSS in booking.css - app NON linka scoped css),
-  DishEditor: titolo "Modifica prodotto" + sezioni food (kind/allergeni/dieta/caratteristiche/ingredienti)
-  SOLO se restaurant, altrimenti generiche per tipologia; rename label Menu->Catalogo App (no rotte, no bottomnav).
-  Build+restart puntify-app.
-- B (Puntify.Vetrina): rename label Menu->Catalogo (no rotte/URL, no nav generica), resx SharedResource
-  (+it.resx override), conservativo su SEO. Build+restart puntify-vetrina.
-
-### 4 tipologie catalogo (decise, comunicate a Stefano msg 6868)
-restaurant (Ristorazione/Menu, food+drink+allergeni) | services (Servizi, durata/prezzo) |
-retail (Negozio, varianti/disponibilita) | generic (minimale).
+### Delegato a 1 subagent (in corso)
+- Fix CSS booking.css + rename POS: @page alias legacy dashboard + redirect replace verso /POS/,
+  link generati (Dashboard, MerchantHome, MerchantPos, Order/BillDetail, ReceiptApproval,
+  Notifications, MerchantBottomNav, BottomNav IsActive, AiAssistantFab map, NotificationHelper server),
+  resx tutte le 10 lingue: merchanthome_icon_ordini=POS, dashboard_page_title=Puntify - POS.
+  NON toccare /admin/dashboard ne' api social/dashboard. Build App+Server come verifica.
 
 ## Prossimi passi
-- Attendere i 2 subagent, verificare, riavvii uno alla volta.
-- Report a Stefano (chat_id 505161324). Aggiornare vault + vault-sync.sh.
-- In coda: commit/push blocco Puntify (solo su "committa"), remote repo vetrina Piracity, deploy prod.
+- Verificare output subagent, deploy-cat-app.sh (WASM) + restart puntify-server (uno alla volta), test reale.
+- Report a Stefano (chat_id 505161324) via reply. Vault + vault-sync.sh.
+- In coda: commit/push blocco Puntify (solo su "committa"; working tree con WIP grosso: receipts engine,
+  catalogo tipologie, gate coperti, filtri archivio), deploy prod.
+
+## Task precedente (2026-07-21) - Catalogo tipologie + doc commerciale
+Vedi daily 2026-07-21. WIP non committato nel repo puntify (receipts engine 3 fasi, Menu->Catalogo,
+catalog_type migration applicata a CAT).
