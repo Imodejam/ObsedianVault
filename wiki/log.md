@@ -2035,3 +2035,5 @@ File chiave aggiornati:
 ## [2026-07-21] task | Puntify: redesign pagina Conto (/bill/{id}) stile Stripe/Apple + layout POS — delegato a subagent
 ## [2026-07-21] task | Puntify: pagina Conto ridisegnata stile Stripe/Apple (hero totale, breakdown quadrato, 2 colonne, fix Tav. Asporto) — deploy CAT
 ## [2026-07-21] task | Puntify Cassa: bug badge non visibili su conto caricato (contavano solo _cassaLines, non i giri) — fix delegato
+## [2026-07-21] task | Puntify Cassa: badge contano anche i giri registrati (cache ReferenceEquals) — deploy CAT
+## [2026-07-21] task | Puntify POS Configurazione: migration shop_pos_settings applicata a CAT + modello shared; UI+Cassa adattiva delegati
