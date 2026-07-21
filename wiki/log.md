@@ -2044,3 +2044,4 @@ File chiave aggiornati:
 ## [2026-07-21] decision | Puntify ordini: Stefano CONFERMA (7074) il refactor stati lavorazione + pagamento come label
 ## [2026-07-21] task | Puntify POS: Configurazione full width deployata; tasto Nuovo ordine in tab bar anche in Cassa delegato (7075)
 ## [2026-07-21] task | Puntify: Nuovo ordine in tab bar anche in Cassa deployato; refactor stati (task 16) delegato con spec confermata
+## [2026-07-21] task | Puntify: fix definitivo tooltip FieldInfo (position fixed + js delegato, z 10000, flip bordo alto) — pronto, deploy col task 16
