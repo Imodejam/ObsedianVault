@@ -2047,3 +2047,4 @@ File chiave aggiornati:
 ## [2026-07-21] task | Puntify: fix definitivo tooltip FieldInfo (position fixed + js delegato, z 10000, flip bordo alto) — pronto, deploy col task 16
 ## [2026-07-21] task | Puntify: refactor stati ordine live (colonne lavorazione + pill pagamento, zero modifiche server) + tooltip fix strutturale — deploy CAT
 ## [2026-07-21] task | Puntify Cassa: rimossa opzione pagamento Account cliente (storico e validazione server intatti) — deploy CAT
+## [2026-07-21] task | Puntify Cassa: separatori portata/giri a banda grigia full-bleed stile Apple/Stripe — deploy CAT
