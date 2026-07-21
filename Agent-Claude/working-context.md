@@ -1,29 +1,15 @@
 # Working context
 
-## Task corrente (2026-07-21, msg 7014) - Fix tab bar centrata + rename sezione dashboard -> POS
-Richiesta Stefano: (1) tab bar finita al centro su tutte le pagine /merchant/{id}/dashboard/* — regressione;
-(2) la sezione ordini/cassa va chiamata POS: URL /merchant/{id}/POS/*.
+## Stato (2026-07-21 sera)
+Batch POS completo e deployato su CAT (msg 7014-7032): rename dashboard->POS (route alias+redirect,
+wizard nuovo-ordine spostato su /neworder per collisione case-insensitive), fix tab bar centrata,
+filtri archivio a pill una riga, risorse libere grigie, Cassa viewport-locked (cassa-lock) senza scroll,
+Asporto/Consegna senza "Tav.". Server riavviato per deep-link POS nelle notifiche. Attendo feedback
+Stefano sugli spazi Cassa.
 
-### Diagnosi (fatta)
-- Causa tab bar: nuovo blocco in booking.css (filtri archivio 7010)
-  `.bk-tabs-wrapper { display:flex; ... }` — da flex container, la regola desktop preesistente
-  `@media(min-width:768px) .bk-tabs { margin-left:auto; margin-right:auto; max-width:500px }`
-  centra la tab bar come flex item (margin auto assorbe lo spazio). Fix: azzerare i margin
-  di `.bk-tabs-wrapper .bk-tabs`.
-
-### Delegato a 1 subagent (in corso)
-- Fix CSS booking.css + rename POS: @page alias legacy dashboard + redirect replace verso /POS/,
-  link generati (Dashboard, MerchantHome, MerchantPos, Order/BillDetail, ReceiptApproval,
-  Notifications, MerchantBottomNav, BottomNav IsActive, AiAssistantFab map, NotificationHelper server),
-  resx tutte le 10 lingue: merchanthome_icon_ordini=POS, dashboard_page_title=Puntify - POS.
-  NON toccare /admin/dashboard ne' api social/dashboard. Build App+Server come verifica.
-
-## Prossimi passi
-- Verificare output subagent, deploy-cat-app.sh (WASM) + restart puntify-server (uno alla volta), test reale.
-- Report a Stefano (chat_id 505161324) via reply. Vault + vault-sync.sh.
-- In coda: commit/push blocco Puntify (solo su "committa"; working tree con WIP grosso: receipts engine,
-  catalogo tipologie, gate coperti, filtri archivio), deploy prod.
-
-## Task precedente (2026-07-21) - Catalogo tipologie + doc commerciale
-Vedi daily 2026-07-21. WIP non committato nel repo puntify (receipts engine 3 fasi, Menu->Catalogo,
-catalog_type migration applicata a CAT).
+## In attesa
+- Social Skin 22/07 (cassa, "era questo", versione LUMINOSA KiRweb): bozza inviata (7030), attendo
+  Approva/Modifica -> publish.py --channels ig,li,fb --due-at 2026-07-22T11:00Z + topic-history.
+- Commit/push blocco Puntify solo su richiesta esplicita (working tree con WIP: receipts engine,
+  catalogo tipologie, batch POS odierno).
+- Fuori scope segnalato: CTA email "Vai alla dashboard" (EmailStrings.cs) da uniformare a POS se richiesto.
