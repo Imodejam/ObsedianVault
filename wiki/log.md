@@ -2023,3 +2023,4 @@ File chiave aggiornati:
 ## [2026-07-21] task | Social Skin: copy 22/07 rifatta su richiesta (7033) con perno idioma KiRweb "fare i conti senza l'oste" (mani+vino, luminosa); attesa approvazione
 ## [2026-07-21] task | Social Skin: post 22/07 "I conti, senza l'oste" approvato e schedulato su Buffer (ig/li/fb, 11:00Z)
 ## [2026-07-21] task | Puntify Cassa: badge occorrenze prodotto nel conto corrente (deploy CAT)
+## [2026-07-21] task | Puntify Cassa (7040, screenshot): via footer bar in cassa desktop + margini minimi — delegato a subagent
