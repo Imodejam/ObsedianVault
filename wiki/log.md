@@ -2018,3 +2018,4 @@ File chiave aggiornati:
 ## [2026-07-21] task | Puntify — Cassa ottimizzata per tablet (tap target 44-60px, iPad portrait 2 pannelli, griglia densa) + filtri archivio in tab bar + card conto restyle
 ## [2026-07-21] task | Puntify 7014: fix tab bar centrata (flex wrapper vs margin:auto) + sezione dashboard rinominata POS (URL /merchant/{id}/POS/*, alias legacy + redirect, label 10 lingue, deep-link server)
 ## [2026-07-22] task | Social Skin: bozza post 2026-07-22 (cassa/POS, "Il tuo incasso di marzo era questo", scontrino appallottolato) inviata a Stefano per approvazione (msg 7026)
+## [2026-07-21] task | Social Skin: bozza 22/07 rigenerata in stile KiRweb luminoso su feedback Stefano (7028); regola: niente fondi scuri di default
