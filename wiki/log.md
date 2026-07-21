@@ -2011,3 +2011,4 @@ File chiave aggiornati:
 ## [2026-07-21] task | Puntify — archivio CONTI chiusi completo (entita' conto: bill_id + ricevuta aggregata email/stampa + link Telegram al conto)
 ## [2026-07-21] task | Receipt engine Puntify: Punto.Shared/Receipts (modello ReceiptDocument, template JSON w32/w48, renderer EscPos/PlainText/Html, identity ibrida + stub IFiscalDevice), migration receipt_templates+receipt_next_number applicata su CAT, 37 test verdi
 ## [2026-07-21] task | Puntify — receipt engine core consegnato (37/37 test, 4 sample) + layer fiscale multi-vendor in corso
+## [2026-07-21] task | Puntify receipts FASE 2: layer dispositivi fiscali (Fiscal/) - contratto IFiscalDevice completo, SimulatedFiscalDevice, driver Epson FP + scheletri Custom/RCH/Olivetti, registry, idempotenza+riconciliazione, migration fiscal_devices su CAT, 84/84 test
