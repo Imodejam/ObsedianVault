@@ -2041,3 +2041,5 @@ File chiave aggiornati:
 ## [2026-07-21] task | Puntify POS: tab Configurazione live (Subito/Dopo x4, Cassa adattiva pay-first) + font conto 17->15px — deploy CAT
 ## [2026-07-21] decision | Puntify ordini: proposta refactor stati (solo lavorazione: Da confermare->In cucina->In preparazione->Pronto->Servito; pagamento come label Da pagare/Pagato dal campo paid esistente; via colonne Da pagare e da incassare; archivio=servito+pagato) — inviata a Stefano (7073), attesa conferma
 ## [2026-07-21] task | Puntify POS Configurazione: allargamento contenuto full width (7072) — delegato
+## [2026-07-21] decision | Puntify ordini: Stefano CONFERMA (7074) il refactor stati lavorazione + pagamento come label
+## [2026-07-21] task | Puntify POS: Configurazione full width deployata; tasto Nuovo ordine in tab bar anche in Cassa delegato (7075)
