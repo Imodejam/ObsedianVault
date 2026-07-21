@@ -2008,3 +2008,4 @@ File chiave aggiornati:
 ## [2026-07-21] task | Puntify — regressione finale Cassa 8 scenari: 1 regressione trovata (guard pagati vs produzione) e fixata (forward-only), display=DB verificato
 ## [2026-07-21] decision | Puntify — riapertura ordine servito: opzione A (flessibile) + motivazione obbligatoria (reopen_reason), enforcement server
 ## [2026-07-21] task | Puntify App: archivio "Conti chiusi" (tab Archivio Dashboard) — raggruppamento bill_id, ricevuta conto, stampa, resx x10
+## [2026-07-21] task | Puntify — archivio CONTI chiusi completo (entita' conto: bill_id + ricevuta aggregata email/stampa + link Telegram al conto)
