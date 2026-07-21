@@ -2020,3 +2020,4 @@ File chiave aggiornati:
 ## [2026-07-22] task | Social Skin: bozza post 2026-07-22 (cassa/POS, "Il tuo incasso di marzo era questo", scontrino appallottolato) inviata a Stefano per approvazione (msg 7026)
 ## [2026-07-21] task | Social Skin: bozza 22/07 rigenerata in stile KiRweb luminoso su feedback Stefano (7028); regola: niente fondi scuri di default
 ## [2026-07-21] task | Puntify batch POS: label Ordini ripristinata, filtri archivio a pill una riga, risorse libere grigie, Cassa viewport-locked senza scroll con margini compattati, Asporto/Consegna senza Tav. — deploy CAT
+## [2026-07-21] task | Social Skin: copy 22/07 rifatta su richiesta (7033) con perno idioma KiRweb "fare i conti senza l'oste" (mani+vino, luminosa); attesa approvazione
