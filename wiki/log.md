@@ -2053,3 +2053,5 @@ File chiave aggiornati:
 ## [2026-07-22] task | Puntify Cassa: modal post-pagamento con SVG check-circle animato + Stampa=scontrino digitale (motore ricevute) invece di window.print pagina intera
 ## [2026-07-22] decision+task | Puntify: pagamento ortogonale alla lavorazione (/pay e pay-table non forzano delivered; awaiting_payment->received) — server deploy + record A07 ripristinato in bacheca
 ## [2026-07-22] task | Puntify bacheca: filtro stale 5h nascondeva ordini pagati-non-serviti (modello nuovo) — eccezione estesa a o.Paid, deploy CAT
+
+## [2026-07-22] task | Gate coperti Puntify CAT: ordine dine_in non parte in cucina senza coperti definiti >=1. Default preset 0 (non piu capienza tavolo), blocchi client (Cassa CassaSendAsync/CassaPayNowAsync/ConfirmCoversSendAsync) + guard server CreateOrder master (covers_required); +resx cassa_covers_required x10 lingue. Build 0 errori, server riavviato, WASM deploy :8002.
