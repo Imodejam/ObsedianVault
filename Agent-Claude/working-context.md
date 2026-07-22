@@ -34,9 +34,28 @@ compattate (booking.css .ord-card*); Nuovo ordine->Diretto entra in Cassa vendit
 A07 paid true->false ("da pagare"). Template card in Agent-Claude/assets/ordini-card-template*.jpg.
 GOTCHA confermato: colonna tavolo reale = table_resource_id (non table_operator_id legacy).
 
+## Task 2026-07-22 (msg 7140) — Modale coperti init 0 + auto-open (Dashboard.razor CAT)
+OpenGuests draft parte da 0 se coperti non definiti (era _cassaCovers=1). GuestsConfirm draft: tolto default
+v=1 indovinato (v>=1 -> set; v<1 -> non definito + toast, invio bloccato). Anti-loop nuovo draft
+_coversPromptedForDraft (reset in StartNewCassaOrder). NoConfirmAsync ramo dine_in+tavolo apre OpenGuests una
+volta. Diretto/takeaway/delivery esclusi. _cassaCovers default resta 1 (calcoli), ma modale mostra 0 e gate
+CassaDineInNeedsCovers blocca. Build 0 err, deploy :8002. COMPLETATO.
+
+## Task 2026-07-22 (msg 7141) — FIX bug fuso reminder prenotazioni (server CAT)
+File: Puntify.Server/Services/BackgroundServices/BookingReminderService.cs. Causa: finestra reminder calcolata
+in UTC reale ma start_at in DB e' wall-clock negozio marcato +00 (offset0) -> reminder "2h prima" partiva 2h
+tardi (all'ora appuntamento, = scarto CEST +2). Dato reale Pepto: start_at=2026-07-22 20:30:00+00. Fix:
+confronto wall-clock negozio vs wall-clock via TimeZoneHelper.NowInZone(shop.Timezone) + BookingEntry.StartLocal;
+dateStr/timeStr da StartLocal. Verifica: 20:30 -> reminder 18:30. Testo "tra 2 ore" e' fisso (solo scheduling).
+Build 0 err, restart puntify-server ok. COMPLETATO.
+Aperti (segnalati a Stefano, NON toccati): (1) rischio DOPPIO INVIO reminder — manca colonna reminder_sent_at
++ dedup (poll 5min, finestra +-5min); serve migration. (2) incoerenza write-path: booking vocale scrive vero
+UTC (TimeZoneHelper.ToUtc), booking tavolo/web scrive offset0; su CAT tutti shop Europe/Rome quindi fix regge.
+
 ## IN ATTESA / decisione aperta
 - **MerchantPos (wizard /neworder, POS alternativo)**: stepper coperti default 1 (min 1). Chiesto piu' volte
   a Stefano (msg 7113/7130/7139) se allinearlo a 0/obbligo come la Cassa Dashboard o lasciare 1. Nessuna
   risposta ancora.
+- **Reminder doppio invio + write-path**: chiesto a Stefano (msg 7145) se sistemare. In attesa.
 - Prova reale di Stefano su tutte le modifiche (dopo Ctrl+F5) + feedback.
 - Commit/push blocco Puntify solo su richiesta esplicita (WIP grosso nel working tree).
