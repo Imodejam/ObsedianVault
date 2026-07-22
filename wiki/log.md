@@ -2065,3 +2065,5 @@ File chiave aggiornati:
 ## [2026-07-22] task | Fix wizard Nuovo ordine "Diretto" (Puntify.App Dashboard.razor): NoSelectDirectAsync ora naviga in Cassa (WriteCassaRefToUrl(null)+_tab=cassa) come NoConfirmAsync; build 0 errori, deploy CAT :8002 OK
 
 ## [2026-07-22] task | Card Ordini (POS) piu' compatte: ridotti padding/gap/font/badge/bottone in booking.css (.ord-card*), build+deploy CAT :8002 OK
+
+## [2026-07-22] task | Guard server coperti su pagamenti dine_in Puntify CAT: /pay e /pay-table rifiutano covers_required se coperti non definiti (eccezione giro-successivo tavolo con master confermato)
