@@ -2074,3 +2074,5 @@ File chiave aggiornati:
 
 ## [2026-07-22] task | Fix bug fuso reminder prenotazioni Puntify (CAT)
 Reminder "tra 2 ore" partiva all'orario stesso dell'appuntamento (+2h = offset CEST). Causa: BookingReminderService confrontava DateTime.UtcNow con start_at che in DB e' wall-clock del negozio marcato offset0 (es. 20:30 locali salvate come 20:30+00). Fix: finestra costruita su TimeZoneHelper.NowInZone(shop.Timezone) e match su BookingEntry.StartLocal (wall-clock vs wall-clock), per-shop. Build 0 errori, puntify-server riavviato (200, log puliti).
+
+## [2026-07-22] task | Verifica post social 22/07: pubblicato OK su IG/LinkedIn/FB ~13:01 (Buffer status=sent, error null). Stefano non lo vedeva = cache app/account.
