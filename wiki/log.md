@@ -2071,3 +2071,6 @@ File chiave aggiornati:
 ## [2026-07-22] task | POS Cassa: rimosso pannello inline coperti (conferma via tastierino->ConfirmCoversSendAsync) + stato vuoto Cassa (flag _cassaOrderStarted, pannelli solo con ordine attivo); +resx cassa_empty_state 10 lingue; build/deploy CAT :8002 OK
 
 ## [2026-07-22] task | Puntify CAT: coperti dine_in a ZERO + modale auto all'ingresso Cassa (nuovo draft a tavolo)
+
+## [2026-07-22] task | Fix bug fuso reminder prenotazioni Puntify (CAT)
+Reminder "tra 2 ore" partiva all'orario stesso dell'appuntamento (+2h = offset CEST). Causa: BookingReminderService confrontava DateTime.UtcNow con start_at che in DB e' wall-clock del negozio marcato offset0 (es. 20:30 locali salvate come 20:30+00). Fix: finestra costruita su TimeZoneHelper.NowInZone(shop.Timezone) e match su BookingEntry.StartLocal (wall-clock vs wall-clock), per-shop. Build 0 errori, puntify-server riavviato (200, log puliti).
