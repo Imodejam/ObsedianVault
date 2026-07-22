@@ -76,3 +76,17 @@ DECISIONE APERTA (msg 7162): Stefano contesta che le creativita' non hanno una v
 (una gag visiva/verbale). Proposte 3 gag per il post fedelta' di domani (boomerang consigliata). Se approva il
 registro -> far rifare al direttore TUTTO il calendario con standard "una gag vera al giorno". In attesa scelta.
 Approvazione post 23/07 ancora pendente.
+
+## Sessione 2026-07-22 notte — Marketing Director AUTONOMO (direttiva Stefano msg 7174)
+Stefano: il direttore deve essere autonomo e contattarlo DIRETTAMENTE, non attendere Claude.
+- daily_propose.py ora AUTONOMO: genera + PUBBLICA su Buffer (due-at giorno 11:00Z) + informa Stefano
+  diretto via Bot API (non chiede approvazione); marca entry published in calendar.json. Cron 17 16 * * *.
+- director_review.sh NUOVO: cron 23 5 * * 1 (lun 07:23 IT). Lancia `claude -p` headless come Direttore
+  (bypassPermissions): estende calendar.json se <10 giorni futuri, prepara batch outreach (BOZZE gated in
+  planning/next-outreach-batch.md), stampa BRIEF settimanale inviato a Stefano via Bot API. claude CLI:
+  /home/claudebot/.nvm/versions/node/v20.20.2/bin/claude (v2.1.195), headless testato OK.
+- GATE tenuto: invii email reali a prospect solo dopo "ok" Stefano (puo' togliere con "ok outreach automatico").
+- Token Telegram per gli script: appsettings BotToken (come puntify-morning-report.sh), chat 505161324.
+- NOTA OPERATIVA: il server MCP plugin:telegram si e' disconnesso in sessione -> per rispondere a Stefano
+  uso il fallback Bot API via curl (stesso token/chat). Se riconnette, torno al tool reply.
+- Calendario: 29 giorni futuri (fino 21/08). 23/07 prenotazioni GIA' pubblicato; 24/07 fedelta' (primo giro auto).
