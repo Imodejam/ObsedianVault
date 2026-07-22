@@ -2080,3 +2080,5 @@ Reminder "tra 2 ore" partiva all'orario stesso dell'appuntamento (+2h = offset C
 ## [2026-07-22] task | Puntify Social: regia editoriale 30gg (strategy.md + calendar.json 30 entry + README.md in /home/progetti/puntify-social/planning/); 10 pilastri x3, no adiacenti, 12 formati, tutti bright/rosso
 
 ## [2026-07-22] task | Puntify Growth: growth-plan.md (acquisizione clienti) in planning/ — ICP/segmenti, canali (outreach email/referral/partnership/ads), settimana-tipo, funnel, KPI target, orchestrazione sales machine (Lead Hunter/Copywriter/Sender gated/Reply Monitor); gate approvazione invii esterni confermato
+
+## [2026-07-22] task | Studio KiRweb (=metodo TAFFO/Pirrone) -> planning/kirweb-study.md. Meccanica: dirottare modo di dire + twist 2a riga / falso consiglio; visual completa la battuta. 6 concept nuovi Puntify. Proposto a Stefano registro + concept fedelta per domani (msg 7166), in attesa validazione.
