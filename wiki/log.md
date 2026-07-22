@@ -2069,3 +2069,5 @@ File chiave aggiornati:
 ## [2026-07-22] task | Guard server coperti su pagamenti dine_in Puntify CAT: /pay e /pay-table rifiutano covers_required se coperti non definiti (eccezione giro-successivo tavolo con master confermato)
 
 ## [2026-07-22] task | POS Cassa: rimosso pannello inline coperti (conferma via tastierino->ConfirmCoversSendAsync) + stato vuoto Cassa (flag _cassaOrderStarted, pannelli solo con ordine attivo); +resx cassa_empty_state 10 lingue; build/deploy CAT :8002 OK
+
+## [2026-07-22] task | Puntify CAT: coperti dine_in a ZERO + modale auto all'ingresso Cassa (nuovo draft a tavolo)
