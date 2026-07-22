@@ -25,3 +25,18 @@ SwitchTab(cassa)/OnInitialized(cassa senza ref)/guardia reset ApplyOrderRefAsync
 Resx: cassa_empty_state aggiunta in 10 lingue (it/en/es/fr/de/nl/pl/ro/ru/uk). Bottone riusa dashboard_new_order.
 Build Release 0 errori. deploy-cat-app.sh :8002 -> HTTP 200. WASM: hard-refresh lato Stefano.
 Stato: COMPLETATO. Solo CAT, nessun commit/push.
+
+## Sessione 2026-07-22 msg 7106-7139 — altri task COMPLETATI (CAT, oltre ai due sopra)
+Gate coperti obbligatori prima cucina (default 0, no preset capienza); pannello sx Cassa stile Stripe
+(meno rosso); clic tab Cassa = pagina vuota + ritorno "+ Nuovo ordine"; card board Ordini come template
+Stefano (rosso #A07, "x min fa", "· N coperti"/"Coperti da definire", pill, badge N×, CTA scura) poi
+compattate (booking.css .ord-card*); Nuovo ordine->Diretto entra in Cassa vendita diretta; correzione dato
+A07 paid true->false ("da pagare"). Template card in Agent-Claude/assets/ordini-card-template*.jpg.
+GOTCHA confermato: colonna tavolo reale = table_resource_id (non table_operator_id legacy).
+
+## IN ATTESA / decisione aperta
+- **MerchantPos (wizard /neworder, POS alternativo)**: stepper coperti default 1 (min 1). Chiesto piu' volte
+  a Stefano (msg 7113/7130/7139) se allinearlo a 0/obbligo come la Cassa Dashboard o lasciare 1. Nessuna
+  risposta ancora.
+- Prova reale di Stefano su tutte le modifiche (dopo Ctrl+F5) + feedback.
+- Commit/push blocco Puntify solo su richiesta esplicita (WIP grosso nel working tree).
