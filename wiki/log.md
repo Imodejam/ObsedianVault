@@ -2059,3 +2059,5 @@ File chiave aggiornati:
 ## [2026-07-22] task | Puntify Cassa POS (CAT): restyle pannello conto stile Stripe — card sollevata (border #E3E8EE + ombra) su canvas grigio; ridotto rosso brand nel pannello sinistro (qty/+/is-current → near-black #1A1F36); rosso tenuto solo su azione primaria pagamento. Build 0 errori, deploy :8002 OK
 
 ## [2026-07-22] task | Puntify Cassa POS (CAT): fix tab Cassa mostrava ultimo conto + "Nuovo ordine" sparito. Click sul tab Cassa senza OrderRef ora azzera lo stato focalizzato (StartNewCassaOrder(null)+EnsureCassaMenuAsync in SwitchTab reso async) -> CassaFocused=false -> cassa vuota+tab bar visibili. Guardia in ApplyOrderRefAsync per back browser/nav diretta (reset SOLO se OrderRef vuoto E stato residuo, draft valido non azzerato). Dashboard.razor unico file. Build 0 errori, deploy :8002 HTTP 200.
+
+## [2026-07-22] task | Redesign card board Ordini (POS) su template Stefano: header codice rosso+orario+tempo relativo, divider, riga tavolo+coperti+pill pagamento, righe prodotto Nx, totale "€ x,xx", CTA scura full-width + Incassa ghost. Helper RelativeTimeLabel + 6 chiavi resx x10 lingue. Build 0 err, deploy CAT :8002 HTTP 200.
