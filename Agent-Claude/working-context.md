@@ -90,3 +90,17 @@ Stefano: il direttore deve essere autonomo e contattarlo DIRETTAMENTE, non atten
 - NOTA OPERATIVA: il server MCP plugin:telegram si e' disconnesso in sessione -> per rispondere a Stefano
   uso il fallback Bot API via curl (stesso token/chat). Se riconnette, torno al tool reply.
 - Calendario: 29 giorni futuri (fino 21/08). 23/07 prenotazioni GIA' pubblicato; 24/07 fedelta' (primo giro auto).
+
+## Sessione 2026-07-22 notte — Marketing Director = vero capo crescita (msg "non ci siamo capiti")
+Stefano: il direttore fa MOLTO piu' dei soli post. Riconosciuto il limite (avevo fatto un social media manager).
+Creato SISTEMA OPERATIVO completo: /home/progetti/puntify-social/planning/marketing-os.md (strategia+competitor,
+contenuti multicanale social+blog/SEO+email/newsletter+landing, acquisizione outbound/inbound/referral/partnership/
+directory, paid condizionale budget, funnel/conversione/retention, analytics/esperimenti, campagne, ritmo op,
+KPI, roadmap 90gg, decisioni per Stefano). North star = PV paganti.
+IN ESECUZIONE (quick win autonomi, subagent director a867...): intelligence (competitor-watch/keywords/occasioni),
+blog-plan + bozza primo articolo (planning/blog-articolo-01.md, NON pubblicare), vetrina-conversion-audit + 1 A/B.
+Gated (attesa OK Stefano): outbound autofficine, newsletter/email lifecycle, ads.
+DECISIONI CHIESTE A STEFANO (msg): budget ads si/no+quanto; 2-3 PV per case study; accessi Search Console+Meta;
+(poi: segmento mese2, referral, partnership). 
+Asset marketing reali: puntify-social (social auto), blog puntify.blog_posts su Vetrina, outreach Resend+sales machine,
+analytics PV/Insights, recensioni.
