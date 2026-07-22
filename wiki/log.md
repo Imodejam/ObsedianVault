@@ -2055,3 +2055,5 @@ File chiave aggiornati:
 ## [2026-07-22] task | Puntify bacheca: filtro stale 5h nascondeva ordini pagati-non-serviti (modello nuovo) — eccezione estesa a o.Paid, deploy CAT
 
 ## [2026-07-22] task | Gate coperti Puntify CAT: ordine dine_in non parte in cucina senza coperti definiti >=1. Default preset 0 (non piu capienza tavolo), blocchi client (Cassa CassaSendAsync/CassaPayNowAsync/ConfirmCoversSendAsync) + guard server CreateOrder master (covers_required); +resx cassa_covers_required x10 lingue. Build 0 errori, server riavviato, WASM deploy :8002.
+
+## [2026-07-22] task | Puntify Cassa POS (CAT): restyle pannello conto stile Stripe — card sollevata (border #E3E8EE + ombra) su canvas grigio; ridotto rosso brand nel pannello sinistro (qty/+/is-current → near-black #1A1F36); rosso tenuto solo su azione primaria pagamento. Build 0 errori, deploy :8002 OK
