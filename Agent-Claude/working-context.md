@@ -59,3 +59,20 @@ UTC (TimeZoneHelper.ToUtc), booking tavolo/web scrive offset0; su CAT tutti shop
 - **Reminder doppio invio + write-path**: chiesto a Stefano (msg 7145) se sistemare. In attesa.
 - Prova reale di Stefano su tutte le modifiche (dopo Ctrl+F5) + feedback.
 - Commit/push blocco Puntify solo su richiesta esplicita (WIP grosso nel working tree).
+
+## Sessione 2026-07-22 sera — Marketing Director + schedulazione social
+Stefano: post social ripetitivi, vuole un agent "Marketing Director" con responsabilita' TOTALE di diffusione
+Puntify + acquisizione clienti, che decide cosa/quando. Creato:
+- /home/progetti/puntify-social/planning/strategy.md + calendar.json (30gg 23/07-21/08, 10 pilastri x3,
+  12 formati, nessun topic adiacente, tutti bright) + growth-plan.md (ICP automotive validato 8431 officine,
+  outreach Resend, sales machine Lead Hunter/Copywriter/Sender gated/Reply Monitor, settimana-tipo, KPI).
+- Runner giornaliero /home/progetti/puntify-social/skin/daily_propose.py: pesca entry calendario per DOMANI,
+  genera draft (run_draft override), manda proposta a Stefano su Telegram (token da appsettings BotToken,
+  chat 505161324). Cron INSTALLATO: "17 16 * * *" (18:17 IT) -> proposta per il giorno dopo. Pubblicazione
+  resta gated (publish.py dopo OK Stefano). Se calendario finito -> avvisa Stefano.
+- Governance: direttore decide/pianifica in autonomia; invii esterni reali (email/DM) + publish restano
+  approvati da Stefano.
+DECISIONE APERTA (msg 7162): Stefano contesta che le creativita' non hanno una vera "battuta stile KiRweb"
+(una gag visiva/verbale). Proposte 3 gag per il post fedelta' di domani (boomerang consigliata). Se approva il
+registro -> far rifare al direttore TUTTO il calendario con standard "una gag vera al giorno". In attesa scelta.
+Approvazione post 23/07 ancora pendente.
