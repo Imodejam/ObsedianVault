@@ -2049,3 +2049,5 @@ File chiave aggiornati:
 ## [2026-07-21] task | Puntify Cassa: rimossa opzione pagamento Account cliente (storico e validazione server intatti) — deploy CAT
 ## [2026-07-21] task | Puntify Cassa: separatori portata/giri a banda grigia full-bleed stile Apple/Stripe — deploy CAT
 ## [2026-07-22] task | Puntify Cassa: vista focalizzata conto aperto (no tab bar, back history, titolo Tav-Pax-Stato collo di bottiglia, popup coperti su ingresso) — deploy CAT
+
+## [2026-07-22] task | Puntify Cassa: modal post-pagamento con SVG check-circle animato + Stampa=scontrino digitale (motore ricevute) invece di window.print pagina intera
