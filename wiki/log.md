@@ -2051,3 +2051,4 @@ File chiave aggiornati:
 ## [2026-07-22] task | Puntify Cassa: vista focalizzata conto aperto (no tab bar, back history, titolo Tav-Pax-Stato collo di bottiglia, popup coperti su ingresso) — deploy CAT
 
 ## [2026-07-22] task | Puntify Cassa: modal post-pagamento con SVG check-circle animato + Stampa=scontrino digitale (motore ricevute) invece di window.print pagina intera
+## [2026-07-22] decision+task | Puntify: pagamento ortogonale alla lavorazione (/pay e pay-table non forzano delivered; awaiting_payment->received) — server deploy + record A07 ripristinato in bacheca
