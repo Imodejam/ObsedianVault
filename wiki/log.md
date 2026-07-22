@@ -2052,3 +2052,4 @@ File chiave aggiornati:
 
 ## [2026-07-22] task | Puntify Cassa: modal post-pagamento con SVG check-circle animato + Stampa=scontrino digitale (motore ricevute) invece di window.print pagina intera
 ## [2026-07-22] decision+task | Puntify: pagamento ortogonale alla lavorazione (/pay e pay-table non forzano delivered; awaiting_payment->received) — server deploy + record A07 ripristinato in bacheca
+## [2026-07-22] task | Puntify bacheca: filtro stale 5h nascondeva ordini pagati-non-serviti (modello nuovo) — eccezione estesa a o.Paid, deploy CAT
