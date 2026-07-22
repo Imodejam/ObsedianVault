@@ -13,6 +13,13 @@ Sessione lunga POS (msg 7014-7070), tutto deployato su CAT:
   Tabella puntify.shop_pos_settings su CAT (migration 20260721_pos_settings.sql).
 - Social 22/07 schedulato su Buffer (ig/li/fb, 11:00Z, "I conti, senza l'oste").
 
+## Fix 2026-07-22 (Cassa tab vuota)
+- Bug: cliccando il tab Cassa dopo aver aperto un conto restava la vista focalizzata sull'ultimo conto
+  e spariva "+ Nuovo ordine" (CassaFocused non ricalcolava perche _cassaTableId/_cassaOrderId residui).
+- Fix in Dashboard.razor: SwitchTab reso async; su tab=="cassa" chiama StartNewCassaOrder(null)+EnsureCassaMenuAsync
+  -> cassa vuota. Guardia in ApplyOrderRefAsync: OrderRef vuoto E stato focalizzato residuo -> reset (draft valido
+  non azzerato, no loop). Aperture reali (tavolo/ordine/deep-link) restano focalizzate. Build 0 err, deploy :8002 200.
+
 ## In attesa
 - Prova di Stefano su Configurazione POS + feedback su pagina Conto e layout POS.
 - Estensioni possibili gia segnalate: badge anche... (no, fatto); dati pagina Conto (timestamp split,
