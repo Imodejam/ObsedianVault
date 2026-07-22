@@ -2048,3 +2048,4 @@ File chiave aggiornati:
 ## [2026-07-21] task | Puntify: refactor stati ordine live (colonne lavorazione + pill pagamento, zero modifiche server) + tooltip fix strutturale — deploy CAT
 ## [2026-07-21] task | Puntify Cassa: rimossa opzione pagamento Account cliente (storico e validazione server intatti) — deploy CAT
 ## [2026-07-21] task | Puntify Cassa: separatori portata/giri a banda grigia full-bleed stile Apple/Stripe — deploy CAT
+## [2026-07-22] task | Puntify Cassa: vista focalizzata conto aperto (no tab bar, back history, titolo Tav-Pax-Stato collo di bottiglia, popup coperti su ingresso) — deploy CAT
