@@ -2063,3 +2063,5 @@ File chiave aggiornati:
 ## [2026-07-22] task | Redesign card board Ordini (POS) su template Stefano: header codice rosso+orario+tempo relativo, divider, riga tavolo+coperti+pill pagamento, righe prodotto Nx, totale "€ x,xx", CTA scura full-width + Incassa ghost. Helper RelativeTimeLabel + 6 chiavi resx x10 lingue. Build 0 err, deploy CAT :8002 HTTP 200.
 
 ## [2026-07-22] task | Fix wizard Nuovo ordine "Diretto" (Puntify.App Dashboard.razor): NoSelectDirectAsync ora naviga in Cassa (WriteCassaRefToUrl(null)+_tab=cassa) come NoConfirmAsync; build 0 errori, deploy CAT :8002 OK
+
+## [2026-07-22] task | Card Ordini (POS) piu' compatte: ridotti padding/gap/font/badge/bottone in booking.css (.ord-card*), build+deploy CAT :8002 OK
