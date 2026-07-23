@@ -73,3 +73,6 @@ Editando /opt/ops/caddy/Caddyfile (montato come singolo file in ops-caddy) con p
 
 ## [2026-07-18] Diagnosi "e' la cache" sbagliata + "verificato" senza prova reale
 Ho detto 2 volte a Stefano che il bug "2 giorni" prenotazione era cache/service-worker (avevo verificato che l'assembly servito conteneva i simboli del fix). In incognito il bug persisteva -> NON era cache: era un bug di fuso in DESERIALIZZAZIONE (STJ converte "+00:00" al fuso browser). Lezione: verificare col caso reale end-to-end (riprodurre il fuso del browser) PRIMA di dire "fatto"; una scheda incognito esclude la cache; leggere il JSON/dato reale, non fidarsi del solo "il codice c'e'". Vedi [[feedback_dev_verify_process]].
+
+## [2026-07-23] Telegram: doppio poller = conflitto 409
+Le disconnessioni ricorrenti del canale Telegram erano causate da DUE processi che facevano getUpdates sullo stesso bot token (@claude4imodejam_bot): il plugin ufficiale `--channels plugin:telegram` + un vecchio bridge fatto a mano `/home/claudebot/claude-tg-bot/bot.py` (service claude-tg-bot.service). Telegram permette un solo getUpdates per token -> 409, uno cade. Rimosso il vecchio bridge (obsoleto, rimpiazzato dal plugin). REGOLA: un solo consumatore per bot token; se serve un secondo bot, token diverso.
