@@ -41,3 +41,9 @@ Sessione 2026-07-23 (Telegram, canale plugin:telegram).
 - Sitemap non toccata. Nessuna modifica netta a DTO/controller/NegozioDetail (approccio revertato).
 - Verificato con Host www.puntify.it (staging=false): fake=noindex, non-fake=index.
 - Gotcha: hot-reload watch sporco -> restart pulito puntify-server per togliere MissingMethodException.
+
+## Update 08:05 — noindex isfake DONE su CAT
+- Fix centralizzato in Puntify.Vetrina/App.razor (non NegozioDetail/Book: Book ha HeadContent inerte prerender:false). Single source, no doppioni.
+- Gotcha verifica: /it/negozi/{slug} fa 302 -> /it/negozi/{city}/{slug} (canonica). Testare la canonica su 127.0.0.1:8003 con Host www.puntify.it (forza prod-behavior, no staging-global-noindex).
+- Verificato: fake frutta-fresca/scarpe-stile -> noindex,nofollow; reale lido-del-sole -> index; /book fake -> noindex; prezzi -> index. Nessuna regressione.
+- MANCA: deploy PROD (www.puntify.it, manuale) perche' Google recrawli e deindicizzi. Poi opz. rimozione GSC.
