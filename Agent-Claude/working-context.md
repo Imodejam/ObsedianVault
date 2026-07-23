@@ -12,3 +12,11 @@ Sessione 2026-07-23 (Telegram, canale plugin:telegram).
 ## Prossimi passi
 - Attendo risposte su punti 1,2,3.
 - Se GA/GSC accessibili: audit query/pagine, CTR, keyword opportunita blog.
+
+## Update 07:00 — GSC/GA
+- GSC: accesso OK via ~/.secrets/gsc-key.json (SA search-console-reader-claude@puntify.iam), scope webmasters.readonly, property sc-domain:puntify.it. venv google-auth+requests in scratchpad/gvenv.
+- Dati 20/6-20/7: 52 click, 1248 imp, CTR 4.2%, pos 13.8.
+- ISSUE cat.puntify.it indicizzato (51 imp/5 click pos3) ma ora 401 basic-auth -> click sprecati + leak staging. Proposto removal + noindex crawlabile.
+- Blog: 100 URL in sitemap, index,follow, title ok. Solo giovane -> ~0 imp. Non bug.
+- GA4: NON accessibile. Per abilitare: aggiungere stessa SA come Viewer su proprieta GA4 + Property ID numerico. Measurement id noti: Vetrina G-KFC8WKG9LT, App G-G1EZR6JL2C.
+- In attesa scelta Stefano: (a) fix cat noindex/removal, (b) audit completo.
