@@ -2109,3 +2109,5 @@ Reminder "tra 2 ore" partiva all'orario stesso dell'appuntamento (+2h = offset C
 ## [2026-07-23] task | Fix disconnessioni Telegram: rimosso vecchio bridge claude-tg-bot (bot.py + service) che pollava lo STESSO bot token del plugin ufficiale -> conflitto 409 ricorrente. Ora 1 solo consumatore. Backup in scratchpad. Canale plugin ancora da riconnettere lato harness (pending 4)
 
 ## [2026-07-23] task | Richiesta KPI API prod (X-API-Key) — scoping proposto a Stefano; GA4 property 524577455 SA Viewer OK
+
+## [2026-07-23] task | ClawRoom: rinominato Massimo "Sales Manager" -> "Direttore Commerciale" (team.json + publish copy, service restart)
