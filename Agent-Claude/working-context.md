@@ -20,3 +20,9 @@ Sessione 2026-07-23 (Telegram, canale plugin:telegram).
 - Blog: 100 URL in sitemap, index,follow, title ok. Solo giovane -> ~0 imp. Non bug.
 - GA4: NON accessibile. Per abilitare: aggiungere stessa SA come Viewer su proprieta GA4 + Property ID numerico. Measurement id noti: Vetrina G-KFC8WKG9LT, App G-G1EZR6JL2C.
 - In attesa scelta Stefano: (a) fix cat noindex/removal, (b) audit completo.
+
+## Update 07:15 — Task 2+3 consegnati
+- Task2 cat noindex: FATTO lato Caddy (header X-Robots-Tag noindex su cat.puntify.it, container ops-caddy riavviato, admin off). Manca rimozione GSC via UI (Stefano).
+- Task3 audit: FATTO. Report scratchpad + wiki/projects/puntify-seo-audit-20260723.md. Inviato Telegram.
+- Aperti in attesa Stefano: (a) conferma noindex negozi demo, (b) rimozione cat in GSC, (c) abilitare GA4 Data API su progetto puntify + property id numerico, (d) fix concilium.puntify.it 403 (Vite allowedHosts) SI/NO.
+- Tooling: venv scratchpad/gvenv (google-auth+requests), key ~/.secrets/gsc-key.json scope webmasters.readonly + analytics.readonly (ma API GA disabilitate lato progetto).
