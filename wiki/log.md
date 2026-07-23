@@ -2136,3 +2136,5 @@ Reminder "tra 2 ore" partiva all'orario stesso dell'appuntamento (+2h = offset C
 ## [2026-07-23] task | Report mattutino v2 collegato ai KPI prod reali: nuovo kpi.py (curl /api/kpi con key salvata) in Sezione 1; fix bug analytics.py GA4 property 57764779->524577455 (GA4 ora attivo in Sez.3). Cron 09:00 IT permanente. Test send OK (@PuntifyNemiBot).
 
 ## [2026-07-23] task | Bug booking pubblico (Italian Friends): QuickTableBooking.razor Submit() su no_table_available imposta _error ma non resetta _step=2 -> errore + card conferma insieme. Radice: disponibilita tavolo verificata solo alla conferma. Fix in corso su CAT (reset step0 + clear orario); check gemello takeaway slot_full.
+
+## [2026-07-23] task | Fix booking pubblico COMPLETATO su CAT: QuickTableBooking.razor Submit() ramo no_table_available ora fa _step=0 + _selectedTime="" + PersistAsync() -> mostra solo errore+selezione orario, mai card conferma. Gemello QuickTakeawayBooking (slot_full) gia' corretto (reset _selectedSlotAt=null + LoadSlots), NON toccato. Build Vetrina 0 errori, restart puntify-vetrina.service active, HTTP 200 su :8003/it.
