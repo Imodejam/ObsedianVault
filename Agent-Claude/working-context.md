@@ -51,3 +51,9 @@ Sessione 2026-07-23 (Telegram, canale plugin:telegram).
 - Update 08:07: flag isfake inaffidabile. Lido del Sole marcato isfake=true (CAT). Restano 3 dubbi (Lunapark, Madrigalas/Madrid, Puntify demo) -> chiesto a Stefano quali fake. Ricordare: replicare su DB prod al deploy.
 
 - Update 08:10: GA4 property id = 57764779, Data API abilitata da Stefano. Manca: aggiungere service account search-console-reader-claude@puntify.iam come Visualizzatore sulla property (403 permission). Chiesto a Stefano.
+
+## Update 08:25 — isfake done + report build
+- isfake=true anche Lunapark + Madrigalas(Madrid). Reale solo "Puntify". Tutti demo coperti.
+- Report mattutino: 9:00 IT confermato. Build delegato a subagent (a2558171a95da9c26, background). Architettura: script bash raccoglie dati (servizi/infra + Jira PNT via /search/jql + GSC trend + GA4 se accessibile) + vault, poi claude -p compone 5 sez, invio via @puntifynemibot (token appsettings BotToken). Fallback: se claude fallisce invia blob grezzo. Cron 0 7 * * *, disabilita vecchio 4 6.
+- MCP Telegram DISCONNESSO -> uso fallback Bot API curl con token interattivo ~/.claude/channels/telegram/.env (bot @claude4imodejam_bot) per rispondere a Stefano in chat.
+- ANCORA IN ATTESA da Stefano: (1) accesso dati utenti PROD per sez.1 report; (2) fix permesso GA4 property 57764779; (3) se vuole dettaglio dashboard Clawroom ora; (4) via libera deploy prod Vetrina; (5) rimozione cat in GSC.
