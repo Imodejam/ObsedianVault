@@ -1,176 +1,28 @@
-# Working context
+# Working Context
 
-Sessione 2026-07-23 (Telegram, canale plugin:telegram).
+## Sessione 2026-07-23 — Puntify CAT (3 richieste Telegram Stefano)
 
-## Richieste Stefano in corso
-1. "Hai capito?" — contesto sessione precedente perso, chiesto chiarimento.
-2. "A Dani l'articolo blog" — AMBIGUO: chi e Dani, quale articolo, come inviare. Chiesto.
-3. Verifica Google Analytics + Search Console per migliorie SEO/traffico — NO accesso configurato (gog fa solo Gmail/Cal/Drive). Chiesto come accedere (property id/service account).
-4. "Fammi leggere il primo blog" — FATTO: inviato testo leggibile "no-show saloni" (id 78a6ad7a). 10 articoli pubblicati in puntify.blog_posts.
-5. "Quale budget Ads consiglieresti?" — proposto 20E/gg (~600E/mese) Search intenzionale per verticale, no Display/Pmax fase 1; 2-3 sett raccolta dati poi ottimizzo su CPA.
+Obiettivo: 3 modifiche Puntify.App (collaudo/CAT), delegate a subagent, io orchestro.
 
-## Prossimi passi
-- Attendo risposte su punti 1,2,3.
-- Se GA/GSC accessibili: audit query/pagine, CTR, keyword opportunita blog.
+### 1. POS/Configurazione — abilitazione servizi ordinazione + tab asporto  [IN CORSO]
+- Toggle ON/OFF (`.cfg-toggle`) per vendita diretta / sul posto / asporto / delivery in Dashboard.razor (area POS config). Timing Subito/Dopo visibile solo se ON.
+- DB: nuove col `enable_*` su `shop_pos_settings` (migration 2026-07-23_pos_service_enable.sql, applicata CAT).
+- Decisione Stefano = opzione A: asporto sorgente unica sotto POS → toggle asporto sincronizza `booking_modes` (bit takeaway).
+- Sposta tab `finestre-asporto` (TakeawayWindows) da BookingHub → tab dell'area POS, visibile se asporto ON. Rimosso da BookingHub.
+- Subagent: aecc334e410f5abfc.
 
-## Update 07:00 — GSC/GA
-- GSC: accesso OK via ~/.secrets/gsc-key.json (SA search-console-reader-claude@puntify.iam), scope webmasters.readonly, property sc-domain:puntify.it. venv google-auth+requests in scratchpad/gvenv.
-- Dati 20/6-20/7: 52 click, 1248 imp, CTR 4.2%, pos 13.8.
-- ISSUE cat.puntify.it indicizzato (51 imp/5 click pos3) ma ora 401 basic-auth -> click sprecati + leak staging. Proposto removal + noindex crawlabile.
-- Blog: 100 URL in sitemap, index,follow, title ok. Solo giovane -> ~0 imp. Non bug.
-- GA4: NON accessibile. Per abilitare: aggiungere stessa SA come Viewer su proprieta GA4 + Property ID numerico. Measurement id noti: Vetrina G-KFC8WKG9LT, App G-G1EZR6JL2C.
-- In attesa scelta Stefano: (a) fix cat noindex/removal, (b) audit completo.
+### 2. Scan.razor — design pagine servizi  [FATTO]
+- Migrata a `cfg-page` design system. Build 0 errori. Nessun Scan.razor.css.
 
-## Update 07:15 — Task 2+3 consegnati
-- Task2 cat noindex: FATTO lato Caddy (header X-Robots-Tag noindex su cat.puntify.it, container ops-caddy riavviato, admin off). Manca rimozione GSC via UI (Stefano).
-- Task3 audit: FATTO. Report scratchpad + wiki/projects/puntify-seo-audit-20260723.md. Inviato Telegram.
-- Aperti in attesa Stefano: (a) conferma noindex negozi demo, (b) rimozione cat in GSC, (c) abilitare GA4 Data API su progetto puntify + property id numerico, (d) fix concilium.puntify.it 403 (Vite allowedHosts) SI/NO.
-- Tooling: venv scratchpad/gvenv (google-auth+requests), key ~/.secrets/gsc-key.json scope webmasters.readonly + analytics.readonly (ma API GA disabilitate lato progetto).
+### 3. PhotoPickerModal — libreria cataloghi con tag+filtro  [IN CORSO]
+- Tab Suggerite mostra tutta la libreria `product_catalog` con chip tag per filtrare.
+- DB: col `tags text[]` + backfill categorie (migration 2026-07-23_catalog_photo_tags.sql, CAT). RPC match+browse restituiscono tags.
+- Backend: endpoint browse `/api/menu/catalog/photos`. Client: CatalogPhotoDto.Tags + CatalogPhotosBrowseAsync. UI: chip filtro + load-more.
+- Subagent: a841310f217023177.
 
-- Nota: Stefano dice di NON toccare concilium.puntify.it (403 Vite noto, lasciare stare).
+### Domanda aperta a Stefano
+- Watchdog: i run avviati dalla sessione muoiono al restart del servizio. Proposto (1) job fuori processo via systemd-run + (2) ledger di ripresa. In attesa OK per implementare.
 
-## Update 07:35 — noindex negozi demo (isfake)
-- Scoperto: sitemap GIA esclude isfake (SitemapService.cs:45 !s.IsFake). Verificato prod+CAT: demo NON in sitemap. Richiesta Stefano "togli da sitemap" gia soddisfatta.
-- Vero gap: pagina negozio fake e' "index" (nessun meta robots). Delegato a subagent: noindex,nofollow su NegozioDetail (ShopData.IsFake) + Book.razor (aggiungere IsFake a MerchantPublicDto + server controller /api/public/merchants + meta condizionale). Build+deploy CAT sequenziale, verifica headless su 3 URL (2 fake devono avere noindex, 1 reale no).
-- Subagent id a234fcf30bc83ff31 in background.
-
----
-## [2026-07-23] Ultimo task: noindex negozi demo Vetrina
-- FATTO su CAT: negozi isfake=true -> meta robots noindex,nofollow su pagina negozio + /book.
-- Fonte unica: Puntify.Vetrina/App.razor (helper ShopIsFakeForPublicRoute -> SupabaseStatsService.GetShopBySlug -> IsFake). App.razor perche Book.razor e prerender:false e il suo HeadContent non raggiunge l'HeadOutlet statico.
-- Sitemap non toccata. Nessuna modifica netta a DTO/controller/NegozioDetail (approccio revertato).
-- Verificato con Host www.puntify.it (staging=false): fake=noindex, non-fake=index.
-- Gotcha: hot-reload watch sporco -> restart pulito puntify-server per togliere MissingMethodException.
-
-## Update 08:05 — noindex isfake DONE su CAT
-- Fix centralizzato in Puntify.Vetrina/App.razor (non NegozioDetail/Book: Book ha HeadContent inerte prerender:false). Single source, no doppioni.
-- Gotcha verifica: /it/negozi/{slug} fa 302 -> /it/negozi/{city}/{slug} (canonica). Testare la canonica su 127.0.0.1:8003 con Host www.puntify.it (forza prod-behavior, no staging-global-noindex).
-- Verificato: fake frutta-fresca/scarpe-stile -> noindex,nofollow; reale lido-del-sole -> index; /book fake -> noindex; prezzi -> index. Nessuna regressione.
-- MANCA: deploy PROD (www.puntify.it, manuale) perche' Google recrawli e deindicizzi. Poi opz. rimozione GSC.
-
-- Update 08:07: flag isfake inaffidabile. Lido del Sole marcato isfake=true (CAT). Restano 3 dubbi (Lunapark, Madrigalas/Madrid, Puntify demo) -> chiesto a Stefano quali fake. Ricordare: replicare su DB prod al deploy.
-
-- Update 08:10: GA4 property id = 57764779, Data API abilitata da Stefano. Manca: aggiungere service account search-console-reader-claude@puntify.iam come Visualizzatore sulla property (403 permission). Chiesto a Stefano.
-
-## Update 08:25 — isfake done + report build
-- isfake=true anche Lunapark + Madrigalas(Madrid). Reale solo "Puntify". Tutti demo coperti.
-- Report mattutino: 9:00 IT confermato. Build delegato a subagent (a2558171a95da9c26, background). Architettura: script bash raccoglie dati (servizi/infra + Jira PNT via /search/jql + GSC trend + GA4 se accessibile) + vault, poi claude -p compone 5 sez, invio via @puntifynemibot (token appsettings BotToken). Fallback: se claude fallisce invia blob grezzo. Cron 0 7 * * *, disabilita vecchio 4 6.
-- MCP Telegram DISCONNESSO -> uso fallback Bot API curl con token interattivo ~/.claude/channels/telegram/.env (bot @claude4imodejam_bot) per rispondere a Stefano in chat.
-- ANCORA IN ATTESA da Stefano: (1) accesso dati utenti PROD per sez.1 report; (2) fix permesso GA4 property 57764779; (3) se vuole dettaglio dashboard Clawroom ora; (4) via libera deploy prod Vetrina; (5) rimozione cat in GSC.
-
-- Update 08:32: report v2 pronto/schedulato/testato (DRY_RUN, header). Vecchio cron disabilitato. Pending Stefano: accesso dati prod + GA4 permesso.
-
-## Update 09:50 — Richiesta KPI API prod
-- Stefano vuole un'API (protetta API key) che io possa consultare con tutti i dati KPI di PROD.
-- Foto ricevute: GA4 property Puntify ID=524577455; service account search-console-reader-claude@puntify.iam GIA Viewer sulla proprieta GA4 (quindi GA4 Data API ora accessibile via SA).
-- Piano proposto a Stefano: GET /api/kpi su puntify-server, X-API-Key (chiave /opt/ops/.env), read-only, JSON aggregato. Sorgenti: Postgres prod (PV attivi, prenotazioni, ordini, incassi, punti, billing) + GA4 (visite/sessioni pag. pubblica via SA).
-- Chiesto: (1) conferma set KPI, (2) build+test su CAT poi deploy prod con suo ok.
-- STATO: attendo conferma scope, nessun codice ancora.
-
-## Update 10:15 — KPI API: scope confermato, build su CAT avviata
-- Stefano ha confermato set KPI e flusso CAT->prod.
-- Scoperta chiave (Explore af46b8dd): Puntify.Server GIA ha ApiKeyAuthMiddleware (X-API-Key, config Security:ApiKey) che protegge auto ogni endpoint non /api/public/*. Quindi basta un KpiController, niente nuova auth.
-- Server .NET: /home/progetti/puntify/Puntify.Server/ (net8.0), dati via ISupabaseClient (PostgREST, GetAsync/CountAsync). Servizi aggregazione gia esistenti: WeeklyRecapService (transactions/bookings/menu_public_orders), PvAnalyticsService (pv_events).
-- V1 KPI da Postgres: shops, bookings, orders, points earned/redeemed, revenue, customers, reviews (avg rating), traffic (pv_events + unique sessions). GA4 rimandato (pv_events copre gia il traffico pagine pubbliche lato app).
-- Subagent abcb29af in corso: crea KpiService+KpiController, build, restart SOLO puntify-server, test curl (200 con key, 401 senza, days=7).
-
-## Update 10:20 — KPI API v1 FATTA su CAT, attendo ok prod
-- Endpoint: GET /api/kpi?days=30 (clamp 1-365), read-only, protetto da X-API-Key esistente (Security:ApiKey, ApiKeyAuthMiddleware). Nessuna nuova auth.
-- File: Puntify.Server/Services/Analytics/KpiService.cs + Controllers/KpiController.cs; Program.cs registra KpiService Scoped.
-- KPI: shops(total/new, esclude isfake), bookings, orders(menu_public_orders), points earned/redeemed, revenue(cent, transactions Earn), customers(customer_profiles), reviews(total/period/avg rating_shop), traffic(pv_events + unique session_hash).
-- Colonne reali: transactions.insertdate/shopid/amount/points/reason(TransactionReason Earn=1/Redeem=2); shops.insertdate/isfake; resto created_at.
-- Test CAT: 200 con key, 401 senza, days=7 scala coerente (avg_rating null se 0 review nel periodo).
-- API key CAT: Security:ApiKey in appsettings.Development.json.
-- PROSSIMO: attendo ok Stefano per deploy PROD (deploy manuale, prod separato). GA4 site-wide = follow-up eventuale.
-
-## Update 10:30 — GA4 studiato, API ora funziona
-- GA4 Data API OK col SA search-console-reader-claude (Viewer su property 524577455). Test reale 7gg: 122 sessioni/17 utenti/1188 pageview. (Prima era disabilitata a livello progetto, ora attiva.)
-- Key SA: /home/claudebot/.secrets/gsc-key.json (project puntify). puntify-server gira come claudebot su CAT -> legge la key senza attrito.
-- Piano integrazione: sezione "ga4" in /api/kpi via NuGet Google.Analytics.Data, config PropertyId+path key. Metriche proposte: sessions/activeUsers/pageviews + sorgenti traffico + top5 pagine.
-- PROD: macchina separata, la key SA NON c'e -> mettere key in /opt/ops/.env (base64) + config. Step da fare con Stefano al deploy.
-- Proposto set metriche a Stefano, attendo conferma per implementare su CAT.
-- Distinzione chiarita a Stefano: pv_events=engagement per-negozio (nostro cookieless) vs GA4=traffico sito+acquisizione. Complementari.
-
-## Update 10:45 — GA4 integrato in /api/kpi (CAT) FATTO
-- Ga4Service.cs: REST v1beta via Google.Apis.Auth (token da SA /home/claudebot/.secrets/gsc-key.json) + HttpClient. Config appsettings GA4:PropertyId=524577455 + CredentialsPath. NuGet Google.Apis.Auth 1.68.0.
-- Sezione ga4 in KpiSnapshot: totals, channels, top_landing_pages, top_pages, devices, top_countries. try/catch -> available:false se cade, KPI Postgres restano.
-- Live test CAT: /api/kpi?days=30 -> 200, ga4.available=true, 316 sessioni. Endpoint completo = Postgres + GA4.
-- APERTI: (1) deploy PROD (mettere key SA in /opt/ops/.env, build/deploy manuale) - attendo ok; (2) conversion tracking GA4 (key events prenotazione/iscrizione + evento app) - proposto a Stefano, attendo decisione.
-- Analisi GA4 28gg consegnata + wiki/projects/puntify-ga4-analisi-20260723.md.
-
-## Update 12:10 — Stefano sta rilasciando in PROD
-- AVVISATO 2 rischi: (1) codice WIP (receipts/POS/menu orders/fiscal) dipende dalle 9 migrazioni NON ancora applicate al DB prod -> crash runtime se mancano colonne/tabelle (menu_order_events, bill_id, station_status, pos_settings, receipt_templates, fiscal_devices, catalog_type); (2) build App/Vetrina WIP non verificato in questa sessione.
-- Mio KPI/GA4 safe: read-only, degrada se GA4 non configurato (available:false).
-- Offerto di preparare/ordinare le migrazioni prod (senza applicare senza ok).
-
-## Update 12:20 — GA4 config prod PREPARATA (Stefano applica)
-- Prod topology scoperta: API in /opt/puntify/api, servizio puntify-server, deploy = deploy/deploy-prod.sh via runner self-hosted [prod]; rsync --delete ESCLUDE appsettings.Production.json + Config/ (preservati). Prod = macchina separata (questo host e' solo CAT).
-- NIENTE modifiche codice: Ga4Service usa CredentialsPath (file). Prod config = sezione GA4 in appsettings.Production.json + key SA in /opt/puntify/api/Config/ga4-sa.json (Config/ escluso da rsync -> sopravvive).
-- Consegnato script scratchpad/ga4-prod-setup.sh (key SA base64 embeddata, idempotente, backup, restart puntify-server). Stefano lo lancia sul server prod.
-- Domanda aperta a Stefano: dominio API prod (assunto api.puntify.it per l'esempio curl).
-- KPI Postgres su prod: gia' live appena deployato il commit (read-only). Solo la sezione ga4 richiede lo script.
-
-## Update 12:25 — KPI endpoint LIVE su prod
-- Stefano ha installato lo script GA4 su prod.
-- Verificata reachability: prod API = app.puntify.it/api (NON api.puntify.it = PostgREST, 200 vuoto nessun dato). app.puntify.it/api/kpi senza key -> 401 {"error":"API Key missing"} = deployato + protetto OK.
-- Non ho la X-API-Key prod -> ultimo check ga4.available lo fa Stefano con la sua key su app.puntify.it/api/kpi?days=30.
-- Corretto dominio esempio: app.puntify.it/api/kpi (avevo assunto api.puntify.it).
-
-## Update 12:40 — Report prod: traffico inviato, attendo key per business
-- Stefano vuole che sia IO a estrarre KPI prod e inviargli un report completo.
-- Inviata parte TRAFFICO (GA4 30gg live prod): 316 sess, 61% organic, top pagine menu negozi, Roma-centrico.
-- Parte BUSINESS (Postgres prod) bloccata: serve X-API-Key prod (una volta) da salvare in ~/.secrets/puntify-prod-apikey. Chiesta a Stefano.
-- Appena ho la key: curl app.puntify.it/api/kpi -> report completo. Da valutare poi: schedulare report ricorrente (cron/loop).
-
-## Update 12:45 — Report prod COMPLETO inviato (business+traffico)
-- Key prod salvata in ~/.secrets/puntify-prod-apikey (600). curl app.puntify.it/api/kpi -> 200.
-- Numeri prod: negozi 6 (5 nuovi/30gg), prenotazioni 25 tot/1, ordini 5/1, punti 0, incasso 0, clienti 0, recensioni 1, pv_events 300/25 sess. GA4 30gg 316 sess 61% organic.
-- Lettura: onboarding attivo, conversione transazionale bassa.
-- APERTI: (1) GA4 endpoint prod errore permessi key -> dato a Stefano fix chmod 644 + restart (script gia corretto a 644); (2) customer_profiles=0 con 25 prenotazioni -> verificare da dove contare clienti reali in prod.
-
-## Update 12:48 — KPI API COMPLETA in prod (GA4 fix confermato)
-- Stefano ha risolto i permessi. Verificato prod: ga4.available=true, 316 sess. /api/kpi ritorna business+GA4 in un colpo da produzione.
-- PROGETTO KPI API CHIUSO e live prod.
-- Aperti minori proposti a Stefano: (1) customer_profiles=0 vs 25 prenotazioni -> indagare conteggio clienti reali prod; (2) report ricorrente automatico su Telegram (es. lunedi mattina).
-
-## Update 15:00 — Report mattutino cablato ai KPI prod (richiesta "ogni mattina")
-- Esisteva gia report v2 (cron 0 7 * * * = 09:00 IT, /home/claudebot/scripts/daily-report/puntify-daily-report.sh) con Sez.1 placeholder.
-- FATTO: nuovo helper kpi.py (urllib, legge ~/.secrets/puntify-prod-apikey, GET app.puntify.it/api/kpi days=1 e days=30, formatta business+GA4). Sez.1 ora dati reali con delta 24h/30gg.
-- BUG FIX: analytics.py aveva GA4_PROPERTY 57764779 (sbagliato) -> 524577455. Ora Sez.3 mostra GA4 (utenti 15, sess 118, 7gg).
-- Test invio reale OK (INVIO OK via @PuntifyNemiBot, BotToken appsettings). Report parte da domani 09:00 IT.
-- Plugin telegram di sessione DISCONNESSA a meta lavoro -> confermato a Stefano via curl Bot API (@claude4imodejam_bot, token ~/.claude/channels/telegram/.env). Per rispondere a Stefano ora uso fallback curl.
-- Aperto: chiesto a Stefano se il report va bene dal bot Nemi o lo vuole da @claude4imodejam_bot.
-
-## Update 15:15 — Plugin telegram down + bug booking scoperto
-- Plugin telegram sessione disconnessa: reply/react KO -> uso fallback curl Bot API. Inbound inaffidabile: PERSA immagine Stefano 12:53 (poi recuperata da inbox).
-- Immagine = BUG prenotazione pubblica (Italian Friends, 23/07 20:30 4pax): mostra insieme errore "Nessun tavolo disponibile per questo orario" + card "Conferma prenotazione". Contraddittorio.
-- Avviata indagine subagent a0a92771 (analisi flusso Book pubblico + logica disponibilita table_resource_id + causa doppia visualizzazione + proposta fix). Read-only.
-- Prossimo: al ritorno agent, proporre fix a Stefano; NON toccare prod senza ok.
-
-## Update 15:25 — Bug booking: causa trovata, fix su CAT avviata
-- CAUSA (subagent a0a92771): QuickTableBooking.razor Submit() ramo no_table_available -> set _error senza _step=0 -> step resta 2 (Conferma) -> UI mostra errore + card. Radice design: fn_find_best_table (disponibilita reale) chiamata SOLO alla conferma; gli slot orari mostrano solo apertura/chiusura/blocchi.
-- Server: TableBookingController.cs:76-91 fn_find_best_table -> Conflict no_table_available.
-- FIX (subagent a122f3ea in corso su CAT): su no_table_available -> _step=0, invalida orario, persist, solo errore. Verificare gemello QuickTakeawayBooking.razor (slot_full) stesso difetto.
-- Comunicato a Stefano; deploy prod solo con suo ok. Segnalato: stringhe wizard hardcoded IT (non tradotte) = lavoro separato.
-
-## Update 15:35 — Fix booking FATTO su CAT, attendo ok prod
-- QuickTableBooking.razor Submit(): aggiunto reset _step=0 + _selectedTime="" + _=PersistAsync() su no_table_available (righe ~576-581). Verificato in file. Build Vetrina 0 errori, puntify-vetrina active, /it 200.
-- QuickTakeawayBooking non toccato (conferma gated su slot, gia azzerato su slot_full).
-- Chiesto a Stefano: commit+push solo fix su master -> lui lancia Deploy Production. Proposta extra opzionale: pre-check disponibilita a scelta orario (UX).
-
-## Update 15:45 — Telegram ricezione irrobustita + BACKLOG 9 messaggi
-- CAUSA: poller telegram (plugin dentro claude-rc.service) piantato -> 9 update fermi (pending). claude-rc Restart=always solo su crash, non su hang.
-- FIX: watchdog /home/claudebot/scripts/telegram-watchdog/tg-watchdog.sh (cron ogni minuto, gira fuori da claude-rc). getWebhookInfo pending_update_count; se fermo >180s -> sudo systemctl restart claude-rc.service + avviso Stefano. Cooldown 600s. Stato in .../state. Log .../watchdog.log.
-- Recuperati 9 msg + 2 foto (scratchpad tg_208212351.jpg loader AI, tg_208212356.jpg togli +). Coda consumata, pending=0.
-- Poller vecchio ancora morto: reception live si auto-ripristina al prossimo msg (watchdog). Offerto restart istantaneo a Stefano.
-
-### BACKLOG Stefano (prosegui IN ORDINE di ricezione):
-1. Report Telegram: formattare meglio + esplicitare voci marketing col termine tecnico tra parentesi
-2. (conferma: report ok dal bot Nemi) - nessuna azione
-3. Pannello crea-immagine-AI: loader non visibile (grigio nel pulsante) -> mostrare frasi stato (pensando/generando/pubblicando) stile Claude [foto tg_208212351]
-4. "no aspetta" - annullato
-5. Booking pre-check: n.posti e' nel 1o step -> gia' li sapere se esiste un tavolo per quel numero; se si avanti, se no proporre di contattare il locale; poi mostrare disponibilita per giorno/orario nelle fasce (completa la fix bug gia' fatta)
-6. Pagina /es menu ItalianFriends: scritte del menu in italiano, manca traduzione
-7. Quando posto link cliente (es. menu): mostrare logo negozio come icona (og:image); se manca, logo Puntify
-8. Menu: rimuovere la "+" dal pannello di un piatto [foto tg_208212356]
-- (9. "prosegui in ordine di ricezione")
+### Prossimi passi
+- Ricevere report subagent POS + foto; verificare build; NON deployare (solo CAT). Hard-refresh WASM lato Stefano per vedere.
+- Aggiornare docs/Requests con esito finale.

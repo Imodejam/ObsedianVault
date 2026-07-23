@@ -2148,3 +2148,5 @@ Reminder "tra 2 ore" partiva all'orario stesso dell'appuntamento (+2h = offset C
 ## [2026-07-23] task | PhotoPickerModal: spinner AI visibile (spinner--btn bianco) + frasi di stato a rotazione (Puntify.App, tutte le lingue), build+restart puntify-app OK
 
 ## [2026-07-23] task | Puntify.App Scan.razor reformattato al design system cfg-page (chrome merchant standard)
+
+## [2026-07-23] task | Puntify CAT: 3 richieste Telegram — (1) POS/Configurazione toggle abilitazione servizi ordinazione (vendita diretta/sul posto/asporto/delivery) + spostato tab finestre-asporto sotto POS con asporto sorgente unica (opzione A: sync booking_modes); (2) Scan.razor riformattata col design cfg-page (FATTO, build ok); (3) PhotoPickerModal libreria completa cataloghi con tag+filtro. Dettaglio in puntify/docs/Requests/20260723.{1,2,3}.md. Delega a subagent.
