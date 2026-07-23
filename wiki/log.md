@@ -2203,3 +2203,4 @@ Il COPERTO seguiva DefaultVatRate (22%); ora segue laliquota di somministrazione
 ## [2026-07-23] task | Puntify App Cassa mobile: azioni Incassa/Invia-in-cucina in footer fisso, rimosso "+ Nuovo ordine" dal footer focalizzato
 
 ## [2026-07-23] task | Puntify POS Cassa: "Invia in cucina" solo se contenuto non inviato (fix bug #A07 gia' in cucina)
+## [2026-07-23] task | Puntify social: cancellato da Buffer il post sconto 2026-07-24 (IG+LI+FB, deletePost mutation via VoidMutationError/DeletePostSuccess union) — rifiutato da Stefano + violava regola approvazione; meta.json -> deleted_unapproved. Chiesto a Stefano se ri-gate daily_propose su approvazione (era autonomo da direttiva 22/07). Fix "Invia in cucina" nascosto se ordine già in cucina immutato — FATTO build ok.
