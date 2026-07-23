@@ -2138,3 +2138,5 @@ Reminder "tra 2 ore" partiva all'orario stesso dell'appuntamento (+2h = offset C
 ## [2026-07-23] task | Bug booking pubblico (Italian Friends): QuickTableBooking.razor Submit() su no_table_available imposta _error ma non resetta _step=2 -> errore + card conferma insieme. Radice: disponibilita tavolo verificata solo alla conferma. Fix in corso su CAT (reset step0 + clear orario); check gemello takeaway slot_full.
 
 ## [2026-07-23] task | Fix booking pubblico COMPLETATO su CAT: QuickTableBooking.razor Submit() ramo no_table_available ora fa _step=0 + _selectedTime="" + PersistAsync() -> mostra solo errore+selezione orario, mai card conferma. Gemello QuickTakeawayBooking (slot_full) gia' corretto (reset _selectedSlotAt=null + LoadSlots), NON toccato. Build Vetrina 0 errori, restart puntify-vetrina.service active, HTTP 200 su :8003/it.
+
+## [2026-07-23] task | Fix bug booking su CAT: QuickTableBooking.razor Submit() no_table_available -> _step=0 + _selectedTime="" + PersistAsync (solo errore, no card conferma). Takeaway ok (non step-based). Build+restart vetrina OK. Attendo ok commit/push + deploy prod.

@@ -152,3 +152,8 @@ Sessione 2026-07-23 (Telegram, canale plugin:telegram).
 - Server: TableBookingController.cs:76-91 fn_find_best_table -> Conflict no_table_available.
 - FIX (subagent a122f3ea in corso su CAT): su no_table_available -> _step=0, invalida orario, persist, solo errore. Verificare gemello QuickTakeawayBooking.razor (slot_full) stesso difetto.
 - Comunicato a Stefano; deploy prod solo con suo ok. Segnalato: stringhe wizard hardcoded IT (non tradotte) = lavoro separato.
+
+## Update 15:35 — Fix booking FATTO su CAT, attendo ok prod
+- QuickTableBooking.razor Submit(): aggiunto reset _step=0 + _selectedTime="" + _=PersistAsync() su no_table_available (righe ~576-581). Verificato in file. Build Vetrina 0 errori, puntify-vetrina active, /it 200.
+- QuickTakeawayBooking non toccato (conferma gated su slot, gia azzerato su slot_full).
+- Chiesto a Stefano: commit+push solo fix su master -> lui lancia Deploy Production. Proposta extra opzionale: pre-check disponibilita a scelta orario (UX).
