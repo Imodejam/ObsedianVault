@@ -146,3 +146,9 @@ Sessione 2026-07-23 (Telegram, canale plugin:telegram).
 - Immagine = BUG prenotazione pubblica (Italian Friends, 23/07 20:30 4pax): mostra insieme errore "Nessun tavolo disponibile per questo orario" + card "Conferma prenotazione". Contraddittorio.
 - Avviata indagine subagent a0a92771 (analisi flusso Book pubblico + logica disponibilita table_resource_id + causa doppia visualizzazione + proposta fix). Read-only.
 - Prossimo: al ritorno agent, proporre fix a Stefano; NON toccare prod senza ok.
+
+## Update 15:25 — Bug booking: causa trovata, fix su CAT avviata
+- CAUSA (subagent a0a92771): QuickTableBooking.razor Submit() ramo no_table_available -> set _error senza _step=0 -> step resta 2 (Conferma) -> UI mostra errore + card. Radice design: fn_find_best_table (disponibilita reale) chiamata SOLO alla conferma; gli slot orari mostrano solo apertura/chiusura/blocchi.
+- Server: TableBookingController.cs:76-91 fn_find_best_table -> Conflict no_table_available.
+- FIX (subagent a122f3ea in corso su CAT): su no_table_available -> _step=0, invalida orario, persist, solo errore. Verificare gemello QuickTakeawayBooking.razor (slot_full) stesso difetto.
+- Comunicato a Stefano; deploy prod solo con suo ok. Segnalato: stringhe wizard hardcoded IT (non tradotte) = lavoro separato.
