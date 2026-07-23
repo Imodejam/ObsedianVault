@@ -2175,3 +2175,5 @@ Migrazione course_status jsonb su menu_public_orders (LOCAL puntify_cat, schema 
 ## [2026-07-23] task | Puntify CAT: POS Risorse Mappa/Griglia FATTO (toggle, griglia stile foto default, prenotato blu/occupato rosso, reserved via Booking.GetAgendaAsync). Menu-a-orari mappato: campi schedule gia' su shop_menus, serve solo logica server GetActive per mostrare SEMPRE un menu (attivo->prossimo->primo). Course-firing FRONTEND avviato (Cassa manda-portata+lock R1/R5, KDS hold). Clausola M1 registrata.
 
 ## [2026-07-23] task | KDS per-course firing frontend: KitchenDisplay.razor split fired/held (MenuOrderCourses.IsCourseFired), blocco held grigio + resx kitchendisplay_hold_label 10 lingue; build App OK
+
+## [2026-07-23] task | CASSA per-portata firing: badge stato + "Manda portata N" (held) su giri inviati; lock R1 (portata fired) + R5 (ordine pagato) nel pannello _cassaLines; server guard R5 order_paid in MenuController.UpdateOrderItems; 4 chiavi resx x10 lingue; build OK
