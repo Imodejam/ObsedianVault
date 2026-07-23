@@ -2132,3 +2132,5 @@ Reminder "tra 2 ore" partiva all'orario stesso dell'appuntamento (+2h = offset C
 ## [2026-07-23] task | KPI prod estratti live (app.puntify.it/api/kpi, key salvata ~/.secrets/puntify-prod-apikey): 6 negozi (5 nuovi/30gg), 25 prenotazioni tot, onboarding attivo ma poca conversione transazionale. GA4 endpoint KO permessi (chmod 644 fix). customer_profiles=0 da verificare.
 
 ## [2026-07-23] task | KPI API COMPLETA e live in prod: /api/kpi (business Postgres + GA4) ga4.available=true verificato (316 sess). Progetto chiuso. Aperti minori: customer_profiles=0 da chiarire; proposto report ricorrente Telegram.
+
+## [2026-07-23] task | Report mattutino v2 collegato ai KPI prod reali: nuovo kpi.py (curl /api/kpi con key salvata) in Sezione 1; fix bug analytics.py GA4 property 57764779->524577455 (GA4 ora attivo in Sez.3). Cron 09:00 IT permanente. Test send OK (@PuntifyNemiBot).

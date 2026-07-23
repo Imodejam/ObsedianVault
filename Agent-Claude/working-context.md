@@ -132,3 +132,11 @@ Sessione 2026-07-23 (Telegram, canale plugin:telegram).
 - Stefano ha risolto i permessi. Verificato prod: ga4.available=true, 316 sess. /api/kpi ritorna business+GA4 in un colpo da produzione.
 - PROGETTO KPI API CHIUSO e live prod.
 - Aperti minori proposti a Stefano: (1) customer_profiles=0 vs 25 prenotazioni -> indagare conteggio clienti reali prod; (2) report ricorrente automatico su Telegram (es. lunedi mattina).
+
+## Update 15:00 — Report mattutino cablato ai KPI prod (richiesta "ogni mattina")
+- Esisteva gia report v2 (cron 0 7 * * * = 09:00 IT, /home/claudebot/scripts/daily-report/puntify-daily-report.sh) con Sez.1 placeholder.
+- FATTO: nuovo helper kpi.py (urllib, legge ~/.secrets/puntify-prod-apikey, GET app.puntify.it/api/kpi days=1 e days=30, formatta business+GA4). Sez.1 ora dati reali con delta 24h/30gg.
+- BUG FIX: analytics.py aveva GA4_PROPERTY 57764779 (sbagliato) -> 524577455. Ora Sez.3 mostra GA4 (utenti 15, sess 118, 7gg).
+- Test invio reale OK (INVIO OK via @PuntifyNemiBot, BotToken appsettings). Report parte da domani 09:00 IT.
+- Plugin telegram di sessione DISCONNESSA a meta lavoro -> confermato a Stefano via curl Bot API (@claude4imodejam_bot, token ~/.claude/channels/telegram/.env). Per rispondere a Stefano ora uso fallback curl.
+- Aperto: chiesto a Stefano se il report va bene dal bot Nemi o lo vuole da @claude4imodejam_bot.
