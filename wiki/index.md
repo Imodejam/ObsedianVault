@@ -55,3 +55,4 @@ _(nessun concetto ancora)_
 
 - [Puntify — Idee servizi futuri](projects/puntify-servizi-futuri.md) — brainstorming CEO servizi aggiuntivi per i punti vendita (pagamenti, gift card, marketing automation, magazzino, fiscale, network punti, estensioni Nemi)
 - [[projects/puntify-seo-audit-20260723|Audit SEO Puntify 23/07]] — GSC 28gg: +906% imp, staging deindex, opportunita non-branded, stato GA4
+- [[projects/monitoring-dashboard|Monitoring Dashboard interno]] — cruscotto multi-progetto attivita agent; valutato Clawroom come base (SI)
