@@ -2126,3 +2126,5 @@ Reminder "tra 2 ore" partiva all'orario stesso dell'appuntamento (+2h = offset C
 ## [2026-07-23] task | Puntify: commit fd0f96c pushato su master (146 file, KPI/GA4 API + booking/menu/POS/receipts/traduzioni/9 migrazioni WIP). appsettings.Development gitignored (nessun segreto). Migrazioni ancora da APPLICARE al DB.
 
 ## [2026-07-23] task | GA4 prod: preparato script self-contained ga4-prod-setup.sh (key SA in /opt/puntify/api/Config/ga4-sa.json + sezione GA4 in appsettings.Production.json, restart puntify-server). Nessuna modifica codice. Stefano applica su prod.
+
+## [2026-07-23] task | KPI API live in PROD (app.puntify.it/api/kpi, 401 senza key = OK); GA4 script installato da Stefano; check finale ga4.available a Stefano (serve X-API-Key prod)

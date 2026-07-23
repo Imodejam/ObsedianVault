@@ -109,3 +109,9 @@ Sessione 2026-07-23 (Telegram, canale plugin:telegram).
 - Consegnato script scratchpad/ga4-prod-setup.sh (key SA base64 embeddata, idempotente, backup, restart puntify-server). Stefano lo lancia sul server prod.
 - Domanda aperta a Stefano: dominio API prod (assunto api.puntify.it per l'esempio curl).
 - KPI Postgres su prod: gia' live appena deployato il commit (read-only). Solo la sezione ga4 richiede lo script.
+
+## Update 12:25 — KPI endpoint LIVE su prod
+- Stefano ha installato lo script GA4 su prod.
+- Verificata reachability: prod API = app.puntify.it/api (NON api.puntify.it = PostgREST, 200 vuoto nessun dato). app.puntify.it/api/kpi senza key -> 401 {"error":"API Key missing"} = deployato + protetto OK.
+- Non ho la X-API-Key prod -> ultimo check ga4.available lo fa Stefano con la sua key su app.puntify.it/api/kpi?days=30.
+- Corretto dominio esempio: app.puntify.it/api/kpi (avevo assunto api.puntify.it).
