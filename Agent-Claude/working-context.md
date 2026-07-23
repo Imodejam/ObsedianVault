@@ -121,3 +121,9 @@ Sessione 2026-07-23 (Telegram, canale plugin:telegram).
 - Inviata parte TRAFFICO (GA4 30gg live prod): 316 sess, 61% organic, top pagine menu negozi, Roma-centrico.
 - Parte BUSINESS (Postgres prod) bloccata: serve X-API-Key prod (una volta) da salvare in ~/.secrets/puntify-prod-apikey. Chiesta a Stefano.
 - Appena ho la key: curl app.puntify.it/api/kpi -> report completo. Da valutare poi: schedulare report ricorrente (cron/loop).
+
+## Update 12:45 — Report prod COMPLETO inviato (business+traffico)
+- Key prod salvata in ~/.secrets/puntify-prod-apikey (600). curl app.puntify.it/api/kpi -> 200.
+- Numeri prod: negozi 6 (5 nuovi/30gg), prenotazioni 25 tot/1, ordini 5/1, punti 0, incasso 0, clienti 0, recensioni 1, pv_events 300/25 sess. GA4 30gg 316 sess 61% organic.
+- Lettura: onboarding attivo, conversione transazionale bassa.
+- APERTI: (1) GA4 endpoint prod errore permessi key -> dato a Stefano fix chmod 644 + restart (script gia corretto a 644); (2) customer_profiles=0 con 25 prenotazioni -> verificare da dove contare clienti reali in prod.
