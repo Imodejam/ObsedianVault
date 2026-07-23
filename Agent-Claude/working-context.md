@@ -157,3 +157,20 @@ Sessione 2026-07-23 (Telegram, canale plugin:telegram).
 - QuickTableBooking.razor Submit(): aggiunto reset _step=0 + _selectedTime="" + _=PersistAsync() su no_table_available (righe ~576-581). Verificato in file. Build Vetrina 0 errori, puntify-vetrina active, /it 200.
 - QuickTakeawayBooking non toccato (conferma gated su slot, gia azzerato su slot_full).
 - Chiesto a Stefano: commit+push solo fix su master -> lui lancia Deploy Production. Proposta extra opzionale: pre-check disponibilita a scelta orario (UX).
+
+## Update 15:45 — Telegram ricezione irrobustita + BACKLOG 9 messaggi
+- CAUSA: poller telegram (plugin dentro claude-rc.service) piantato -> 9 update fermi (pending). claude-rc Restart=always solo su crash, non su hang.
+- FIX: watchdog /home/claudebot/scripts/telegram-watchdog/tg-watchdog.sh (cron ogni minuto, gira fuori da claude-rc). getWebhookInfo pending_update_count; se fermo >180s -> sudo systemctl restart claude-rc.service + avviso Stefano. Cooldown 600s. Stato in .../state. Log .../watchdog.log.
+- Recuperati 9 msg + 2 foto (scratchpad tg_208212351.jpg loader AI, tg_208212356.jpg togli +). Coda consumata, pending=0.
+- Poller vecchio ancora morto: reception live si auto-ripristina al prossimo msg (watchdog). Offerto restart istantaneo a Stefano.
+
+### BACKLOG Stefano (prosegui IN ORDINE di ricezione):
+1. Report Telegram: formattare meglio + esplicitare voci marketing col termine tecnico tra parentesi
+2. (conferma: report ok dal bot Nemi) - nessuna azione
+3. Pannello crea-immagine-AI: loader non visibile (grigio nel pulsante) -> mostrare frasi stato (pensando/generando/pubblicando) stile Claude [foto tg_208212351]
+4. "no aspetta" - annullato
+5. Booking pre-check: n.posti e' nel 1o step -> gia' li sapere se esiste un tavolo per quel numero; se si avanti, se no proporre di contattare il locale; poi mostrare disponibilita per giorno/orario nelle fasce (completa la fix bug gia' fatta)
+6. Pagina /es menu ItalianFriends: scritte del menu in italiano, manca traduzione
+7. Quando posto link cliente (es. menu): mostrare logo negozio come icona (og:image); se manca, logo Puntify
+8. Menu: rimuovere la "+" dal pannello di un piatto [foto tg_208212356]
+- (9. "prosegui in ordine di ricezione")
