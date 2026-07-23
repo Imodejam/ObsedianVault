@@ -1,28 +1,23 @@
-# Working Context
+# Working context
 
-## Sessione 2026-07-23 — Puntify CAT (3 richieste Telegram Stefano)
+## Task corrente (2026-07-23) — DONE
+Fix fiscale COPERTO Puntify (CAT only, no deploy): il coperto seguiva l'aliquota DEFAULT del negozio
+(22% IT) ma deve seguire la SOMMINISTRAZIONE (ristorazione dine-in, IT 10%), essendo accessorio.
 
-Obiettivo: 3 modifiche Puntify.App (collaudo/CAT), delegate a subagent, io orchestro.
+### Cosa fatto
+- Sorgente aliquota country-aware in `Punto.Shared/Models/Menu/VatRates.cs`:
+  - `Catering(country)` = aliquota ristorazione ridotta per Paese (IT 10, ES 10, FR 10, DE 7, PT 13, NL 9, ...).
+  - `CoverRate(itemAmountsByRate, country)` = aliquota del coperto: (1) catering del Paese se tra gli item,
+    (2) aliquota positiva dominante per importo tra gli item, (3) catering ridotta del Paese. Mai il default.
+- `Puntify.Server/Services/Fiscal/CountryTaxConfig.GetCateringVatRate(country)` delega a VatRates.Catering.
+- 3 punti di bucketing aggiornati:
+  - `Puntify.App/Pages/Merchant/Dashboard.razor` -> CassaVatBreakdown (conto Cassa live) + DetailVatBreakdown (archivio).
+  - `Punto.Shared/Receipts/Mapping/BillReceiptMapper.cs` -> Map() (scontrino email server + stampa/preview App + BillDetailPage).
+- Esempio: 30,50 food@10% + coperto 8,00 -> tutto 38,50@10% -> di cui IVA 10% = 3,50, no riga 22%, totale invariato.
 
-### 1. POS/Configurazione — abilitazione servizi ordinazione + tab asporto  [IN CORSO]
-- Toggle ON/OFF (`.cfg-toggle`) per vendita diretta / sul posto / asporto / delivery in Dashboard.razor (area POS config). Timing Subito/Dopo visibile solo se ON.
-- DB: nuove col `enable_*` su `shop_pos_settings` (migration 2026-07-23_pos_service_enable.sql, applicata CAT).
-- Decisione Stefano = opzione A: asporto sorgente unica sotto POS → toggle asporto sincronizza `booking_modes` (bit takeaway).
-- Sposta tab `finestre-asporto` (TakeawayWindows) da BookingHub → tab dell'area POS, visibile se asporto ON. Rimosso da BookingHub.
-- Subagent: aecc334e410f5abfc.
+### Stato
+Build App + Server verdi (0 error). Receipt test 84/84 passati. Nessun deploy.
 
-### 2. Scan.razor — design pagine servizi  [FATTO]
-- Migrata a `cfg-page` design system. Build 0 errori. Nessun Scan.razor.css.
-
-### 3. PhotoPickerModal — libreria cataloghi con tag+filtro  [IN CORSO]
-- Tab Suggerite mostra tutta la libreria `product_catalog` con chip tag per filtrare.
-- DB: col `tags text[]` + backfill categorie (migration 2026-07-23_catalog_photo_tags.sql, CAT). RPC match+browse restituiscono tags.
-- Backend: endpoint browse `/api/menu/catalog/photos`. Client: CatalogPhotoDto.Tags + CatalogPhotosBrowseAsync. UI: chip filtro + load-more.
-- Subagent: a841310f217023177.
-
-### Domanda aperta a Stefano
-- Watchdog: i run avviati dalla sessione muoiono al restart del servizio. Proposto (1) job fuori processo via systemd-run + (2) ledger di ripresa. In attesa OK per implementare.
-
-### Prossimi passi
-- Ricevere report subagent POS + foto; verificare build; NON deployare (solo CAT). Hard-refresh WASM lato Stefano per vedere.
-- Aggiornare docs/Requests con esito finale.
+### Prossimi passi possibili
+- Verificare aliquote catering per Paesi non-mappati (euristica: ridotta alta del set).
+- Eventuale campo UI per aliquota coperto esplicita (oggi derivata).
