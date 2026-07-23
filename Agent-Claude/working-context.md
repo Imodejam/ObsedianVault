@@ -47,3 +47,5 @@ Sessione 2026-07-23 (Telegram, canale plugin:telegram).
 - Gotcha verifica: /it/negozi/{slug} fa 302 -> /it/negozi/{city}/{slug} (canonica). Testare la canonica su 127.0.0.1:8003 con Host www.puntify.it (forza prod-behavior, no staging-global-noindex).
 - Verificato: fake frutta-fresca/scarpe-stile -> noindex,nofollow; reale lido-del-sole -> index; /book fake -> noindex; prezzi -> index. Nessuna regressione.
 - MANCA: deploy PROD (www.puntify.it, manuale) perche' Google recrawli e deindicizzi. Poi opz. rimozione GSC.
+
+- Update 08:07: flag isfake inaffidabile. Lido del Sole marcato isfake=true (CAT). Restano 3 dubbi (Lunapark, Madrigalas/Madrid, Puntify demo) -> chiesto a Stefano quali fake. Ricordare: replicare su DB prod al deploy.
