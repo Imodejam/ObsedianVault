@@ -127,3 +127,8 @@ Sessione 2026-07-23 (Telegram, canale plugin:telegram).
 - Numeri prod: negozi 6 (5 nuovi/30gg), prenotazioni 25 tot/1, ordini 5/1, punti 0, incasso 0, clienti 0, recensioni 1, pv_events 300/25 sess. GA4 30gg 316 sess 61% organic.
 - Lettura: onboarding attivo, conversione transazionale bassa.
 - APERTI: (1) GA4 endpoint prod errore permessi key -> dato a Stefano fix chmod 644 + restart (script gia corretto a 644); (2) customer_profiles=0 con 25 prenotazioni -> verificare da dove contare clienti reali in prod.
+
+## Update 12:48 — KPI API COMPLETA in prod (GA4 fix confermato)
+- Stefano ha risolto i permessi. Verificato prod: ga4.available=true, 316 sess. /api/kpi ritorna business+GA4 in un colpo da produzione.
+- PROGETTO KPI API CHIUSO e live prod.
+- Aperti minori proposti a Stefano: (1) customer_profiles=0 vs 25 prenotazioni -> indagare conteggio clienti reali prod; (2) report ricorrente automatico su Telegram (es. lunedi mattina).
