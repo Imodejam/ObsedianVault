@@ -76,3 +76,8 @@ Ho detto 2 volte a Stefano che il bug "2 giorni" prenotazione era cache/service-
 
 ## [2026-07-23] Telegram: doppio poller = conflitto 409
 Le disconnessioni ricorrenti del canale Telegram erano causate da DUE processi che facevano getUpdates sullo stesso bot token (@claude4imodejam_bot): il plugin ufficiale `--channels plugin:telegram` + un vecchio bridge fatto a mano `/home/claudebot/claude-tg-bot/bot.py` (service claude-tg-bot.service). Telegram permette un solo getUpdates per token -> 409, uno cade. Rimosso il vecchio bridge (obsoleto, rimpiazzato dal plugin). REGOLA: un solo consumatore per bot token; se serve un secondo bot, token diverso.
+
+## [2026-07-23] Messaggio Telegram perso (plugin disconnessa)
+- La plugin telegram MCP della sessione si e' disconnessa a meta' sessione: tool reply/react non piu' disponibili.
+- Conseguenza: NON ho ricevuto notifica di un'immagine inviata da Stefano alle 12:53 (screenshot bug prenotazione) -> l'ho scoperta solo dopo, controllando ~/.claude/channels/telegram/inbox/.
+- Correzione: quando la plugin cade, (a) rispondere via fallback Bot API curl (token ~/.claude/channels/telegram/.env, chat 505161324); (b) controllare periodicamente l'inbox per messaggi non notificati.

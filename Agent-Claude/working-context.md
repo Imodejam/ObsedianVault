@@ -140,3 +140,9 @@ Sessione 2026-07-23 (Telegram, canale plugin:telegram).
 - Test invio reale OK (INVIO OK via @PuntifyNemiBot, BotToken appsettings). Report parte da domani 09:00 IT.
 - Plugin telegram di sessione DISCONNESSA a meta lavoro -> confermato a Stefano via curl Bot API (@claude4imodejam_bot, token ~/.claude/channels/telegram/.env). Per rispondere a Stefano ora uso fallback curl.
 - Aperto: chiesto a Stefano se il report va bene dal bot Nemi o lo vuole da @claude4imodejam_bot.
+
+## Update 15:15 — Plugin telegram down + bug booking scoperto
+- Plugin telegram sessione disconnessa: reply/react KO -> uso fallback curl Bot API. Inbound inaffidabile: PERSA immagine Stefano 12:53 (poi recuperata da inbox).
+- Immagine = BUG prenotazione pubblica (Italian Friends, 23/07 20:30 4pax): mostra insieme errore "Nessun tavolo disponibile per questo orario" + card "Conferma prenotazione". Contraddittorio.
+- Avviata indagine subagent a0a92771 (analisi flusso Book pubblico + logica disponibilita table_resource_id + causa doppia visualizzazione + proposta fix). Read-only.
+- Prossimo: al ritorno agent, proporre fix a Stefano; NON toccare prod senza ok.
