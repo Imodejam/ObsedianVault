@@ -59,3 +59,10 @@ Sessione 2026-07-23 (Telegram, canale plugin:telegram).
 - ANCORA IN ATTESA da Stefano: (1) accesso dati utenti PROD per sez.1 report; (2) fix permesso GA4 property 57764779; (3) se vuole dettaglio dashboard Clawroom ora; (4) via libera deploy prod Vetrina; (5) rimozione cat in GSC.
 
 - Update 08:32: report v2 pronto/schedulato/testato (DRY_RUN, header). Vecchio cron disabilitato. Pending Stefano: accesso dati prod + GA4 permesso.
+
+## Update 09:50 — Richiesta KPI API prod
+- Stefano vuole un'API (protetta API key) che io possa consultare con tutti i dati KPI di PROD.
+- Foto ricevute: GA4 property Puntify ID=524577455; service account search-console-reader-claude@puntify.iam GIA Viewer sulla proprieta GA4 (quindi GA4 Data API ora accessibile via SA).
+- Piano proposto a Stefano: GET /api/kpi su puntify-server, X-API-Key (chiave /opt/ops/.env), read-only, JSON aggregato. Sorgenti: Postgres prod (PV attivi, prenotazioni, ordini, incassi, punti, billing) + GA4 (visite/sessioni pag. pubblica via SA).
+- Chiesto: (1) conferma set KPI, (2) build+test su CAT poi deploy prod con suo ok.
+- STATO: attendo conferma scope, nessun codice ancora.
