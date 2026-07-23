@@ -115,3 +115,9 @@ Sessione 2026-07-23 (Telegram, canale plugin:telegram).
 - Verificata reachability: prod API = app.puntify.it/api (NON api.puntify.it = PostgREST, 200 vuoto nessun dato). app.puntify.it/api/kpi senza key -> 401 {"error":"API Key missing"} = deployato + protetto OK.
 - Non ho la X-API-Key prod -> ultimo check ga4.available lo fa Stefano con la sua key su app.puntify.it/api/kpi?days=30.
 - Corretto dominio esempio: app.puntify.it/api/kpi (avevo assunto api.puntify.it).
+
+## Update 12:40 — Report prod: traffico inviato, attendo key per business
+- Stefano vuole che sia IO a estrarre KPI prod e inviargli un report completo.
+- Inviata parte TRAFFICO (GA4 30gg live prod): 316 sess, 61% organic, top pagine menu negozi, Roma-centrico.
+- Parte BUSINESS (Postgres prod) bloccata: serve X-API-Key prod (una volta) da salvare in ~/.secrets/puntify-prod-apikey. Chiesta a Stefano.
+- Appena ho la key: curl app.puntify.it/api/kpi -> report completo. Da valutare poi: schedulare report ricorrente (cron/loop).
