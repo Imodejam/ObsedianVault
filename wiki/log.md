@@ -2201,3 +2201,5 @@ Il COPERTO seguiva DefaultVatRate (22%); ora segue laliquota di somministrazione
 ## [2026-07-23] task | Puntify CAT: Mappa Risorse — selettore Sala ora in flusso in alto (tavoli sotto, niente sovrapposizione, scopato .dash-tables-planimetry) + sedie più chiare (#B4B9C1). IVA coperto country-aware (fatto da subagent, server riavviato). Footer Cassa mobile (Incassa+Invia, via Nuovo ordine) in corso.
 
 ## [2026-07-23] task | Puntify App Cassa mobile: azioni Incassa/Invia-in-cucina in footer fisso, rimosso "+ Nuovo ordine" dal footer focalizzato
+
+## [2026-07-23] task | Puntify POS Cassa: "Invia in cucina" solo se contenuto non inviato (fix bug #A07 gia' in cucina)
