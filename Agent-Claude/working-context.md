@@ -90,3 +90,10 @@ Sessione 2026-07-23 (Telegram, canale plugin:telegram).
 - PROD: macchina separata, la key SA NON c'e -> mettere key in /opt/ops/.env (base64) + config. Step da fare con Stefano al deploy.
 - Proposto set metriche a Stefano, attendo conferma per implementare su CAT.
 - Distinzione chiarita a Stefano: pv_events=engagement per-negozio (nostro cookieless) vs GA4=traffico sito+acquisizione. Complementari.
+
+## Update 10:45 — GA4 integrato in /api/kpi (CAT) FATTO
+- Ga4Service.cs: REST v1beta via Google.Apis.Auth (token da SA /home/claudebot/.secrets/gsc-key.json) + HttpClient. Config appsettings GA4:PropertyId=524577455 + CredentialsPath. NuGet Google.Apis.Auth 1.68.0.
+- Sezione ga4 in KpiSnapshot: totals, channels, top_landing_pages, top_pages, devices, top_countries. try/catch -> available:false se cade, KPI Postgres restano.
+- Live test CAT: /api/kpi?days=30 -> 200, ga4.available=true, 316 sessioni. Endpoint completo = Postgres + GA4.
+- APERTI: (1) deploy PROD (mettere key SA in /opt/ops/.env, build/deploy manuale) - attendo ok; (2) conversion tracking GA4 (key events prenotazione/iscrizione + evento app) - proposto a Stefano, attendo decisione.
+- Analisi GA4 28gg consegnata + wiki/projects/puntify-ga4-analisi-20260723.md.
