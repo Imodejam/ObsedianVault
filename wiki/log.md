@@ -2154,3 +2154,5 @@ Reminder "tra 2 ore" partiva all'orario stesso dell'appuntamento (+2h = offset C
 ## [2026-07-23] task | Puntify POS: toggle abilitazione servizi (enable_*) + finestre-asporto spostata sotto POS; asporto sync booking_modes; migration 2026-07-23_pos_service_enable.sql applicata a puntify_cat; build App OK
 
 ## [2026-07-23] task | Puntify: tab "Suggerite" del PhotoPickerModal ora sfoglia intera libreria condivisa con filtro per tag
+
+## [2026-07-23] task | Puntify.App: gate order-service pickers su ShopPosSettings.Enable* (Dashboard wizard Nuovo ordine + MerchantPos /neworder step0); Scan.razro NON toccato (CategoryService loyalty, non order-mode); nuova key neworder_no_service in 10 locale; build OK 0 errori; CAT only
