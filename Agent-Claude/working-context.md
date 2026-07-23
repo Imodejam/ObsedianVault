@@ -66,3 +66,10 @@ Sessione 2026-07-23 (Telegram, canale plugin:telegram).
 - Piano proposto a Stefano: GET /api/kpi su puntify-server, X-API-Key (chiave /opt/ops/.env), read-only, JSON aggregato. Sorgenti: Postgres prod (PV attivi, prenotazioni, ordini, incassi, punti, billing) + GA4 (visite/sessioni pag. pubblica via SA).
 - Chiesto: (1) conferma set KPI, (2) build+test su CAT poi deploy prod con suo ok.
 - STATO: attendo conferma scope, nessun codice ancora.
+
+## Update 10:15 — KPI API: scope confermato, build su CAT avviata
+- Stefano ha confermato set KPI e flusso CAT->prod.
+- Scoperta chiave (Explore af46b8dd): Puntify.Server GIA ha ApiKeyAuthMiddleware (X-API-Key, config Security:ApiKey) che protegge auto ogni endpoint non /api/public/*. Quindi basta un KpiController, niente nuova auth.
+- Server .NET: /home/progetti/puntify/Puntify.Server/ (net8.0), dati via ISupabaseClient (PostgREST, GetAsync/CountAsync). Servizi aggregazione gia esistenti: WeeklyRecapService (transactions/bookings/menu_public_orders), PvAnalyticsService (pv_events).
+- V1 KPI da Postgres: shops, bookings, orders, points earned/redeemed, revenue, customers, reviews (avg rating), traffic (pv_events + unique sessions). GA4 rimandato (pv_events copre gia il traffico pagine pubbliche lato app).
+- Subagent abcb29af in corso: crea KpiService+KpiController, build, restart SOLO puntify-server, test curl (200 con key, 401 senza, days=7).
