@@ -2198,3 +2198,4 @@ Il COPERTO seguiva DefaultVatRate (22%); ora segue laliquota di somministrazione
 - Applicato ai 3 punti: CassaVatBreakdown (conto live) + DetailVatBreakdown (archivio) in Dashboard.razor; BillReceiptMapper.Map (scontrino email/stampa/preview).
 - Esempio: item 30,50 @10% + coperto 8,00 -> tutto 38,50 @10% -> di cui IVA 10% = 3,50, nessuna riga 22%. Totale invariato. Item genuini 22% restano 22%.
 - CAT only, no deploy. Build App+Server verdi; 84/84 receipt test passano.
+## [2026-07-23] task | Puntify CAT: Mappa Risorse — selettore Sala ora in flusso in alto (tavoli sotto, niente sovrapposizione, scopato .dash-tables-planimetry) + sedie più chiare (#B4B9C1). IVA coperto country-aware (fatto da subagent, server riavviato). Footer Cassa mobile (Incassa+Invia, via Nuovo ordine) in corso.
