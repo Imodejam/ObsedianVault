@@ -2177,3 +2177,4 @@ Migrazione course_status jsonb su menu_public_orders (LOCAL puntify_cat, schema 
 ## [2026-07-23] task | KDS per-course firing frontend: KitchenDisplay.razor split fired/held (MenuOrderCourses.IsCourseFired), blocco held grigio + resx kitchendisplay_hold_label 10 lingue; build App OK
 
 ## [2026-07-23] task | CASSA per-portata firing: badge stato + "Manda portata N" (held) su giri inviati; lock R1 (portata fired) + R5 (ordine pagato) nel pannello _cassaLines; server guard R5 order_paid in MenuController.UpdateOrderItems; 4 chiavi resx x10 lingue; build OK
+## [2026-07-23] task | Puntify CAT: course-firing FRONTEND fatto (Cassa manda-portata+badge+lock R1/R5, KDS hold), stray "}" in Risorse Griglia rimossa. Avviati 2 batch: MenuController M1 (menu sempre visibile) + Dashboard rifiniture Risorse/Cassa (mappa compatta+colori+toggle sx, sedie 4 lati, search unica POS, coperti all'ingresso ordine singolo, manda-portata ordine singolo).
