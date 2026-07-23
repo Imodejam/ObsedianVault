@@ -102,3 +102,10 @@ Sessione 2026-07-23 (Telegram, canale plugin:telegram).
 - AVVISATO 2 rischi: (1) codice WIP (receipts/POS/menu orders/fiscal) dipende dalle 9 migrazioni NON ancora applicate al DB prod -> crash runtime se mancano colonne/tabelle (menu_order_events, bill_id, station_status, pos_settings, receipt_templates, fiscal_devices, catalog_type); (2) build App/Vetrina WIP non verificato in questa sessione.
 - Mio KPI/GA4 safe: read-only, degrada se GA4 non configurato (available:false).
 - Offerto di preparare/ordinare le migrazioni prod (senza applicare senza ok).
+
+## Update 12:20 — GA4 config prod PREPARATA (Stefano applica)
+- Prod topology scoperta: API in /opt/puntify/api, servizio puntify-server, deploy = deploy/deploy-prod.sh via runner self-hosted [prod]; rsync --delete ESCLUDE appsettings.Production.json + Config/ (preservati). Prod = macchina separata (questo host e' solo CAT).
+- NIENTE modifiche codice: Ga4Service usa CredentialsPath (file). Prod config = sezione GA4 in appsettings.Production.json + key SA in /opt/puntify/api/Config/ga4-sa.json (Config/ escluso da rsync -> sopravvive).
+- Consegnato script scratchpad/ga4-prod-setup.sh (key SA base64 embeddata, idempotente, backup, restart puntify-server). Stefano lo lancia sul server prod.
+- Domanda aperta a Stefano: dominio API prod (assunto api.puntify.it per l'esempio curl).
+- KPI Postgres su prod: gia' live appena deployato il commit (read-only). Solo la sezione ga4 richiede lo script.
