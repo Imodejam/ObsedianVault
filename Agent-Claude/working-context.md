@@ -104,3 +104,17 @@ DECISIONI CHIESTE A STEFANO (msg): budget ads si/no+quanto; 2-3 PV per case stud
 (poi: segmento mese2, referral, partnership). 
 Asset marketing reali: puntify-social (social auto), blog puntify.blog_posts su Vetrina, outreach Resend+sales machine,
 analytics PV/Insights, recensioni.
+
+## 2026-07-23 ~04-05 UTC — RIAVVIO claude-rc per riparare ponte Telegram (HANDOFF sessione)
+PROBLEMA: il poller Telegram del plugin dentro claude-rc.service si e' impiantato (MCP telegram
+disconnesso; getWebhookInfo mostrava pending_update_count=5; Stefano NON riceveva risposte "da ieri").
+claude-tg-bot.service e' DISABILITATO/morto (path legacy, non abilitarlo: causerebbe conflitto 409 getUpdates).
+AZIONE: riavviato claude-rc.service (Restart=always, start-claude.sh rilancia claude --channels
+plugin:telegram; allowlist chat 505161324 persiste in ~/.claude/channels/telegram/access.json). Alla ripartenza
+il plugin riprende il polling e consuma gli update in coda -> il bot torna a rispondere.
+BOT GIUSTO: scrivere a Stefano SOLO via @claude4imodejam_bot (token plugin ~/.claude/channels/telegram/.env),
+NON @Puntifynemibot (appsettings). daily_propose.py + director_review.sh gia' corretti.
+THREAD APERTI con Stefano (da riprendere): (1) pubblico primo articolo blog? (2) A/B Vetrina? (3) budget ads si/no?
+(4) MerchantPos coperti default 1 vs obbligo 0; (5) reminder doppio invio + write-path. Regola nuova: comunicazioni
+esterne partner/clienti sempre approvate da Stefano. Marketing Director autonomo attivo (cron daily_propose 16:17,
+director_review lun 05:23). Se qualcosa e' andato perso, chiedere a Stefano di riscrivere.
