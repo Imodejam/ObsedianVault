@@ -2116,3 +2116,5 @@ Reminder "tra 2 ore" partiva all'orario stesso dell'appuntamento (+2h = offset C
 ## [2026-07-23] task | KPI API /api/kpi creato+testato su CAT (KpiService+KpiController), protetto X-API-Key esistente; GA4 rimandato (pv_events copre traffico); attendo ok deploy prod
 
 ## [2026-07-23] task | GA4 Data API verificata attiva col SA (property 524577455, test 7gg 122 sess); piano integrazione sezione ga4 in /api/kpi proposto a Stefano
+
+## [2026-07-23] decision | Analisi GA4 28gg: SEO 61% (motore), menu negozi tirano traffico (ItalianFriends 530 view), Roma-centrico, GA4 senza conversioni (keyEvents=0) -> priorita: abilitare conversion tracking prima di ottimizzare Ads
