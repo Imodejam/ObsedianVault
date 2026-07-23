@@ -33,3 +33,11 @@ Sessione 2026-07-23 (Telegram, canale plugin:telegram).
 - Scoperto: sitemap GIA esclude isfake (SitemapService.cs:45 !s.IsFake). Verificato prod+CAT: demo NON in sitemap. Richiesta Stefano "togli da sitemap" gia soddisfatta.
 - Vero gap: pagina negozio fake e' "index" (nessun meta robots). Delegato a subagent: noindex,nofollow su NegozioDetail (ShopData.IsFake) + Book.razor (aggiungere IsFake a MerchantPublicDto + server controller /api/public/merchants + meta condizionale). Build+deploy CAT sequenziale, verifica headless su 3 URL (2 fake devono avere noindex, 1 reale no).
 - Subagent id a234fcf30bc83ff31 in background.
+
+---
+## [2026-07-23] Ultimo task: noindex negozi demo Vetrina
+- FATTO su CAT: negozi isfake=true -> meta robots noindex,nofollow su pagina negozio + /book.
+- Fonte unica: Puntify.Vetrina/App.razor (helper ShopIsFakeForPublicRoute -> SupabaseStatsService.GetShopBySlug -> IsFake). App.razor perche Book.razor e prerender:false e il suo HeadContent non raggiunge l'HeadOutlet statico.
+- Sitemap non toccata. Nessuna modifica netta a DTO/controller/NegozioDetail (approccio revertato).
+- Verificato con Host www.puntify.it (staging=false): fake=noindex, non-fake=index.
+- Gotcha: hot-reload watch sporco -> restart pulito puntify-server per togliere MissingMethodException.
