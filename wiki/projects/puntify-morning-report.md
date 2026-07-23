@@ -20,4 +20,11 @@ Richiesta Stefano 2026-07-23: report giornaliero alle 9:00 IT (=07:00 UTC) via @
 ## Architettura decisa
 Sostituire il cron bash con un AGENTE CLAUDE schedulato (cron locale `claude -p ...`) alle 07:00 UTC: raccoglie servizi+KPI+Jira(PNT)+GSC/GA4, legge vault per sez.4-5, compone e invia via @puntifynemibot. Tutto locale (vault/keys/DB/Jira su questo box) -> cron locale, non routine cloud.
 
-## Stato: in attesa da Stefano: accesso dati PROD (sez.1) + conferma 9:00 IT + fix GA4. Poi implemento (delega a subagent).
+## Stato: IMPLEMENTATO e TESTATO (2026-07-23)
+- Script: `/home/claudebot/scripts/daily-report/puntify-daily-report.sh` (orchestratore bash).
+- Helper: `jira.py` (POST /rest/api/3/search/jql, basic auth email:apitoken, JQL project=PNT statusCategory!=Done), `analytics.py` (GSC trend 7gg/7gg/28gg + GA4 con degrade su 403). venv persistente `daily-report/venv` (google-auth+requests).
+- Flusso: raccoglie blob deterministico (servizi/infra/errori24h + Jira + GSC/GA4) + contesto vault (working-context, log.md, 2 project page recenti) -> `claude -p` compone 5 sezioni IT plain per Telegram -> invio via Bot API sendMessage (token BotToken da appsettings, mai loggato). Fallback: se `claude -p` fallisce/timeout 120s invia blob grezzo. Non esce mai senza inviare (salvo token mancante).
+- Sez.1 KPI utenti prod = placeholder "in attesa accesso dati produzione" (DB prod non su questo box). Fornisce comunque stato servizi + infra.
+- GA4 property 57764779: ancora 403 -> degrada "GA4: accesso non ancora attivo". Da sistemare (SA come Visualizzatore su property).
+- Cron: `0 7 * * *` (09:00 IT). Vecchio `4 6 ... puntify-morning-report.sh` DISABILITATO (commentato nel crontab).
+- Test reale: eseguito con prefisso `[TEST report mattutino]` -> INVIO OK a chat 505161324. Report ~1.3k char, 5 sezioni sensate.
