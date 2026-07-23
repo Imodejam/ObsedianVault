@@ -49,3 +49,5 @@ Sessione 2026-07-23 (Telegram, canale plugin:telegram).
 - MANCA: deploy PROD (www.puntify.it, manuale) perche' Google recrawli e deindicizzi. Poi opz. rimozione GSC.
 
 - Update 08:07: flag isfake inaffidabile. Lido del Sole marcato isfake=true (CAT). Restano 3 dubbi (Lunapark, Madrigalas/Madrid, Puntify demo) -> chiesto a Stefano quali fake. Ricordare: replicare su DB prod al deploy.
+
+- Update 08:10: GA4 property id = 57764779, Data API abilitata da Stefano. Manca: aggiungere service account search-console-reader-claude@puntify.iam come Visualizzatore sulla property (403 permission). Chiesto a Stefano.
