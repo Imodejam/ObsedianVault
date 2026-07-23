@@ -73,3 +73,12 @@ Sessione 2026-07-23 (Telegram, canale plugin:telegram).
 - Server .NET: /home/progetti/puntify/Puntify.Server/ (net8.0), dati via ISupabaseClient (PostgREST, GetAsync/CountAsync). Servizi aggregazione gia esistenti: WeeklyRecapService (transactions/bookings/menu_public_orders), PvAnalyticsService (pv_events).
 - V1 KPI da Postgres: shops, bookings, orders, points earned/redeemed, revenue, customers, reviews (avg rating), traffic (pv_events + unique sessions). GA4 rimandato (pv_events copre gia il traffico pagine pubbliche lato app).
 - Subagent abcb29af in corso: crea KpiService+KpiController, build, restart SOLO puntify-server, test curl (200 con key, 401 senza, days=7).
+
+## Update 10:20 — KPI API v1 FATTA su CAT, attendo ok prod
+- Endpoint: GET /api/kpi?days=30 (clamp 1-365), read-only, protetto da X-API-Key esistente (Security:ApiKey, ApiKeyAuthMiddleware). Nessuna nuova auth.
+- File: Puntify.Server/Services/Analytics/KpiService.cs + Controllers/KpiController.cs; Program.cs registra KpiService Scoped.
+- KPI: shops(total/new, esclude isfake), bookings, orders(menu_public_orders), points earned/redeemed, revenue(cent, transactions Earn), customers(customer_profiles), reviews(total/period/avg rating_shop), traffic(pv_events + unique session_hash).
+- Colonne reali: transactions.insertdate/shopid/amount/points/reason(TransactionReason Earn=1/Redeem=2); shops.insertdate/isfake; resto created_at.
+- Test CAT: 200 con key, 401 senza, days=7 scala coerente (avg_rating null se 0 review nel periodo).
+- API key CAT: Security:ApiKey in appsettings.Development.json.
+- PROSSIMO: attendo ok Stefano per deploy PROD (deploy manuale, prod separato). GA4 site-wide = follow-up eventuale.
