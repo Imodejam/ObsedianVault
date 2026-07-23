@@ -2122,3 +2122,5 @@ Reminder "tra 2 ore" partiva all'orario stesso dell'appuntamento (+2h = offset C
 ## [2026-07-23] task | GA4 in /api/kpi: aggiunta sezione "ga4" (Ga4Service via Google.Apis.Auth+HttpClient, property 524577455) all'endpoint KPI Puntify.Server CAT; available:true con dati reali (30gg 316 sessioni), resiliente (try/catch → available:false su errore)
 
 ## [2026-07-23] task | GA4 integrato in /api/kpi su CAT (Ga4Service REST via Google.Apis.Auth): totals/channels/landing/pages/devices/countries; live 200 ga4.available=true 316 sess; attendo ok deploy prod + decisione conversion tracking
+
+## [2026-07-23] task | Puntify: commit fd0f96c pushato su master (146 file, KPI/GA4 API + booking/menu/POS/receipts/traduzioni/9 migrazioni WIP). appsettings.Development gitignored (nessun segreto). Migrazioni ancora da APPLICARE al DB.
