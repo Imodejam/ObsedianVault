@@ -2169,3 +2169,5 @@ Reminder "tra 2 ore" partiva all'orario stesso dell'appuntamento (+2h = offset C
 
 ## [2026-07-23] task | Puntify BE per-course (portata) firing dine-in
 Migrazione course_status jsonb su menu_public_orders (LOCAL puntify_cat, schema puntify). Modello MenuPublicOrder.CourseStatus Dictionary<string,string> + helper MenuOrderCourses (Held/FoodCourses/SummarizeKitchen/IsCourseFired/IsCourseLocked). Create-init: portata1=received, food>=2=held, drink non gated. Endpoint POST /{orderId}/fire-course. Kitchen advance course-aware. Lock edit portate fired (course_locked, multiset per portata). Client FireCourseAsync. Build OK (3 progetti). Live test CAT OK: create {1:received,2:held}, fire-course, kitchen advance, lock. Solo COLLAUDO, no prod, no deploy.
+
+## [2026-07-23] task | Puntify POS Risorse: toggle Mappa/Griglia + nuova bacheca tavoli operativa (.rz-*), stati PRENOTATO/OCCUPATO/LIBERO, day-strip + Pranzo/Cena; reserved via GetAgendaAsync; build OK 0 errori
