@@ -28,3 +28,8 @@ Sessione 2026-07-23 (Telegram, canale plugin:telegram).
 - Tooling: venv scratchpad/gvenv (google-auth+requests), key ~/.secrets/gsc-key.json scope webmasters.readonly + analytics.readonly (ma API GA disabilitate lato progetto).
 
 - Nota: Stefano dice di NON toccare concilium.puntify.it (403 Vite noto, lasciare stare).
+
+## Update 07:35 — noindex negozi demo (isfake)
+- Scoperto: sitemap GIA esclude isfake (SitemapService.cs:45 !s.IsFake). Verificato prod+CAT: demo NON in sitemap. Richiesta Stefano "togli da sitemap" gia soddisfatta.
+- Vero gap: pagina negozio fake e' "index" (nessun meta robots). Delegato a subagent: noindex,nofollow su NegozioDetail (ShopData.IsFake) + Book.razor (aggiungere IsFake a MerchantPublicDto + server controller /api/public/merchants + meta condizionale). Build+deploy CAT sequenziale, verifica headless su 3 URL (2 fake devono avere noindex, 1 reale no).
+- Subagent id a234fcf30bc83ff31 in background.
