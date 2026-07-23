@@ -57,3 +57,5 @@ Sessione 2026-07-23 (Telegram, canale plugin:telegram).
 - Report mattutino: 9:00 IT confermato. Build delegato a subagent (a2558171a95da9c26, background). Architettura: script bash raccoglie dati (servizi/infra + Jira PNT via /search/jql + GSC trend + GA4 se accessibile) + vault, poi claude -p compone 5 sez, invio via @puntifynemibot (token appsettings BotToken). Fallback: se claude fallisce invia blob grezzo. Cron 0 7 * * *, disabilita vecchio 4 6.
 - MCP Telegram DISCONNESSO -> uso fallback Bot API curl con token interattivo ~/.claude/channels/telegram/.env (bot @claude4imodejam_bot) per rispondere a Stefano in chat.
 - ANCORA IN ATTESA da Stefano: (1) accesso dati utenti PROD per sez.1 report; (2) fix permesso GA4 property 57764779; (3) se vuole dettaglio dashboard Clawroom ora; (4) via libera deploy prod Vetrina; (5) rimozione cat in GSC.
+
+- Update 08:32: report v2 pronto/schedulato/testato (DRY_RUN, header). Vecchio cron disabilitato. Pending Stefano: accesso dati prod + GA4 permesso.
