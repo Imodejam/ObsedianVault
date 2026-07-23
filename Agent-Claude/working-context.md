@@ -97,3 +97,8 @@ Sessione 2026-07-23 (Telegram, canale plugin:telegram).
 - Live test CAT: /api/kpi?days=30 -> 200, ga4.available=true, 316 sessioni. Endpoint completo = Postgres + GA4.
 - APERTI: (1) deploy PROD (mettere key SA in /opt/ops/.env, build/deploy manuale) - attendo ok; (2) conversion tracking GA4 (key events prenotazione/iscrizione + evento app) - proposto a Stefano, attendo decisione.
 - Analisi GA4 28gg consegnata + wiki/projects/puntify-ga4-analisi-20260723.md.
+
+## Update 12:10 — Stefano sta rilasciando in PROD
+- AVVISATO 2 rischi: (1) codice WIP (receipts/POS/menu orders/fiscal) dipende dalle 9 migrazioni NON ancora applicate al DB prod -> crash runtime se mancano colonne/tabelle (menu_order_events, bill_id, station_status, pos_settings, receipt_templates, fiscal_devices, catalog_type); (2) build App/Vetrina WIP non verificato in questa sessione.
+- Mio KPI/GA4 safe: read-only, degrada se GA4 non configurato (available:false).
+- Offerto di preparare/ordinare le migrazioni prod (senza applicare senza ok).
