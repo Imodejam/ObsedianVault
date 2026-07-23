@@ -2142,3 +2142,5 @@ Reminder "tra 2 ore" partiva all'orario stesso dell'appuntamento (+2h = offset C
 ## [2026-07-23] task | Fix bug booking su CAT: QuickTableBooking.razor Submit() no_table_available -> _step=0 + _selectedTime="" + PersistAsync (solo errore, no card conferma). Takeaway ok (non step-based). Build+restart vetrina OK. Attendo ok commit/push + deploy prod.
 
 ## [2026-07-23] task | Telegram ricezione irrobustita: watchdog esterno (cron, getWebhookInfo, restart claude-rc su stallo>180s + avviso). Causa: poller plugin piantato dentro claude-rc (Restart=always solo su crash). Recuperati 9 msg persi -> backlog in working-context.
+
+## [2026-07-23] task | Backlog Stefano: item1 report formatting+termini marketing tra parentesi FATTO (daily-report prompt). item3 loader AI "Genera con AI" (modale foto piatto) fix in corso su CAT (loader visibile + frasi rotazione). Item 5-8 in coda.
