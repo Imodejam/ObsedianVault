@@ -82,3 +82,11 @@ Sessione 2026-07-23 (Telegram, canale plugin:telegram).
 - Test CAT: 200 con key, 401 senza, days=7 scala coerente (avg_rating null se 0 review nel periodo).
 - API key CAT: Security:ApiKey in appsettings.Development.json.
 - PROSSIMO: attendo ok Stefano per deploy PROD (deploy manuale, prod separato). GA4 site-wide = follow-up eventuale.
+
+## Update 10:30 — GA4 studiato, API ora funziona
+- GA4 Data API OK col SA search-console-reader-claude (Viewer su property 524577455). Test reale 7gg: 122 sessioni/17 utenti/1188 pageview. (Prima era disabilitata a livello progetto, ora attiva.)
+- Key SA: /home/claudebot/.secrets/gsc-key.json (project puntify). puntify-server gira come claudebot su CAT -> legge la key senza attrito.
+- Piano integrazione: sezione "ga4" in /api/kpi via NuGet Google.Analytics.Data, config PropertyId+path key. Metriche proposte: sessions/activeUsers/pageviews + sorgenti traffico + top5 pagine.
+- PROD: macchina separata, la key SA NON c'e -> mettere key in /opt/ops/.env (base64) + config. Step da fare con Stefano al deploy.
+- Proposto set metriche a Stefano, attendo conferma per implementare su CAT.
+- Distinzione chiarita a Stefano: pv_events=engagement per-negozio (nostro cookieless) vs GA4=traffico sito+acquisizione. Complementari.
