@@ -2094,3 +2094,4 @@ Reminder "tra 2 ore" partiva all'orario stesso dell'appuntamento (+2h = offset C
 
 ## [2026-07-23] task | Telegram Stefano: recuperato primo blog (no-show saloni) inviato leggibile; consiglio budget Google Ads 20E/gg Search verticale; in attesa chiarimenti "articolo a Dani" e accesso GA/GSC
 ## [2026-07-23] task | GSC accesso confermato (service account search-console-reader-claude, property sc-domain:puntify.it). Report 28gg: 52 click/1248 imp/CTR4.2%/pos13.8. Trovato problema: cat.puntify.it (collaudo) indicizzato, 10% click su login 401. Blog tecnicamente ok (sitemap+index) ma giovane. GA4 non ancora accessibile (serve service account come Viewer + Property ID numerico)
+## [2026-07-23] task | Stefano approva articolo blog no-show. Confermato: cover immagini generate per tutti i 10 articoli (files.puntify.it/shopimages-cat/blog/{slug}.png, og:image + hero). Inviata cover no-show a Stefano
