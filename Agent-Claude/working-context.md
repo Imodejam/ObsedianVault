@@ -26,3 +26,5 @@ Sessione 2026-07-23 (Telegram, canale plugin:telegram).
 - Task3 audit: FATTO. Report scratchpad + wiki/projects/puntify-seo-audit-20260723.md. Inviato Telegram.
 - Aperti in attesa Stefano: (a) conferma noindex negozi demo, (b) rimozione cat in GSC, (c) abilitare GA4 Data API su progetto puntify + property id numerico, (d) fix concilium.puntify.it 403 (Vite allowedHosts) SI/NO.
 - Tooling: venv scratchpad/gvenv (google-auth+requests), key ~/.secrets/gsc-key.json scope webmasters.readonly + analytics.readonly (ma API GA disabilitate lato progetto).
+
+- Nota: Stefano dice di NON toccare concilium.puntify.it (403 Vite noto, lasciare stare).
