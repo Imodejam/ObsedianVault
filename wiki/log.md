@@ -2208,3 +2208,4 @@ Il COPERTO seguiva DefaultVatRate (22%); ora segue laliquota di somministrazione
 ## [2026-07-23] task | Puntify CAT: Pagamento mobile riordinato (display:contents+order su .cassa-pay-body <=720px): Cassa/Carta -> pannello prezzo/importo/resto -> calcolatrice. Desktop invariato. Build ok.
 ## [2026-07-23] task | Puntify CAT: R5 - "Incassa" nascosto se ordine già pagato (CassaFocusedPaid gate su bottone + CassaCanPay). Pagamento mobile riordinato. Build ok.
 ## [2026-07-23] task | Puntify CAT: popup coperti all'ingresso ora BLOCCANTE in gate mode (_guestsForConfirm): backdrop/×/ESC non chiudono; footer "Indietro" (esce a Ordini) o Conferma (>=1). Build ok.
+## [2026-07-24] task | Puntify CAT: dopo CassaSendAsync (invio in cucina) torna alla schermata di provenienza (history.back se _contoOpenedInApp, altrimenti Ordini per ingresso diretto post-login). Build ok.
