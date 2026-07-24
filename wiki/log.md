@@ -2210,3 +2210,5 @@ Il COPERTO seguiva DefaultVatRate (22%); ora segue laliquota di somministrazione
 ## [2026-07-23] task | Puntify CAT: popup coperti all'ingresso ora BLOCCANTE in gate mode (_guestsForConfirm): backdrop/×/ESC non chiudono; footer "Indietro" (esce a Ordini) o Conferma (>=1). Build ok.
 ## [2026-07-24] task | Puntify CAT: dopo CassaSendAsync (invio in cucina) torna alla schermata di provenienza (history.back se _contoOpenedInApp, altrimenti Ordini per ingresso diretto post-login). Build ok.
 ## [2026-07-24] task | Puntify CAT: Cassa empty-state - tolto "+ Nuovo ordine" al centro (resta in basso a dx), icona ordine stile Stripe (sacchetto in cerchio .pos-empty-ic); search .ord-search--rz - lente centrata verticalmente (top:50%/translateY), clear centrato, fix sfondo grigio focus che debordava (specificità .ord-search.ord-search--rz). Build ok. Occupied-table card (sedie attive/vuote per coperti + n° prodotti / prezzo se consegnato) delegata.
+
+## [2026-07-24] task | Puntify.App Risorse Griglia: card tavolo OCCUPATO ridisegnata (sedie attive/vuote = capienza/coperti, label n. prodotti o totale maturato se delivered)
