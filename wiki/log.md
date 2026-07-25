@@ -2223,3 +2223,4 @@ Il COPERTO seguiva DefaultVatRate (22%); ora segue laliquota di somministrazione
 
 ## [2026-07-24] task | Social Puntify: nuovo taglio approvato (benefit PMI + ironia KiRweb). Post 2026-07-25 "Ultimi esemplari di coda tradizionale" (museo/specie in estinzione), immagine gpt-image-2 generata e inviata a Stefano per OK. Gate approvazione OK (proposto non pubblicato).
 ## [2026-07-24] task | Social: post "Ultimi esemplari di coda tradizionale" APPROVATO da Stefano e schedulato via Buffer per 2026-07-25 10:00 IT su IG+LinkedIn+FB (ids in meta.json).
+## [2026-07-25] task | Social: 2° post "Wendy... questa comanda l'ha scritta un dottore?" (parodia porta sfondata, foto Stefano outpaint a 1:1) APPROVATO e schedulato via Buffer per 2026-07-26 11:00 IT su IG+LinkedIn+FB.
