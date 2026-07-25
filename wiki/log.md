@@ -2231,3 +2231,4 @@ Il COPERTO seguiva DefaultVatRate (22%); ora segue laliquota di somministrazione
 ## [2026-07-25] task | Social: 5° post "pillola blu/rossa" (omaggio Matrix, studi medici/Nemi, scena ricomposta 1:1 stile serie) schedulato Buffer 2026-07-29 10:00 IT IG+LI+FB, hashtag per-canale. Coda: 25-29/07 (5 post).
 ## [2026-07-25] task | Social: 6° post Nemi "Ciao. Sono Nemi. Risolvo telefonate" (omaggio Pulp Fiction, crop 1:1, scritte in basso) schedulato Buffer 2026-07-30 10:00 IT IG+LI+FB. Coda ora 6 post (25-30/07).
 ## [2026-07-25] task | Social: 7° post fedeltà "clienti di famiglia" (omaggio Il Padrino, crop 1:1) schedulato Buffer 2026-07-31 10:00 IT IG+LI+FB. Settimana completa 1/giorno (26-31/07).
+## [2026-07-25] task | Puntify: richiesta collegamento Meta Graph API per insight pagine FB/IG + campagne; in attesa token System User + risposte da Stefano (ads? cadenza recap?).
