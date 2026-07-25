@@ -2226,3 +2226,4 @@ Il COPERTO seguiva DefaultVatRate (22%); ora segue laliquota di somministrazione
 ## [2026-07-25] task | Social: 2° post "Wendy... questa comanda l'ha scritta un dottore?" (parodia porta sfondata, foto Stefano outpaint a 1:1) APPROVATO e schedulato via Buffer per 2026-07-26 11:00 IT su IG+LinkedIn+FB.
 ## [2026-07-25] task | Social: 3° post "Le cose belle arrivano a chi aspetta" (panchina/Forrest Gump, foto Stefano outpaint 1:1) schedulato via Buffer per 2026-07-27 10:00 IT su IG+LinkedIn+FB, hashtag su misura per canale.
 ## [2026-07-25] task | Social: uniformato stile scritte (MAIUSCOLO + riga2 rossa) su chef e panchina; ri-schedulati su Buffer (delete+recreate immagini v2), orari invariati.
+## [2026-07-25] task | Social: 4° post "Edward aveva le forbici" (salone/Nemi, foto+testo Stefano, crop 1:1 + logo) schedulato Buffer 2026-07-28 10:00 IT IG+LI+FB, hashtag per-canale.
