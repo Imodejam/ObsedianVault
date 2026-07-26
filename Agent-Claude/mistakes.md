@@ -81,3 +81,12 @@ Le disconnessioni ricorrenti del canale Telegram erano causate da DUE processi c
 - La plugin telegram MCP della sessione si e' disconnessa a meta' sessione: tool reply/react non piu' disponibili.
 - Conseguenza: NON ho ricevuto notifica di un'immagine inviata da Stefano alle 12:53 (screenshot bug prenotazione) -> l'ho scoperta solo dopo, controllando ~/.claude/channels/telegram/inbox/.
 - Correzione: quando la plugin cade, (a) rispondere via fallback Bot API curl (token ~/.claude/channels/telegram/.env, chat 505161324); (b) controllare periodicamente l'inbox per messaggi non notificati.
+
+## [2026-07-26] Escape unicode in SQL: servono le parentesi
+Ho sostituito un carattere accentato in una regex con `E'\uXXXX'` concatenato, ma senza parentesi:
+`AND name_lower ~* 'a' || E'è' || 'b'` -> in Postgres `~*` e `||` hanno la STESSA precedenza e
+associativita' a sinistra, quindi valuta `((name_lower ~* 'a') || ...)` = boolean||text -> errore
+"argument of AND must be type boolean, not type text". Stefano l'ha scoperto eseguendo in PROD.
+CORREZIONE: sempre `~* ('a' || E'è' || 'b')`. LEZIONE: dopo aver modificato una migration,
+ESEGUIRLA/validarla (anche solo in BEGIN...ROLLBACK) prima di considerarla pronta — non fidarsi della
+sola lettura. Inoltre: la migration interrotta a meta' lascia l'ambiente incompleto (mancavano le RPC).
