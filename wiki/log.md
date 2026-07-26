@@ -2233,3 +2233,5 @@ Il COPERTO seguiva DefaultVatRate (22%); ora segue laliquota di somministrazione
 ## [2026-07-25] task | Social: 7° post fedeltà "clienti di famiglia" (omaggio Il Padrino, crop 1:1) schedulato Buffer 2026-07-31 10:00 IT IG+LI+FB. Settimana completa 1/giorno (26-31/07).
 ## [2026-07-25] task | Puntify: richiesta collegamento Meta Graph API per insight pagine FB/IG + campagne; in attesa token System User + risposte da Stefano (ads? cadenza recap?).
 ## [2026-07-26] task | Puntify SEO: pagine negozio /negozi/* prod NON indicizzate da Google (dominio indicizza solo home/settori). Pagina tecnicamente OK (200, index/follow, canonical, meta, in sitemap, linkata da /it/negozi). Causa: dominio giovane + pagine profonde nuove ("Rilevata non indicizzata"). Fix proposti: GSC request-indexing, link home->negozi (home ha 0 link a /negozi), ridurre negozi demo, tempo.
+
+## [2026-07-26] task | Vetrina footer: sezione "Negozi su Puntify" (SEO internal-linking)
