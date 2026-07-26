@@ -35,3 +35,12 @@ codice corretto. Piano: workflow multi-agent (1 area per agent: menu / ordini+ca
 dimensioni bug-logici, sicurezza (authz, IDOR multi-tenant, endpoint pubblici, rate-limit, injection/XSS),
 performance (N+1, indici, render), copertura test; poi verifica avversariale dei finding (kill dei falsi
 positivi) e sintesi. Riportare a Stefano: bloccanti / warning / ottimizzazioni / cosa gia' sistemato.
+
+## 2026-07-26 (notte) — FATTO: fix bug A/B/C di review (Puntify CAT)
+- A (totale IVA-esclusa), B (course_status nel PATCH items + fire-course tollerante), C (portate >=2 solo dine_in
+  + pulsante Portata gated) FIXATI e verificati end-to-end su puntify_cat. Build 0 errori, servizi riavviati
+  uno alla volta, dati di test rimossi, DB ripristinato. NESSUN commit (committa Stefano).
+- Restano dei 5 bug di review: (3) migration catalog_photo_tags (gia' gestita a parte) e (5) rate-limit/cap slot
+  su PublicTableBookingController -> ANCORA DA FARE.
+- Prossimo passo previsto: audit multi-agent menu/ordini/prenotazioni (richiesta aperta di Stefano), ora che
+  il codice dei 3 bug e' corretto.
