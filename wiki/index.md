@@ -58,3 +58,4 @@ _(nessun concetto ancora)_
 - [[projects/puntify-ga4-analisi-20260723|Analisi GA4 Puntify 23/07]] — 28gg: SEO 61% motore, menu negozi magneti traffico, Roma-centrico, GA4 senza conversioni -> priorita conversion tracking
 - [[projects/monitoring-dashboard|Monitoring Dashboard interno]] — cruscotto multi-progetto attivita agent; valutato Clawroom come base (SI)
 - [[projects/puntify-morning-report|Report mattutino Puntify]] — daily 9:00 IT @PuntifyNemiBot, 5 sezioni; agente Claude schedulato; blocco dati prod
+- [[projects/puntify-app-store-review]] — App Store review iOS: 4 motivi rejection, remediation (Apple login, no promo/registrazione in-app), prerequisiti ri-invio
