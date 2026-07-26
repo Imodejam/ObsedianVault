@@ -2235,3 +2235,5 @@ Il COPERTO seguiva DefaultVatRate (22%); ora segue laliquota di somministrazione
 ## [2026-07-26] task | Puntify SEO: pagine negozio /negozi/* prod NON indicizzate da Google (dominio indicizza solo home/settori). Pagina tecnicamente OK (200, index/follow, canonical, meta, in sitemap, linkata da /it/negozi). Causa: dominio giovane + pagine profonde nuove ("Rilevata non indicizzata"). Fix proposti: GSC request-indexing, link home->negozi (home ha 0 link a /negozi), ridurre negozi demo, tempo.
 
 ## [2026-07-26] task | Vetrina footer: sezione "Negozi su Puntify" (SEO internal-linking)
+
+## [2026-07-26] task | Puntify.App iOS: pulsante "Accedi con Apple" (solo iOS via puntifyPlatform.isIOS) + GetAppleSignInUrl in SupabaseService; blocco acquisti digitali (abbonamento/crediti/minuti Nemi Voce) in app nativa iOS con modale "acquista da browser" (billing update card, MarketingCredits, AssistantAi OpenBuy/OnPay); i18n 10 lingue; build 0 errori. GoTrue CAT: provider Apple NON abilitato (solo Google) → serve config GOTRUE_EXTERNAL_APPLE_* + credenziali Apple Developer.
