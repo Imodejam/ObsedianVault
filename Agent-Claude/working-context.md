@@ -26,3 +26,12 @@
 - _isNativeApp letto in OnAfterRenderAsync da puntifyNativeAuth.isNative; nuova resx login_tab_signup_web x10 lingue
 - build 0 errori, restart puntify-app OK; verificato live via CDP (isNative true → referral off, openExternal fired, no signup in-app)
 - DA CONFERMARE sull'app iOS vera: che il nativo intercetti l'action "openExternal" (o window.open _blank) e apra Safari
+
+## 2026-07-26 (notte) — RICHIESTA APERTA: audit completo menu/ordini/prenotazioni
+Stefano: "rifai un giro complessivo delle funzionalita del menu, ordini e prenotazioni e verifica che il
+codice sia ottimizzato, testato e senza bug, compresi test di sicurezza".
+Da fare DOPO i fix in corso (IVA-esclusa vetrina, course_status, portate takeaway) cosi l'audit vede il
+codice corretto. Piano: workflow multi-agent (1 area per agent: menu / ordini+cassa / prenotazioni) con
+dimensioni bug-logici, sicurezza (authz, IDOR multi-tenant, endpoint pubblici, rate-limit, injection/XSS),
+performance (N+1, indici, render), copertura test; poi verifica avversariale dei finding (kill dei falsi
+positivi) e sintesi. Riportare a Stefano: bloccanti / warning / ottimizzazioni / cosa gia' sistemato.
