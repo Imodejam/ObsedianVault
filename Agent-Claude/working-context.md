@@ -18,3 +18,11 @@
 
 ### Riferimenti memoria
 - [[project_puntify_social_skin]], [[reference_puntify_shop_seo_indexing]], [[project_puntify_meta_insights]], [[reference_puntify_cat_vs_prod]]
+
+## 2026-07-26 — Puntify.App Login App Review fix (CAT)
+- Task 3: campo referral/promo nascosto quando _isNativeApp (gate `_signUp && !_isNativeApp`)
+- Task 4: in app iOS nativa il tab "Registrati" diventa "Registrati sul sito" → puntifyPlatform.openExternal(origin+"/register") in Safari; pagina resta in Accedi; signin in-app invariato
+- JS: aggiunti puntifyPlatform.origin() e openExternal() (native handler action "openExternal" se PuntifyNative.openExternal===true, altrimenti window.open _blank, fallback location.href)
+- _isNativeApp letto in OnAfterRenderAsync da puntifyNativeAuth.isNative; nuova resx login_tab_signup_web x10 lingue
+- build 0 errori, restart puntify-app OK; verificato live via CDP (isNative true → referral off, openExternal fired, no signup in-app)
+- DA CONFERMARE sull'app iOS vera: che il nativo intercetti l'action "openExternal" (o window.open _blank) e apra Safari
