@@ -1,18 +1,20 @@
 # Working context
 
-## 2026-07-24 — Puntify: prezzi IVA-esclusa per catalogo (COMPLETATO)
-Task: toggle per-catalogo "I prezzi includono l'IVA" (default ON). OFF = prezzi netti, il totale cliente aggiunge l'IVA.
+## 2026-07-26 — Puntify: molti thread aperti (sessione lunga con Stefano via Telegram)
 
-### Fatto
-- Migration `docs/DB Migrations/2026-07-24_menu_prices_vat_inclusive.sql` (shop_menus.prices_vat_inclusive bool NOT NULL default true) applicata a puntify_cat LOCALE (docker ops-postgres). PROD (public) NON eseguita.
-- Model: ShopMenu.PricesVatInclusive; MenuPublicOrderItem trailing `bool VatIncl = true` + `GrossAmount(defRate)`.
-- MenuEditor Dati: toggle .cfg-toggle + FieldInfo, persiste via SaveMenu.
-- Server: ResolveDishVatInclusiveAsync (dish->section->menu), storicizza VatIncl su create pubblico/POS/update-items/merge; totale = Σ GrossAmount + coperto; confirm-covers idem.
-- Scorpori: BillReceiptMapper, Dashboard CassaVatBreakdown/DetailVatBreakdown/CassaItemsTotal/CassaLine.Gross + fix detailCover/coverPart.
-- Localizzazione: 3 chiavi (label/desc/tip) in tutte 10 lingue.
-- Build shared/server/app OK; 84 test ricevuta verdi.
-- Esempio esclusivo: net 10,00 @10% -> gross 11,00, IVA 1,00, imponibile 10,00.
+### FATTO in questa sessione
+- SOCIAL: 7 post schedulati su Buffer (25-31/07, 1/giorno, IG+LI+FB, hashtag per-canale), stile serie codificato in `puntify-social/planning/style-guide.md`; director_review.sh aggiornato. Parodie pop (museo/chef/panchina/salone/Matrix/Pulp Fiction/Padrino), scritte MAIUSCOLO+punchline rossa, 1:1 no bande, outpaint/crop.
+- SEO: diagnosticato che le pagine /negozi prod NON sono indicizzate (dominio indicizza solo home/settori). Footer "Negozi su Puntify" (internal-linking, dinamico, esclude isfake) fatto su COLLAUDO — da deployare in prod.
+- iOS APP (collaudo): pulsante "Accedi con Apple" (solo iOS) + blocco acquisti digitali (abbonamento/crediti/Nemi Voce) in app nativa iOS con modale stile ChatGPT. Provider Apple GoTrue ancora da configurare.
+- META: token System User ricevuto+salvato (.secrets/meta_token). Pagina FB "Puntify" (id 1094288750415913) ok; IG non collegato; manca read_insights/ads_read.
 
-### Prossimi passi (per Stefano)
-- Deploy CAT e verifica UI del toggle + battuta ordine su catalogo IVA-esclusa.
-- Eseguire la migration su PROD (schema public) prima del rilascio in produzione.
+### IN ATTESA DI STEFANO (checklist inviata su Telegram)
+1. Login Apple: 4 dati (Team ID, Services ID, Key ID, .p8) + file verifica dominio + conferma bundle it.puntify.app + se bloccare "cancella abbonamento".
+2. Meta: rendere IG professionale+collegarlo alla pagina+assegnarlo; rigenerare token con read_insights(+ads_read); cadenza recap; se fa ads.
+3. SEO: ok deploy footer prod (+metodo); accesso GSC o clic "Richiedi indicizzazione"; ok ridurre negozi demo.
+4. Massimo autonomo (#26): frequenza + gate invii-solo-dopo-approvazione + report crescita lunedì.
+5. IVA: quando rilascio prod (migrazione schema public + deploy); coperti default A/B.
+6. Reels (opzionale): 2-3 dai post approvati.
+
+### Riferimenti memoria
+- [[project_puntify_social_skin]], [[reference_puntify_shop_seo_indexing]], [[project_puntify_meta_insights]], [[reference_puntify_cat_vs_prod]]
