@@ -2237,3 +2237,4 @@ Il COPERTO seguiva DefaultVatRate (22%); ora segue laliquota di somministrazione
 ## [2026-07-26] task | Vetrina footer: sezione "Negozi su Puntify" (SEO internal-linking)
 
 ## [2026-07-26] task | Puntify.App iOS: pulsante "Accedi con Apple" (solo iOS via puntifyPlatform.isIOS) + GetAppleSignInUrl in SupabaseService; blocco acquisti digitali (abbonamento/crediti/minuti Nemi Voce) in app nativa iOS con modale "acquista da browser" (billing update card, MarketingCredits, AssistantAi OpenBuy/OnPay); i18n 10 lingue; build 0 errori. GoTrue CAT: provider Apple NON abilitato (solo Google) → serve config GOTRUE_EXTERNAL_APPLE_* + credenziali Apple Developer.
+## [2026-07-26] task | Social: post 8 "Odissea/prenotazioni" (labirinto) → 2026-08-01 10:00 e post 9 "presenza online" (Colazione da Tiffany) → 2026-08-02 10:00, schedulati Buffer IG+LI+FB, hashtag per-canale. Coda 9 post fino al 2/8.
