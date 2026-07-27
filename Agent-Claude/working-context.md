@@ -98,3 +98,11 @@ positivi) e sintesi. Riportare a Stefano: bloccanti / warning / ottimizzazioni /
   su PublicTableBookingController -> ANCORA DA FARE.
 - Prossimo passo previsto: audit multi-agent menu/ordini/prenotazioni (richiesta aperta di Stefano), ora che
   il codice dei 3 bug e' corretto.
+
+## 2026-07-27 — FATTO: pagina "Elimina account" Vetrina (sbloccato form Google Play)
+URL definitivo per Google Play: https://www.puntify.it/it/elimina-account (slug identico in tutte le 10 lingue).
+Creata `Puntify.Vetrina/Pages/EliminaAccount.razor` + 56 chiavi resx x 10 lingue + link footer/mappa + 10 URL in
+sitemap-static.xml. Copre i requisiti Play (nome app/sviluppatore, passaggi in evidenza, dati eliminati vs
+conservati con tempi 30gg/90gg backup, accessibile senza login). Form opzionale che riusa EmailService/Resend +
+DemoSubmissionGuard di /demo. Build 0 errori, 10/10 lingue 200 con SSR tradotto, verificato anche con UA Googlebot.
+NIENTE commit / NIENTE deploy prod: per andare live serve il deploy della Vetrina (lo fa Stefano).
