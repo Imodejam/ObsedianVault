@@ -45,6 +45,24 @@ Consigliata anche la rotazione della anon key (richiede redeploy app+vetrina).
   interne con switch Collaudo/Produzione, l'altro e' il login in inglese).
 - L'app TWA it.puntify.www.twa va eliminata a mano (l'API non lo permette).
 
+
+### FIX 42501 PostgREST diretto (2026-07-27, chiuso lato codice - da committare Stefano)
+- Regressione post-migration sicurezza: 18 pagine merchant con `@inject Supabase.Client` fallivano
+  con 42501 "permission denied" (caso reale: /merchant/shop/{id}/risorse -> shop_resources).
+- CAUSA RADICE: quelle pagine chiamavano `SupabaseClient.InitializeAsync()` (45 punti) invece del
+  percorso single-flight di SupabaseService. I tab figli vengono renderizzati MENTRE la pagina padre
+  e' ancora in await su RequireAuthAsync -> init/RefreshSession concorrenti sullo stesso refresh
+  token -> sessione non pronta -> query come anon.
+- FIX (Puntify.App, nessuna modifica a DB/permessi/Punto.Shared/server):
+  1. `SupabaseService.EnsureAuthenticatedAsync()` = guard unico riutilizzabile.
+  2. Program.cs: ripristino sessione PRIMA di `host.RunAsync()` (fix trasparente, vale anche per
+     codice futuro che usa il client direttamente).
+  3. 45 `InitializeAsync()` sostituite dal guard o rimosse dove il guard c'era gia'.
+  4. `NavigateToLogin` unificato con AuthStateProvider (niente returnUrl annidati).
+- VERIFICATO headless su 20 rotte merchant: 0 chiamate negate; regressione riprodotta prima del fix.
+- MIGLIORIA FUTURA (non fatta): spostare queste letture su endpoint `/api/...` del server.
+- NOTA: `Pages/Merchant/Booking/TablesManager.razor` non e' referenziato da nessuna pagina (orfano).
+
 ### ALTRI THREAD APERTI
 - Meta insights: token salvato, pagina FB ok; manca IG collegato+assegnato e token con read_insights.
 - Massimo autonomo (#26): 2 conferme (frequenza, gate invii esterni).
