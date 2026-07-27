@@ -2,7 +2,9 @@
 
 ## 2026-07-26/27 (notte) — Puntify: sicurezza, App Store, Play Store
 
-### PRIORITA' ASSOLUTA PER STEFANO (in attesa)
+### [RISOLTO 27/07 12:24] PRIORITA' ASSOLUTA - migration applicata in prod da Stefano e VERIFICATA (401 su bookings/shop_resources/menu_public_orders, flussi legittimi 200). Resta solo il DEPLOY del codice.
+
+### (storico) PRIORITA' ASSOLUTA PER STEFANO
 **Eseguire in PROD `docs/DB Migrations/2026-07-27_public_data_hardening.sql` + deploy server.**
 Finche' non lo fa, in produzione: nome/telefono/email di TUTTE le prenotazioni leggibili con la anon
 key (pubblica per definizione), DELETE su shop_resources permesso, INSERT di ordini falsi permesso.
