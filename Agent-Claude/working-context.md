@@ -1,5 +1,17 @@
 # Working context
 
+## 2026-07-27 — FATTO: scheda Google Play in 12 lingue (BOZZA)
+Dettaglio: [[projects/puntify-play-store-listing]] · Diario: `Agent-Claude/daily/2026-07-27.md`
+
+Scheda `it.puntify.app` caricata via API v3 su 12 locale (it-IT, en-US, en-GB, es-ES, de-DE, fr-FR,
+nl-NL, pl-PL, ro, ru-RU, uk, pt-PT) con testi ASO trasversali (studi/professionisti + negozi e
+ristorazione), icona, feature graphic localizzato e 2 screenshot. validate+commit OK, **tracce non
+toccate** (internal = draft vc 1). Verificato rileggendo dall'API: 12/12 match, limiti rispettati.
+
+Aperto: `screen-02.png` e la schermata Impostazioni interna (switch Collaudo/Produzione) -> da
+rifare con agenda/cassa/fedelta; `screen-01.png` (login) e solo in inglese.
+
+
 ## 2026-07-27 — FATTO: hardening sicurezza/GDPR prenotazioni + ordini (Puntify CAT)
 Dettaglio: [[decisions/puntify-rls-hardening-20260727]] · Diario: `Agent-Claude/daily/2026-07-27.md`
 
