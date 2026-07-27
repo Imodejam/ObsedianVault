@@ -90,3 +90,10 @@ associativita' a sinistra, quindi valuta `((name_lower ~* 'a') || ...)` = boolea
 CORREZIONE: sempre `~* ('a' || E'è' || 'b')`. LEZIONE: dopo aver modificato una migration,
 ESEGUIRLA/validarla (anche solo in BEGIN...ROLLBACK) prima di considerarla pronta — non fidarsi della
 sola lettura. Inoltre: la migration interrotta a meta' lascia l'ambiente incompleto (mancavano le RPC).
+
+## [2026-07-27] Agent paralleli + `git add -A` = commit che inghiottono lavoro altrui
+Mentre un agent stava scrivendo i fix di sicurezza, i miei commit sull'area Android (fatti con
+`git add -A`) hanno incluso i suoi file a metà lavoro e li hanno pushati. Nessun danno (il codice era
+corretto e completo) ma la history e' mescolata e avrei potuto pushare codice non finito.
+REGOLA: con piu' agent attivi sullo stesso repo, committare SOLO i path del proprio ambito
+(`git add <path>`), mai `git add -A`; oppure serializzare i commit.
