@@ -97,3 +97,14 @@ Mentre un agent stava scrivendo i fix di sicurezza, i miei commit sull'area Andr
 corretto e completo) ma la history e' mescolata e avrei potuto pushare codice non finito.
 REGOLA: con piu' agent attivi sullo stesso repo, committare SOLO i path del proprio ambito
 (`git add <path>`), mai `git add -A`; oppure serializzare i commit.
+
+## [2026-07-27] Modifica a Punto.Shared senza riavviare il server = server "vivo" ma vuoto
+Ho modificato `Punto.Shared/Services/SupabaseStatsService.cs` (filtro PV demo) mentre `puntify-server`
+girava sotto `dotnet watch`. Il watch ha tentato l'hot reload, ha trovato prima un errore di
+compilazione transitorio (metodo non ancora definito) e poi `IOException: Puntify.Shared.dll is being
+used by another process` -> e' rimasto in "Waiting for a file to change" per ~4 ORE. Il servizio
+systemd risultava `active` ma l'app dentro non girava: tutte le chiamate dati fallivano (Stefano se
+n'e' accorto perche' la pagina Risorse non caricava piu').
+REGOLA: dopo OGNI modifica a Punto.Shared (o a qualsiasi progetto condiviso) riavviare esplicitamente
+`puntify-server` (uno alla volta, mai i 3 insieme) e VERIFICARE con una chiamata reale che risponda.
+Non fidarsi del watch. Sintomo diagnostico: si svuotano TUTTE le pagine che leggono dati, non una sola.
