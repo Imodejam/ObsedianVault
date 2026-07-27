@@ -1,5 +1,47 @@
 # Working context
 
+## 2026-07-27 — FATTO: hardening sicurezza/GDPR prenotazioni + ordini (Puntify CAT)
+Dettaglio: [[decisions/puntify-rls-hardening-20260727]] · Diario: `Agent-Claude/daily/2026-07-27.md`
+
+Chiuse su **CAT** tutte le falle dell'audit (RLS/GRANT anon, link di annullamento via id, IDOR su
+`/api/booking/{slug}/book`, validazioni mancanti sulla reserve tavolo, rate-limit globale non
+partizionato, EXCLUDE anti-overbooking mai applicato) + estensione sugli ordini
+(`menu_public_orders`, `menu_order_events`).
+NB: chiude anche il punto **(5) rate-limit/cap su PublicTableBooking** che era rimasto aperto sotto.
+
+Risultato chiave: **`anon` non ha più alcun grant di scrittura in tutto lo schema** (verificato
+schema-wide, 0 righe) e i dati personali delle prenotazioni non sono più leggibili con la chiave
+pubblica (prima: 37 righe con nome/telefono/email).
+
+### Consegna per la prod
+`docs/DB Migrations/2026-07-27_public_data_hardening.sql` — **un solo file**, rileva da solo lo
+schema (`puntify` su CAT, `public` in prod), idempotente, ASCII puro, con `NOTIFY pgrst`.
+Va eseguito in **una sola sessione psql** (lo STEP 0 imposta la variabile usata dagli altri step).
+
+### Da fare (Stefano)
+1. Migration in prod + deploy codice (vanno insieme).
+2. I link "annulla" nelle email **già inviate** non funzionano più (deliberato: con il token
+   NOT NULL nessun fallback sull'id sarebbe sicuro).
+3. Se lo STEP 10 dà WARNING → sovrapposizioni pregresse in prod da sanare (query diagnostica in
+   fondo al file), poi si rilancia solo quello step.
+4. **Nessun commit fatto**: committa Stefano.
+
+### Residui aperti (fuori mandato)
+- `booking_service_items` / `booking_order_items`: `anon` ha SELECT → enumerazione degli id delle
+  prenotazioni (non più critico, ma da chiudere).
+- `shop_operator_services`: policy `ALL true` per anon (innocua solo perché il GRANT è SELECT).
+- `shop_operators.email` leggibile da anon per gli operatori pubblici (oggi 0 righe con email):
+  restringere per colonna richiede cambiare la query della Vetrina, che fa `SELECT *`.
+- L'audit RLS va **ripetuto sulle altre aree**: la anon key è pubblica per definizione.
+
+### Gotcha da non ridimenticare
+- `account.id` **non** coincide con `account.userid` per 4 account su 20 → le policy scritte
+  `account_shops.accountid = auth.uid()` erano **sempre false** per quegli account.
+- Gli istanti di prenotazione sono **wall-clock del negozio con offset 0**, non veri UTC (la
+  Vetrina fa `ToUniversalTime()` su host TZ=UTC → no-op): confrontare con `NowInZone`, mai
+  convertire con `ConvertTimeFromUtc`.
+- `service_role` ha `BYPASSRLS`: i flussi server non sono impattati dalle policy.
+
 ## 2026-07-26 — Puntify: molti thread aperti (sessione lunga con Stefano via Telegram)
 
 ### FATTO in questa sessione

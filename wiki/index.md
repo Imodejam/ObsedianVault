@@ -59,3 +59,4 @@ _(nessun concetto ancora)_
 - [[projects/monitoring-dashboard|Monitoring Dashboard interno]] — cruscotto multi-progetto attivita agent; valutato Clawroom come base (SI)
 - [[projects/puntify-morning-report|Report mattutino Puntify]] — daily 9:00 IT @PuntifyNemiBot, 5 sezioni; agente Claude schedulato; blocco dati prod
 - [[projects/puntify-app-store-review]] — App Store review iOS: 4 motivi rejection, remediation (Apple login, no promo/registrazione in-app), prerequisiti ri-invio
+- [[decisions/puntify-rls-hardening-20260727]] — hardening RLS/GRANT prenotazioni+ordini: modello anon/authenticated/service_role, mappa consumatori, migration unica auto-schema per la prod, gotcha account.id!=userid e wall-clock offset0
