@@ -71,7 +71,7 @@ Consigliata anche la rotazione della anon key (richiede redeploy app+vetrina).
   SlotCapacity mai applicato, [promemoria duplicati RISOLTO CAT 28/07], PII nei log, by-id pubblico espone bozze.
 - Backup prod: esiste (restic->S3 Contabo, 03:00 UTC). Gap: config/segreti non inclusi, nessun alert,
   restore mai testato. Prompt gia' consegnato a Stefano per il Claude di prod.
-- iOS: sorgenti da aggiungere in APP/iOS.
+- iOS: sorgenti committati (APP/iOS, commit e8b10be). Fix Apple 3.1.1/5.1.2: detection gia esistente + marker UA aggiunto; gating/cookie in attesa risposte Stefano (vedi daily 28/07).
 
 ### Riferimenti memoria
 [[project_puntify_ios_appreview]] - [[reference_puntify_android_repo]] - [[reference_puntify_gsc_access]]
