@@ -68,7 +68,7 @@ Consigliata anche la rotazione della anon key (richiede redeploy app+vetrina).
 - Massimo autonomo (#26): 2 conferme (frequenza, gate invii esterni).
 - Audit: restano i punti MEDIA/BASSA (report nei daily 2026-07-26/27): coperto dedotto per differenza,
   PayTable non atomico, ora scontrino UTC, archivio scaricato per intero ogni 30s, indici mancanti,
-  SlotCapacity mai applicato, promemoria duplicati, PII nei log, by-id pubblico espone bozze.
+  SlotCapacity mai applicato, [promemoria duplicati RISOLTO CAT 28/07], PII nei log, by-id pubblico espone bozze.
 - Backup prod: esiste (restic->S3 Contabo, 03:00 UTC). Gap: config/segreti non inclusi, nessun alert,
   restore mai testato. Prompt gia' consegnato a Stefano per il Claude di prod.
 - iOS: sorgenti da aggiungere in APP/iOS.
